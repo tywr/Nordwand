@@ -9,8 +9,8 @@ class LowercaseFGlyph(Glyph):
     rl_ratio = 0.5
     width_ratio = 0.5
     cross_bar_height = 1
-    sbl = 1
-    sbr = 1
+    sbl = 0.6
+    sbr = 0.6
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

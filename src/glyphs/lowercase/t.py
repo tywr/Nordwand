@@ -12,8 +12,8 @@ class LowercaseTGlyph(Glyph):
     width_ratio = 0.5
     rl_ratio = 0.5
     up_ratio = 0.28
-    sbl = 1
-    sbr = 1
+    sbl = 0.6
+    sbr = 0.6
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

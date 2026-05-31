@@ -7,8 +7,8 @@ from draw.rect import draw_rect
 class LowercaseVGlyph(Glyph):
     name = "lowercase_v"
     unicode = "0x76"
-    width_ratio = 1.15
-    overlap = 0.225
+    width_ratio = 1.04
+    overlap = 0.26
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
