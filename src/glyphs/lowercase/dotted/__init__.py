@@ -29,7 +29,7 @@ class DottedLowercaseGlyph(Glyph, ABC):
         draw_rect(
             pen,
             xpos - dc.stroke_x / 2,
-            dc.accent - dh / 2,
+            dc.cap - dh,
             xpos + dc.stroke_x / 2,
-            dc.accent + dh / 2,
+            dc.cap,
         )

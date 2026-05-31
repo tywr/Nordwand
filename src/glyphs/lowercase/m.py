@@ -11,8 +11,8 @@ class LowercaseMGlyph(Glyph):
     mid_len = 1
     top_stroke_y = 1
     hx_ratio = 0.65
-    taper1 = 0.4
-    taper2 = 0.8
+    taper1 = 0.7
+    taper2 = 0.9
     min_taper = 0.05
     min_taper_2 = 0.05
     ending_thickness = 0.75

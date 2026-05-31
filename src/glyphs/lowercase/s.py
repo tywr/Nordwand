@@ -8,8 +8,7 @@ from draw.rect import draw_rect
 class LowercaseSGlyph(Glyph):
     name = "lowercase_s"
     unicode = "0x73"
-    offset = 0
-    width_ratio = 1
+    width_ratio = 0.92
     stroke_x_ratio = 1.01
     stroke_y_ratio = 1.03
     hx_ratio = 1
@@ -22,14 +21,16 @@ class LowercaseSGlyph(Glyph):
     right_offset = 0.04
     curve_thinning = 0.024
     curve_ratio = 2.8
-    width_ratio = 1
+    sbr = 0.65
+    sbl = 0.65
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
+            width=self.width_ratio * dc.width + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_bottom=True,
             overshoot_top=True,
-            width_ratio=self.width_ratio,
         )
         sx, sy = self.stroke_x_ratio * dc.stroke_x, dc.stroke_y * self.stroke_y_ratio
         hx, hy = b.hx * self.hx_ratio, b.hy * self.hy_ratio

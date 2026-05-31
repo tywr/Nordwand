@@ -11,7 +11,7 @@ class LowercaseCGlyph(RoundLowercaseGlyph):
     unicode = "0x63"
     opening1 = 0.33
     opening2 = 0.66
-    width_ratio = 1
+    width_ratio = 0.98
     thinning = 1
     top_offset = 0.00
 

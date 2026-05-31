@@ -17,7 +17,7 @@ class FontConfig:
 
     ascent: int = 750
     descent: int = -200
-    cap: int = 710
+    cap: int = 750
     x_height: int = 540
 
     accent: int = 715
@@ -36,7 +36,7 @@ class FontConfig:
 
     space = 400
     width: int = 400
-    side_bearing = 50
+    side_bearing = 60
 
     hx: int = 180
     hy: int = 180

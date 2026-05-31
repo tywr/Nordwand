@@ -11,8 +11,8 @@ def draw_square_corner(
     y1,
     x2,
     y2,
-    gx=200,
-    gy=200,
+    gx=130,
+    gy=130,
     orientation="bottom-right",
 ):
     """Draw a solid quarter-curve corner using superellipse handles.

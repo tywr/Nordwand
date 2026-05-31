@@ -1,3 +1,5 @@
+import ufoLib2
+from booleanOperations.booleanGlyph import BooleanGlyph
 from glyphs import Glyph
 from draw.arch import draw_arch
 from draw.rect import draw_rect
@@ -10,8 +12,11 @@ class LowercaseRGlyph(Glyph):
     hx_ratio = 1.00
     hy_ratio = 0.85
     taper = 0.5
-    width_ratio = 1
-    tail_offset = 0.03
+    width_ratio = 0.5
+    stroke_ratio = 0.85
+    hx_ratio = 1.2
+    sbl = 1
+    sbr = 0.35
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
@@ -22,17 +27,17 @@ class LowercaseRGlyph(Glyph):
         )
         hx, hy = dc.hx * self.hx_ratio, dc.hy * self.hy_ratio
         ys = b.y2 - self.loop_ratio * b.height
-        xt = b.x2 - self.tail_offset * b.width
 
+        glyph = ufoLib2.objects.Glyph()
         draw_arch(
-            pen,
+            glyph.getPen(),
             dc.stroke_x,
-            dc.stroke_y,
+            dc.stroke_x * self.stroke_ratio,
             b.x1,
             ys,
-            xt,
+            b.x2 + b.width,
             b.y2,
-            hx,
+            hx * self.hx_ratio,
             hy,
             taper=self.taper * dc.taper,
             side="left",
@@ -40,4 +45,10 @@ class LowercaseRGlyph(Glyph):
         )
 
         # Left stem
-        draw_rect(pen, b.x1, 0, b.x1 + dc.stroke_x, dc.x_height)
+        draw_rect(glyph.getPen(), b.x1, 0, b.x1 + dc.stroke_x, dc.x_height)
+
+        cut_glyph = ufoLib2.objects.Glyph()
+        draw_rect(cut_glyph.getPen(), b.x2, b.y1, b.x2 + b.width, b.y2)
+
+        res = BooleanGlyph(glyph).difference(BooleanGlyph(cut_glyph))
+        res.draw(pen)
