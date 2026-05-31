@@ -7,12 +7,15 @@ from draw.rect import draw_rect
 class LowercaseVGlyph(Glyph):
     name = "lowercase_v"
     unicode = "0x76"
-    offset = 0
     width_ratio = 1.15
     overlap = 0.225
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(offset=self.offset, width_ratio=self.width_ratio)
+        b = dc.body_bounds(
+            width=self.width_ratio * dc.width + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
+        )
         ov = self.overlap * dc.stroke_x
 
         theta, delta = draw_parallelogramm(

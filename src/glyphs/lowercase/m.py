@@ -7,10 +7,10 @@ class LowercaseMGlyph(Glyph):
     name = "lowercase_m"
     unicode = "0x6D"
     offset = 0
-    width_ratio = 1.16
-    mid_len = 0.75
+    width_ratio = 1.6
+    mid_len = 1
     top_stroke_y = 1
-    hx_ratio = 0.75
+    hx_ratio = 0.65
     taper1 = 0.4
     taper2 = 0.8
     min_taper = 0.05
@@ -20,10 +20,10 @@ class LowercaseMGlyph(Glyph):
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
+            width=self.width_ratio * dc.width + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_top=True,
-            width_ratio=self.width_ratio,
-            min_margin=dc.min_margin_lowercase,
         )
         taper1 = max(self.min_taper, self.taper1 * dc.taper)
         taper2 = max(self.min_taper_2, self.taper2 * dc.taper)

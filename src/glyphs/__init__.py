@@ -3,6 +3,8 @@ from abc import ABC, abstractmethod
 
 class Glyph(ABC):
     accent_x_offset: int = 0
+    sbl: int = 1
+    sbr: int = 1
 
     @property
     @abstractmethod

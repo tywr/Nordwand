@@ -6,7 +6,6 @@ from draw.rect import draw_rect
 class LowercaseRGlyph(Glyph):
     name = "lowercase_r"
     unicode = "0x72"
-    offset = 10
     loop_ratio = 0.85
     hx_ratio = 1.00
     hy_ratio = 0.85
@@ -16,9 +15,10 @@ class LowercaseRGlyph(Glyph):
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
+            width=self.width_ratio * dc.width + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_top=True,
-            width_ratio=self.width_ratio,
         )
         hx, hy = dc.hx * self.hx_ratio, dc.hy * self.hy_ratio
         ys = b.y2 - self.loop_ratio * b.height
