@@ -9,11 +9,9 @@ class LowercaseA2Glyph(SingleStoryLowercaseGlyph):
     font_feature = {"cv06": 1}
     default_italic = True
     unicode = "0x61"
-    offset = -10
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
             overshoot_bottom=True,
             overshoot_top=True,
             overshoot_left=True,

@@ -3,14 +3,13 @@ from booleanOperations.booleanGlyph import BooleanGlyph
 from draw.arch import draw_arch
 from draw.rect import draw_rect
 from draw.corner import draw_corner
-from draw.polygon import draw_polygon
 from glyphs.lowercase.single_story import SingleStoryLowercaseGlyph
 
 
 class LowercaseGGlyph(SingleStoryLowercaseGlyph):
     name = "lowercase_g"
     unicode = "0x67"
-    offset = -10
+    sbl = 0.65
 
     tail_offset = 0
     tail_stroke_x_ratio = 0.89
@@ -21,10 +20,11 @@ class LowercaseGGlyph(SingleStoryLowercaseGlyph):
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_bottom=True,
             overshoot_top=True,
-            overshoot_left=True,
         )
         bsx, bsy = (
             self.bowl_stroke_x_ratio * dc.stroke_x,

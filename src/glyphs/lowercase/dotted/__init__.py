@@ -9,13 +9,19 @@ class DottedLowercaseGlyph(Glyph, ABC):
 
     dot_height = 0.25
     dot_position = "xmid"
+    sbl = 1
+    sbr = 1
 
     @abstractmethod
     def draw_base(self, pen, dc): ...
 
     def draw(self, pen, dc):
         self.draw_base(pen, dc)
-        b = dc.body_bounds(offset=self.offset, width_ratio=self.width_ratio)
+        b = dc.body_bounds(
+            width=self.width_ratio * dc.width + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
+        )
 
         # Accent dot
         xpos = getattr(b, self.dot_position)

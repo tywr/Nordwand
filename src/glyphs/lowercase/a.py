@@ -11,10 +11,10 @@ class LowercaseAGlyph(Glyph):
     unicode = "0x61"
     accent_x_offset = 16
     mid_height = 0.52
-    width = 340
-    sbl = 10
-    sbr = 10
+    width_ratio = 0.9
     taper = 0.3
+    sbl = 0.65
+    sbr = 1
 
     cap_hx_ratio = 1.15
     cap_hy_ratio = 1
@@ -25,12 +25,11 @@ class LowercaseAGlyph(Glyph):
     cap_stroke_y_ratio = 1.00
     ending_thickness = 0.8
 
-    def drawn_width(self, dc):
-        return self.width + dc.stroke_x
-
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            width=self.drawn_width(dc=dc),
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_top=True,
             overshoot_bottom=True,
         )
@@ -80,7 +79,7 @@ class LowercaseAGlyph(Glyph):
             pen,
             b.xmid,
             yl - dc.stroke_alt,
-            b.x2,
+            b.x2 - 0.5 * dc.stroke_x,
             yl,
         )
 

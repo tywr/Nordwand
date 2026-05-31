@@ -171,7 +171,7 @@ def visualize_glyph(
     total_width = 0
     for i, dc in enumerate(configs):
         rec = record(dc)
-        total_width += glyph_inst.drawn_width(dc=dc)
+        total_width += glyph_inst.window_width(dc=dc)
         path = recording_to_mpl_path(rec)
         color = COLORS[i % len(COLORS)]
         patch = mpatches.PathPatch(path, facecolor=color, edgecolor="none", alpha=0.7)
@@ -272,13 +272,13 @@ def visualize_text(text, point_size=None, guides=False, dc=None, italic=False):
         if glyph is None:
             ch = text[i]
             if ch == " ":
-                cursor_x += fc.window_width
+                cursor_x += dc.space
                 boundaries.append(cursor_x)
                 i += 1
                 continue
             glyph = glyph_map.get(ch)
             if glyph is None:
-                cursor_x += fc.window_width
+                cursor_x += glyph.window_width(dc=dc)
                 boundaries.append(cursor_x)
                 i += 1
                 continue
@@ -306,7 +306,7 @@ def visualize_text(text, point_size=None, guides=False, dc=None, italic=False):
         patch = mpatches.PathPatch(path, facecolor="#222222", edgecolor="none")
         ax.add_patch(patch)
 
-        cursor_x += glyph.width
+        cursor_x += glyph.window_width(dc=dc)
         boundaries.append(cursor_x)
         i += consumed
 

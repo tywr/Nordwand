@@ -9,7 +9,6 @@ from glyphs.lowercase.round import RoundLowercaseGlyph
 class LowercaseEGlyph(RoundLowercaseGlyph):
     name = "lowercase_e"
     unicode = "0x65"
-    offset = 5
     width_ratio = 1
     mid_height = 0.52
     thinning = 1
@@ -18,12 +17,11 @@ class LowercaseEGlyph(RoundLowercaseGlyph):
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
-            overshoot_top=True,
-            overshoot_left=True,
-            overshoot_right=True,
+            width=self.width_ratio * dc.width + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_bottom=True,
-            width_ratio=self.width_ratio,
+            overshoot_top=True,
         )
         sx, sy = self.stroke_x_ratio * dc.stroke_x, self.stroke_y_ratio * dc.stroke_y
         yo = b.y1 + self.tail_height * b.height

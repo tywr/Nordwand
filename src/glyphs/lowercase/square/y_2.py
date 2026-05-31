@@ -2,7 +2,6 @@ import ufoLib2
 from booleanOperations.booleanGlyph import BooleanGlyph
 from draw.rect import draw_rect
 from draw.arch import draw_arch
-from draw.polygon import draw_polygon
 from draw.corner import draw_corner
 from glyphs.lowercase.square import SquareLowercaseGlyph
 
@@ -12,7 +11,6 @@ class LowercaseY2Glyph(SquareLowercaseGlyph):
     unicode = "0x79"
     font_feature = {"cv02": 1}
     default_italic = True
-    offset = 0
 
     tail_offset = 0
     tail_stroke_x_ratio = 0.89
@@ -23,12 +21,12 @@ class LowercaseY2Glyph(SquareLowercaseGlyph):
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
+            width=self.width_ratio * dc.width + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_bottom=True,
-            width_ratio=self.width_ratio,
         )
         yl = b.y1 + self.loop_ratio * b.height
-        arch_top = b.y2
         tsx, tsy = (
             self.tail_stroke_x_ratio * dc.stroke_x,
             self.tail_stroke_y_ratio * dc.stroke_y,

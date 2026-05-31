@@ -9,7 +9,6 @@ from glyphs.lowercase.round import RoundLowercaseGlyph
 class LowercaseCGlyph(RoundLowercaseGlyph):
     name = "lowercase_c"
     unicode = "0x63"
-    offset = 5
     opening1 = 0.33
     opening2 = 0.66
     width_ratio = 1
@@ -19,12 +18,11 @@ class LowercaseCGlyph(RoundLowercaseGlyph):
     def draw(self, pen, dc):
 
         b = dc.body_bounds(
-            offset=self.offset,
+            width=self.width_ratio * dc.width + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_bottom=True,
             overshoot_top=True,
-            overshoot_left=True,
-            overshoot_right=True,
-            width_ratio=self.width_ratio,
         )
         sx, sy = self.stroke_x_ratio * dc.stroke_x, self.stroke_y_ratio * dc.stroke_y
         hx, hy = self.hx_ratio * b.hx, self.hy_ratio * b.hy

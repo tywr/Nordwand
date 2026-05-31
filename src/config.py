@@ -14,6 +14,7 @@ class FontConfig:
     window_descent: int = -300
     window_width: int = 600
 
+
     ascent: int = 750
     descent: int = -200
     cap: int = 710
@@ -33,9 +34,9 @@ class FontConfig:
     default_stroke = 90
     italic_angle: float = 9.4
 
-    width: int = 348
-    side_bearing_left: int = 10
-    side_bearing_right: int = 10
+    space = 400
+    width: int = 400
+    side_bearing = 50
 
     hx: int = 180
     hy: int = 180
@@ -63,6 +64,7 @@ class DrawConfig(FontConfig):
     accent: int = FontConfig.accent
     accent_cap: int = FontConfig.accent_cap
     width: int = FontConfig.width
+    side_bearing: int = FontConfig.side_bearing
     hx: int = FontConfig.hx
     hy: int = FontConfig.hy
     cap_hx: int = FontConfig.cap_hx
@@ -121,10 +123,10 @@ class DrawConfig(FontConfig):
 
     def body_bounds(
         self,
-        width,
+        width=1,
+        side_bearing_right=0,
+        side_bearing_left=0,
         height="x_height",
-        overshoot_left=False,
-        overshoot_right=False,
         overshoot_top=False,
         overshoot_bottom=False,
         number=False,
@@ -140,19 +142,12 @@ class DrawConfig(FontConfig):
         if height not in ["x_height", "ascent", "cap"]:
             raise ValueError(f"Value {height} should be `x_height`, `ascent` or `cap`")
         y1 = 0
-        x1 = 0
-        x2 = width
+        x1 = side_bearing_left
+        x2 = x1 + width
         y2 = getattr(self, height)
 
         v_ov = self.v_overshoot
         h_ov = self.h_overshoot
-
-        if overshoot_left:
-            x1 -= h_ov / 2
-            x2 += h_ov / 2
-        if overshoot_right:
-            x1 -= h_ov / 2
-            x2 += h_ov / 2
 
         if overshoot_bottom:
             y1 -= v_ov
@@ -167,7 +162,7 @@ class DrawConfig(FontConfig):
             hx = self.hx
             hy = self.hy
 
-        hx = hx * (x2 - x1 - self.stroke_x) / width
+        hx = hx * (x2 - x1 - self.stroke_x) / self.width
         hy = hy * (y2 - y1 - self.stroke_y) / self.x_height
 
         return BodyBounds(

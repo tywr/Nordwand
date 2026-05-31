@@ -7,13 +7,13 @@ from glyphs.lowercase.square import SquareLowercaseGlyph
 class LowercaseNGlyph(SquareLowercaseGlyph):
     name = "lowercase_n"
     unicode = "0x6E"
-    offset = 0
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
+            width=self.width_ratio * dc.width + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_top=True,
-            width_ratio=self.width_ratio,
         )
         yl = b.y2 - self.loop_ratio * b.height
 

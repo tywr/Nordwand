@@ -1,5 +1,5 @@
 [project]
-name = "NordwandMono"
+name = "Nordwand"
 version = "0.0.0"
 
 [tool.pytest.ini_options]

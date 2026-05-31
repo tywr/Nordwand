@@ -5,9 +5,10 @@ from glyphs import Glyph
 class SingleStoryLowercaseGlyph(Glyph, ABC):
     """Define common class variables for single-story lowercase glyphs"""
 
-    hx_ratio = 1.15
     taper = 0.8
     width_ratio = 1
+    sbl = 1
+    sbr = 1
 
     ending_thickness = 0.8
 
@@ -16,3 +17,6 @@ class SingleStoryLowercaseGlyph(Glyph, ABC):
 
     hx_ratio = 1.03
     hy_ratio = 1
+
+    def window_width(self, dc):
+        return self.width_ratio * dc.width + dc.stroke_x + (self.sbr + self.sbl) * dc.side_bearing

@@ -3,8 +3,6 @@ from abc import ABC, abstractmethod
 
 class Glyph(ABC):
     accent_x_offset: int = 0
-    sbl: int = 10
-    sbr: int = 10
 
     @property
     @abstractmethod
@@ -18,8 +16,16 @@ class Glyph(ABC):
     font_feature: dict = None
     default_italic: bool = False
 
+    def window_width(self, dc):
+        return (
+            self.width_ratio * dc.width
+            + dc.stroke_x
+            + (self.sbr + self.sbl) * dc.side_bearing
+        )
+
     @abstractmethod
     def draw(self, pen, dc) -> None: ...
+
 
 
 class LigatureGlyph(Glyph):
