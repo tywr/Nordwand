@@ -41,7 +41,7 @@ class FontConfig:
     hy: int = 180
 
     cap_hx: int = 180
-    cap_hy: int = 190
+    cap_hy: int = 170
 
     taper: float = 0.5
 
@@ -57,6 +57,36 @@ class FontConfig:
     # Plain class attribute (not a dataclass field) so the YAML overlay and the
     # __init__ defaults rebuild in apply_config_overrides leave it untouched.
     kerning = {
+        "ka": -0.6,
+        "ke": -0.6,
+        "kc": -0.6,
+        "ko": -0.6,
+        "ks": -0.6,
+
+        "fa": -0.5,
+        "fe": -0.5,
+        "fc": -0.5,
+        "fo": -0.5,
+        "fs": -0.5,
+        "af": -0.5,
+        "of": -0.5,
+        "ef": -0.5,
+        "cf": -0.5,
+        "sf": -0.5,
+        "hf": -0.5,
+
+        "ta": -0.5,
+        "te": -0.5,
+        "tc": -0.5,
+        "to": -0.5,
+        "ts": -0.5,
+        "at": -0.5,
+        "ot": -0.5,
+        "et": -0.5,
+        "ct": -0.5,
+        "st": -0.5,
+        "ht": -0.5,
+
         "ra": -0.5,
         "re": -0.5,
         "rc": -0.5,
@@ -64,14 +94,42 @@ class FontConfig:
         "rs": -0.5,
 
         # v letter kerning
-        "ve": -0.7,
-        "vc": -0.7,
-        "vo": -0.7,
-        "vs": -0.7,
-        "ov": -0.7,
-        "ev": -0.7,
-        "cv": -0.7,
-        "sv": -0.7,
+        "va": -0.5,
+        "ve": -0.5,
+        "vc": -0.5,
+        "vo": -0.5,
+        "vs": -0.5,
+        "av": -0.5,
+        "ov": -0.5,
+        "ev": -0.5,
+        "cv": -0.5,
+        "sv": -0.5,
+        "hv": -0.5,
+
+        # y lette5 spacing
+        "ya": -0.5,
+        "ye": -0.5,
+        "yc": -0.5,
+        "yo": -0.5,
+        "ys": -0.5,
+        "ay": -0.5,
+        "oy": -0.5,
+        "ey": -0.5,
+        "cy": -0.5,
+        "sy": -0.5,
+        "hy": -0.5,
+
+        # w letter kerning
+        "wa": -0.5,
+        "we": -0.5,
+        "wc": -0.5,
+        "wo": -0.5,
+        "ws": -0.5,
+        "ow": -0.5,
+        "ew": -0.5,
+        "cw": -0.5,
+        "sw": -0.5,
+        "hw": -0.5,
     }
 
 

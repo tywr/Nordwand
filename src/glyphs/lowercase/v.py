@@ -10,8 +10,8 @@ class LowercaseVGlyph(Glyph):
     width_ratio = 1.04
     overlap = 0.26
     stroke_ratio = 0.88
-    sbl = 0.8
-    sbr = 0.8
+    sbl = 0.5
+    sbr = 0.5
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

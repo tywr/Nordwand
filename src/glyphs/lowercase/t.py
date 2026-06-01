@@ -11,9 +11,9 @@ class LowercaseTGlyph(Glyph):
     unicode = "0x74"
     width_ratio = 0.5
     rl_ratio = 0.5
-    up_ratio = 0.28
-    sbl = 0.6
-    sbr = 0.6
+    up_ratio = 0.32
+    sbl = 0.75
+    sbr = 0.75
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
@@ -69,11 +69,11 @@ class LowercaseTGlyph(Glyph):
             points=[
                 (b.xmid + dc.stroke_x / 2, (1 + self.up_ratio) * dc.x_height),
                 (
-                    b.xmid - left_len - dc.stroke_x / 2,
+                    b.xmid - 2 * left_len - dc.stroke_x / 2,
                     dc.x_height,
                 ),
                 (
-                    b.xmid - left_len - dc.stroke_x / 2,
+                    b.xmid - 2 * left_len - dc.stroke_x / 2,
                     (1 + self.up_ratio) * dc.x_height,
                 ),
             ],

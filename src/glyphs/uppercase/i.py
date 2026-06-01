@@ -5,17 +5,17 @@ from draw.rect import draw_rect
 class UppercaseIGlyph(UppercaseGlyph):
     name = "uppercase_i"
     unicode = "0x49"
-    offset = 0
+    width_ratio = 0
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset, height="cap", width_ratio=self.width_ratio
+            height="cap",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
+            uppercase=True,
         )
-        sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
+        sx = dc.stroke_x * self.stroke_x_ratio
 
         # Vertical stem (centered)
         draw_rect(pen, b.xmid - sx / 2, b.y1, b.xmid + sx / 2, b.y2)
-        # Top bar
-        draw_rect(pen, b.x1, b.y2 - sy, b.x2, b.y2)
-        # Bottom bar
-        draw_rect(pen, b.x1, b.y1, b.x2, b.y1 + sy)

@@ -5,17 +5,17 @@ from draw.rect import draw_rect
 class UppercaseEGlyph(UppercaseGlyph):
     name = "uppercase_e"
     unicode = "0x45"
-    offset = 8
     upper_bar_ratio = 1
     mid_bar_ratio = 0.9
     mid_ratio = 0.52
-    width_ratio=0.98
+    width_ratio = 1.04
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
             height="cap",
-            width_ratio=self.width_ratio,
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             uppercase=True,
         )
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio

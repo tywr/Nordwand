@@ -9,23 +9,22 @@ from booleanOperations.booleanGlyph import BooleanGlyph
 class UppercaseCGlyph(UppercaseGlyph):
     name = "uppercase_c"
     unicode = "0x43"
-    offset = 0
     stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.00
     stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.00
     opening1 = 0.33
     opening2 = 0.66
     thinning = 1
     top_offset = 0.00
-    width_ratio = 1.18
+    width_ratio = 1.35
 
     def draw(self, pen, dc):
-
         b = dc.body_bounds(
-            offset=self.offset,
+            height="cap",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_bottom=True,
             overshoot_top=True,
-            height="cap",
-            width_ratio=self.width_ratio,
             uppercase=True,
         )
         sx, sy = self.stroke_x_ratio * dc.stroke_x, self.stroke_y_ratio * dc.stroke_y

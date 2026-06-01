@@ -8,7 +8,6 @@ from draw.arch import draw_arch
 class UppercaseGGlyph(UppercaseGlyph):
     name = "uppercase_g"
     unicode = "0x47"
-    offset = 0
     opening = 140
     stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.00
     stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.00
@@ -16,19 +15,18 @@ class UppercaseGGlyph(UppercaseGlyph):
     opening2 = 0.66
     hy_ratio = 1
     hx_ratio = 1
-    width_ratio = 1.18
+    width_ratio = 1.4
     thinning = 1.0
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
+            height="cap",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_bottom=True,
             overshoot_top=True,
-            overshoot_left=True,
-            overshoot_right=True,
-            width_ratio=self.width_ratio,
             uppercase=True,
-            height="cap",
         )
         sx, sy = self.stroke_x_ratio * dc.stroke_x, self.stroke_y_ratio * dc.stroke_y
         hx, hy = self.hx_ratio * b.hx, self.hy_ratio * b.hy
