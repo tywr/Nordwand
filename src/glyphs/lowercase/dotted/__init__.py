@@ -24,7 +24,12 @@ class DottedLowercaseGlyph(Glyph, ABC):
         )
 
         # Accent dot
-        xpos = getattr(b, self.dot_position)
+        if self.dot_position == "x2":
+            xpos = getattr(b, self.dot_position) - dc.stroke_x / 2
+        elif self.dot_position == "x1":
+            xpos = getattr(b, self.dot_position) + dc.stroke_x / 2
+        else:
+            xpos = getattr(b, self.dot_position)
         dh = self.dot_height * b.height
         draw_rect(
             pen,

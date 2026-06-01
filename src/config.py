@@ -14,7 +14,6 @@ class FontConfig:
     window_descent: int = -300
     window_width: int = 600
 
-
     ascent: int = 750
     descent: int = -200
     cap: int = 750
@@ -36,7 +35,7 @@ class FontConfig:
 
     space = 400
     width: int = 400
-    side_bearing = 52
+    side_bearing = 66
 
     hx: int = 180
     hy: int = 180
@@ -52,6 +51,28 @@ class FontConfig:
 
     v_overshoot: int = 12
     h_overshoot: int = 11
+
+    # Kerning pairs: {"<char1><char2>": fraction_of_side_bearing}.
+    # e.g. {"vo": -0.5} shifts "o" left by 0.5 * side_bearing units after "v".
+    # Plain class attribute (not a dataclass field) so the YAML overlay and the
+    # __init__ defaults rebuild in apply_config_overrides leave it untouched.
+    kerning = {
+        "ra": -0.5,
+        "re": -0.5,
+        "rc": -0.5,
+        "ro": -0.5,
+        "rs": -0.5,
+
+        # v letter kerning
+        "ve": -0.7,
+        "vc": -0.7,
+        "vo": -0.7,
+        "vs": -0.7,
+        "ov": -0.7,
+        "ev": -0.7,
+        "cv": -0.7,
+        "sv": -0.7,
+    }
 
 
 @dataclass
@@ -173,9 +194,16 @@ class DrawConfig(FontConfig):
 def config_keys():
     """Names of all overridable configuration values."""
     keys = {f.name for f in dataclasses.fields(DrawConfig)}
-    # `default_stroke` is a plain class attribute (no annotation), not a field.
+    # `default_stroke` and `kerning` are plain class attributes (no annotation),
+    # not dataclass fields.
     keys.add("default_stroke")
+    keys.add("kerning")
     return keys
+
+
+def kern_value(frac, dc):
+    """Convert a kerning fraction into font units (fraction of side_bearing)."""
+    return round(frac * dc.side_bearing)
 
 
 def apply_config_overrides(overrides):

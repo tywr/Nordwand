@@ -14,7 +14,7 @@ from fontTools.misc.transform import Transform
 
 sys.path.insert(0, "src")
 from config import FontConfig as fc
-from config import DrawConfig
+from config import DrawConfig, kern_value
 from glyphs import LigatureGlyph
 from generate_font import discover_glyphs, select_italic_glyphs, skew_path
 
@@ -259,6 +259,7 @@ def visualize_text(text, point_size=None, guides=False, dc=None, italic=False):
 
     cursor_x = 0
     boundaries = [0]
+    prev_char = None
     i = 0
     while i < len(text):
         glyph = None
@@ -269,17 +270,23 @@ def visualize_text(text, point_size=None, guides=False, dc=None, italic=False):
                 consumed = len(seq)
                 break
 
+        cur_char = text[i]
+        if prev_char is not None:
+            cursor_x += kern_value(fc.kerning.get(prev_char + cur_char, 0), dc)
+
         if glyph is None:
-            ch = text[i]
+            ch = cur_char
             if ch == " ":
                 cursor_x += dc.space
                 boundaries.append(cursor_x)
+                prev_char = ch
                 i += 1
                 continue
             glyph = glyph_map.get(ch)
             if glyph is None:
-                cursor_x += glyph.window_width(dc=dc)
+                cursor_x += dc.space
                 boundaries.append(cursor_x)
+                prev_char = ch
                 i += 1
                 continue
 
@@ -308,6 +315,7 @@ def visualize_text(text, point_size=None, guides=False, dc=None, italic=False):
 
         cursor_x += glyph.window_width(dc=dc)
         boundaries.append(cursor_x)
+        prev_char = text[i + consumed - 1]
         i += consumed
 
     if guides:

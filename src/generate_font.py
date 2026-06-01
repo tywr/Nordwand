@@ -32,7 +32,7 @@ from fontTools.ttLib.tables.otTables import (
 from fontTools.ttLib import newTable
 
 from config import FontConfig as fc
-from config import DrawConfig
+from config import DrawConfig, kern_value
 from glyphs import Glyph, LigatureGlyph, ContextualLigatureGlyph
 
 import glyphs
@@ -455,6 +455,34 @@ def write_web_fonts(src_path, woff=True, woff2=True, out_root="fonts"):
         print(f"Font saved to {out_path}")
 
 
+def add_kerning(fb, cmap, dc):
+    """Attach a GPOS `kern` feature from fc.kerning, if any pairs are defined.
+
+    Pairs are keyed by character (e.g. "vo"); values are fractions of
+    side_bearing. Resolved to glyph names via the reverse cmap and compiled
+    with feaLib, which only builds GPOS here (no substitution rules), leaving
+    the manually-built GSUB untouched.
+    """
+    import io
+    from fontTools.feaLib.builder import addOpenTypeFeatures
+
+    base_by_unicode = {unicode_val: name for unicode_val, name in cmap.items()}
+
+    lines = ["feature kern {"]
+    for pair, frac in fc.kerning.items():
+        if len(pair) != 2:
+            continue
+        g1 = base_by_unicode.get(ord(pair[0]))
+        g2 = base_by_unicode.get(ord(pair[1]))
+        if not (g1 and g2):
+            continue
+        lines.append(f"    pos {g1} {g2} {kern_value(frac, dc)};")
+    lines.append("} kern;")
+
+    if len(lines) > 2:  # at least one resolvable pair
+        addOpenTypeFeatures(fb.font, io.StringIO("\n".join(lines)))
+
+
 def build_font(
     output_path=None,
     weight=400,
@@ -637,6 +665,9 @@ def _build_otf(
     fb.setupPost(isFixedPitch=1, italicAngle=ital_angle)
     fb.setupHead(unitsPerEm=fc.units_per_em, macStyle=mac_style)
 
+    # GPOS table for kerning
+    add_kerning(fb, cmap, dc)
+
     # GSUB table for ligatures and alternates
     if ligature_glyphs or alternate_glyphs:
         fb.font["GSUB"] = build_gsub(
@@ -719,6 +750,9 @@ def build_ttf(
     ital_angle = -fc.italic_angle if italic else 0
     fb.setupPost(isFixedPitch=1, italicAngle=ital_angle)
     fb.setupHead(unitsPerEm=fc.units_per_em, macStyle=mac_style)
+
+    # GPOS table for kerning
+    add_kerning(fb, cmap, dc)
 
     # GSUB table for ligatures and alternates
     if ligature_glyphs or alternate_glyphs:

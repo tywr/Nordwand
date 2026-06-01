@@ -9,6 +9,9 @@ class LowercaseVGlyph(Glyph):
     unicode = "0x76"
     width_ratio = 1.04
     overlap = 0.26
+    stroke_ratio = 0.88
+    sbl = 0.8
+    sbr = 0.8
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
@@ -16,12 +19,13 @@ class LowercaseVGlyph(Glyph):
             side_bearing_right=self.sbr * dc.side_bearing,
             side_bearing_left=self.sbl * dc.side_bearing,
         )
+        sx = self.stroke_ratio * dc.stroke_x
         ov = self.overlap * dc.stroke_x
 
         theta, delta = draw_parallelogramm(
             pen,
-            dc.stroke_x,
-            dc.stroke_y,
+            sx,
+            sx,
             b.xmid - ov,
             0,
             b.x2,
@@ -29,8 +33,8 @@ class LowercaseVGlyph(Glyph):
         )
         draw_parallelogramm(
             pen,
-            dc.stroke_x,
-            dc.stroke_y,
+            sx,
+            sx,
             b.xmid + ov,
             0,
             b.x1,

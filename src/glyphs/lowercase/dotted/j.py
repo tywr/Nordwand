@@ -7,9 +7,10 @@ class LowercaseJGlyph(DottedLowercaseGlyph):
     name = "lowercase_j"
     unicode = "0x6A"
     tail_offset = 0
-    width_ratio = 0.5
-    sbl = -0.6
-    sbr = -0.95
+    width_ratio = 0.25
+    sbl = -0.52
+    sbr = 1
+    dot_position = "x2"
 
     def draw_base(self, pen, dc):
         """Draw the letter without the dot (for use with accents)."""
@@ -18,7 +19,7 @@ class LowercaseJGlyph(DottedLowercaseGlyph):
             side_bearing_right=self.sbr * dc.side_bearing,
             side_bearing_left=self.sbl * dc.side_bearing,
         )
-        x2 = b.xmid + dc.stroke_x / 2
+        x2 = b.x2
         # Stem
         draw_rect(pen, x2 - dc.stroke_x, 0, x2, dc.x_height)
         # Corner curving down-left into the descender
