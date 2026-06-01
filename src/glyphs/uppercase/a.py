@@ -8,7 +8,7 @@ class UppercaseAGlyph(UppercaseGlyph):
     name = "uppercase_a"
     unicode = "0x41"
     bar_height = 0.35
-    overlap = 0.25
+    overlap = 0.5
     stroke_x_ratio = 1.02
     width_ratio = 1.4
     sbl = 0.25

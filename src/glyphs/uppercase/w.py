@@ -5,19 +5,20 @@ from draw.parallelogramm import draw_parallelogramm
 class UppercaseWGlyph(UppercaseGlyph):
     name = "uppercase_w"
     unicode = "0x57"
-    offset = 0
     outer_branch_ratio = 0.25
     inner_height = 1
-    width_ratio = 1.26
-    stroke_ratio = 0.88
-    inner_stroke_ratio = 0.82
+    width_ratio = 2.5
+    stroke_ratio = 1
+    inner_stroke_ratio = 1
+    sbr = 0.25
+    sbl = 0.25
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
             height="cap",
-            offset=self.offset,
-            width_ratio=self.width_ratio,
-            # min_margin=dc.min_margin_lowercase,
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
         )
         tsx = dc.stroke_x * self.stroke_ratio
         sx = max(0, 0.7 * (tsx - 90)) + min(90, tsx)

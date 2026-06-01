@@ -7,13 +7,19 @@ from draw.rect import draw_rect
 class UppercaseVGlyph(UppercaseGlyph):
     name = "uppercase_v"
     unicode = "0x56"
-    offset = 0
-    overlap = 0.25
-    width_ratio = 1.2
+    overlap = 0.5
+    stroke_x_ratio = 1.02
+    width_ratio = 1.4
+    sbl = 0.25
+    sbr = 0.25
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset, width_ratio=self.width_ratio, height="cap"
+            height="cap",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
+            uppercase=True,
         )
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
         ov = self.overlap * sx

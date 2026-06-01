@@ -35,7 +35,7 @@ class FontConfig:
 
     space = 400
     width: int = 400
-    side_bearing = 66
+    side_bearing = 80
 
     hx: int = 180
     hy: int = 180
@@ -57,11 +57,12 @@ class FontConfig:
     # Plain class attribute (not a dataclass field) so the YAML overlay and the
     # __init__ defaults rebuild in apply_config_overrides leave it untouched.
     kerning = {
-        "ka": -0.6,
-        "ke": -0.6,
-        "kc": -0.6,
-        "ko": -0.6,
-        "ks": -0.6,
+        "ka": -0.4,
+        "ke": -0.4,
+        "kc": -0.4,
+        "ko": -0.4,
+        "ks": -0.4,
+        # f letter
         "fa": -0.5,
         "fe": -0.5,
         "fc": -0.5,
@@ -74,17 +75,17 @@ class FontConfig:
         "sf": -0.5,
         "hf": -0.5,
         # t letter kerning
-        "ta": -0.5,
-        "te": -0.5,
-        "tc": -0.5,
-        "to": -0.5,
-        "ts": -0.5,
-        "at": -0.5,
-        "ot": -0.5,
-        "et": -0.5,
-        "ct": -0.5,
-        "st": -0.5,
-        "ht": -0.5,
+        "ta": -0.1,
+        "te": -0.1,
+        "tc": -0.1,
+        "to": -0.1,
+        "ts": -0.1,
+        "at": -0.4,
+        "ot": -0.4,
+        "et": -0.4,
+        "ct": -0.4,
+        "st": -0.4,
+        "ht": -0.4,
         # r letter kerning
         "ra": -0.5,
         "re": -0.5,
@@ -132,6 +133,13 @@ class FontConfig:
         "hw": -0.5,
         "bw": -0.5,
         "pw": -0.5,
+        # A letter kerning
+        "AV": -2,
+        # T letter kerning
+        "Ta": -1.6,
+        "To": -1.6,
+        "Te": -1.6,
+        "Tr": -1.6,
     }
 
 

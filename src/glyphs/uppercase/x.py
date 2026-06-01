@@ -7,12 +7,15 @@ from draw.rect import draw_rect
 class UppercaseXGlyph(UppercaseGlyph):
     name = "uppercase_x"
     unicode = "0x58"
-    offset = 0
-    width_ratio = 1.2
+    width_ratio = 1.4
+    stroke_x_ratio = 1.08
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset, width_ratio=self.width_ratio, height="cap"
+            height="cap",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
         )
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
 

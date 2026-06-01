@@ -6,14 +6,19 @@ from draw.parallelogramm import draw_parallelogramm
 class LowercaseZGlyph(Glyph):
     name = "lowercase_z"
     unicode = "0x7A"
-    offset = 0
     diag_stroke_ratio = 0.96
-    width_ratio = 1
+    width_ratio = 0.9
     right_offset = 0.04
     left_offset = 0.025
+    sbl = 0.5
+    sbr = 0.5
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(offset=self.offset, width_ratio=self.width_ratio)
+        b = dc.body_bounds(
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
+        )
         dsx = self.diag_stroke_ratio * dc.stroke_x
         dsy = self.diag_stroke_ratio * dc.stroke_y
 

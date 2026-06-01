@@ -17,6 +17,7 @@ class LowercaseMGlyph(Glyph):
     min_taper_2 = 0.05
     ending_thickness = 0.75
     min_width = 74
+    sbr = 0.9
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

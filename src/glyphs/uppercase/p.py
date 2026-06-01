@@ -6,16 +6,16 @@ from draw.rect import draw_rect
 class UppercasePGlyph(UppercaseGlyph):
     name = "uppercase_p"
     unicode = "0x50"
-    offset = 17
     loop_ratio = 0.6
-    width_ratio = 1.04
+    width_ratio = 1.1
+    sbr = 0.75
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
             height="cap",
-            overshoot_right=True,
-            width_ratio=self.width_ratio,
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             uppercase=True,
         )
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio

@@ -16,6 +16,8 @@ class UppercaseCGlyph(UppercaseGlyph):
     thinning = 1
     top_offset = 0.00
     width_ratio = 1.35
+    sbl = 0.75
+    sbr = 0.75
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

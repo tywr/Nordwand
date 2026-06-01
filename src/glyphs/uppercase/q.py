@@ -6,18 +6,18 @@ from draw.square_corner import draw_square_corner
 class UppercaseQGlyph(UppercaseGlyph):
     name = "uppercase_q"
     unicode = "0x51"
-    offset = 0
     tail_width = 0.45
     tail_height = 0.2
-    width_ratio = 1.18
+    width_ratio = 1.4
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
             height="cap",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_bottom=True,
             overshoot_top=True,
-            width_ratio=self.width_ratio,
             uppercase=True,
         )
 
