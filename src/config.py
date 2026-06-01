@@ -62,7 +62,6 @@ class FontConfig:
         "kc": -0.6,
         "ko": -0.6,
         "ks": -0.6,
-
         "fa": -0.5,
         "fe": -0.5,
         "fc": -0.5,
@@ -74,25 +73,26 @@ class FontConfig:
         "cf": -0.5,
         "sf": -0.5,
         "hf": -0.5,
-
-        "ta": -0.5,
-        "te": -0.5,
-        "tc": -0.5,
-        "to": -0.5,
-        "ts": -0.5,
-        "at": -0.5,
-        "ot": -0.5,
-        "et": -0.5,
-        "ct": -0.5,
-        "st": -0.5,
-        "ht": -0.5,
-
+        # t letter kerning
+        "ta": -0.3,
+        "te": -0.3,
+        "tc": -0.3,
+        "to": -0.3,
+        "ts": -0.3,
+        "at": -0.3,
+        "ot": -0.3,
+        "et": -0.3,
+        "ct": -0.3,
+        "st": -0.3,
+        "ht": -0.3,
+        # r letter kerning
         "ra": -0.5,
         "re": -0.5,
         "rc": -0.5,
         "ro": -0.5,
         "rs": -0.5,
-
+        "rd": -0.5,
+        "rq": -0.5,
         # v letter kerning
         "va": -0.5,
         "ve": -0.5,
@@ -105,7 +105,6 @@ class FontConfig:
         "cv": -0.5,
         "sv": -0.5,
         "hv": -0.5,
-
         # y lette5 spacing
         "ya": -0.5,
         "ye": -0.5,
@@ -118,7 +117,8 @@ class FontConfig:
         "cy": -0.5,
         "sy": -0.5,
         "hy": -0.5,
-
+        "by": -0.5,
+        "py": -0.5,
         # w letter kerning
         "wa": -0.5,
         "we": -0.5,
@@ -130,6 +130,8 @@ class FontConfig:
         "cw": -0.5,
         "sw": -0.5,
         "hw": -0.5,
+        "bw": -0.5,
+        "pw": -0.5,
     }
 
 
