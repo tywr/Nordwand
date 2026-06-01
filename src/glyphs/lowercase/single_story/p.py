@@ -6,6 +6,7 @@ from glyphs.lowercase.single_story import SingleStoryLowercaseGlyph
 class LowercasePGlyph(SingleStoryLowercaseGlyph):
     name = "lowercase_p"
     unicode = "0x70"
+    sbr = 0.7
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

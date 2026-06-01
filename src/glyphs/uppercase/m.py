@@ -10,27 +10,25 @@ from draw.polygon import draw_polygon
 class UppercaseMGlyph(UppercaseGlyph):
     name = "uppercase_m"
     unicode = "0x4D"
-    offset = 0
     overlap = 0.65
     overlap_middle = 0.5
     depth = 0.6
-    inner_thickness_ratio = 2.6
-    inner_height = 0.2
-    width_ratio = 1.16
-    ink_trap_height = 0.7
+    inner_thickness_ratio = 2.4
+    inner_height = 0.0
+    width_ratio = 1.44
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
             height="cap",
-            width_ratio=self.width_ratio,
-            min_margin=dc.min_margin_uppercase,
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
+            uppercase=True,
         )
         tsx = dc.stroke_x * self.stroke_x_ratio
         sx = max(0, 0.65 * (tsx - 90)) + min(90, tsx)
         delta = self.inner_thickness_ratio * sx
         yi = b.y1 + self.inner_height * b.height
-        yik = b.y1 + self.ink_trap_height * b.height
 
         # Vertical stems
 
@@ -89,38 +87,6 @@ class UppercaseMGlyph(UppercaseGlyph):
             b.x2 - sx,
             yi,
         )
-        le = max(0, (yik - b.y2 + delta) / cos(theta))
-        if le > 0:
-            draw_polygon(
-                cut_glyph.getPen(),
-                points=[
-                    (b.x2 - sx, b.y2 - delta),
-                    (
-                        b.x2 - sx + le * sin(theta),
-                        b.y2 - delta + le * cos(theta),
-                    ),
-                    (
-                        b.x2 - sx + le * sin(theta),
-                        b.y2 - delta + le * cos(theta),
-                    ),
-                    (b.x2 - sx, (b.y1 + b.y2 - delta) / 2),
-                ],
-            )
-            draw_polygon(
-                cut_glyph.getPen(),
-                points=[
-                    (b.x1 + sx, b.y2 - delta),
-                    (
-                        b.x1 + sx - le * sin(theta),
-                        b.y2 - delta + le * cos(theta),
-                    ),
-                    (
-                        b.x1 + sx - le * sin(theta),
-                        b.y2 - delta + le * cos(theta),
-                    ),
-                    (b.x1 + sx, (b.y1 + b.y2 - delta) / 2),
-                ],
-            )
 
         res = BooleanGlyph(glyph).difference(BooleanGlyph(cut_glyph))
         res.draw(pen)
