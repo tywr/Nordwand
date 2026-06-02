@@ -6,7 +6,7 @@ class SingleStoryLowercaseGlyph(Glyph, ABC):
     """Define common class variables for single-story lowercase glyphs"""
 
     taper = 0.8
-    width_ratio = 1
+    width_ratio = 0.97
     sbl = 1
     sbr = 1
 

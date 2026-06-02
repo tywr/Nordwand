@@ -11,15 +11,15 @@ class LowercaseAGlyph(Glyph):
     unicode = "0x61"
     accent_x_offset = 16
     mid_height = 0.52
-    width_ratio = 0.86
+    width_ratio = 0.889
     taper = 0.3
-    sbl = 0.7
-    sbr = 0.9
+    sbl = 0.6
+    sbr = 0.92
 
-    cap_hx_ratio = 1.15
+    cap_hx_ratio = 1.25
     cap_hy_ratio = 1
     cap_height = 0.7
-    cap_offset = 0.02
+    cap_offset = 0.015
     thinning = 1
     cap_stroke_x_ratio = 1.01
     cap_stroke_y_ratio = 1.00

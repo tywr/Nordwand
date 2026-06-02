@@ -14,9 +14,10 @@ class LowercaseRGlyph(Glyph):
     taper = 0.5
     width_ratio = 0.5
     stroke_ratio = 0.85
-    hx_ratio = 1.2
+    arch_length = 0.92
+    hx_ratio = 1
     sbl = 1
-    sbr = 0.65
+    sbr = 0.5
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
@@ -35,7 +36,7 @@ class LowercaseRGlyph(Glyph):
             dc.stroke_x * self.stroke_ratio,
             b.x1,
             ys,
-            b.x2 + b.width,
+            b.x1 + dc.width * self.arch_length + dc.stroke_x,
             b.y2,
             hx * self.hx_ratio,
             hy,

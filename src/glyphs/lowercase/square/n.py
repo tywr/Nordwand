@@ -7,6 +7,7 @@ from glyphs.lowercase.square import SquareLowercaseGlyph
 class LowercaseNGlyph(SquareLowercaseGlyph):
     name = "lowercase_n"
     unicode = "0x6E"
+    sbr = 0.92
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

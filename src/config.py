@@ -17,7 +17,7 @@ class FontConfig:
     ascent: int = 750
     descent: int = -200
     cap: int = 750
-    x_height: int = 540
+    x_height: int = 530
 
     accent: int = 715
     accent_cap: int = 890
@@ -35,7 +35,7 @@ class FontConfig:
 
     space = 400
     width: int = 400
-    side_bearing = 80
+    side_bearing = 54
 
     hx: int = 180
     hy: int = 180
@@ -57,11 +57,11 @@ class FontConfig:
     # Plain class attribute (not a dataclass field) so the YAML overlay and the
     # __init__ defaults rebuild in apply_config_overrides leave it untouched.
     kerning = {
-        "ka": -0.4,
-        "ke": -0.4,
-        "kc": -0.4,
-        "ko": -0.4,
-        "ks": -0.4,
+        "ka": -0.55,
+        "ke": -0.75,
+        "kc": -0.75,
+        "ko": -0.75,
+        "ks": -0.55,
         # f letter
         "fa": -0.5,
         "fe": -0.5,
@@ -87,13 +87,13 @@ class FontConfig:
         "st": -0.4,
         "ht": -0.4,
         # r letter kerning
-        "ra": -0.5,
-        "re": -0.5,
-        "rc": -0.5,
-        "ro": -0.5,
-        "rs": -0.5,
-        "rd": -0.5,
-        "rq": -0.5,
+        "ra": -0.6,
+        "re": -0.6,
+        "rc": -0.6,
+        "ro": -0.6,
+        "rs": -0.6,
+        "rd": -0.6,
+        "rq": -0.6,
         # v letter kerning
         "va": -0.5,
         "ve": -0.5,
