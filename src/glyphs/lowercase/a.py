@@ -11,7 +11,7 @@ class LowercaseAGlyph(Glyph):
     unicode = "0x61"
     accent_x_offset = 16
     mid_height = 0.52
-    width_ratio = 0.9
+    width_ratio = 0.86
     taper = 0.3
     sbl = 0.7
     sbr = 0.9

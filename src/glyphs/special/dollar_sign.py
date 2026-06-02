@@ -5,7 +5,6 @@ from draw.rect import draw_rect
 class DollarSignGlyph(Glyph):
     name = "dollar_sign"
     unicode = "0x24"
-    offset = 0
     width_ratio = 1
     overflow_ratio = 0.2
 
@@ -13,7 +12,10 @@ class DollarSignGlyph(Glyph):
         from glyphs.uppercase.s import UppercaseSGlyph
 
         b = dc.body_bounds(
-            offset=self.offset, height="cap", width_ratio=self.width_ratio
+            height="cap",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
         )
         sg = UppercaseSGlyph()
         sg.draw(pen, dc)

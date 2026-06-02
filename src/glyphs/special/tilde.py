@@ -4,7 +4,6 @@ from glyphs import Glyph
 class TildeGlyph(Glyph):
     name = "tilde"
     unicode = "0x7E"
-    offset = 0
     height_ratio = 0.25
     x_corner_ratio = 0.24
     y_corner_offset = 0.075
@@ -15,7 +14,10 @@ class TildeGlyph(Glyph):
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset, height="x_height", width_ratio=self.width_ratio
+            height="x_height",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
         )
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_x * self.stroke_x_ratio
         hy = b.hy * self.hy_ratio

@@ -5,13 +5,15 @@ from draw.rect import draw_rect
 class ApostropheMarkGlyph(Glyph):
     name = "apostrophe"
     unicode = "0x27"
-    offset = 0
     width_ratio = 1
     height_ratio = 0.7
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset, height="x_height", width_ratio=self.width_ratio
+            height="x_height",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
         )
         h = self.height_ratio * b.height
         s = dc.stroke_x

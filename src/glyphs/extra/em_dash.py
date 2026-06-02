@@ -5,12 +5,15 @@ from draw.rect import draw_rect
 class EmDashGlyph(Glyph):
     name = "em_dash"
     unicode = "0x2014"
-    offset = 0
     stroke_ratio = 0.85
+    width_ratio = 1
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset, height="x_height"
+            height="x_height",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
         )
         s = dc.stroke_x * self.stroke_ratio
         w = dc.window_width

@@ -10,7 +10,6 @@ class AeGlyph(Glyph):
     # Placeholder: plots the same as lowercase 'a' for the moment.
     name = "ae"
     unicode = "0xE6"
-    offset = 0
     mid_height = 0.52
     width_ratio = 1.16
     taper = 0.3
@@ -29,10 +28,11 @@ class AeGlyph(Glyph):
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_top=True,
             overshoot_bottom=True,
-            width_ratio=self.width_ratio,
         )
         sx, sy = dc.stroke_x, dc.stroke_y
         sx = max(0, 0.7 * (dc.stroke_x - 90)) + min(90, dc.stroke_x)

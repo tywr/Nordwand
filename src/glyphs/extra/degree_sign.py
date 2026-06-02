@@ -5,7 +5,6 @@ from draw.circle import draw_circle
 class DegreeSignGlyph(Glyph):
     name = "degree_sign"
     unicode = "0xB0"
-    offset = 0
     h_offset = 0.2
     width = 0.4
     stroke_ratio = 0.65
@@ -13,9 +12,10 @@ class DegreeSignGlyph(Glyph):
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
             height="cap",
-            width_ratio=self.width_ratio,
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
         )
         s = self.stroke_ratio * dc.stroke_x
         w = self.width * b.width

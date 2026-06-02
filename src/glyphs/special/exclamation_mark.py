@@ -6,7 +6,6 @@ from draw.rect import draw_rect
 class ExclamationMarkGlyph(Glyph):
     name = "exclamation_mark"
     unicode = "0x21"
-    offset = 0
     width_ratio = 1
     gap = 0.35
     height_overflow = 0.05
@@ -18,7 +17,10 @@ class ExclamationMarkGlyph(Glyph):
         from glyphs.special.full_stop import FullStopGlyph
 
         b = dc.body_bounds(
-            offset=self.offset, height="cap", width_ratio=self.width_ratio
+            height="cap",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
         )
         sx = dc.stroke_x * self.stroke_ratio
         g = self.gap * b.height

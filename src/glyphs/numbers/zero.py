@@ -6,7 +6,6 @@ from draw.parallelogramm import draw_parallelogramm_vertical
 class ZeroGlyph(NumberGlyph):
     name = "zero"
     unicode = "0x30"
-    offset = 0
     slash = 0.2
     width_ratio = 1.07
     hx_ratio = 1.2
@@ -14,13 +13,12 @@ class ZeroGlyph(NumberGlyph):
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
             height="cap",
-            width_ratio=self.width_ratio,
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_bottom=True,
             overshoot_top=True,
-            overshoot_left=True,
-            overshoot_right=True,
             number=True,
         )
         hx = self.hx_ratio * b.hx

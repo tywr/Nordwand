@@ -8,13 +8,15 @@ class LowercaseF2Glyph(Glyph):
     unicode = "0x66"
     font_feature = {"ss02": 1}
     default_italic = True
-    offset = -22
     rl_ratio = 0.55
     width_ratio = 1.25
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset, height="x_height", width_ratio=self.width_ratio
+            height="x_height",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
         )
         right_len = b.width * self.rl_ratio - dc.stroke_x / 2
         left_len = b.width * (1 - self.rl_ratio) - dc.stroke_x / 2

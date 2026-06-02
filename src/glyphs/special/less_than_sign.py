@@ -5,7 +5,6 @@ from draw.parallelogramm import draw_parallelogramm_vertical
 class LessThenSignGlyph(Glyph):
     name = "less_than_sign"
     unicode = "0x3C"
-    offset = 0
     width_ratio = 1
     overlap = 0.6
     span = 0.85
@@ -13,7 +12,10 @@ class LessThenSignGlyph(Glyph):
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset, height="x_height", width_ratio=self.width_ratio
+            height="x_height",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
         )
         ymid = dc.math
         h = dc.parenthesis_length * self.span

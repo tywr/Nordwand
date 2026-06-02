@@ -7,7 +7,6 @@ from draw.polygon import draw_polygon
 class QuestionMarkGlyph(Glyph):
     name = "question_mark"
     unicode = "0x3F"
-    offset = 0
     width_ratio = 1
     loop_ratio = 0.6
     hx_ratio = 1
@@ -20,12 +19,11 @@ class QuestionMarkGlyph(Glyph):
         from glyphs.special.full_stop import FullStopGlyph
 
         b = dc.body_bounds(
-            offset=self.offset,
             height="cap",
-            width_ratio=self.width_ratio,
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_top=True,
-            overshoot_left=True,
-            overshoot_right=True,
         )
         g = self.gap * b.height
         dh = self.height_overflow * b.height

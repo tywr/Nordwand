@@ -5,12 +5,14 @@ from draw.rect import draw_rect
 class VerticalLineGlyph(Glyph):
     name = "vertical_line"
     unicode = "0x7C"
-    offset = 0
     width_ratio = 1
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset, height="ascent", width_ratio=self.width_ratio
+            height="ascent",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
         )
         ymid = dc.parenthesis
         y1, y2 = ymid - dc.parenthesis_length / 2, ymid + dc.parenthesis_length / 2

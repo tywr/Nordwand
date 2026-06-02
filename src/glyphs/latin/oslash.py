@@ -6,7 +6,7 @@ from draw.rect import draw_rect
 class OSlashGlyph(RoundLowercaseGlyph):
     name = "oslash"
     unicode = "0xF8"
-    offset = 0
+    width_ratio = 1
     slash_stroke = 1.2
     slash_length = 1.4
 
@@ -16,11 +16,11 @@ class OSlashGlyph(RoundLowercaseGlyph):
         dc,
     ):
         b = dc.body_bounds(
-            offset=self.offset,
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_bottom=True,
             overshoot_top=True,
-            overshoot_left=True,
-            overshoot_right=True,
         )
         sx, sy = self.stroke_x_ratio * dc.stroke_x, self.stroke_y_ratio * dc.stroke_y
         ss = sy * self.slash_length

@@ -5,12 +5,15 @@ from draw.rect import draw_rect
 class HyphenMinusGlyph(Glyph):
     name = "hyphen_minus"
     unicode = "0x2D"
-    offset = 0
     width_ratio = 0.88
     stroke_ratio = 0.8
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(offset=0, width_ratio=self.width_ratio)
+        b = dc.body_bounds(
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
+        )
         s = self.stroke_ratio * dc.stroke_x
         draw_rect(
             pen,

@@ -589,7 +589,7 @@ def _build_otf(
     notdef_pen = T2CharStringPen(fc.window_width, None)
     draw_notdef(notdef_pen)
 
-    space_pen = T2CharStringPen(fc.window_width, None)
+    space_pen = T2CharStringPen(round(dc.space), None)
 
     charstrings = {
         ".notdef": notdef_pen.getCharString(),
@@ -599,7 +599,7 @@ def _build_otf(
         path = simplify_glyph(g, dc=dc)
         if italic:
             path = skew_path(path, fc.italic_angle)
-        pen = T2CharStringPen(fc.window_width, None)
+        pen = T2CharStringPen(round(g.window_width(dc=dc)), None)
         path.draw(pen)
         charstrings[g.name] = pen.getCharString()
 
@@ -638,13 +638,18 @@ def _build_otf(
             "BlueFuzz": 1,
         },
     )
-    # Ligature glyphs get wider advance width based on number_characters
+    # Each glyph carries its own (proportional) advance via window_width(dc).
     glyph_by_name = {g.name: g for g in active_glyphs}
     metrics = {}
     for name in glyph_names:
         g = glyph_by_name.get(name)
-        n = g.number_characters if g else 1
-        metrics[name] = (fc.window_width * n, 0)
+        if g is not None:
+            adv = round(g.window_width(dc=dc))
+        elif name == "space":
+            adv = round(dc.space)
+        else:  # .notdef
+            adv = fc.window_width
+        metrics[name] = (adv, 0)
     fb.setupHorizontalMetrics(metrics)
     fb.setupHorizontalHeader(ascent=fc.window_ascent, descent=-abs(fc.window_descent))
     fb.setupNameTable(name_table)
@@ -662,7 +667,7 @@ def _build_otf(
         usWeightClass=weight,
     )
     ital_angle = -fc.italic_angle if italic else 0
-    fb.setupPost(isFixedPitch=1, italicAngle=ital_angle)
+    fb.setupPost(isFixedPitch=0, italicAngle=ital_angle)
     fb.setupHead(unitsPerEm=fc.units_per_em, macStyle=mac_style)
 
     # GPOS table for kerning
@@ -729,8 +734,13 @@ def build_ttf(
         ttf_g = glyph_table[name]
         lsb = ttf_g.xMin if hasattr(ttf_g, "xMin") and ttf_g.numberOfContours > 0 else 0
         src_g = glyph_by_name.get(name)
-        n = src_g.number_characters if src_g else 1
-        metrics[name] = (fc.window_width * n, lsb)
+        if src_g is not None:
+            adv = round(src_g.window_width(dc=dc))
+        elif name == "space":
+            adv = round(dc.space)
+        else:  # .notdef
+            adv = fc.window_width
+        metrics[name] = (adv, lsb)
     fb.setupHorizontalMetrics(metrics)
     fb.setupHorizontalHeader(ascent=fc.window_ascent, descent=-abs(fc.window_descent))
     fb.setupNameTable(name_table)
@@ -748,7 +758,7 @@ def build_ttf(
         usWeightClass=weight,
     )
     ital_angle = -fc.italic_angle if italic else 0
-    fb.setupPost(isFixedPitch=1, italicAngle=ital_angle)
+    fb.setupPost(isFixedPitch=0, italicAngle=ital_angle)
     fb.setupHead(unitsPerEm=fc.units_per_em, macStyle=mac_style)
 
     # GPOS table for kerning

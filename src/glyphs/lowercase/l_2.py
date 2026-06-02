@@ -6,13 +6,15 @@ class LowercaseL2Glyph(Glyph):
     name = "lowercase_l_2"
     unicode = "0x6C"
     font_feature = {"cv03": 1}
-    offset = 16
     width_ratio = 1.08
     cap = 0.45
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset, height="ascent", width_ratio=self.width_ratio
+            height="ascent",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
         )
         right_len = 0.5 * b.width - dc.stroke_x / 2
         left_len = 0.5 * b.width - dc.stroke_x / 2

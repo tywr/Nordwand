@@ -19,7 +19,10 @@ class DoubleEqualsSignGlyph(ContextualLigatureGlyph):
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset, height="x_height", width_ratio=self.width_ratio
+            height="x_height",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
         )
         g = self.gap * b.height
         s = dc.stroke_x * self.stroke_ratio

@@ -9,7 +9,6 @@ from draw.corner import draw_corner
 class CommercialAtGlyph(Glyph):
     name = "commercial_at"
     unicode = "0x40"
-    offset = 0
     width_ratio = 1.22
     inner_ratio_x = 0.65
     inner_ratio_y = 0.45
@@ -17,12 +16,11 @@ class CommercialAtGlyph(Glyph):
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
             height="cap",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_top=True,
-            overshoot_left=True,
-            overshoot_right=True,
-            width_ratio=self.width_ratio,
         )
         wi, hi = self.inner_ratio_x * b.width, self.inner_ratio_y * b.height
         xi1, xi2 = b.x2 - wi, b.x2

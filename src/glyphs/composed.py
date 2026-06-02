@@ -48,15 +48,19 @@ class ComposedGlyph(Glyph, ABC):
             return _italic_base(self.base_glyph_class)
         return self.base_glyph_class
 
-    @property
-    def offset(self):
-        return self.base_glyph_class.offset
+    def window_width(self, dc):
+        # A composed glyph occupies the same advance as its base glyph.
+        return self.base_glyph_class().window_width(dc)
 
     def draw(self, pen, dc):
         base_class = self._resolve_base_class(dc)
         base = base_class()
         base.draw_base(pen, dc) if hasattr(base, "draw_base") else base.draw(pen, dc)
 
-        b = dc.body_bounds(offset=base_class.offset)
+        b = dc.body_bounds(
+            width=dc.width * base_class.width_ratio + dc.stroke_x,
+            side_bearing_right=base_class.sbr * dc.side_bearing,
+            side_bearing_left=base_class.sbl * dc.side_bearing,
+        )
         accent_y = self.accent_y if self.accent_y is not None else dc.accent
         self.accent_class().draw_at(pen, dc, x=b.xmid + base_class.accent_x_offset, y=accent_y)

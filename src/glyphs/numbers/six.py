@@ -10,7 +10,6 @@ from utils.pens import NullPen
 class SixGlyph(NumberGlyph):
     name = "six"
     unicode = "0x36"
-    offset = 0
     loop_ratio = 0.6
     top_ratio = 0.4
     taper = 0.8
@@ -19,12 +18,11 @@ class SixGlyph(NumberGlyph):
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
             height="cap",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_bottom=True,
-            overshoot_left=True,
-            overshoot_right=True,
-            width_ratio=self.width_ratio,
             number=True,
         )
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio

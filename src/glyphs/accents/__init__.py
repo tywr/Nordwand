@@ -9,7 +9,7 @@ class Accent(Glyph, ABC):
     provide draw_at(pen, dc, x, y) for positioning by ComposedGlyph.
     """
 
-    offset = 0
+    width_ratio = 1
 
     @abstractmethod
     def draw_at(self, pen, dc, x, y):
@@ -18,5 +18,9 @@ class Accent(Glyph, ABC):
 
     def draw(self, pen, dc):
         """Draw the accent at the default position (centered in the cell)."""
-        b = dc.body_bounds(offset=self.offset)
+        b = dc.body_bounds(
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
+        )
         self.draw_at(pen, dc, x=b.xmid, y=dc.accent)

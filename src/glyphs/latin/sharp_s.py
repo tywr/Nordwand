@@ -8,7 +8,6 @@ from utils.intersection import intersection_superellipses
 class SharpSGlyph(Glyph):
     name = "sharp_s"
     unicode = "0xdf"
-    offset = 12
     upper_ratio = 0.9  # Upper loop width as a fraction of the lower loop width
     mid_ratio = 0.52
     width_ratio = 1.06
@@ -20,10 +19,11 @@ class SharpSGlyph(Glyph):
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            offset=self.offset,
             height="cap",
+            width=dc.width * self.width_ratio + dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
             uppercase=True,
-            width_ratio=self.width_ratio,
         )
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
         hx, hy = b.hx, b.hy
