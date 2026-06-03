@@ -33,7 +33,7 @@ class FontConfig:
     default_stroke = 90
     italic_angle: float = 9.4
 
-    space = 400
+    space = 150
     width: int = 400
     side_bearing = 54
 

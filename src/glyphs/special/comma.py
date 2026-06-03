@@ -5,12 +5,14 @@ from draw.polygon import draw_polygon
 class CommaGlyph(Glyph):
     name = "comma"
     unicode = "0x2C"
-    width_ratio = 1
+    width_ratio = 0.5
     height_ratio = 0.75
     vertical_offset = 0.25
     foot_offset = 0.15
-    taper = 0.66
-    stroke_ratio = 1.2
+    taper = 0.5
+    stroke_ratio = 1.15
+    sbl = -0.25
+    sbr = 1
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
