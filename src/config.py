@@ -63,6 +63,8 @@ class FontConfig:
         "ko": -0.75,
         "ks": -0.55,
         # f letter
+        "ff": -0.8,
+        "ft": -0.55,
         "fa": -0.5,
         "fe": -0.5,
         "fc": -0.5,
@@ -75,6 +77,7 @@ class FontConfig:
         "sf": -0.5,
         "hf": -0.5,
         # t letter kerning
+        "tt": -0.28,
         "ta": -0.1,
         "te": -0.1,
         "tc": -0.1,
@@ -134,13 +137,28 @@ class FontConfig:
         "hw": -0.1,
         "bw": -0.1,
         "pw": -0.1,
+        # x letter kerning
+        "xo": -0.2,
+        "xa": -0.1,
+        "xe": -0.2,
+        "xc": -0.2,
+        "ox": -0.2,
+        "ex": -0.2,
+        "cx": -0.2,
         # A letter kerning
         "AV": -2,
         # T letter kerning
+        "Th": -0.8,
         "Ta": -1.6,
         "To": -1.6,
         "Te": -1.6,
         "Tr": -1.6,
+        "TA": -1.5,
+        "AT": -1.2,
+        "OT": -0.4,
+        # number kerning
+        "67": -0.8,
+        "69": -0.6,
     }
 
 

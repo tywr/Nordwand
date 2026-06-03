@@ -11,6 +11,7 @@ class QuestionMarkGlyph(Glyph):
     loop_ratio = 0.6
     hx_ratio = 1
     gap = 0.35
+    dot_stroke_ratio = 1.1
     height_overflow = 0.05
     taper_length = 0.25
     taper = 0.75
@@ -28,6 +29,7 @@ class QuestionMarkGlyph(Glyph):
         g = self.gap * b.height
         dh = self.height_overflow * b.height
         h = self.loop_ratio * b.height
+        sd = dc.stroke_x * self.dot_stroke_ratio
         sx, sy = dc.stroke_x, dc.stroke_y
         hx = self.hx_ratio * b.hx
         draw_loop(
@@ -71,5 +73,4 @@ class QuestionMarkGlyph(Glyph):
             ],
         )
 
-        fsp = FullStopGlyph()
-        fsp.draw(pen, dc)
+        draw_rect(pen, b.xmid - sd / 2, 0, b.xmid + sd / 2, sd)

@@ -10,13 +10,14 @@ from utils.pens import NullPen
 class NineGlyph(NumberGlyph):
     name = "nine"
     unicode = "0x39"
+    width_ratio = 1.08
     vertical_ratio = 0.6
     bottom_cut = 0.2
     taper = 0.8
     foot_x = 0.05
     joint_x = 1.4
-    sbl = 0.65
-    sbr = 0.5
+    sbl = 0.72
+    sbr = 0.72
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

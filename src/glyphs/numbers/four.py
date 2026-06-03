@@ -9,9 +9,9 @@ class FourGlyph(NumberGlyph):
     horizontal_ratio = 0.65
     vertical_ratio = 0.3
     mid_bar_ratio = 0.5
-    width_ratio = 1.1
+    width_ratio = 1.16
     sbl = 0.5
-    sbr = 0.25
+    sbr = 0.1
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

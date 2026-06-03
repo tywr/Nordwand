@@ -13,11 +13,12 @@ class FiveGlyph(NumberGlyph):
     name = "five"
     unicode = "0x35"
     loop_ratio = 0.66
+    width_ratio = 1.04
     junction_ratio = 0.45
     tilt = 0.25
     taper = 1.5
-    sbr = 0.6
-    sbl = 1
+    sbl = 0.85
+    sbr = 0.8
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

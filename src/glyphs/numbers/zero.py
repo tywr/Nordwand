@@ -1,13 +1,12 @@
 from glyphs.numbers import NumberGlyph
 from draw.loop import draw_loop
-from draw.parallelogramm import draw_parallelogramm_vertical
 
 
 class ZeroGlyph(NumberGlyph):
     name = "zero"
     unicode = "0x30"
     slash = 0.2
-    width_ratio = 1.07
+    width_ratio = 1.1
     hx_ratio = 1.2
     hy_ratio = 1
 
