@@ -15,6 +15,8 @@ class SixGlyph(NumberGlyph):
     taper = 0.8
     cap_x = 0.9
     joint_x = 1.4
+    sbr = 0.5
+    sbl = 0.72
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

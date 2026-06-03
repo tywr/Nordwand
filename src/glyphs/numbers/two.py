@@ -14,6 +14,8 @@ class TwoGlyph(NumberGlyph):
     radius = 0.2
     internal_radius = 0.1
     external_radius = 0.1
+    sbl = 0.7
+    sbr = 0.7
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

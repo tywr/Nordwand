@@ -15,6 +15,8 @@ class NineGlyph(NumberGlyph):
     taper = 0.8
     foot_x = 0.05
     joint_x = 1.4
+    sbl = 0.65
+    sbr = 0.5
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

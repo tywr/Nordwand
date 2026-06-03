@@ -10,7 +10,9 @@ class EightGlyph(NumberGlyph):
     loop_width_ratio = 0.92
     taper = 1.5
     extra_overshoot = 0.000
-    width_ratio = 1.06
+    width_ratio = 1.08
+    sbl = 0.7
+    sbr = 0.7
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

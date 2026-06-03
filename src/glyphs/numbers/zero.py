@@ -35,13 +35,3 @@ class ZeroGlyph(NumberGlyph):
             hx,
             hy,
         )
-
-        draw_parallelogramm_vertical(
-            pen,
-            dc.stroke_alt,
-            dc.stroke_alt,
-            b.x1 + dc.stroke_x,
-            b.y1 + dc.stroke_y,
-            b.x2 - dc.stroke_x,
-            b.y2 - dc.stroke_y,
-        )

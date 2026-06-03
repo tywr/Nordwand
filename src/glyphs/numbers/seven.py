@@ -7,6 +7,8 @@ class SevenGlyph(NumberGlyph):
     name = "seven"
     unicode = "0x37"
     offset_foot = 0.3
+    sbl = 0.5
+    sbr = 0.75
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
