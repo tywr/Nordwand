@@ -9,6 +9,8 @@ class LowercaseIGlyph(DottedLowercaseGlyph):
     width_ratio = 0
     cap = 0.5
     rl_ratio = 0.5
+    sbr = 1
+    sbl = 1
 
     def draw_base(self, pen, dc):
         """Draw the letter without the dot (for use with accents)."""

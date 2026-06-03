@@ -11,5 +11,5 @@ class RoundLowercaseGlyph(Glyph, ABC):
     hy_ratio = 1
     hx_ratio = 1
     
-    sbl = 0.8
-    sbr = 0.8
+    sbl = 0.6
+    sbr = 0.6

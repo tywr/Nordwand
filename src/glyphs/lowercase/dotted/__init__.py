@@ -8,6 +8,7 @@ class DottedLowercaseGlyph(Glyph, ABC):
     """Define common class variables for single-story lowercase glyphs"""
 
     dot_height = 0.25
+    dot_width = 1.1
     dot_position = "xmid"
     sbl = 1
     sbr = 1
@@ -22,6 +23,7 @@ class DottedLowercaseGlyph(Glyph, ABC):
             side_bearing_right=self.sbr * dc.side_bearing,
             side_bearing_left=self.sbl * dc.side_bearing,
         )
+        w = dc.stroke_x * self.dot_width
 
         # Accent dot
         if self.dot_position == "x2":
@@ -33,8 +35,8 @@ class DottedLowercaseGlyph(Glyph, ABC):
         dh = self.dot_height * b.height
         draw_rect(
             pen,
-            xpos - dc.stroke_x / 2,
+            xpos - w / 2,
             dc.cap - dh,
-            xpos + dc.stroke_x / 2,
+            xpos + w / 2,
             dc.cap,
         )

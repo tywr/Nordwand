@@ -35,7 +35,7 @@ class FontConfig:
 
     space = 240
     width: int = 400
-    side_bearing = 54
+    side_bearing = 74
 
     hx: int = 180
     hy: int = 180
