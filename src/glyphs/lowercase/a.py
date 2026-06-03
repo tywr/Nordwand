@@ -21,6 +21,7 @@ class LowercaseAGlyph(Glyph):
     cap_height = 0.7
     cap_offset = 0.015
     thinning = 1
+    upper_bowl_mid = 0.53
     cap_stroke_x_ratio = 1.01
     cap_stroke_y_ratio = 1.00
     ending_thickness = 0.8
@@ -41,6 +42,7 @@ class LowercaseAGlyph(Glyph):
         dx = csx - dc.stroke_x
         ry = (self.mid_height * b.height + dc.stroke_alt / 2) / b.height
         ymid = b.y1 + self.mid_height * b.height
+        xmu = b.x1 + self.upper_bowl_mid * b.width
         yl = ymid + dc.stroke_alt / 2
         hx, hy = b.hx, b.hy * ry
         ycut = b.y1 + self.cap_height * b.height
@@ -62,6 +64,7 @@ class LowercaseAGlyph(Glyph):
             side="right",
             cut="top",
         )
+
         # Upper half of the bowl
         draw_corner(
             pen,
@@ -69,7 +72,7 @@ class LowercaseAGlyph(Glyph):
             dc.stroke_alt,
             b.x1,
             (b.y1 + yl) / 2,
-            b.xmid,
+            xmu,
             yl,
             hx,
             hy,
@@ -77,7 +80,7 @@ class LowercaseAGlyph(Glyph):
         )
         draw_rect(
             pen,
-            b.xmid,
+            xmu,
             yl - dc.stroke_alt,
             b.x2 - 0.5 * dc.stroke_x,
             yl,
