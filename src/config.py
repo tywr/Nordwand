@@ -156,6 +156,15 @@ class FontConfig:
         "TA": -1.5,
         "AT": -1.2,
         "OT": -0.4,
+        # R kerning
+        "RO": -0.8,
+        # Y kerning
+        "YO": -0.5,
+        "YA": -1,
+        "OY": -0.5,
+        "AY": -1,
+        "YC": -0.5,
+        "CY": -0.5,
         # number kerning
         "67": -0.8,
         "69": -0.6,

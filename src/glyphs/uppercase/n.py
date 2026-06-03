@@ -8,9 +8,9 @@ from utils.pens import NullPen
 class UppercaseNGlyph(UppercaseGlyph):
     name = "uppercase_n"
     unicode = "0x4E"
-    middle_stroke_ratio = 0.84
+    middle_stroke_ratio = 0.9
     overlap = 0.3
-    width_ratio = 1.12
+    width_ratio = 1.3
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

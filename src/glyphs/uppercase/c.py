@@ -15,7 +15,7 @@ class UppercaseCGlyph(UppercaseGlyph):
     opening2 = 0.66
     thinning = 1
     top_offset = 0.00
-    width_ratio = 1.35
+    width_ratio = 1.4
     sbl = 0.75
     sbr = 0.75
 

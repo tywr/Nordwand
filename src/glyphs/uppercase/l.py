@@ -5,7 +5,7 @@ from draw.rect import draw_rect
 class UppercaseLGlyph(UppercaseGlyph):
     name = "uppercase_l"
     unicode = "0x4C"
-    width_ratio = 1.02
+    width_ratio = 1.0
     stroke_x_ratio = 1.00
     sbr = 0.5
 

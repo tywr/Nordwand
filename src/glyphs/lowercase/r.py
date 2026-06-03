@@ -14,7 +14,7 @@ class LowercaseRGlyph(Glyph):
     taper = 0.5
     width_ratio = 0.5
     stroke_ratio = 0.85
-    arch_length = 0.92
+    arch_length = 0.75
     hx_ratio = 1
     sbl = 1
     sbr = 0.5
@@ -24,10 +24,10 @@ class LowercaseRGlyph(Glyph):
             width=self.width_ratio * dc.width + dc.stroke_x,
             side_bearing_right=self.sbr * dc.side_bearing,
             side_bearing_left=self.sbl * dc.side_bearing,
-            overshoot_top=True,
         )
         hx, hy = dc.hx * self.hx_ratio, dc.hy * self.hy_ratio
         ys = b.y2 - self.loop_ratio * b.height
+        arch_length = dc.width * self.arch_length + 2 * dc.stroke_x
 
         glyph = ufoLib2.objects.Glyph()
         draw_arch(
@@ -36,7 +36,7 @@ class LowercaseRGlyph(Glyph):
             dc.stroke_x * self.stroke_ratio,
             b.x1,
             ys,
-            b.x1 + dc.width * self.arch_length + dc.stroke_x,
+            b.x1 + arch_length,
             b.y2,
             hx * self.hx_ratio,
             hy,
@@ -49,7 +49,7 @@ class LowercaseRGlyph(Glyph):
         draw_rect(glyph.getPen(), b.x1, 0, b.x1 + dc.stroke_x, dc.x_height)
 
         cut_glyph = ufoLib2.objects.Glyph()
-        draw_rect(cut_glyph.getPen(), b.x2, b.y1, b.x2 + b.width, b.y2)
+        draw_rect(cut_glyph.getPen(), b.x2, b.y1, b.x2 + arch_length + 100, b.y2)
 
         res = BooleanGlyph(glyph).difference(BooleanGlyph(cut_glyph))
         res.draw(pen)
