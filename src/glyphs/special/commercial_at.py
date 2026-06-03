@@ -2,15 +2,14 @@ from glyphs import Glyph
 from draw.loop import draw_loop
 from draw.arch import draw_arch
 from draw.rect import draw_rect
-from draw.polygon import draw_polygon
 from draw.corner import draw_corner
 
 
 class CommercialAtGlyph(Glyph):
     name = "commercial_at"
     unicode = "0x40"
-    width_ratio = 1.22
-    inner_ratio_x = 0.65
+    width_ratio = 1.3
+    inner_ratio_x = 0.55
     inner_ratio_y = 0.45
     ending_thickness = 0.8
 

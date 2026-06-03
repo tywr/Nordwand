@@ -13,7 +13,7 @@ from utils.pens import NullPen
 class AmpersandGlyph(Glyph):
     name = "ampersand"
     unicode = "0x26"
-    width_ratio = 1.08
+    width_ratio = 1.1
     upper_width = 0.8
     upper_height = 0.4
     lower_width = 1
@@ -21,6 +21,8 @@ class AmpersandGlyph(Glyph):
     hook_below_baseline = 0
     hook_outside_cell = 0.24
     end_height_ratio = 0.5
+    sbr = 1.9
+    sbl = 1
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

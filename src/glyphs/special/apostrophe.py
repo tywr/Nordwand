@@ -5,7 +5,7 @@ from draw.rect import draw_rect
 class ApostropheMarkGlyph(Glyph):
     name = "apostrophe"
     unicode = "0x27"
-    width_ratio = 1
+    width_ratio = 0
     height_ratio = 0.7
 
     def draw(self, pen, dc):
