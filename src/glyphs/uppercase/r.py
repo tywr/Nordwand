@@ -12,6 +12,7 @@ class UppercaseRGlyph(UppercaseGlyph):
     loop_width = 0.95
     branch_start = 0.52
     width_ratio = 1.2
+    sbr = 0.4
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
