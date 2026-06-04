@@ -21,8 +21,8 @@ class LowercaseSGlyph(Glyph):
     right_offset = 0.04
     curve_thinning = 0.037
     curve_ratio = 2.8
-    sbl = 0.5
-    sbr = 0.5
+    sbl = 0.64
+    sbr = 0.64
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

@@ -34,9 +34,9 @@ class FontConfig:
     default_stroke = 90
     italic_angle: float = 9.4
 
-    space = 240
+    space = 225
     width: int = 400
-    side_bearing = 68
+    side_bearing = 70
 
     hx: int = 180
     hy: int = 180
@@ -58,6 +58,7 @@ class FontConfig:
     # Plain class attribute (not a dataclass field) so the YAML overlay and the
     # __init__ defaults rebuild in apply_config_overrides leave it untouched.
     kerning = KERNING_TABLE
+
 
 @dataclass
 class DrawConfig(FontConfig):

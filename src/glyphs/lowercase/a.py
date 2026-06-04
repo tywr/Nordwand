@@ -13,7 +13,7 @@ class LowercaseAGlyph(Glyph):
     mid_height = 0.52
     width_ratio = 0.889
     taper = 0.6
-    sbl = 0.6
+    sbl = 0.55
     sbr = 0.88
 
     cap_hx_ratio = 1.25
@@ -24,7 +24,7 @@ class LowercaseAGlyph(Glyph):
     upper_bowl_mid = 0.53
     cap_stroke_x_ratio = 1.01
     cap_stroke_y_ratio = 1.00
-    ending_thickness = 0.8
+    ending_thickness = 0.7
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

@@ -9,8 +9,8 @@ from glyphs.lowercase.single_story import SingleStoryLowercaseGlyph
 class LowercaseGGlyph(SingleStoryLowercaseGlyph):
     name = "lowercase_g"
     unicode = "0x67"
-    sbl = 0.65
-    sbr = 0.96
+    sbl = 0.68
+    sbr = 0.92
 
     tail_offset = 0
     tail_stroke_x_ratio = 0.89

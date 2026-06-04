@@ -6,7 +6,7 @@ from glyphs.lowercase.square import SquareLowercaseGlyph
 class LowercaseUGlyph(SquareLowercaseGlyph):
     name = "lowercase_u"
     unicode = "0x75"
-    sbl = 0.88
+    sbl = 0.87
     sbr = 0.94
 
     def draw(self, pen, dc):

@@ -6,7 +6,8 @@ from glyphs.lowercase.single_story import SingleStoryLowercaseGlyph
 class LowercaseQGlyph(SingleStoryLowercaseGlyph):
     name = "lowercase_q"
     unicode = "0x71"
-    sbl = 0.65
+    sbr = 0.92
+    sbl = 0.68
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
