@@ -11,7 +11,7 @@ class LowercaseKGlyph(Glyph):
     upper_branch_offset = 0.03
     branch_stroke_ratio = 1.3
     branch_overlap = 0.5
-    sbr = 0
+    sbr = 0.2
     sbl = 1
 
     def draw(self, pen, dc):

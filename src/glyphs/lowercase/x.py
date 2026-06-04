@@ -5,10 +5,9 @@ from draw.parallelogramm import draw_parallelogramm
 class LowercaseXGlyph(Glyph):
     name = "lowercase_x"
     unicode = "0x78"
-    offset = 0
     width_ratio = 0.94
-    sbl = 0.2
-    sbr = 0.2
+    sbl = 0.4
+    sbr = 0.4
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

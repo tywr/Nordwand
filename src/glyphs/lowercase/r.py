@@ -17,7 +17,7 @@ class LowercaseRGlyph(Glyph):
     arch_length = 0.75
     hx_ratio = 1
     sbl = 1
-    sbr = 0.5
+    sbr = 0.3
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

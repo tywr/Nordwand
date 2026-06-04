@@ -8,8 +8,8 @@ class LowercaseVGlyph(Glyph):
     name = "lowercase_v"
     unicode = "0x76"
     width_ratio = 1
-    overlap = 0.26
-    stroke_ratio = 0.88
+    overlap = 0.25
+    stroke_ratio = 0.9
     sbl = 0.4
     sbr = 0.4
 
