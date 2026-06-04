@@ -8,6 +8,7 @@ class LowercaseNGlyph(SquareLowercaseGlyph):
     name = "lowercase_n"
     unicode = "0x6E"
     sbr = 0.88
+    sbl = 0.94
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

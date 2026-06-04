@@ -15,6 +15,7 @@ class LowercaseCGlyph(RoundLowercaseGlyph):
     thinning = 1
     top_offset = 0.00
     sbr = 0.46
+    stroke_x_ratio = 1.03
 
     def draw(self, pen, dc):
 

@@ -10,7 +10,7 @@ class LowercaseGGlyph(SingleStoryLowercaseGlyph):
     name = "lowercase_g"
     unicode = "0x67"
     sbl = 0.65
-    sbr = 0.9
+    sbr = 0.96
 
     tail_offset = 0
     tail_stroke_x_ratio = 0.89

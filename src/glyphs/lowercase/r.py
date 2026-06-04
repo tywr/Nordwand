@@ -16,7 +16,7 @@ class LowercaseRGlyph(Glyph):
     stroke_ratio = 0.85
     arch_length = 0.75
     hx_ratio = 1
-    sbl = 1
+    sbl = 0.94
     sbr = 0.3
 
     def draw(self, pen, dc):
