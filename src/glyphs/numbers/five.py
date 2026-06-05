@@ -13,17 +13,17 @@ class FiveGlyph(NumberGlyph):
     name = "five"
     unicode = "0x35"
     loop_ratio = 0.66
-    width_ratio = 1.04
+    width_ratio = 0.99
     junction_ratio = 0.45
     tilt = 0.25
     taper = 1.5
-    sbl = 0.85
-    sbr = 0.8
+    sbl = 0.88
+    sbr = 0.75
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
             height="cap",
-            width=dc.width * self.width_ratio + dc.stroke_x,
+            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
             side_bearing_right=self.sbr * dc.side_bearing,
             side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_bottom=True,
@@ -31,7 +31,7 @@ class FiveGlyph(NumberGlyph):
         )
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
         yj = b.y1 + b.height * self.junction_ratio
-        oj = self.tilt * b.width
+        oj = self.tilt * b.width + max(dc.stroke_x - 90, 0)
 
         base_glyph = ufoLib2.objects.Glyph()
 

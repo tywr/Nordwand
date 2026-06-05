@@ -6,7 +6,7 @@ class SingleStoryLowercaseGlyph(Glyph, ABC):
     """Define common class variables for single-story lowercase glyphs"""
 
     taper = 0.8
-    width_ratio = 0.97
+    width_ratio = 0.98
     sbl = 1
     sbr = 1
 
@@ -15,8 +15,12 @@ class SingleStoryLowercaseGlyph(Glyph, ABC):
     bowl_stroke_x_ratio = 1.01
     bowl_stroke_y_ratio = 1.00
 
-    hx_ratio = 1.03
+    hx_ratio = 1.0
     hy_ratio = 1
 
     def window_width(self, dc):
-        return self.width_ratio * dc.width + dc.stroke_x + (self.sbr + self.sbl) * dc.side_bearing
+        return (
+            self.width_ratio * dc.width
+            + dc.stroke_x
+            + (self.sbr + self.sbl) * dc.side_bearing
+        )

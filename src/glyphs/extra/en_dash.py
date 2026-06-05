@@ -11,7 +11,7 @@ class EnDashGlyph(Glyph):
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            width=dc.width * self.width_ratio + dc.stroke_x,
+            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
             side_bearing_right=self.sbr * dc.side_bearing,
             side_bearing_left=self.sbl * dc.side_bearing,
         )

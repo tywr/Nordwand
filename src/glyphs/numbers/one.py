@@ -7,14 +7,14 @@ class OneGlyph(NumberGlyph):
     name = "one"
     unicode = "0x31"
     branch_height = 0.35
-    width_ratio = 0.65
-    sbl = 0.5
-    sbr = 1.75
+    width_ratio = 0.43
+    sbl = 0.75
+    sbr = 1.5
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
             height="cap",
-            width=dc.width * self.width_ratio + dc.stroke_x,
+            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
             side_bearing_right=self.sbr * dc.side_bearing,
             side_bearing_left=self.sbl * dc.side_bearing,
             number=True,

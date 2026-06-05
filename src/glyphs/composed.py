@@ -58,7 +58,7 @@ class ComposedGlyph(Glyph, ABC):
         base.draw_base(pen, dc) if hasattr(base, "draw_base") else base.draw(pen, dc)
 
         b = dc.body_bounds(
-            width=dc.width * base_class.width_ratio + dc.stroke_x,
+            width=dc.width * base_class.width_ratio + dc.stroke_x * base_class.stroke_x_ratio,
             side_bearing_right=base_class.sbr * dc.side_bearing,
             side_bearing_left=base_class.sbl * dc.side_bearing,
         )

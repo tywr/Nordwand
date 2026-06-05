@@ -9,8 +9,8 @@ from glyphs.lowercase.single_story import SingleStoryLowercaseGlyph
 class LowercaseGGlyph(SingleStoryLowercaseGlyph):
     name = "lowercase_g"
     unicode = "0x67"
-    sbl = 0.68
-    sbr = 0.92
+    sbl = 0.67
+    sbr = 0.94
 
     tail_offset = 0
     tail_stroke_x_ratio = 0.89
@@ -21,7 +21,7 @@ class LowercaseGGlyph(SingleStoryLowercaseGlyph):
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            width=dc.width * self.width_ratio + dc.stroke_x,
+            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
             side_bearing_right=self.sbr * dc.side_bearing,
             side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_bottom=True,
