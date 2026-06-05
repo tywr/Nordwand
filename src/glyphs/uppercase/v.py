@@ -7,7 +7,6 @@ from draw.rect import draw_rect
 class UppercaseVGlyph(UppercaseGlyph):
     name = "uppercase_v"
     unicode = "0x56"
-    overlap = 0.5
     stroke_x_ratio = 1.02
     width_ratio = 1.30
     sbl = 0.4
@@ -22,7 +21,7 @@ class UppercaseVGlyph(UppercaseGlyph):
             uppercase=True,
         )
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
-        ov = self.overlap * sx
+        ov = 0.5 * dc.stroke_x - 0.75 * max(sx - 94, 0)
 
         theta, delta = draw_parallelogramm(
             pen,

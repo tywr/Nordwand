@@ -20,38 +20,54 @@ class UppercaseWGlyph(UppercaseGlyph):
             side_bearing_right=self.sbr * dc.side_bearing,
             side_bearing_left=self.sbl * dc.side_bearing,
         )
+        ov = 1.3 * max(dc.stroke_x - 94, 0)
         tsx = dc.stroke_x * self.stroke_ratio
         sx = max(0, 0.7 * (tsx - 90)) + min(90, tsx)
-        isx = sx * self.inner_stroke_ratio
-        xi1 = b.x1 + self.outer_branch_ratio * b.width + sx / 2
-        xi2 = b.x2 - self.outer_branch_ratio * b.width - sx / 2
+        xi1 = b.x1 + self.outer_branch_ratio * b.width
+        xi2 = b.x2 - self.outer_branch_ratio * b.width
         yi = b.y1 + self.inner_height * b.height
 
         draw_parallelogramm(
-            pen, 0, 0, b.x1, b.y2, xi1, b.y1, delta=sx, direction="bottom-right"
-        )
-        draw_parallelogramm(
-            pen, 0, 0, b.x2, b.y2, xi2, b.y1, delta=sx, direction="bottom-left"
+            pen,
+            0,
+            0,
+            b.x1,
+            b.y2,
+            xi1 + sx / 2 - ov / 2,
+            b.y1,
+            delta=sx,
+            direction="bottom-right",
         )
         draw_parallelogramm(
             pen,
             0,
             0,
-            xi1 - isx,
+            b.x2,
+            b.y2,
+            xi2 - sx / 2 + ov / 2,
             b.y1,
-            b.xmid + isx / 2,
+            delta=sx,
+            direction="bottom-left",
+        )
+        draw_parallelogramm(
+            pen,
+            0,
+            0,
+            xi1 - sx / 2 + ov / 2,
+            b.y1,
+            b.xmid + sx / 2,
             yi,
-            delta=isx,
+            delta=sx,
             direction="top-right",
         )
         draw_parallelogramm(
             pen,
             0,
             0,
-            xi2 + isx,
+            xi2 + sx / 2 - ov / 2,
             b.y1,
-            b.xmid - isx / 2,
+            b.xmid - sx / 2,
             yi,
-            delta=isx,
+            delta=sx,
             direction="top-left",
         )
