@@ -9,6 +9,8 @@ class LowercaseA2Glyph(SingleStoryLowercaseGlyph):
     font_feature = {"cv06": 1}
     default_italic = True
     unicode = "0x61"
+    sbr = 0.67
+    sbl = 0.94
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

@@ -26,9 +26,20 @@ class Glyph(ABC):
             + (self.sbr + self.sbl) * dc.side_bearing
         )
 
+    def diag_stroke_dampening(self, ratio, stroke, coef=0.25):
+        from math import exp
+
+        ds = max(stroke - 94, 0) / 94
+        # If ds > 0, we add some dampening, other we let as is
+        if ds <= 0:
+            return ratio * stroke
+
+        delta = exp(-ds * coef)
+        sx = delta * stroke * ratio
+        return sx
+
     @abstractmethod
     def draw(self, pen, dc) -> None: ...
-
 
 
 class LigatureGlyph(Glyph):
