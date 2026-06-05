@@ -12,9 +12,16 @@ class LowercaseFGlyph(Glyph):
     sbl = 0.2
     sbr = 0.45
 
+    def window_width(self, dc):
+        return (
+            self.width_ratio * dc.width
+            + dc.stroke_x
+            + (self.sbr + self.sbl) * dc.side_bearing
+        )
+
     def draw(self, pen, dc):
         b = dc.body_bounds(
-            width=self.width_ratio * dc.width + dc.stroke_x * self.stroke_x_ratio,
+            width=self.width_ratio * dc.width + dc.stroke_x,
             side_bearing_right=self.sbr * dc.side_bearing,
             side_bearing_left=self.sbl * dc.side_bearing,
         )

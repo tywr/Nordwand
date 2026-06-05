@@ -8,8 +8,9 @@ class UppercaseBGlyph(UppercaseGlyph):
     unicode = "0x42"
     upper_ratio = 0.9  # Upper loop width as a fraction of the lower loop width
     mid_ratio = 0.52
-    width_ratio = 1.16
-    sbr = 0.5
+    width_ratio = 1.07
+    sbl = 1.07
+    sbr = 0.64
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

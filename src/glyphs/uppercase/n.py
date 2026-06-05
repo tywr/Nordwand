@@ -10,7 +10,9 @@ class UppercaseNGlyph(UppercaseGlyph):
     unicode = "0x4E"
     middle_stroke_ratio = 0.9
     overlap = 0.3
-    width_ratio = 1.3
+    width_ratio = 1.19
+    sbl = 1.07
+    sbr = 1.07
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

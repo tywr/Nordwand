@@ -5,14 +5,21 @@ from draw.rect import draw_rect
 class UppercaseTGlyph(UppercaseGlyph):
     name = "uppercase_t"
     unicode = "0x54"
-    width_ratio = 1.25
-    sbr = 0.35
-    sbl = 0.35
+    width_ratio = 1.14
+    sbr = 0.55
+    sbl = 0.55
+
+    def window_width(self, dc):
+        return (
+            self.width_ratio * dc.width
+            + dc.stroke_x
+            + (self.sbr + self.sbl) * dc.side_bearing
+        )
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
             height="cap",
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
+            width=dc.width * self.width_ratio + dc.default_stroke,
             side_bearing_right=self.sbr * dc.side_bearing,
             side_bearing_left=self.sbl * dc.side_bearing,
             uppercase=True,

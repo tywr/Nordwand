@@ -46,6 +46,7 @@ class FontConfig:
 
     taper: float = 0.5
 
+    default_stroke: int = 94
     stroke_x: int = 94
     stroke_y: int = 66
     stroke_alt: int = 60

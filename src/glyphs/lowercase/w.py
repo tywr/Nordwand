@@ -9,8 +9,7 @@ class LowercaseWGlyph(Glyph):
     outer_branch_ratio = 0.25
     inner_height = 1
     width_ratio = 1.56
-    stroke_ratio = 0.92
-    inner_stroke_ratio = 0.84
+    stroke_ratio = 0.9
     sbl = 0.4
     sbr = 0.4
 
@@ -20,10 +19,8 @@ class LowercaseWGlyph(Glyph):
             side_bearing_right=self.sbr * dc.side_bearing,
             side_bearing_left=self.sbl * dc.side_bearing,
         )
-        sx = dc.stroke_x * self.stroke_ratio
-        ov = self.overlap * dc.stroke_x
-        # sx = max(0, 0.7 * (tsx - 90)) + min(90, tsx)
-        isx = sx * self.inner_stroke_ratio
+        sx = self.diag_stroke_dampening(self.stroke_ratio, dc.stroke_x, coef=0.15)
+        ov = self.overlap * dc.stroke_x - 0.12 * max(dc.stroke_x - 94, 0)
         xi1 = b.x1 + self.outer_branch_ratio * b.width + sx / 2
         xi2 = b.x2 - self.outer_branch_ratio * b.width - sx / 2
         yi = b.y1 + self.inner_height * b.height
