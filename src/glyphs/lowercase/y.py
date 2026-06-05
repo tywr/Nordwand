@@ -6,12 +6,12 @@ from draw.parallelogramm import draw_parallelogramm
 class LowercaseYGlyph(Glyph):
     name = "lowercase_y"
     unicode = "0x79"
-    width_ratio = 1.0
+    width_ratio = 0.98
     overlap = 0.25
     dent_ratio = 0
     stroke_ratio = 0.9
-    sbl = 0.5
-    sbr = 0.5
+    sbl = 0.4
+    sbr = 0.4
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

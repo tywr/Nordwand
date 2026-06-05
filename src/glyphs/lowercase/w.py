@@ -8,11 +8,11 @@ class LowercaseWGlyph(Glyph):
     overlap = 0.25
     outer_branch_ratio = 0.25
     inner_height = 1
-    width_ratio = 1.6
+    width_ratio = 1.56
     stroke_ratio = 0.92
     inner_stroke_ratio = 0.84
-    sbl = 0.2
-    sbr = 0.2
+    sbl = 0.4
+    sbr = 0.4
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

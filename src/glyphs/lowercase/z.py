@@ -7,11 +7,11 @@ class LowercaseZGlyph(Glyph):
     name = "lowercase_z"
     unicode = "0x7A"
     diag_stroke_ratio = 0.96
-    width_ratio = 0.88
+    width_ratio = 0.8
     right_offset = 0.04
     left_offset = 0.025
-    sbl = 0.5
-    sbr = 0.5
+    sbl = 0.8
+    sbr = 0.8
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
