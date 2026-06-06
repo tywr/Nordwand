@@ -10,6 +10,7 @@ class DottedLowercaseGlyph(Glyph, ABC):
     dot_height = 0.25
     dot_width = 1.1
     dot_position = "xmid"
+    min_opening = 90
     sbl = 1
     sbr = 1
 
@@ -36,7 +37,7 @@ class DottedLowercaseGlyph(Glyph, ABC):
         draw_rect(
             pen,
             xpos - w / 2,
-            dc.cap - dh,
+            max(dc.ascent - dh, dc.x_height + self.min_opening),
             xpos + w / 2,
-            dc.cap,
+            dc.ascent,
         )

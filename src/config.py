@@ -15,10 +15,10 @@ class FontConfig:
     window_descent: int = -300
     window_width: int = 600
 
-    ascent: int = 750
-    descent: int = -200
-    cap: int = 750
-    x_height: int = 530
+    ascent: int = 734
+    descent: int = -185
+    cap: int = 734
+    x_height: int = 526
 
     accent: int = 715
     accent_cap: int = 890
@@ -34,9 +34,9 @@ class FontConfig:
     default_stroke = 90
     italic_angle: float = 9.4
 
-    space = 225
-    width: int = 400
-    side_bearing = 70
+    space = 280
+    width: int = 398
+    side_bearing = 84
 
     hx: int = 180
     hy: int = 180
@@ -93,7 +93,7 @@ class DrawConfig(FontConfig):
         brx = 1.7
         ratio_x = exp((w - 400) * log(brx) / 300)
 
-        bry = 1.2
+        bry = 1.4
         ratio_y = exp((w - 400) * log(bry) / 300)
 
         bhy = 1.3
@@ -108,9 +108,9 @@ class DrawConfig(FontConfig):
             stroke_y=int(cls.stroke_y * ratio_y),
             stroke_alt=int(cls.stroke_alt * ratio_y),
             x_height=cls.x_height + extra_height,
-            cap=cls.cap + extra_height,
+            cap=cls.cap,
             accent=cls.cap + extra_height,
-            accent_cap=cls.accent_cap + extra_height,
+            accent_cap=cls.accent_cap,
             ascent=cls.ascent + extra_height,
             descent=cls.descent - extra_height,
             taper=taper,
