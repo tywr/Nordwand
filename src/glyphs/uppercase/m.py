@@ -1,10 +1,8 @@
-from math import cos, sin
 import ufoLib2
 from booleanOperations.booleanGlyph import BooleanGlyph
 from glyphs.uppercase import UppercaseGlyph
 from draw.rect import draw_rect
 from draw.parallelogramm import draw_parallelogramm_vertical
-from draw.polygon import draw_polygon
 
 
 class UppercaseMGlyph(UppercaseGlyph):

@@ -34,7 +34,6 @@ class FontConfig:
     italic_angle: float = 9.4
 
     space = 280
-    width: int = 398
     side_bearing = 84
 
     hx: int = 152
@@ -45,15 +44,17 @@ class FontConfig:
 
     taper: float = 0.58
 
-    # default_stroke: int = 92
-    # stroke_x: int = 92
-    # stroke_y: int = 64
-    # stroke_alt: int = 64
-
+    width: int = 398
     default_stroke: int = 85
-    stroke_x = 85
-    stroke_y = 70
-    stroke_alt = 70
+    stroke_x: int = 85
+    stroke_y: int = 64
+    stroke_alt: int = 64
+
+    # width: int = 398
+    # default_stroke: int = 85
+    # stroke_x = 85
+    # stroke_y = 70
+    # stroke_alt = 70
 
     v_overshoot: int = 9
     v_overshoot_cap: int = 16
