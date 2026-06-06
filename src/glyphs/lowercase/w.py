@@ -6,10 +6,10 @@ class LowercaseWGlyph(Glyph):
     name = "lowercase_w"
     unicode = "0x77"
     overlap = 0.25
-    outer_branch_ratio = 0.25
+    outer_branch_ratio = 0.27
     inner_height = 1
     width_ratio = 1.56
-    stroke_ratio = 0.9
+    stroke_ratio = 0.95
     sbl = 0.4
     sbr = 0.4
 
@@ -21,8 +21,8 @@ class LowercaseWGlyph(Glyph):
         )
         sx = self.diag_stroke_dampening(self.stroke_ratio, dc.stroke_x, coef=0.15)
         ov = self.overlap * dc.stroke_x - 0.12 * max(dc.stroke_x - 94, 0)
-        xi1 = b.x1 + self.outer_branch_ratio * b.width + sx / 2
-        xi2 = b.x2 - self.outer_branch_ratio * b.width - sx / 2
+        xi1 = b.x1 + self.outer_branch_ratio * b.width
+        xi2 = b.x2 - self.outer_branch_ratio * b.width
         yi = b.y1 + self.inner_height * b.height
 
         draw_parallelogramm(
@@ -31,19 +31,19 @@ class LowercaseWGlyph(Glyph):
             0,
             b.x1,
             b.y2,
-            xi1 - ov,
+            xi1 - ov / 2 + sx / 2,
             b.y1,
             delta=sx,
             direction="bottom-right",
         )
         draw_parallelogramm(
-            pen, 0, 0, b.x2, b.y2, xi2 + ov, b.y1, delta=sx, direction="bottom-left"
+            pen, 0, 0, b.x2, b.y2, xi2 + ov / 2 - sx / 2, b.y1, delta=sx, direction="bottom-left"
         )
         draw_parallelogramm(
             pen,
             0,
             0,
-            xi1 - ov - sx / 2,
+            xi1 + ov / 2 - sx / 2,
             b.y1,
             b.xmid + sx / 2,
             yi,
@@ -54,7 +54,7 @@ class LowercaseWGlyph(Glyph):
             pen,
             0,
             0,
-            xi2 + ov + sx / 2,
+            xi2 - ov / 2 + sx / 2,
             b.y1,
             b.xmid - sx / 2,
             yi,

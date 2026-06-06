@@ -21,7 +21,7 @@ class UppercaseVGlyph(UppercaseGlyph):
             uppercase=True,
         )
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
-        ov = 0.5 * dc.stroke_x - 0.75 * max(sx - 94, 0)
+        ov = 0.5 * dc.stroke_x - 0.75 * max(sx - dc.default_stroke, 0)
 
         theta, delta = draw_parallelogramm(
             pen,

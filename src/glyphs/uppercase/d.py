@@ -6,9 +6,10 @@ from draw.rect import draw_rect
 class UppercaseDGlyph(UppercaseGlyph):
     name = "uppercase_d"
     unicode = "0x44"
-    arch_start = 0.5
-    hy_ratio = 1
-    width_ratio = 1.22
+    arch_start = 0.4
+    hx_ratio = 1.1
+    hy_ratio = 1.15
+    width_ratio = 1.21
     sbl = 1.07
     sbr = 0.75
 
@@ -22,7 +23,7 @@ class UppercaseDGlyph(UppercaseGlyph):
         )
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
         cut_x = b.x1 + self.arch_start * b.width
-        hx, hy = b.hx, b.hy * self.hy_ratio
+        hx, hy = b.hx * self.hx_ratio, b.hy * self.hy_ratio
 
         # Left stem
         draw_rect(pen, b.x1, 0, b.x1 + sx, dc.cap)

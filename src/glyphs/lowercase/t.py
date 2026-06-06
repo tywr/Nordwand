@@ -10,10 +10,10 @@ class LowercaseTGlyph(Glyph):
     name = "lowercase_t"
     unicode = "0x74"
     width_ratio = 0.5
-    rl_ratio = 0.5
+    rl_ratio = 0.56
     up_ratio = 0.32
-    sbl = 0.2
-    sbr = 0.57
+    sbl = 0.17
+    sbr = 0.78
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

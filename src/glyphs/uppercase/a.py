@@ -7,9 +7,9 @@ from draw.rect import draw_rect
 class UppercaseAGlyph(UppercaseGlyph):
     name = "uppercase_a"
     unicode = "0x41"
-    bar_height = 0.35
+    bar_height = 0.39
     overlap = 0.5
-    stroke_x_ratio = 1.02
+    stroke_x_ratio = 1.01
     width_ratio = 1.3
     sbl = 0.4
     sbr = 0.4
@@ -24,7 +24,7 @@ class UppercaseAGlyph(UppercaseGlyph):
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
 
         half_width = b.width / 2 - sx / 2
-        ov = self.overlap * sx
+        ov = 0.5 * dc.stroke_x - 0.75 * max(sx - dc.default_stroke, 0)
         hb = self.bar_height * b.height
 
         # Left branch

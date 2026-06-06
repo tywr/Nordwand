@@ -9,15 +9,19 @@ from glyphs.lowercase.single_story import SingleStoryLowercaseGlyph
 class LowercaseGGlyph(SingleStoryLowercaseGlyph):
     name = "lowercase_g"
     unicode = "0x67"
-    sbl = 0.67
+    sbl = 0.63
     sbr = 0.94
 
     tail_offset = 0
-    tail_stroke_x_ratio = 0.89
+    tail_stroke_x_ratio = 0.96
     tail_stroke_y_ratio = 1.01
-    tail_offset = 0.15
-    cut_ratio = 0.25
-    tail_offset = 0.02
+    hx_ratio = 1.0
+    hy_ratio = 0.92
+    tail_hx_ratio = 1
+    tail_hy_ratio = 0.6
+    cut_ratio = 0.265
+    tail_offset = 0.04
+    y1_offset = 0.065
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
@@ -27,6 +31,7 @@ class LowercaseGGlyph(SingleStoryLowercaseGlyph):
             overshoot_bottom=True,
             overshoot_top=True,
         )
+        hx, hy = (self.hx_ratio * b.hx, self.hy_ratio * b.hy)
         bsx, bsy = (
             self.bowl_stroke_x_ratio * dc.stroke_x,
             self.bowl_stroke_y_ratio * dc.stroke_y,
@@ -35,19 +40,24 @@ class LowercaseGGlyph(SingleStoryLowercaseGlyph):
             self.tail_stroke_x_ratio * dc.stroke_x,
             self.tail_stroke_y_ratio * dc.stroke_y,
         )
+        thx, thy = (
+            self.tail_hx_ratio * dc.hx,
+            self.tail_hy_ratio * dc.hy,
+        )
         xt = b.x1 + self.tail_offset * b.width
+        y1 = b.y1 + self.y1_offset * b.height
 
         # Bowl (open on the right, mirrored from b)
-        arch_params = draw_arch(
+        draw_arch(
             pen,
             bsx,
             bsy,
             b.x1,
-            b.y1,
+            y1,
             b.x2,
             b.y2,
-            b.hx,
-            b.hy,
+            hx,
+            hy,
             taper=dc.taper * self.taper,
             side="right",
         )
@@ -64,8 +74,8 @@ class LowercaseGGlyph(SingleStoryLowercaseGlyph):
             0,
             b.xmid,
             dc.descent - dc.v_overshoot,
-            b.hx,
-            b.hy,
+            thx,
+            thy,
             orientation="bottom-left",
         )
 
@@ -78,8 +88,8 @@ class LowercaseGGlyph(SingleStoryLowercaseGlyph):
             0,
             b.xmid,
             dc.descent - dc.v_overshoot,
-            b.hx,
-            b.hy,
+            thx,
+            thy,
         )
         cut_glyph = ufoLib2.objects.Glyph()
         draw_rect(

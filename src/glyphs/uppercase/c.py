@@ -11,13 +11,13 @@ class UppercaseCGlyph(UppercaseGlyph):
     unicode = "0x43"
     stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.00
     stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.00
-    opening1 = 0.33
-    opening2 = 0.66
+    opening1 = 0.29
+    opening2 = 0.69
     thinning = 1
     top_offset = 0.00
-    width_ratio = 1.28
+    width_ratio = 1.33
     sbl = 0.75
-    sbr = 0.68
+    sbr = 0.45
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

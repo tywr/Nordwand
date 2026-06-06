@@ -22,7 +22,7 @@ class Glyph(ABC):
     def window_width(self, dc):
         return (
             self.width_ratio * dc.width
-            + dc.stroke_x
+            + dc.default_stroke
             + (self.sbr + self.sbl) * dc.side_bearing
         )
 

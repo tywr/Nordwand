@@ -6,12 +6,13 @@ from draw.rect import draw_rect
 class LowercaseMGlyph(Glyph):
     name = "lowercase_m"
     unicode = "0x6D"
-    width_ratio = 1.6
+    width_ratio = 1.59
     mid_len = 1
     top_stroke_y = 1
-    hx_ratio = 0.65
-    taper1 = 0.7
-    taper2 = 0.9
+    hx_ratio = 0.75
+    hy_ratio = 1
+    taper1 = 0.6
+    taper2 = 0.75
     min_taper = 0.05
     min_taper_2 = 0.05
     ending_thickness = 0.75
@@ -29,7 +30,7 @@ class LowercaseMGlyph(Glyph):
         taper1 = max(self.min_taper, self.taper1 * dc.taper)
         taper2 = max(self.min_taper_2, self.taper2 * dc.taper)
         mid_y = (1 - self.mid_len) * (b.height - b.y1)
-        hx, hy = b.hx * self.hx_ratio, b.hy
+        hx, hy = b.hx * self.hx_ratio, self.hy_ratio * b.hy
         sx = max(0, 0.7 * (dc.stroke_x - 90)) + min(90, dc.stroke_x)
 
         wo = (b.width - 3 * sx) / 2

@@ -5,11 +5,11 @@ from draw.loop import draw_loop
 class UppercaseOGlyph(UppercaseGlyph):
     name = "uppercase_o"
     unicode = "0x4F"
-    stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.00
-    stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.00
-    width_ratio = 1.4
-    sbl = 0.75
-    sbr = 0.75
+    stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.02
+    stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.04
+    width_ratio = 1.39
+    sbl = 0.72
+    sbr = 0.72
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

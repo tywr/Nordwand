@@ -17,10 +17,3 @@ class SingleStoryLowercaseGlyph(Glyph, ABC):
 
     hx_ratio = 1.0
     hy_ratio = 1
-
-    def window_width(self, dc):
-        return (
-            self.width_ratio * dc.width
-            + dc.stroke_x
-            + (self.sbr + self.sbl) * dc.side_bearing
-        )

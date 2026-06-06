@@ -9,11 +9,11 @@ class LowercaseRGlyph(Glyph):
     name = "lowercase_r"
     unicode = "0x72"
     loop_ratio = 0.85
-    hx_ratio = 1.00
-    hy_ratio = 0.85
+    hx_ratio = 2
+    hy_ratio = 1
     taper = 0.5
-    width_ratio = 0.5
-    stroke_ratio = 0.85
+    width_ratio = 0.48
+    stroke_ratio = 1
     arch_length = 0.75
     hx_ratio = 1
     sbl = 0.94
@@ -24,6 +24,7 @@ class LowercaseRGlyph(Glyph):
             width=self.width_ratio * dc.width + dc.stroke_x * self.stroke_x_ratio,
             side_bearing_right=self.sbr * dc.side_bearing,
             side_bearing_left=self.sbl * dc.side_bearing,
+            overshoot_top=True,
         )
         hx, hy = dc.hx * self.hx_ratio, dc.hy * self.hy_ratio
         ys = b.y2 - self.loop_ratio * b.height
@@ -38,7 +39,7 @@ class LowercaseRGlyph(Glyph):
             ys,
             b.x1 + arch_length,
             b.y2,
-            hx * self.hx_ratio,
+            hx,
             hy,
             taper=self.taper * dc.taper,
             side="left",

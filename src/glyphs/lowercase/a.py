@@ -11,14 +11,16 @@ class LowercaseAGlyph(Glyph):
     unicode = "0x61"
     accent_x_offset = 16
     mid_height = 0.52
-    width_ratio = 0.88
+    width_ratio = 0.85
     taper = 0.6
-    sbl = 0.57
-    sbr = 0.88
+    sbl = 0.58
+    sbr = 0.9
 
+    left_cap_hx_ratio = 1.25
+    left_cap_hy_ratio = 1.3
     cap_hx_ratio = 1.2
     cap_hy_ratio = 1
-    cap_height = 0.7
+    cap_height = 0.74
     cap_offset = 0.015
     thinning = 1
     upper_bowl_mid = 0.53
@@ -48,6 +50,8 @@ class LowercaseAGlyph(Glyph):
         ycut = b.y1 + self.cap_height * b.height
         xc = b.x1 + self.cap_offset * b.width
         chx = self.cap_hx_ratio * b.hx
+        lchx = self.left_cap_hx_ratio * b.hx
+        lchy = self.left_cap_hy_ratio * b.hy
 
         # Lower half half of the bowl
         draw_arch(
@@ -89,7 +93,7 @@ class LowercaseAGlyph(Glyph):
         # Cap
         xmid = (xc + b.x2) / 2
         draw_corner(
-            pen, sx, csy, b.x2, b.ymid, xmid, b.y2, chx, b.hy, orientation="top-left"
+            pen, sx, csy, b.x2, b.ymid, xmid, b.y2, lchx, lchy, orientation="top-left"
         )
 
         loop_glyph = ufoLib2.objects.Glyph()

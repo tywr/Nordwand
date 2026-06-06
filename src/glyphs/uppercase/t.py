@@ -8,13 +8,7 @@ class UppercaseTGlyph(UppercaseGlyph):
     width_ratio = 1.14
     sbr = 0.55
     sbl = 0.55
-
-    def window_width(self, dc):
-        return (
-            self.width_ratio * dc.width
-            + dc.stroke_x
-            + (self.sbr + self.sbl) * dc.side_bearing
-        )
+    stroke_y_ratio = 1.2
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

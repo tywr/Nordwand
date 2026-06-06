@@ -6,11 +6,13 @@ from draw.rect import draw_rect
 class UppercaseBGlyph(UppercaseGlyph):
     name = "uppercase_b"
     unicode = "0x42"
-    upper_ratio = 0.9  # Upper loop width as a fraction of the lower loop width
-    mid_ratio = 0.52
+    upper_ratio = 0.85
+    mid_ratio = 0.515
     width_ratio = 1.07
+    hx_ratio = 1.1
+    hy_ratio = 1.1
     sbl = 1.07
-    sbr = 0.64
+    sbr = 0.66
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
@@ -21,7 +23,7 @@ class UppercaseBGlyph(UppercaseGlyph):
             uppercase=True,
         )
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
-        hx, hy = b.hx, b.hy
+        hx, hy = b.hx * self.hx_ratio, b.hy * self.hy_ratio
         ymid = b.y1 + self.mid_ratio * b.height
 
         lower_x1 = b.x1
@@ -46,7 +48,7 @@ class UppercaseBGlyph(UppercaseGlyph):
             b.y2,
             hx * (upper_x2 - upper_x1) / b.width,
             hy * (1 - self.mid_ratio),
-            taper=0.75,
+            taper=0.6,
             side="bottom",
             cut="left",
         )

@@ -9,13 +9,15 @@ from glyphs.lowercase.round import RoundLowercaseGlyph
 class LowercaseEGlyph(RoundLowercaseGlyph):
     name = "lowercase_e"
     unicode = "0x65"
-    width_ratio = 1
+    width_ratio = 0.98
     mid_height = 0.52
-    thinning = 1
-    tail_offset = 0.00
-    tail_height = 0.31
-    sbr = 0.54
-    sbl = 0.6
+    thinning = 0.9
+    tail_offset = 0.005
+    tail_height = 0.268
+    tail_hx_ratio = 1.15
+    tail_hy_ratio = 1.0
+    sbr = 0.56
+    sbl = 0.63
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
@@ -29,6 +31,8 @@ class LowercaseEGlyph(RoundLowercaseGlyph):
         yo = b.y1 + self.tail_height * b.height
         ymid = b.y1 + self.mid_height * b.height
         xt = b.x2 + self.tail_offset * b.width
+        thx = self.tail_hx_ratio * b.hx
+        thy = self.tail_hy_ratio * b.hy
 
         # Half-left as the o-shape
         draw_loop(
@@ -58,6 +62,7 @@ class LowercaseEGlyph(RoundLowercaseGlyph):
             orientation="top-left",
         )
 
+        # bottom-left
         loop_glyph = ufoLib2.objects.Glyph()
         draw_corner(
             loop_glyph.getPen(),
@@ -67,8 +72,8 @@ class LowercaseEGlyph(RoundLowercaseGlyph):
             b.ymid,
             b.xmid,
             b.y1,
-            b.hx,
-            b.hy,
+            thx,
+            thy,
             orientation="bottom-left",
         )
 

@@ -1,15 +1,13 @@
-from math import tan, pi
 from glyphs import Glyph
 from draw.parallelogramm import draw_parallelogramm
-from draw.rect import draw_rect
 
 
 class LowercaseVGlyph(Glyph):
     name = "lowercase_v"
     unicode = "0x76"
     width_ratio = 0.98
-    overlap = 0.25
-    stroke_ratio = 0.9
+    overlap = 0.33
+    stroke_ratio = 1
     sbl = 0.4
     sbr = 0.4
 

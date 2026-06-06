@@ -15,9 +15,9 @@ class FontConfig:
     window_descent: int = -300
     window_width: int = 600
 
-    ascent: int = 734
-    descent: int = -185
-    cap: int = 734
+    ascent: int = 735
+    descent: int = -175
+    cap: int = 705
     x_height: int = 526
 
     accent: int = 715
@@ -31,28 +31,33 @@ class FontConfig:
     min_margin_lowercase: int = 26
     min_margin_uppercase: int = 40
 
-    default_stroke = 90
     italic_angle: float = 9.4
 
     space = 280
     width: int = 398
     side_bearing = 84
 
-    hx: int = 180
-    hy: int = 180
+    hx: int = 152
+    hy: int = 187
 
-    cap_hx: int = 180
-    cap_hy: int = 170
+    cap_hx: int = 140
+    cap_hy: int = 180
 
-    taper: float = 0.5
+    taper: float = 0.58
 
-    default_stroke: int = 94
-    stroke_x: int = 94
-    stroke_y: int = 66
-    stroke_alt: int = 60
+    # default_stroke: int = 92
+    # stroke_x: int = 92
+    # stroke_y: int = 64
+    # stroke_alt: int = 64
 
-    v_overshoot: int = 12
-    h_overshoot: int = 11
+    default_stroke: int = 85
+    stroke_x = 85
+    stroke_y = 70
+    stroke_alt = 70
+
+    v_overshoot: int = 9
+    v_overshoot_cap: int = 16
+    h_overshoot: int = 10
 
     # Kerning pairs: {"<char1><char2>": fraction_of_side_bearing}.
     # e.g. {"vo": -0.5} shifts "o" left by 0.5 * side_bearing units after "v".
@@ -81,6 +86,7 @@ class DrawConfig(FontConfig):
     stroke_y: int = FontConfig.stroke_y
     stroke_alt: int = FontConfig.stroke_alt
     v_overshoot: int = FontConfig.v_overshoot
+    v_overshoot_cap: int = FontConfig.v_overshoot_cap
     h_overshoot: int = FontConfig.h_overshoot
 
     italic: bool = False
@@ -102,17 +108,18 @@ class DrawConfig(FontConfig):
         # Function mapping 100 → 0.5 and 700 → 0.2
         taper = min(0.5, 0.5 - 0.0009 * (w - 400))
 
-        extra_height = int((ratio_y - 1) * cls.stroke_y)
+        extra_sb = max(cls.stroke_x * ratio_x - cls.default_stroke, 0) / 4
         return cls(
             stroke_x=int(cls.stroke_x * ratio_x),
             stroke_y=int(cls.stroke_y * ratio_y),
             stroke_alt=int(cls.stroke_alt * ratio_y),
-            x_height=cls.x_height + extra_height,
+            side_bearing=cls.side_bearing + extra_sb,
+            x_height=cls.x_height,
             cap=cls.cap,
-            accent=cls.cap + extra_height,
+            accent=cls.cap,
             accent_cap=cls.accent_cap,
-            ascent=cls.ascent + extra_height,
-            descent=cls.descent - extra_height,
+            ascent=cls.ascent,
+            descent=cls.descent,
             taper=taper,
             hy=hy_ratio * cls.hy,
             cap_hy=hy_ratio * cls.cap_hy,
@@ -153,7 +160,10 @@ class DrawConfig(FontConfig):
         x2 = x1 + width
         y2 = getattr(self, height)
 
-        v_ov = self.v_overshoot
+        if uppercase:
+            v_ov = self.v_overshoot_cap
+        else:
+            v_ov = self.v_overshoot
         h_ov = self.h_overshoot
 
         if overshoot_bottom:

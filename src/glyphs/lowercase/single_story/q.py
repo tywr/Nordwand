@@ -7,7 +7,7 @@ class LowercaseQGlyph(SingleStoryLowercaseGlyph):
     name = "lowercase_q"
     unicode = "0x71"
     sbr = 0.94
-    sbl = 0.67
+    sbl = 0.65
 
     def draw(self, pen, dc):
         b = dc.body_bounds(
