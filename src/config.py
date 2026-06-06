@@ -83,6 +83,7 @@ class DrawConfig(FontConfig):
     cap_hx: int = FontConfig.cap_hx
     cap_hy: int = FontConfig.cap_hy
     taper: int = FontConfig.taper
+    default_stroke: int = FontConfig.default_stroke
     stroke_x: int = FontConfig.stroke_x
     stroke_y: int = FontConfig.stroke_y
     stroke_alt: int = FontConfig.stroke_alt
@@ -109,8 +110,11 @@ class DrawConfig(FontConfig):
         # Function mapping 100 → 0.5 and 700 → 0.2
         taper = min(0.5, 0.5 - 0.0009 * (w - 400))
 
+        ds = cls.stroke_x * (ratio_x - 1) + cls.default_stroke
         extra_sb = max(cls.stroke_x * ratio_x - cls.default_stroke, 0) / 4
         return cls(
+            default_stroke=int(ds),
+            width=int(cls.width),
             stroke_x=int(cls.stroke_x * ratio_x),
             stroke_y=int(cls.stroke_y * ratio_y),
             stroke_alt=int(cls.stroke_alt * ratio_y),
