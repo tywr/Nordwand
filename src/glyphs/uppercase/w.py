@@ -5,13 +5,13 @@ from draw.parallelogramm import draw_parallelogramm
 class UppercaseWGlyph(UppercaseGlyph):
     name = "uppercase_w"
     unicode = "0x57"
-    outer_branch_ratio = 0.25
+    outer_branch_ratio = 0.26
     inner_height = 1
     width_ratio = 1.99
-    stroke_ratio = 1
+    stroke_ratio = 1.1
     inner_stroke_ratio = 1
-    sbr = 0.52
-    sbl = 0.52
+    sbr = 0.53
+    sbl = 0.53
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

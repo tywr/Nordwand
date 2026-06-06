@@ -6,9 +6,8 @@ class UppercaseTGlyph(UppercaseGlyph):
     name = "uppercase_t"
     unicode = "0x54"
     width_ratio = 1.14
-    sbr = 0.55
-    sbl = 0.55
-    stroke_y_ratio = 1.2
+    sbr = 0.56
+    sbl = 0.56
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

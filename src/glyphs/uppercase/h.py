@@ -7,8 +7,8 @@ class UppercaseHGlyph(UppercaseGlyph):
     unicode = "0x48"
     bar_height = 0.51
     width_ratio = 1.19
-    sbl = 1.08
-    sbr = 1.08
+    sbl = 1.09
+    sbr = 1.09
 
     def draw(self, pen, dc):
         b = dc.body_bounds(

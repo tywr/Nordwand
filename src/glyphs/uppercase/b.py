@@ -11,7 +11,7 @@ class UppercaseBGlyph(UppercaseGlyph):
     width_ratio = 1.07
     hx_ratio = 1.1
     hy_ratio = 1.1
-    sbl = 1.07
+    sbl = 1.09
     sbr = 0.66
 
     def draw(self, pen, dc):
