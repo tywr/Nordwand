@@ -7,17 +7,13 @@ class NumberSignGlyph(Glyph):
     unicode = "0x23"
     width_ratio = 1.32
     gap = 0.42
-    height = 1
+    bar_height_ratio = 1
+    height = "cap"
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            height="cap",
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-        )
+        b = self.body_bounds(dc)
         g = self.gap * b.width
-        h = self.height * b.height
+        h = self.bar_height_ratio * b.height
         sx, sy = dc.stroke_x / 2, dc.stroke_y / 2
         xm1, xm2 = b.xmid - g / 2, b.xmid + g / 2
         ym1, ym2 = dc.math - g / 2, dc.math + g / 2

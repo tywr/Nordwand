@@ -16,15 +16,11 @@ class SharpSGlyph(Glyph):
     tail_reach = 0.15
     stroke_x_ratio = 1.00
     stroke_y_ratio = 1.00
+    height = "cap"
+    uppercase = True
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            height="cap",
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            uppercase=True,
-        )
+        b = self.body_bounds(dc)
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
         hx, hy = b.hx, b.hy
         ymid = b.y1 + self.mid_ratio * b.height

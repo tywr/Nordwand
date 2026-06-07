@@ -4,9 +4,11 @@ from glyphs import Glyph
 
 class SingleStoryLowercaseGlyph(Glyph, ABC):
     """Define common class variables for single-story lowercase glyphs"""
+    overshoot_top = True
+    overshoot_bottom = True
 
     taper = 0.8
-    width_ratio = 0.99
+    width_ratio = 0.985
     sbl = 1
     sbr = 1
 

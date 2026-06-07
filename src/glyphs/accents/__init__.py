@@ -18,9 +18,5 @@ class Accent(Glyph, ABC):
 
     def draw(self, pen, dc):
         """Draw the accent at the default position (centered in the cell)."""
-        b = dc.body_bounds(
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-        )
+        b = self.body_bounds(dc)
         self.draw_at(pen, dc, x=b.xmid, y=dc.accent)

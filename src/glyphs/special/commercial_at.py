@@ -12,15 +12,11 @@ class CommercialAtGlyph(Glyph):
     inner_ratio_x = 0.55
     inner_ratio_y = 0.45
     ending_thickness = 0.8
+    height = "cap"
+    overshoot_top = True
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            height="cap",
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            overshoot_top=True,
-        )
+        b = self.body_bounds(dc)
         wi, hi = self.inner_ratio_x * b.width, self.inner_ratio_y * b.height
         xi1, xi2 = b.x2 - wi, b.x2
         yi1, yi2 = b.ymid - hi / 2, b.ymid + hi / 2

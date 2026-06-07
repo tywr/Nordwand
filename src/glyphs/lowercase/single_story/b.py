@@ -6,7 +6,7 @@ from glyphs.lowercase.single_story import SingleStoryLowercaseGlyph
 class LowercaseBGlyph(SingleStoryLowercaseGlyph):
     name = "lowercase_b"
     unicode = "0x62"
-    sbr = 0.65
+    sbr = 0.62
     sbl = 1
 
     def draw(
@@ -14,13 +14,7 @@ class LowercaseBGlyph(SingleStoryLowercaseGlyph):
         pen,
         dc,
     ):
-        b = dc.body_bounds(
-            width=dc.width * self.width_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            overshoot_bottom=True,
-            overshoot_top=True,
-        )
+        b = self.body_bounds(dc)
         bsx, bsy = (
             self.bowl_stroke_x_ratio * dc.stroke_x,
             self.bowl_stroke_y_ratio * dc.stroke_y,

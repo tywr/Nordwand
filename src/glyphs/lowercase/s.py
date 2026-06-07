@@ -23,15 +23,11 @@ class LowercaseSGlyph(Glyph):
     curve_ratio = 2.8
     sbl = 0.6
     sbr = 0.64
+    overshoot_top = True
+    overshoot_bottom = True
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            width=self.width_ratio * dc.width + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            overshoot_bottom=True,
-            overshoot_top=True,
-        )
+        b = self.body_bounds(dc)
         sx, sy = self.stroke_x_ratio * dc.stroke_x, dc.stroke_y * self.stroke_y_ratio
         hx, hy = b.hx * self.hx_ratio, b.hy * self.hy_ratio
         yc1 = b.y1 + b.height * self.opening1

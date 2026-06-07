@@ -18,14 +18,10 @@ class LowercaseRGlyph(Glyph):
     hx_ratio = 1
     sbl = 0.94
     sbr = 0.31
+    overshoot_top = True
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            width=self.width_ratio * dc.width + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            overshoot_top=True,
-        )
+        b = self.body_bounds(dc)
         hx, hy = dc.hx * self.hx_ratio, dc.hy * self.hy_ratio
         ys = b.y2 - self.loop_ratio * b.height
         arch_length = dc.width * self.arch_length + 2 * dc.stroke_x

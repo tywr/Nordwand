@@ -7,15 +7,11 @@ from glyphs.lowercase.square import SquareLowercaseGlyph
 class LowercaseHGlyph(SquareLowercaseGlyph):
     name = "lowercase_h"
     unicode = "0x68"
-    sbr = 0.87
+    sbr = 0.89
+    overshoot_top = True
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            width=self.width_ratio * dc.width + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            overshoot_top=True,
-        )
+        b = self.body_bounds(dc)
         yl = b.y2 - self.loop_ratio * b.height
 
         # Top arch, cut at the bottom (only upper half drawn)

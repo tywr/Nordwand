@@ -19,16 +19,10 @@ class FiveGlyph(NumberGlyph):
     taper = 1.5
     sbl = 0.88
     sbr = 0.75
+    overshoot_bottom = True
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            height="cap",
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            overshoot_bottom=True,
-            number=True,
-        )
+        b = self.body_bounds(dc)
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
         yj = b.y1 + b.height * self.junction_ratio
         oj = self.tilt * b.width + max(dc.stroke_x - 90, 0)

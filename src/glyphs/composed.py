@@ -57,10 +57,6 @@ class ComposedGlyph(Glyph, ABC):
         base = base_class()
         base.draw_base(pen, dc) if hasattr(base, "draw_base") else base.draw(pen, dc)
 
-        b = dc.body_bounds(
-            width=dc.width * base_class.width_ratio + dc.stroke_x * base_class.stroke_x_ratio,
-            side_bearing_right=base_class.sbr * dc.side_bearing,
-            side_bearing_left=base_class.sbl * dc.side_bearing,
-        )
+        b = base.body_bounds(dc)
         accent_y = self.accent_y if self.accent_y is not None else dc.accent
         self.accent_class().draw_at(pen, dc, x=b.xmid + base_class.accent_x_offset, y=accent_y)

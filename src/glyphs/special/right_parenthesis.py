@@ -9,12 +9,7 @@ class RightParenthesisGlyph(Glyph):
     stroke_x_ratio = 1.1
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            height="x_height",
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-        )
+        b = self.body_bounds(dc)
         sx, sy = self.stroke_x_ratio * dc.stroke_x, dc.stroke_y
         ymid = dc.parenthesis
         draw_loop(

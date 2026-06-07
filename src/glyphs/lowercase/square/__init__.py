@@ -7,7 +7,7 @@ class SquareLowercaseGlyph(Glyph, ABC):
 
     hx_ratio = 1.2
     taper = 0.6
-    width_ratio = 0.87
+    width_ratio = 0.886
     ending_thickness = 0.8
     loop_ratio = 0.9
 

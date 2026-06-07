@@ -18,12 +18,7 @@ class DoubleLowLineGlyph(ContextualLigatureGlyph):
     stroke_ratio = 0.8
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            height="x_height",
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-        )
+        b = self.body_bounds(dc)
         # Draw a bar that spans two full glyph widths edge-to-edge
         s = self.stroke_ratio * dc.stroke_x
         draw_dented_rect(pen, b.x1, -s, dc.window_width, 0, side="right")

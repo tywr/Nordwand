@@ -19,14 +19,10 @@ class LowercaseMGlyph(Glyph):
     min_width = 74
     sbr = 0.87
     sbl = 0.94
+    overshoot_top = True
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            width=self.width_ratio * dc.width + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            overshoot_top=True,
-        )
+        b = self.body_bounds(dc)
         taper1 = max(self.min_taper, self.taper1 * dc.taper)
         taper2 = max(self.min_taper_2, self.taper2 * dc.taper)
         mid_y = (1 - self.mid_len) * (b.height - b.y1)

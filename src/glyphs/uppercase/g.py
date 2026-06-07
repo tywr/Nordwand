@@ -19,17 +19,11 @@ class UppercaseGGlyph(UppercaseGlyph):
     thinning = 1.0
     sbr = 0.72
     sbl = 0.72
+    overshoot_bottom = True
+    overshoot_top = True
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            height="cap",
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            overshoot_bottom=True,
-            overshoot_top=True,
-            uppercase=True,
-        )
+        b = self.body_bounds(dc)
         sx, sy = self.stroke_x_ratio * dc.stroke_x, self.stroke_y_ratio * dc.stroke_y
         hx, hy = self.hx_ratio * b.hx, self.hy_ratio * b.hy
         yc1 = b.y1 + b.height * self.opening1

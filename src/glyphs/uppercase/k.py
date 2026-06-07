@@ -16,13 +16,7 @@ class UppercaseKGlyph(UppercaseGlyph):
     sbl = 1.09
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            height="cap",
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            uppercase=True,
-        )
+        b = self.body_bounds(dc)
         xb = b.x1 + self.branch_overlap * dc.stroke_x
         sx = self.branch_stroke_ratio * dc.stroke_x
         xtop = b.x2 - self.upper_branch_offset * b.width

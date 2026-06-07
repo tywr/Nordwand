@@ -8,6 +8,9 @@ class Glyph(ABC):
     stroke_x_ratio: float = 1
     overshoot_top: bool = False
     overshoot_bottom: bool = False
+    height: str = "x_height"
+    number: bool = False
+    uppercase: bool = False
 
     @property
     @abstractmethod
@@ -41,6 +44,9 @@ class Glyph(ABC):
             width=self.width_ratio * dc.width,
             side_bearing_right=self.sbr * dc.side_bearing,
             side_bearing_left=self.sbl * dc.side_bearing,
+            height=self.height,
+            number=self.number,
+            uppercase=self.uppercase,
             overshoot_bottom=self.overshoot_bottom,
             overshoot_top=self.overshoot_top,
         )

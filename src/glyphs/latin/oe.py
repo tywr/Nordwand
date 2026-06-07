@@ -24,15 +24,11 @@ class OeGlyph(Glyph):
     ending_thickness = 0.8
     tail_offset = 0.00
     tail_height = 0.31
+    overshoot_top = True
+    overshoot_bottom = True
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            overshoot_top=True,
-            overshoot_bottom=True,
-        )
+        b = self.body_bounds(dc)
         sx, sy = dc.stroke_x, dc.stroke_y
         sx = max(0, 0.7 * (dc.stroke_x - 90)) + min(90, dc.stroke_x)
         csx, csy = (

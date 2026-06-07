@@ -13,11 +13,7 @@ class LowercaseIGlyph(DottedLowercaseGlyph):
 
     def draw_base(self, pen, dc):
         """Draw the letter without the dot (for use with accents)."""
-        b = dc.body_bounds(
-            width=self.width_ratio * dc.width + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-        )
+        b = self.body_bounds(dc)
         # Stem
         draw_rect(
             pen, b.xmid - dc.stroke_x / 2, 0, b.xmid + dc.stroke_x / 2, dc.x_height

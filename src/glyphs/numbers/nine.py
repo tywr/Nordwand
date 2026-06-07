@@ -18,16 +18,10 @@ class NineGlyph(NumberGlyph):
     joint_x = 1.4
     sbl = 0.74
     sbr = 0.74
+    overshoot_top = True
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            height="cap",
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            overshoot_top=True,
-            number=True,
-        )
+        b = self.body_bounds(dc)
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
         ymid = b.y2 - self.vertical_ratio * b.height
 

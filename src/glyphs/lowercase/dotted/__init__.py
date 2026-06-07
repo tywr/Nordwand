@@ -19,11 +19,7 @@ class DottedLowercaseGlyph(Glyph, ABC):
 
     def draw(self, pen, dc):
         self.draw_base(pen, dc)
-        b = dc.body_bounds(
-            width=self.width_ratio * dc.width + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-        )
+        b = self.body_bounds(dc)
         w = dc.stroke_x * self.dot_width
 
         # Accent dot

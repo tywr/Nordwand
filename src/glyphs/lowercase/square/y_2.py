@@ -18,14 +18,10 @@ class LowercaseY2Glyph(SquareLowercaseGlyph):
     tail_offset = 0.15
     cut_ratio = 0.25
     tail_offset = 0.02
+    overshoot_bottom = True
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            width=self.width_ratio * dc.width + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            overshoot_bottom=True,
-        )
+        b = self.body_bounds(dc)
         yl = b.y1 + self.loop_ratio * b.height
         tsx, tsy = (
             self.tail_stroke_x_ratio * dc.stroke_x,

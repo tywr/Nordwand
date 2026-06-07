@@ -10,11 +10,7 @@ class LowercaseXGlyph(Glyph):
     sbr = 0.43
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-        )
+        b = self.body_bounds(dc)
         draw_parallelogramm(pen, dc.stroke_x, dc.stroke_y, b.x1, b.y1, b.x2, b.y2)
         theta, delta = draw_parallelogramm(
             pen, dc.stroke_x, dc.stroke_y, b.x2, b.y1, b.x1, b.y2, direction="top-left"

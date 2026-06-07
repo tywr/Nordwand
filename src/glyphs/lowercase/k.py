@@ -15,13 +15,7 @@ class LowercaseKGlyph(Glyph):
     sbr = 0.43
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            width=dc.width * self.width_ratio
-            + 0.5 * self.branch_stroke_ratio * dc.stroke_x
-            + 0.5 * dc.stroke_x,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-        )
+        b = self.body_bounds(dc)
         xb = b.x1 + self.branch_overlap * dc.stroke_x
         sx = self.diag_stroke_dampening(self.branch_stroke_ratio, dc.stroke_x, coef=0.15)
         xtop = b.x2 - self.upper_branch_offset * b.width

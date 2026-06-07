@@ -6,16 +6,12 @@ from glyphs.lowercase.square import SquareLowercaseGlyph
 class LowercaseUGlyph(SquareLowercaseGlyph):
     name = "lowercase_u"
     unicode = "0x75"
-    sbl = 0.87
+    sbl = 0.89
     sbr = 0.94
+    overshoot_bottom = True
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            width=self.width_ratio * dc.width + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            overshoot_bottom=True,
-        )
+        b = self.body_bounds(dc)
         yl = b.y1 + self.loop_ratio * b.height
 
         # Bottom arch, cut at top (only lower half drawn)

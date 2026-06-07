@@ -7,16 +7,12 @@ class DollarSignGlyph(Glyph):
     unicode = "0x24"
     width_ratio = 1
     overflow_ratio = 0.2
+    height = "cap"
 
     def draw(self, pen, dc):
         from glyphs.uppercase.s import UppercaseSGlyph
 
-        b = dc.body_bounds(
-            height="cap",
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-        )
+        b = self.body_bounds(dc)
         sg = UppercaseSGlyph()
         sg.draw(pen, dc)
 

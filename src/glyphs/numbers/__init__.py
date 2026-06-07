@@ -11,3 +11,6 @@ class NumberGlyph(Glyph, ABC):
 
     sbl = 0.9
     sbr = 0.9
+
+    height = "cap"
+    number = True

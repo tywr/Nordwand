@@ -7,17 +7,13 @@ class LowercaseFGlyph(Glyph):
     name = "lowercase_f"
     unicode = "0x66"
     rl_ratio = 0.55
-    width_ratio = 0.52
+    width_ratio = 0.605
     cross_bar_height = 1
     sbl = 0.13
-    sbr = 0.7
+    sbr = 0.68
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            width=self.width_ratio * dc.width + dc.stroke_x,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-        )
+        b = self.body_bounds(dc)
         right_len = b.width * self.rl_ratio - dc.stroke_x / 2
         left_len = b.width * (1 - self.rl_ratio) - dc.stroke_x / 2
         yc = self.cross_bar_height * dc.x_height

@@ -16,17 +16,10 @@ class LowercaseEGlyph(RoundLowercaseGlyph):
     tail_height = 0.268
     tail_hx_ratio = 1.15
     tail_hy_ratio = 1.0
-    sbr = 0.56
-    sbl = 0.63
+    sbr = 0.52
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            width=self.width_ratio * dc.width + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            overshoot_bottom=True,
-            overshoot_top=True,
-        )
+        b = self.body_bounds(dc)
         sx, sy = self.stroke_x_ratio * dc.stroke_x, self.stroke_y_ratio * dc.stroke_y
         yo = b.y1 + self.tail_height * b.height
         ymid = b.y1 + self.mid_height * b.height
@@ -93,12 +86,12 @@ class LowercaseEGlyph(RoundLowercaseGlyph):
             b.x1 + sx / 2,
             ymid,
             b.x2 - dc.h_overshoot - sx / 2,
-            ymid + dc.stroke_alt / 2,
+            ymid + dc.stroke_y / 2,
         )
         draw_rect(
             pen,
             b.x1 + sx / 2,
-            ymid - dc.stroke_alt / 2,
+            ymid - dc.stroke_y / 2,
             b.x2 - dc.h_overshoot,
             max(ymid, b.ymid),
         )

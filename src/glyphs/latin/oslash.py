@@ -15,13 +15,7 @@ class OSlashGlyph(RoundLowercaseGlyph):
         pen,
         dc,
     ):
-        b = dc.body_bounds(
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            overshoot_bottom=True,
-            overshoot_top=True,
-        )
+        b = self.body_bounds(dc)
         sx, sy = self.stroke_x_ratio * dc.stroke_x, self.stroke_y_ratio * dc.stroke_y
         ss = sy * self.slash_length
         sl = self.slash_length * b.width

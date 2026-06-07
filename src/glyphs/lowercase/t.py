@@ -16,11 +16,7 @@ class LowercaseTGlyph(Glyph):
     sbr = 0.78
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            width=self.width_ratio * dc.width + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-        )
+        b = self.body_bounds(dc)
         right_len = b.width * self.rl_ratio - dc.stroke_x / 2
         left_len = b.width * (1 - self.rl_ratio) - dc.stroke_x / 2
 

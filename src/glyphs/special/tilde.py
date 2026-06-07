@@ -13,12 +13,7 @@ class TildeGlyph(Glyph):
     hy_ratio = 0.8
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            height="x_height",
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-        )
+        b = self.body_bounds(dc)
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_x * self.stroke_x_ratio
         hy = b.hy * self.hy_ratio
         h = self.height_ratio * b.height

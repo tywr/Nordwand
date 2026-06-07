@@ -15,17 +15,13 @@ class QuestionMarkGlyph(Glyph):
     height_overflow = 0.05
     taper_length = 0.25
     taper = 0.75
+    height = "cap"
+    overshoot_top = True
 
     def draw(self, pen, dc):
         from glyphs.special.full_stop import FullStopGlyph
 
-        b = dc.body_bounds(
-            height="cap",
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            overshoot_top=True,
-        )
+        b = self.body_bounds(dc)
         g = self.gap * b.height
         dh = self.height_overflow * b.height
         h = self.loop_ratio * b.height

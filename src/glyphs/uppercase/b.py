@@ -15,13 +15,7 @@ class UppercaseBGlyph(UppercaseGlyph):
     sbr = 0.66
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            height="cap",
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            uppercase=True,
-        )
+        b = self.body_bounds(dc)
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
         hx, hy = b.hx * self.hx_ratio, b.hy * self.hy_ratio
         ymid = b.y1 + self.mid_ratio * b.height

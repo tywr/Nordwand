@@ -15,14 +15,10 @@ class ExclamationMarkGlyph(Glyph):
     taper = 0.75
     sbl = 1.5
     sbr = 1.5
+    height = "cap"
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            height="cap",
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-        )
+        b = self.body_bounds(dc)
         sx = dc.stroke_x * self.stroke_ratio
         sd = dc.stroke_x * self.dot_stroke_ratio
         g = self.gap * b.height

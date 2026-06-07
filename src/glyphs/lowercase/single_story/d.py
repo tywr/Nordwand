@@ -6,24 +6,18 @@ from glyphs.lowercase.single_story import SingleStoryLowercaseGlyph
 class LowercaseDGlyph(SingleStoryLowercaseGlyph):
     name = "lowercase_d"
     unicode = "0x64"
-    sbl = 0.65
+    sbl = 0.62
     sbr = 1
 
     def draw(self, pen, dc):
-        b = dc.body_bounds(
-            width=dc.width * self.width_ratio + dc.stroke_x * self.stroke_x_ratio,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            overshoot_bottom=True,
-            overshoot_top=True,
-        )
+        b = self.body_bounds(dc)
         hx, hy = self.hx_ratio * b.hx, self.hy_ratio * b.hy
         bsx, bsy = (
             self.bowl_stroke_x_ratio * dc.stroke_x,
             self.bowl_stroke_y_ratio * dc.stroke_y,
         )
         dx = bsx - dc.stroke_x
-        arch_params = draw_arch(
+        draw_arch(
             pen,
             bsx,
             bsy,

@@ -12,12 +12,6 @@ class LowercaseOGlyph(RoundLowercaseGlyph):
         pen,
         dc,
     ):
-        b = dc.body_bounds(
-            width=self.width_ratio * dc.width,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
-            overshoot_bottom=True,
-            overshoot_top=True,
-        )
+        b = self.body_bounds(dc)
         sx, sy = self.stroke_x_ratio * dc.stroke_x, self.stroke_y_ratio * dc.stroke_y
         draw_loop(pen, sx, sy, b.x1, b.y1, b.x2, b.y2, b.hx, b.hy)
