@@ -14,6 +14,7 @@ class FontConfig:
     window_ascent: int = 1025
     window_descent: int = -300
     window_width: int = 600
+    extra_window_width: int = 0
 
     ascent: int = 735
     descent: int = -175
@@ -36,7 +37,7 @@ class FontConfig:
     space = 280
     side_bearing = 84
 
-    hx: int = 152
+    hx: int = 181
     hy: int = 187
 
     cap_hx: int = 140
@@ -44,11 +45,11 @@ class FontConfig:
 
     taper: float = 0.58
 
-    width: int = 398
+    width: int = 485
     default_stroke: int = 85
-    stroke_x: int = 85
-    stroke_y: int = 64
-    stroke_alt: int = 64
+    stroke_x: int = 92
+    stroke_y: int = 66
+    stroke_alt: int = 66
 
     # width: int = 398
     # default_stroke: int = 85
@@ -90,6 +91,7 @@ class DrawConfig(FontConfig):
     v_overshoot: int = FontConfig.v_overshoot
     v_overshoot_cap: int = FontConfig.v_overshoot_cap
     h_overshoot: int = FontConfig.h_overshoot
+    extra_window_width: int = FontConfig.extra_window_width
 
     italic: bool = False
 
@@ -101,24 +103,40 @@ class DrawConfig(FontConfig):
         brx = 1.7
         ratio_x = exp((w - 400) * log(brx) / 300)
 
-        bry = 1.4
+        bry = 1.5
         ratio_y = exp((w - 400) * log(bry) / 300)
 
-        bhy = 1.3
+        bhy = 1.05
         hy_ratio = exp((w - 400) * log(bhy) / 300)
+
+        rw = 0.92
+        width_ratio = exp((w - 400) * log(rw) / 300)
+
+        rb = 0.8
+        sb_ratio = exp((w - 400) * log(rb) / 300)
+
+        rb = 0.8
+        sb_ratio = exp((w - 400) * log(rb) / 300)
+
+        ds = 1.8
+        ds_ratio = exp((w - 400) * log(ds) / 300)
+
+        # w = 70
+        # extra_ww = exp((w - 400) * log(w) / 300)
 
         # Function mapping 100 → 0.5 and 700 → 0.2
         taper = min(0.5, 0.5 - 0.0009 * (w - 400))
 
-        ds = cls.stroke_x * (ratio_x - 1) + cls.default_stroke
-        extra_sb = max(cls.stroke_x * ratio_x - cls.default_stroke, 0) / 4
+        # 70 for extra window width
+        # 0.8 * side bearing reducing
+
         return cls(
-            default_stroke=int(ds),
-            width=int(cls.width),
+            default_stroke=cls.default_stroke * ds_ratio,
+            width=int(cls.width) * width_ratio,
             stroke_x=int(cls.stroke_x * ratio_x),
             stroke_y=int(cls.stroke_y * ratio_y),
             stroke_alt=int(cls.stroke_alt * ratio_y),
-            side_bearing=cls.side_bearing + extra_sb,
+            side_bearing=cls.side_bearing * sb_ratio,
             x_height=cls.x_height,
             cap=cls.cap,
             accent=cls.cap,

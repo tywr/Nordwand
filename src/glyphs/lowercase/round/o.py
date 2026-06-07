@@ -13,7 +13,7 @@ class LowercaseOGlyph(RoundLowercaseGlyph):
         dc,
     ):
         b = dc.body_bounds(
-            width=self.width_ratio * dc.width + dc.stroke_x * self.stroke_x_ratio,
+            width=self.width_ratio * dc.width,
             side_bearing_right=self.sbr * dc.side_bearing,
             side_bearing_left=self.sbl * dc.side_bearing,
             overshoot_bottom=True,

@@ -6,6 +6,8 @@ class Glyph(ABC):
     sbl: int = 1
     sbr: int = 1
     stroke_x_ratio: float = 1
+    overshoot_top: bool = False
+    overshoot_bottom: bool = False
 
     @property
     @abstractmethod
@@ -20,11 +22,7 @@ class Glyph(ABC):
     default_italic: bool = False
 
     def window_width(self, dc):
-        return (
-            self.width_ratio * dc.width
-            + dc.default_stroke
-            + (self.sbr + self.sbl) * dc.side_bearing
-        )
+        return self.width_ratio * dc.width + (self.sbr + self.sbl) * dc.side_bearing
 
     def diag_stroke_dampening(self, ratio, stroke, coef=0.25):
         from math import exp
@@ -37,6 +35,15 @@ class Glyph(ABC):
         delta = exp(-ds * coef)
         sx = delta * stroke * ratio
         return sx
+
+    def body_bounds(self, dc):
+        return dc.body_bounds(
+            width=self.width_ratio * dc.width,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
+            overshoot_bottom=self.overshoot_bottom,
+            overshoot_top=self.overshoot_top,
+        )
 
     @abstractmethod
     def draw(self, pen, dc) -> None: ...
