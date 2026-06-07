@@ -6,7 +6,7 @@ from draw.parallelogramm import draw_parallelogramm
 class LowercaseYGlyph(Glyph):
     name = "lowercase_y"
     unicode = "0x79"
-    width_ratio = 0.98
+    width_ratio = 0.983
     overlap = 0.5
     dent_ratio = 0
     stroke_ratio = 0.93

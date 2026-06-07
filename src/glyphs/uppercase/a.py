@@ -10,7 +10,7 @@ class UppercaseAGlyph(UppercaseGlyph):
     bar_height = 0.39
     overlap = 0.5
     stroke_x_ratio = 1.01
-    width_ratio = 1.3
+    width_ratio = 1.25
     sbl = 0.4
     sbr = 0.4
 

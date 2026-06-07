@@ -6,11 +6,11 @@ class UppercaseEGlyph(UppercaseGlyph):
     name = "uppercase_e"
     unicode = "0x45"
     upper_bar_ratio = 1
-    mid_bar_ratio = 0.95
+    mid_bar_ratio = 0.96
     mid_ratio = 0.51
-    width_ratio = 0.87
-    sbl = 1.09
-    sbr = 0.88
+    width_ratio = 0.9
+    sbl = 1.07
+    sbr = 0.83
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

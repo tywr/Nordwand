@@ -6,7 +6,7 @@ from draw.rect import draw_rect
 class LowercaseMGlyph(Glyph):
     name = "lowercase_m"
     unicode = "0x6D"
-    width_ratio = 1.59
+    width_ratio = 1.48
     mid_len = 1
     top_stroke_y = 1
     hx_ratio = 0.75

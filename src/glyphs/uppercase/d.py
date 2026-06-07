@@ -9,7 +9,7 @@ class UppercaseDGlyph(UppercaseGlyph):
     arch_start = 0.4
     hx_ratio = 1.1
     hy_ratio = 1.15
-    width_ratio = 1.21
+    width_ratio = 1.182
     sbl = 1.07
     sbr = 0.75
 

@@ -40,8 +40,8 @@ class FontConfig:
     hx: int = 181
     hy: int = 187
 
-    cap_hx: int = 140
-    cap_hy: int = 180
+    cap_hx: int = 172
+    cap_hy: int = 178
 
     taper: float = 0.58
 

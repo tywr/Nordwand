@@ -8,7 +8,7 @@ class LowercaseWGlyph(Glyph):
     overlap = 0.25
     outer_branch_ratio = 0.27
     inner_height = 1
-    width_ratio = 1.56
+    width_ratio = 1.46
     stroke_ratio = 0.95
     sbl = 0.4
     sbr = 0.4

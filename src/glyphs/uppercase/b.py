@@ -8,7 +8,7 @@ class UppercaseBGlyph(UppercaseGlyph):
     unicode = "0x42"
     upper_ratio = 0.85
     mid_ratio = 0.515
-    width_ratio = 1.07
+    width_ratio = 1.06
     hx_ratio = 1.1
     hy_ratio = 1.1
     sbl = 1.09
@@ -57,7 +57,7 @@ class UppercaseBGlyph(UppercaseGlyph):
             ymid + sy / 2,
             hx,
             hy * self.mid_ratio,
-            taper=0.75,
+            taper=0.85,
             side="top",
             cut="left",
         )

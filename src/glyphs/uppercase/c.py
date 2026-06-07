@@ -15,15 +15,18 @@ class UppercaseCGlyph(UppercaseGlyph):
     opening2 = 0.69
     thinning = 1
     top_offset = 0.00
-    width_ratio = 1.33
+    width_ratio = 1.26
+    right_hx_ratio = 1.15
+    right_hy_ratio = 1
     sbl = 0.75
-    sbr = 0.45
+    sbr = 0.49
     overshoot_bottom = True
     overshoot_top = True
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
         sx, sy = self.stroke_x_ratio * dc.stroke_x, self.stroke_y_ratio * dc.stroke_y
+        rhx, rhy = self.right_hx_ratio * b.hx, self.right_hy_ratio * b.hy
         yc1 = b.y1 + b.height * self.opening1
         yc2 = b.y1 + b.height * self.opening2
         xt = b.x2 - self.top_offset * b.width
@@ -39,8 +42,8 @@ class UppercaseCGlyph(UppercaseGlyph):
             b.ymid,
             b.xmid,
             b.y2,
-            b.hx,
-            b.hy,
+            rhx,
+            rhy,
             orientation="top-left",
         )
         draw_corner(
@@ -51,8 +54,8 @@ class UppercaseCGlyph(UppercaseGlyph):
             b.ymid,
             b.xmid,
             b.y1,
-            b.hx,
-            b.hy,
+            rhx,
+            rhy,
             orientation="bottom-left",
         )
         cut_glyph = ufoLib2.objects.Glyph()

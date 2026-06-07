@@ -5,11 +5,24 @@ from glyphs.lowercase.dotted import DottedLowercaseGlyph
 class LowercaseIGlyph(DottedLowercaseGlyph):
     name = "lowercase_i"
     unicode = "0x69"
-    width_ratio = 0
     cap = 0.5
-    rl_ratio = 0.5
-    sbr = 0.96
-    sbl = 0.96
+    sbr = 0.925
+    sbl = 0.925
+
+    def window_width(self, dc):
+        return dc.stroke_x + (self.sbr + self.sbl) * dc.side_bearing
+
+    def body_bounds(self, dc):
+        return dc.body_bounds(
+            width=dc.stroke_x,
+            side_bearing_right=self.sbr * dc.side_bearing,
+            side_bearing_left=self.sbl * dc.side_bearing,
+            height=self.height,
+            number=self.number,
+            uppercase=self.uppercase,
+            overshoot_bottom=self.overshoot_bottom,
+            overshoot_top=self.overshoot_top,
+        )
 
     def draw_base(self, pen, dc):
         """Draw the letter without the dot (for use with accents)."""

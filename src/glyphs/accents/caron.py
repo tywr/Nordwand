@@ -5,12 +5,12 @@ from draw.parallelogramm import draw_parallelogramm
 class Caron(Accent):
     name = "caron"
     unicode = "0x2C7"
-    height = 0.35
+    height_ratio = 0.35
     width = 1.3
     stroke_ratio = 1.2
 
     def draw_at(self, pen, dc, x, y):
-        h = self.height * dc.x_height
+        h = self.height_ratio * dc.x_height
         w = self.width * dc.width
         x1, x2, xmid = x - w / 2, x + w / 2, x
         y1, y2 = y - h / 2, y + h / 2
