@@ -5,11 +5,11 @@ from draw.rect import draw_rect
 class UppercaseFGlyph(UppercaseGlyph):
     name = "uppercase_f"
     unicode = "0x46"
-    mid_bar_ratio = 0.9
-    mid_ratio = 0.48
+    mid_bar_ratio = 0.94
+    mid_ratio = 0.49
     width_ratio = 0.88
-    sbr = 0.65
-    sbl = 1.09
+    sbr = 0.66
+    sbl = 1.07
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

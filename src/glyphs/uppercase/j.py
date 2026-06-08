@@ -7,13 +7,13 @@ class UppercaseJGlyph(UppercaseGlyph):
     name = "uppercase_j"
     unicode = "0x4A"
     cap_ratio = 1
-    hx_ratio = 1
+    hx_ratio = 1.1
     hy_ratio = 0.45
     loop_ratio = 0.5
     tail_len = 0.5
-    width_ratio = 0.8
+    width_ratio = 0.838
     sbl = 0.5
-    sbr = 1.09
+    sbr = 1.07
     overshoot_bottom = True
 
     def draw(self, pen, dc):

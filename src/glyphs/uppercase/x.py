@@ -7,7 +7,7 @@ from draw.rect import draw_rect
 class UppercaseXGlyph(UppercaseGlyph):
     name = "uppercase_x"
     unicode = "0x58"
-    width_ratio = 1.26
+    width_ratio = 1.215
     stroke_x_ratio = 1.08
     sbr = 0.53
     sbl = 0.53

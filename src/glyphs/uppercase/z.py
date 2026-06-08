@@ -8,7 +8,7 @@ class UppercaseZGlyph(UppercaseGlyph):
     unicode = "0x5A"
     right_offset = 0.01
     left_offset = 0.01
-    width_ratio = 1.06
+    width_ratio = 1.045
     sbl = 0.92
     sbr = 0.92
 

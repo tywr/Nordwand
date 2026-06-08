@@ -5,9 +5,9 @@ from draw.rect import draw_rect
 class UppercaseTGlyph(UppercaseGlyph):
     name = "uppercase_t"
     unicode = "0x54"
-    width_ratio = 1.14
-    sbr = 0.56
-    sbl = 0.56
+    width_ratio = 1.12
+    sbr = 0.54
+    sbl = 0.54
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

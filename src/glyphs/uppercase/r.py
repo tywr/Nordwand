@@ -10,7 +10,7 @@ class UppercaseRGlyph(UppercaseGlyph):
     loop_ratio = 0.605
     loop_width = 0.96
     branch_start = 0.63
-    width_ratio = 1.07
+    width_ratio = 1.06
     sbl = 1.07
     sbr = 0.58
 

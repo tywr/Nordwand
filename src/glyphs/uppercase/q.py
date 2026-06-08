@@ -8,11 +8,11 @@ class UppercaseQGlyph(UppercaseGlyph):
     unicode = "0x51"
     tail_width = 0.45
     tail_height = 0.2
-    width_ratio = 1.39
+    width_ratio = 1.34
     stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.02
     stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.04
     sbl = 0.72
-    sbr = 0.86
+    sbr = 0.72
     overshoot_bottom = True
     overshoot_top = True
 

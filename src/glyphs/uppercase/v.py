@@ -8,7 +8,7 @@ class UppercaseVGlyph(UppercaseGlyph):
     name = "uppercase_v"
     unicode = "0x56"
     stroke_x_ratio = 1.02
-    width_ratio = 1.30
+    width_ratio = 1.24
     sbl = 0.43
     sbr = 0.43
 

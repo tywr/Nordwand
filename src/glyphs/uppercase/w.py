@@ -7,7 +7,7 @@ class UppercaseWGlyph(UppercaseGlyph):
     unicode = "0x57"
     outer_branch_ratio = 0.26
     inner_height = 1
-    width_ratio = 1.99
+    width_ratio = 1.812
     stroke_ratio = 1.1
     inner_stroke_ratio = 1
     sbr = 0.53
