@@ -6,8 +6,8 @@ class LowercaseLGlyph(Glyph):
     name = "lowercase_l"
     unicode = "0x6C"
     width_ratio = 0
-    sbl = 0.96
-    sbr = 0.96
+    sbl = 1
+    sbr = 1
 
     def window_width(self, dc):
         return dc.stroke_x + (self.sbr + self.sbl) * dc.side_bearing

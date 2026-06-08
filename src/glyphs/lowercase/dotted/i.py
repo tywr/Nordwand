@@ -6,8 +6,8 @@ class LowercaseIGlyph(DottedLowercaseGlyph):
     name = "lowercase_i"
     unicode = "0x69"
     cap = 0.5
-    sbr = 0.925
-    sbl = 0.925
+    sbr = 0.96
+    sbl = 0.96
 
     def window_width(self, dc):
         return dc.stroke_x + (self.sbr + self.sbl) * dc.side_bearing
