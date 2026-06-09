@@ -10,12 +10,18 @@ class Cedilla(Accent):
     unicode = "0xB8"
     x_ratio = 0.55
     cut_ratio = 0.7
-    stroke_ratio = 0.6
+    stroke_ratio = 0.7
     neck_length = 0.05
+    width_ratio = 0.45
+    bold_width_ratio = 0.515
+    overall_length = 0.4
+    sbl = 1.68
+    sbr = 1.68
 
     def draw_at(self, pen, dc, x, y):
-        h = abs(dc.descent)
-        w = self.x_ratio * dc.width
+        b = self.body_bounds(dc)
+        h = abs(self.overall_length * b.height)
+        w = b.width
         yr = h / dc.x_height
         yn = - self.neck_length * dc.x_height
 

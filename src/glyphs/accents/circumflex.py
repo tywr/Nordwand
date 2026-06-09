@@ -6,12 +6,16 @@ class Circumflex(Accent):
     name = "circumflex"
     unicode = "0x5E"
     height_ratio = 0.35
-    width = 1.3
-    stroke_ratio = 1.2
+    width_ratio = 0.75
+    bold_width_ratio = 0.77
+    stroke_ratio = 1
+    sbl = 0.81
+    sbr = 0.81
 
     def draw_at(self, pen, dc, x, y):
+        b = self.body_bounds(dc)
         h = self.height_ratio * dc.x_height
-        w = self.width * dc.width
+        w = b.width
         x1, x2, xmid = x - w / 2, x + w / 2, x
         y1, y2 = y - h / 2, y + h / 2
         d = self.stroke_ratio * dc.stroke_x

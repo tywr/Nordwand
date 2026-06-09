@@ -44,13 +44,13 @@ class FontConfig:
     cap_hx: int = 172
     cap_hy: int = 178
 
-    taper: float = 0.58
+    taper: float = 0.7
 
     width: int = 485
     default_stroke: int = 85
-    stroke_x: int = 92
-    stroke_y: int = 66
-    stroke_alt: int = 66
+    stroke_x: int = 88
+    stroke_y: int = 61
+    stroke_alt: int = 61
 
     # width: int = 398
     # default_stroke: int = 85
