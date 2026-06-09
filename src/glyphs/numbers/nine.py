@@ -1,4 +1,4 @@
-from math import sin, cos, pi
+from math import sin, cos
 from glyphs.numbers import NumberGlyph
 from draw.loop import draw_loop
 from draw.arch import draw_arch
@@ -11,11 +11,13 @@ class NineGlyph(NumberGlyph):
     name = "nine"
     unicode = "0x39"
     width_ratio = 1.07
-    vertical_ratio = 0.6
+    vertical_ratio = 0.64
     bottom_cut = 0.2
     taper = 0.8
-    foot_x = 0.05
+    foot_x = 0.02
     joint_x = 1.4
+    hx_ratio = 1
+    hy_ratio = 1
     sbl = 0.74
     sbr = 0.74
     overshoot_top = True
@@ -24,6 +26,7 @@ class NineGlyph(NumberGlyph):
         b = self.body_bounds(dc)
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
         ymid = b.y2 - self.vertical_ratio * b.height
+        hx, hy = self.hx_ratio * b.hx, self.hy_ratio * b.hy
 
         xf = b.x1 + self.foot_x * b.width
         xj = b.x2 - self.joint_x * sx
@@ -37,8 +40,8 @@ class NineGlyph(NumberGlyph):
             ymid,
             b.x2,
             b.y2,
-            b.hx,
-            b.hy * self.vertical_ratio,
+            hx,
+            hy * self.vertical_ratio,
             taper=self.taper * dc.taper,
             side="right",
             cut="top",
@@ -88,7 +91,7 @@ class NineGlyph(NumberGlyph):
             ymid,
             b.x2,
             b.y2,
-            b.hx,
-            b.hy * self.vertical_ratio,
+            hx,
+            hy * self.vertical_ratio,
             cut="bottom",
         )

@@ -14,8 +14,9 @@ class FiveGlyph(NumberGlyph):
     unicode = "0x35"
     loop_ratio = 0.66
     width_ratio = 0.99
-    junction_ratio = 0.45
-    tilt = 0.25
+    junction_ratio = 0.43
+    cap_offset = 0.08
+    tilt = 0.28
     taper = 1.5
     sbl = 0.88
     sbr = 0.75
@@ -26,6 +27,7 @@ class FiveGlyph(NumberGlyph):
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
         yj = b.y1 + b.height * self.junction_ratio
         oj = self.tilt * b.width + max(dc.stroke_x - 90, 0)
+        xc = b.x2 - self.cap_offset * b.width
 
         base_glyph = ufoLib2.objects.Glyph()
 
@@ -84,4 +86,4 @@ class FiveGlyph(NumberGlyph):
             b.y2,
         )
         draw_parallelogramm(pen, sx, sy, xj - delta, yj, xj + oj - delta, b.y2)
-        draw_rect(pen, xj + oj - 2 * delta, b.y2 - sy, b.x2 - dc.h_overshoot, b.y2)
+        draw_rect(pen, xj + oj - 2 * delta, b.y2 - sy, xc, b.y2)

@@ -9,12 +9,13 @@ from utils.pens import NullPen
 class TwoGlyph(NumberGlyph):
     name = "two"
     unicode = "0x32"
-    width_ratio = 0.94
-    xj_ratio = 0.82
-    yj_ratio = 0.55
-    radius = 0.2
-    internal_radius = 0.1
-    external_radius = 0.1
+    width_ratio = 0.95
+    loop_offset = 0.02
+    hx_ratio = 1
+    hy_ratio = 0.85
+    xj_ratio = 0.68
+    yj_ratio = 0.46
+    internal_radius = 0.25
     sbl = 0.88
     sbr = 0.82
     overshoot_top = True
@@ -22,10 +23,12 @@ class TwoGlyph(NumberGlyph):
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
+        hx, hy = self.hx_ratio * b.hx, self.hy_ratio * b.hy
         xj = b.x1 + self.xj_ratio * b.width + sx / 2
         yj = b.y1 + self.yj_ratio * b.height
         yt = (b.ymid + b.y2) / 2
         ih = self.internal_radius * b.height
+        x2 = b.x2 - self.loop_offset * b.width
 
         # Top arch
         params = draw_loop(
@@ -34,10 +37,10 @@ class TwoGlyph(NumberGlyph):
             sy,
             b.x1,
             b.ymid,
-            b.x2,
+            x2,
             b.y2,
-            b.hx,
-            b.hy / 2,
+            hx,
+            hy / 2,
             cut="bottom",
         )
         ishy = params["inner"].hy
@@ -61,10 +64,10 @@ class TwoGlyph(NumberGlyph):
         ihx, ihy = ih * cos(theta), ih * sin(theta)
 
         pen.moveTo((xl, yl))
-        pen.curveTo((xl + ihx, yl + ihy), (b.x2, yt - oshy), (b.x2, yt))
-        pen.lineTo((b.x2 - sx, yt))
+        pen.curveTo((xl + ihx, yl + ihy), (x2, yt - oshy), (x2, yt))
+        pen.lineTo((x2 - sx, yt))
         pen.curveTo(
-            (b.x2 - sx, yt - ishy),
+            (x2 - sx, yt - ishy),
             (xj - delta + ihx, yj + ihy),
             (xj - delta, yj),
         )
