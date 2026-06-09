@@ -9,6 +9,7 @@ class UppercaseEGlyph(UppercaseGlyph):
     mid_bar_ratio = 0.96
     mid_ratio = 0.51
     width_ratio = 0.9
+    bold_width_ratio = 0.97
     sbl = 1.07
     sbr = 0.83
 

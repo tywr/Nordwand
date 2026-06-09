@@ -9,6 +9,7 @@ class SingleStoryLowercaseGlyph(Glyph, ABC):
 
     taper = 0.8
     width_ratio = 0.985
+    bold_width_ratio = 1.075
     sbl = 1
     sbr = 1
 

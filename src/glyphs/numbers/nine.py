@@ -11,15 +11,15 @@ class NineGlyph(NumberGlyph):
     name = "nine"
     unicode = "0x39"
     width_ratio = 1.07
-    vertical_ratio = 0.64
+    vertical_ratio = 0.66
     bottom_cut = 0.2
     taper = 0.8
     foot_x = 0.02
     joint_x = 1.4
     hx_ratio = 1
     hy_ratio = 1
-    sbl = 0.74
-    sbr = 0.74
+    sbl = 0.8
+    sbr = 0.8
     overshoot_top = True
 
     def draw(self, pen, dc):

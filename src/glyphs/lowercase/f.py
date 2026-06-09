@@ -8,6 +8,7 @@ class LowercaseFGlyph(Glyph):
     unicode = "0x66"
     rl_ratio = 0.55
     width_ratio = 0.605
+    bold_width_ratio = 0.69
     cross_bar_height = 1
     sbl = 0.13
     sbr = 0.68

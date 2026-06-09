@@ -4,6 +4,7 @@ from glyphs import Glyph
 
 class RoundLowercaseGlyph(Glyph, ABC):
     """Define common class variables for round lowercase glyphs"""
+
     overshoot_top = True
     overshoot_bottom = True
 
@@ -15,4 +16,3 @@ class RoundLowercaseGlyph(Glyph, ABC):
 
     sbl = 0.63
     sbr = 0.63
-

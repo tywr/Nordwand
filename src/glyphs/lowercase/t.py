@@ -10,6 +10,7 @@ class LowercaseTGlyph(Glyph):
     name = "lowercase_t"
     unicode = "0x74"
     width_ratio = 0.59
+    bold_width_ratio = 0.68
     rl_ratio = 0.56
     up_ratio = 0.32
     sbl = 0.15

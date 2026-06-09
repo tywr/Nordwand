@@ -2,6 +2,8 @@ from abc import ABC, abstractmethod
 
 
 class Glyph(ABC):
+    width_ratio: float = 1
+    bold_width_ratio: float = 1
     accent_x_offset: int = 0
     sbl: int = 1
     sbr: int = 1
@@ -24,8 +26,25 @@ class Glyph(ABC):
     font_feature: dict = None
     default_italic: bool = False
 
+    def extra_cut(self, dc):
+        if self.uppercase:
+            return 0.6 * max(0, dc.stroke_x - dc.default_stroke)
+        else:
+            return 0.35 * max(0, dc.stroke_x - dc.default_stroke)
+
+    def adjusted_width_ratio(self, dc):
+        if dc.weight <= 400:
+            width_ratio = self.width_ratio
+        elif dc.weight <= 700:
+            bw = (dc.weight - 400) / 300
+            width_ratio = (1 - bw) * self.width_ratio + bw * self.bold_width_ratio
+        return width_ratio
+
     def window_width(self, dc):
-        return self.width_ratio * dc.width + (self.sbr + self.sbl) * dc.side_bearing
+        return (
+            self.adjusted_width_ratio(dc) * dc.width
+            + (self.sbr + self.sbl) * dc.side_bearing
+        )
 
     def diag_stroke_dampening(self, ratio, stroke, coef=0.25):
         from math import exp
@@ -41,7 +60,7 @@ class Glyph(ABC):
 
     def body_bounds(self, dc):
         return dc.body_bounds(
-            width=self.width_ratio * dc.width,
+            width=self.adjusted_width_ratio(dc) * dc.width,
             side_bearing_right=self.sbr * dc.side_bearing,
             side_bearing_left=self.sbl * dc.side_bearing,
             height=self.height,

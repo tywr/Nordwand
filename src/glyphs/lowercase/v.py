@@ -6,6 +6,7 @@ class LowercaseVGlyph(Glyph):
     name = "lowercase_v"
     unicode = "0x76"
     width_ratio = 0.98
+    bold_width_ratio = 1.06
     overlap = 0.33
     stroke_ratio = 1
     sbl = 0.4
@@ -14,7 +15,7 @@ class LowercaseVGlyph(Glyph):
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
         sx = self.diag_stroke_dampening(self.stroke_ratio, dc.stroke_x, coef=0.15)
-        ov = self.overlap * dc.stroke_x - 0.12 * max(dc.stroke_x - 94, 0)
+        ov = self.overlap * dc.stroke_x
 
         theta, delta = draw_parallelogramm(
             pen,

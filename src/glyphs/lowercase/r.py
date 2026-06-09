@@ -13,6 +13,7 @@ class LowercaseRGlyph(Glyph):
     hy_ratio = 1.15
     taper = 0.5
     width_ratio = 0.57
+    bold_width_ratio = 0.69
     stroke_ratio = 0.85
     arch_length = 0.75
     hx_ratio = 1
@@ -46,7 +47,7 @@ class LowercaseRGlyph(Glyph):
         draw_rect(glyph.getPen(), b.x1, 0, b.x1 + dc.stroke_x, dc.x_height)
 
         cut_glyph = ufoLib2.objects.Glyph()
-        draw_rect(cut_glyph.getPen(), b.x2, b.y1, b.x2 + arch_length + 100, b.y2)
+        draw_rect(cut_glyph.getPen(), b.x2, b.y1 - 10, b.x2 + arch_length + 100, b.y2 + 10)
 
         res = BooleanGlyph(glyph).difference(BooleanGlyph(cut_glyph))
         res.draw(pen)

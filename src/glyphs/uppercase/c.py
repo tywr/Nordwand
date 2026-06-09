@@ -16,6 +16,7 @@ class UppercaseCGlyph(UppercaseGlyph):
     thinning = 1
     top_offset = 0.00
     width_ratio = 1.26
+    bold_width_ratio = 1.315
     right_hx_ratio = 1.15
     right_hy_ratio = 1
     sbl = 0.75
@@ -25,6 +26,7 @@ class UppercaseCGlyph(UppercaseGlyph):
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
+        ec = self.extra_cut(dc)
         sx, sy = self.stroke_x_ratio * dc.stroke_x, self.stroke_y_ratio * dc.stroke_y
         rhx, rhy = self.right_hx_ratio * b.hx, self.right_hy_ratio * b.hy
         yc1 = b.y1 + b.height * self.opening1
@@ -62,9 +64,9 @@ class UppercaseCGlyph(UppercaseGlyph):
         draw_rect(
             cut_glyph.getPen(),
             b.xmid,
-            yc1,
+            yc1 + ec,
             b.x2 + 10,
-            yc2,
+            yc2 - ec,
         )
         res = BooleanGlyph(glyph).difference(BooleanGlyph(cut_glyph))
         res.draw(pen)

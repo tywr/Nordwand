@@ -8,6 +8,7 @@ class UppercaseFGlyph(UppercaseGlyph):
     mid_bar_ratio = 0.94
     mid_ratio = 0.49
     width_ratio = 0.88
+    bold_width_ratio = 0.95
     sbr = 0.66
     sbl = 1.07
 

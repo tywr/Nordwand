@@ -6,6 +6,7 @@ class UppercaseLGlyph(UppercaseGlyph):
     name = "uppercase_l"
     unicode = "0x4C"
     width_ratio = 0.88
+    bold_width_ratio = 0.95
     sbl = 1.07
     sbr = 0.62
 

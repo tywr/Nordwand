@@ -1,7 +1,5 @@
-from math import tan, pi
 from glyphs.uppercase import UppercaseGlyph
 from draw.parallelogramm import draw_parallelogramm
-from draw.rect import draw_rect
 
 
 class UppercaseVGlyph(UppercaseGlyph):
@@ -9,13 +7,14 @@ class UppercaseVGlyph(UppercaseGlyph):
     unicode = "0x56"
     stroke_x_ratio = 1.02
     width_ratio = 1.24
+    bold_width_ratio = 1.33
     sbl = 0.43
     sbr = 0.43
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
-        ov = 0.5 * dc.stroke_x - 0.75 * max(sx - dc.default_stroke, 0)
+        ov = 0.5 * dc.stroke_x
 
         theta, delta = draw_parallelogramm(
             pen,

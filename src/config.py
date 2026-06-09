@@ -9,6 +9,7 @@ class FontConfig:
     """Default metrics used for the project, can be overwritten with a yaml file"""
 
     family_name: str = "Nordwand"
+    weight: int = 400
 
     units_per_em: int = 1000
     window_ascent: int = 1025
@@ -100,39 +101,26 @@ class DrawConfig(FontConfig):
         """Return a DrawConfig with heavier stroke weights for a bold variant."""
         from math import log, exp
 
-        brx = 1.7
+        brx = 1.6
         ratio_x = exp((w - 400) * log(brx) / 300)
 
-        bry = 1.5
+        bry = 1.4
         ratio_y = exp((w - 400) * log(bry) / 300)
 
-        bhy = 1.05
+        bhx = 1.2
+        hx_ratio = exp((w - 400) * log(bhx) / 300)
+
+        bhy = 1.1
         hy_ratio = exp((w - 400) * log(bhy) / 300)
 
-        rw = 0.92
-        width_ratio = exp((w - 400) * log(rw) / 300)
-
-        rb = 0.8
+        rb = 0.85
         sb_ratio = exp((w - 400) * log(rb) / 300)
-
-        rb = 0.8
-        sb_ratio = exp((w - 400) * log(rb) / 300)
-
-        ds = 1.8
-        ds_ratio = exp((w - 400) * log(ds) / 300)
-
-        # w = 70
-        # extra_ww = exp((w - 400) * log(w) / 300)
 
         # Function mapping 100 → 0.5 and 700 → 0.2
-        taper = min(0.5, 0.5 - 0.0009 * (w - 400))
-
-        # 70 for extra window width
-        # 0.8 * side bearing reducing
+        taper = min(0.5, 0.5 - 0.0006 * (w - 400))
 
         return cls(
-            default_stroke=cls.default_stroke * ds_ratio,
-            width=int(cls.width) * width_ratio,
+            weight=w,
             stroke_x=int(cls.stroke_x * ratio_x),
             stroke_y=int(cls.stroke_y * ratio_y),
             stroke_alt=int(cls.stroke_alt * ratio_y),
@@ -144,6 +132,7 @@ class DrawConfig(FontConfig):
             ascent=cls.ascent,
             descent=cls.descent,
             taper=taper,
+            hx=hx_ratio * cls.hx,
             hy=hy_ratio * cls.hy,
             cap_hy=hy_ratio * cls.cap_hy,
         )
@@ -183,7 +172,7 @@ class DrawConfig(FontConfig):
         x2 = x1 + width
         y2 = getattr(self, height)
 
-        if uppercase:
+        if uppercase or number:
             v_ov = self.v_overshoot_cap
         else:
             v_ov = self.v_overshoot

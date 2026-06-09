@@ -8,6 +8,7 @@ class UppercaseOGlyph(UppercaseGlyph):
     stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.02
     stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.04
     width_ratio = 1.34
+    bold_width_ratio = 1.375
     sbl = 0.72
     sbr = 0.72
     overshoot_bottom = True

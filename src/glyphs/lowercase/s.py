@@ -9,6 +9,7 @@ class LowercaseSGlyph(Glyph):
     name = "lowercase_s"
     unicode = "0x73"
     width_ratio = 0.865
+    bold_width_ratio = 0.96
     stroke_x_ratio = 1.01
     stroke_y_ratio = 1.03
     hx_ratio = 1
@@ -28,6 +29,7 @@ class LowercaseSGlyph(Glyph):
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
+        ec = self.extra_cut(dc)
         sx, sy = self.stroke_x_ratio * dc.stroke_x, dc.stroke_y * self.stroke_y_ratio
         hx, hy = b.hx * self.hx_ratio, b.hy * self.hy_ratio
         yc1 = b.y1 + b.height * self.opening1
@@ -106,9 +108,9 @@ class LowercaseSGlyph(Glyph):
         draw_rect(
             cut_glyph.getPen(),
             b.x1 - 10,
-            yc1,
+            yc1 + ec,
             b.x2 + 10,
-            yc2,
+            yc2 - ec,
         )
         res = BooleanGlyph(glyph).difference(BooleanGlyph(cut_glyph))
         res.draw(pen)

@@ -6,6 +6,7 @@ class LowercaseOGlyph(RoundLowercaseGlyph):
     name = "lowercase_o"
     unicode = "0x6F"
     width_ratio = 1.0
+    bold_width_ratio = 1.065
 
     def draw(
         self,

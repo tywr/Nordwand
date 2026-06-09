@@ -23,6 +23,7 @@ class UppercaseGGlyph(UppercaseGlyph):
     right_bot_hx_ratio = 1
     right_bot_hy_ratio = 0.8
     width_ratio = 1.3
+    bold_width_ratio = 1.335
     thinning = 0.9
     sbr = 0.65
     sbl = 0.72

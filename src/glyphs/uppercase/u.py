@@ -9,6 +9,7 @@ class UppercaseUGlyph(UppercaseGlyph):
     hx_ratio = 1.0
     hy_ratio = 1.0
     width_ratio = 1.15
+    bold_width_ratio = 1.22
     loop_ratio = 0.66
     sbl = 1.07
     sbr = 1.07

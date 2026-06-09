@@ -11,6 +11,7 @@ class UppercaseAGlyph(UppercaseGlyph):
     overlap = 0.5
     stroke_x_ratio = 1.01
     width_ratio = 1.25
+    bold_width_ratio = 1.33
     sbl = 0.4
     sbr = 0.4
 
@@ -19,7 +20,7 @@ class UppercaseAGlyph(UppercaseGlyph):
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
 
         half_width = b.width / 2 - sx / 2
-        ov = 0.5 * dc.stroke_x - 0.75 * max(sx - dc.default_stroke, 0)
+        ov = 0.5 * dc.stroke_x
         hb = self.bar_height * b.height
 
         # Left branch

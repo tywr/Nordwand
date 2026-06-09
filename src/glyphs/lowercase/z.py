@@ -8,6 +8,7 @@ class LowercaseZGlyph(Glyph):
     unicode = "0x7A"
     diag_stroke_ratio = 0.96
     width_ratio = 0.84
+    bold_width_ratio = 0.91
     right_offset = 0.01
     left_offset = 0.0
     sbl = 0.78

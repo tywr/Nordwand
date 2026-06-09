@@ -9,17 +9,19 @@ from glyphs.lowercase.round import RoundLowercaseGlyph
 class LowercaseEGlyph(RoundLowercaseGlyph):
     name = "lowercase_e"
     unicode = "0x65"
-    width_ratio = 0.98
+    width_ratio = 0.985
+    bold_width_ratio = 1.05
     mid_height = 0.52
     thinning = 0.9
     tail_offset = 0.005
     tail_height = 0.268
     tail_hx_ratio = 1.15
     tail_hy_ratio = 1.0
-    sbr = 0.52
+    sbr = 0.49
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
+        ec = self.extra_cut(dc)
         sx, sy = self.stroke_x_ratio * dc.stroke_x, self.stroke_y_ratio * dc.stroke_y
         yo = b.y1 + self.tail_height * b.height
         ymid = b.y1 + self.mid_height * b.height
@@ -74,7 +76,7 @@ class LowercaseEGlyph(RoundLowercaseGlyph):
         draw_rect(
             cut_glyph.getPen(),
             b.xmid,
-            yo,
+            yo + ec,
             b.xmid + b.width,
             b.ymid,
         )

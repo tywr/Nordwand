@@ -1,5 +1,3 @@
-import ufoLib2
-from booleanOperations.booleanGlyph import BooleanGlyph
 from glyphs.uppercase import UppercaseGlyph
 from draw.rect import draw_rect
 from draw.parallelogramm import draw_parallelogramm
@@ -14,6 +12,7 @@ class UppercaseMGlyph(UppercaseGlyph):
     inner_thickness_ratio = 1
     inner_height = 0.0
     width_ratio = 1.43
+    bold_width_ratio = 1.515
     overlap = 0.1
     sbr = 1.07
     sbl = 1.07

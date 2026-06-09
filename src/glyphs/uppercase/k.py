@@ -7,6 +7,7 @@ class UppercaseKGlyph(UppercaseGlyph):
     name = "uppercase_k"
     unicode = "0x4B"
     width_ratio = 1.113
+    bold_width_ratio = 1.225
     branch_ratio = 0.65
     mid_ratio = 0.52
     upper_branch_offset = 0.05

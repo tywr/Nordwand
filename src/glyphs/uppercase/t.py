@@ -6,6 +6,7 @@ class UppercaseTGlyph(UppercaseGlyph):
     name = "uppercase_t"
     unicode = "0x54"
     width_ratio = 1.12
+    bold_width_ratio = 1.17
     sbr = 0.54
     sbl = 0.54
 

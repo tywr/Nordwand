@@ -12,6 +12,7 @@ class LowercaseAGlyph(Glyph):
     accent_x_offset = 16
     mid_height = 0.525
     width_ratio = 0.88
+    bold_width_ratio = 0.972
     taper = 0.55
     sbl = 0.58
     sbr = 0.9
@@ -35,6 +36,7 @@ class LowercaseAGlyph(Glyph):
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
+        ec = self.extra_cut(dc)
         sx = dc.stroke_x
         csx, csy = (
             self.cap_stroke_x_ratio * dc.stroke_x,
@@ -111,7 +113,7 @@ class LowercaseAGlyph(Glyph):
             orientation="top-right",
         )
         cut_glyph = ufoLib2.objects.Glyph()
-        draw_rect(cut_glyph.getPen(), b.x1, b.ymid, b.xmid, ycut)
+        draw_rect(cut_glyph.getPen(), b.x1, b.ymid, b.xmid, ycut - ec)
         result = BooleanGlyph(loop_glyph).difference(BooleanGlyph(cut_glyph))
         result.draw(pen)
 
