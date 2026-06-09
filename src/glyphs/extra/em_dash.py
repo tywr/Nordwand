@@ -6,11 +6,20 @@ class EmDashGlyph(Glyph):
     name = "em_dash"
     unicode = "0x2014"
     stroke_ratio = 0.85
-    width_ratio = 1
+    width_ratio = 1.64
+    bold_width_ratio = 1.69
+    height_ratio = 0.54
+    sbl = 0.47
+    sbr = 0.47
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
         s = dc.stroke_x * self.stroke_ratio
-        w = dc.window_width
-        x1, x2 = b.xmid - w / 2, b.xmid + w / 2
-        draw_rect(pen, x1, dc.x_height / 2 + s / 2, x2, dc.x_height / 2 - s / 2)
+        h = b.y1 + self.height_ratio * b.height
+        draw_rect(
+            pen,
+            b.xmid - b.width / 2,
+            h + s / 2,
+            b.xmid + b.width / 2,
+            h - s / 2,
+        )

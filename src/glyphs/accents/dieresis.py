@@ -5,8 +5,9 @@ from draw.rect import draw_rect
 class Dieresis(Accent):
     name = "dieresis"
     unicode = "0xA8"
-    gap = 0.38
+    gap = 0.35
     stroke_width = 1.1
+    width_ratio = 0.69
 
     def draw_at(self, pen, dc, x, y):
         dw = self.stroke_width * dc.stroke_x / 2

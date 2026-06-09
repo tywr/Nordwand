@@ -22,10 +22,10 @@ class FontConfig:
     cap: int = 705
     x_height: int = 526
 
-    accent: int = 715
+    accent: int = 685
     accent_cap: int = 890
 
-    math: int = 300
+    math: int = 282
 
     parenthesis: int = 300
     parenthesis_length: int = 1060

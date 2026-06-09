@@ -6,8 +6,10 @@ class Grave(Accent):
     name = "grave"
     unicode = "0x60"
     height_ratio = 0.35
-    width = 0.65
-    stroke_ratio = 1.2
+    width = 0.45
+    stroke_ratio = 1
+    sbl = 0.9
+    sbr = -0.72
 
     def draw_at(self, pen, dc, x, y):
         h = self.height_ratio * dc.x_height

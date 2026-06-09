@@ -5,13 +5,18 @@ from draw.rect import draw_rect
 class AsteriskGlyph(Glyph):
     name = "asterisk"
     unicode = "0x2A"
-    width_ratio = 1.31
-    stroke_ratio = 1.2
+    width_ratio = 0.7
+    bold_width_ratio = 0.74
+    stroke_ratio = 1
+    vert_offset = 0.5
+    sbl = 0.8
+    sbr = 0.8
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
         s = dc.stroke_alt * self.stroke_ratio
-        ymid = dc.math
+        ov = self.vert_offset * b.height
+        ymid = b.ymid + ov
         draw_rect(
             pen,
             b.x1,
