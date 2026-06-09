@@ -18,7 +18,7 @@ class UppercaseSGlyph(UppercaseGlyph):
     thinning = 1
     left_offset = 0.03
     right_offset = 0.02
-    curve_thinning = 0.008
+    curve_thinning = 0.022
     curve_ratio = 2.4
     width_ratio = 1.08
     bold_width_ratio = 1.165
