@@ -7,8 +7,8 @@ class LowercaseVGlyph(Glyph):
     unicode = "0x76"
     width_ratio = 0.98
     bold_width_ratio = 1.06
-    overlap = 0.33
-    stroke_ratio = 1
+    overlap = 0.5
+    stroke_ratio = 0.97
     sbl = 0.4
     sbr = 0.4
 

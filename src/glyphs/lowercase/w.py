@@ -5,12 +5,12 @@ from draw.parallelogramm import draw_parallelogramm
 class LowercaseWGlyph(Glyph):
     name = "lowercase_w"
     unicode = "0x77"
-    overlap = 0.25
+    overlap = 0.125
     outer_branch_ratio = 0.27
     inner_height = 1
     width_ratio = 1.46
     bold_width_ratio = 1.59
-    stroke_ratio = 0.95
+    stroke_ratio = 0.94
     sbl = 0.4
     sbr = 0.4
 
