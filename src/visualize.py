@@ -126,7 +126,12 @@ def overlay_reference(ax, font_path, char, show_controls):
 
     path = recording_to_mpl_path(out)
     patch = mpatches.PathPatch(
-        path, facecolor="none", edgecolor="#111", linewidth=1.5, linestyle="--", alpha=0.9
+        path,
+        facecolor="none",
+        edgecolor="#111",
+        linewidth=0.7,
+        linestyle=(0, (1, 2)),  # thin dotted: small dots so it reads against the glyph
+        alpha=0.9,
     )
     ax.add_patch(patch)
     if show_controls:

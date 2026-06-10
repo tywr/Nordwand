@@ -87,11 +87,11 @@ def _ratio(value, ref):
 
 
 def _fmt_num(value):
-    return "-" if value is None else f"{value:.0f}"
+    return "-" if value is None else f"{value:.2f}"
 
 
 def _fmt_ratio(value):
-    return "-" if value is None else f"{value:.2f}"
+    return "-" if value is None else f"{value:.3f}"
 
 
 def main(s=174):
@@ -127,14 +127,15 @@ def main(s=174):
     l_rsb = ref_sb["rsb"]
 
     units = font["head"].unitsPerEm
-    print(f"Font: {args.font}  (unitsPerEm={units})")
+    norm = 1000 / units  # normalize absolute values to a 1000-UPM basis
+    print(f"Font: {args.font}  (unitsPerEm={units}; values normalized to 1000 UPM)")
     print(
-        f"Refs: width vs '{REF_WIDTH_CHAR}' (adv={o_adv:.0f}); "
-        f"side bearings vs '{REF_SB_CHAR}' (LSB={l_lsb:.0f}, RSB={l_rsb:.0f})\n"
+        f"Refs: width vs '{REF_WIDTH_CHAR}' (adv={o_adv * norm:.2f}); "
+        f"side bearings vs '{REF_SB_CHAR}' (LSB={l_lsb * norm:.2f}, RSB={l_rsb * norm:.2f})\n"
     )
 
     header = ["char", "name", "adv", "LSB", "RSB", "w/o", "LSB/l", "RSB/l"]
-    widths = [4, 22, 6, 6, 6, 6, 6, 6]
+    widths = [4, 22, 8, 7, 7, 6, 6, 6]
 
     def row(cells):
         return "  ".join(
@@ -157,10 +158,10 @@ def main(s=174):
             cells = [
                 m["char"],
                 name[:22],
-                _fmt_num(m["advance"]),
-                _fmt_num(m["lsb"]),
-                _fmt_num(m["rsb"]),
-                _fmt_ratio(_ratio(m["advance"] - m["lsb"] - m["rsb"] - s, o_w - s)),
+                _fmt_num(m["advance"] * norm),
+                _fmt_num(m["lsb"] * norm),
+                _fmt_num(m["rsb"] * norm),
+                _fmt_ratio(_ratio(m["advance"] - m["lsb"] - m["rsb"], o_w)),
                 _fmt_ratio(_ratio(m["lsb"], l_lsb)),
                 _fmt_ratio(_ratio(m["rsb"], l_rsb)),
             ]

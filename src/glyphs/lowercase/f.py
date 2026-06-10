@@ -6,30 +6,29 @@ from draw.rect import draw_rect
 class LowercaseFGlyph(Glyph):
     name = "lowercase_f"
     unicode = "0x66"
-    rl_ratio = 0.55
-    width_ratio = 0.605
+    rl_ratio = 0.562
+    width_ratio = 0.612
     bold_width_ratio = 0.69
     cross_bar_height = 1
-    sbl = 0.13
-    sbr = 0.68
+    right_bar_offset = 0.018
+    sbl = 0.320
+    sbr = 0.453
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
-        right_len = b.width * self.rl_ratio - dc.stroke_x / 2
-        left_len = b.width * (1 - self.rl_ratio) - dc.stroke_x / 2
         yc = self.cross_bar_height * dc.x_height
+        xmid = b.x1 * self.rl_ratio + b.x2 * (1 - self.rl_ratio)
+        x2 = b.x2 - self.right_bar_offset * b.width
 
         # Stem
-        draw_rect(
-            pen, b.xmid - dc.stroke_x / 2, 0, b.xmid + dc.stroke_x / 2, dc.x_height
-        )
+        draw_rect(pen, xmid - dc.stroke_x / 2, 0, xmid + dc.stroke_x / 2, dc.x_height)
 
         # Cross-bar
         draw_rect(
             pen,
-            b.xmid - left_len - dc.stroke_x / 2,
+            b.x1,
             yc - dc.stroke_y,
-            b.xmid + right_len + dc.stroke_x / 2,
+            x2,
             yc,
         )
 
@@ -38,9 +37,9 @@ class LowercaseFGlyph(Glyph):
             pen,
             dc.stroke_x,
             dc.stroke_y,
-            b.xmid - dc.stroke_x / 2,
+            xmid - dc.stroke_x / 2,
             dc.x_height,
-            b.xmid + right_len + dc.stroke_x / 2,
+            b.x2,
             dc.ascent,
             orientation="top-right",
         )

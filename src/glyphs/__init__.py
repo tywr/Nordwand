@@ -49,7 +49,7 @@ class Glyph(ABC):
     def diag_stroke_dampening(self, ratio, stroke, coef=0.25):
         from math import exp
 
-        ds = max(stroke - 94, 0) / 94
+        ds = max(stroke - 85, 0) / 85
         # If ds > 0, we add some dampening, other we let as is
         if ds <= 0:
             return ratio * stroke

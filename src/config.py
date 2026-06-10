@@ -48,9 +48,9 @@ class FontConfig:
 
     width: int = 485
     default_stroke: int = 85
-    stroke_x: int = 88
-    stroke_y: int = 61
-    stroke_alt: int = 61
+    stroke_x: int = 85
+    stroke_y: int = 71
+    stroke_alt: int = 71
 
     # width: int = 398
     # default_stroke: int = 85

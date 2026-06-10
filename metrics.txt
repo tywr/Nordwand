@@ -1,0 +1,115 @@
+Font: ext-fonts/SF-Pro-Text-Regular.otf  (unitsPerEm=2048; values normalized to 1000 UPM)
+Refs: width vs 'o' (adv=590.82); side bearings vs 'l' (LSB=83.98, RSB=83.98)
+
+char  name                         adv      LSB      RSB     w/o   LSB/l   RSB/l
+----  ----------------------  --------  -------  -------  ------  ------  ------
+
+Lowercase
+   a  LATIN SMALL LETTER A      551.76    47.85    76.17   0.881   0.570   0.907
+   b  LATIN SMALL LETTER B      614.26    83.98    52.73   0.984   1.000   0.628
+   c  LATIN SMALL LETTER C      559.57    52.73    44.92   0.952   0.628   0.535
+   d  LATIN SMALL LETTER D      614.26    52.73    83.98   0.984   0.628   1.000
+   e  LATIN SMALL LETTER E      571.29    52.73    52.73   0.960   0.628   0.628
+   f  LATIN SMALL LETTER F      361.82    26.86    38.09   0.612   0.320   0.453
+   g  LATIN SMALL LETTER G      609.38    52.73    79.10   0.984   0.628   0.942
+   h  LATIN SMALL LETTER H      588.38    83.98    74.22   0.886   1.000   0.884
+   i  LATIN SMALL LETTER I      247.07    65.43    64.45   0.241   0.779   0.767
+   j  LATIN SMALL LETTER J      246.58   -10.74    64.94   0.396  -0.128   0.773
+   k  LATIN SMALL LETTER K      542.97    83.98    20.51   0.903   1.000   0.244
+   l  LATIN SMALL LETTER L      252.93    83.98    83.98   0.175   1.000   1.000
+   m  LATIN SMALL LETTER M      870.12    79.10    74.22   1.477   0.942   0.884
+   n  LATIN SMALL LETTER N      583.50    79.10    74.22   0.886   0.942   0.884
+   o  LATIN SMALL LETTER O      590.82    52.73    52.73   1.000   0.628   0.628
+   p  LATIN SMALL LETTER P      610.35    79.10    53.71   0.984   0.942   0.640
+   q  LATIN SMALL LETTER Q      609.38    52.73    78.12   0.986   0.628   0.930
+   r  LATIN SMALL LETTER R      380.86    79.10    25.88   0.568   0.942   0.308
+   s  LATIN SMALL LETTER S      523.44    52.25    52.73   0.862   0.622   0.628
+   t  LATIN SMALL LETTER T      363.28    29.30    47.85   0.590   0.349   0.570
+   u  LATIN SMALL LETTER U      583.50    74.22    79.10   0.886   0.884   0.942
+   v  LATIN SMALL LETTER V      541.99    33.20    33.20   0.980   0.395   0.395
+   w  LATIN SMALL LETTER W      774.41    33.20    33.20   1.459   0.395   0.395
+   x  LATIN SMALL LETTER X      524.41    35.16    35.16   0.936   0.419   0.419
+   y  LATIN SMALL LETTER Y      542.97    33.20    33.20   0.982   0.395   0.395
+   z  LATIN SMALL LETTER Z      539.06    66.89    66.89   0.835   0.797   0.797
+
+Uppercase
+   A  LATIN CAPITAL LETTER A    673.83    33.69    33.69   1.249   0.401   0.401
+   B  LATIN CAPITAL LETTER B    657.23    89.84    53.71   1.058   1.070   0.640
+   C  LATIN CAPITAL LETTER C    715.82    62.50    57.62   1.227   0.744   0.686
+   D  LATIN CAPITAL LETTER D    726.56    89.84    62.50   1.183   1.070   0.744
+   E  LATIN CAPITAL LETTER E    595.70    89.84    69.34   0.899   1.070   0.826
+   F  LATIN CAPITAL LETTER F    572.27    89.84    54.69   0.881   1.070   0.651
+   G  LATIN CAPITAL LETTER G    746.58    62.50    65.43   1.275   0.744   0.779
+   H  LATIN CAPITAL LETTER H    742.19    89.84    89.84   1.159   1.070   1.070
+   I  LATIN CAPITAL LETTER I    267.58    89.84    89.84   0.181   1.070   1.070
+   J  LATIN CAPITAL LETTER J    538.09    41.99    89.84   0.837   0.500   1.070
+   K  LATIN CAPITAL LETTER K    658.69    89.84    28.32   1.114   1.070   0.337
+   L  LATIN CAPITAL LETTER L    567.87    89.84    50.29   0.881   1.070   0.599
+   M  LATIN CAPITAL LETTER M    874.02    89.84    89.84   1.431   1.070   1.070
+   N  LATIN CAPITAL LETTER N    742.19    89.84    89.84   1.159   1.070   1.070
+   O  LATIN CAPITAL LETTER O    771.48    62.50    62.50   1.332   0.744   0.744
+   P  LATIN CAPITAL LETTER P    635.25    89.84    53.71   1.013   1.070   0.640
+   Q  LATIN CAPITAL LETTER Q    771.48    62.50    62.50   1.332   0.744   0.744
+   R  LATIN CAPITAL LETTER R    653.32    89.84    48.34   1.061   1.070   0.576
+   S  LATIN CAPITAL LETTER S    637.21    56.15    56.15   1.081   0.669   0.669
+   T  LATIN CAPITAL LETTER T    633.79    45.90    45.90   1.117   0.547   0.547
+   U  LATIN CAPITAL LETTER U    737.30    88.87    88.87   1.153   1.058   1.058
+   V  LATIN CAPITAL LETTER V    673.83    33.69    33.69   1.249   0.401   0.401
+   W  LATIN CAPITAL LETTER W    967.77    43.95    43.95   1.813   0.523   0.523
+   X  LATIN CAPITAL LETTER X    678.71    43.46    44.43   1.217   0.517   0.529
+   Y  LATIN CAPITAL LETTER Y    655.27    33.69    33.69   1.211   0.401   0.401
+   Z  LATIN CAPITAL LETTER Z    661.62    70.31    70.31   1.073   0.837   0.837
+
+Numbers
+   0  DIGIT ZERO                629.88    65.92    65.92   1.026   0.785   0.785
+   1  DIGIT ONE                 463.87    63.96   125.00   0.566   0.762   1.488
+   2  DIGIT TWO                 603.52    73.73    68.85   0.950   0.878   0.820
+   3  DIGIT THREE               626.95    68.85    63.96   1.018   0.820   0.762
+   4  DIGIT FOUR                643.55    57.13    57.13   1.091   0.680   0.680
+   5  DIGIT FIVE                618.16    74.22    62.99   0.991   0.884   0.750
+   6  DIGIT SIX                 636.72    62.50    62.50   1.054   0.744   0.744
+   7  DIGIT SEVEN               569.34    47.36    55.66   0.961   0.564   0.663
+   8  DIGIT EIGHT               638.67    63.48    63.48   1.054   0.756   0.756
+   9  DIGIT NINE                636.72    62.50    62.50   1.054   0.744   0.744
+
+Special
+   .  FULL STOP                 296.88    84.96    84.96   0.262   1.012   1.012
+   ,  COMMA                     296.88    57.62    99.61   0.288   0.686   1.186
+   :  COLON                     296.88    84.96    84.96   0.262   1.012   1.012
+   ;  SEMICOLON                 296.88    57.62    84.96   0.318   0.686   1.012
+   !  EXCLAMATION MARK          311.04    87.89    87.89   0.279   1.047   1.047
+   ?  QUESTION MARK             512.70    39.06    53.71   0.865   0.465   0.640
+   '  APOSTROPHE                296.88   103.03   103.03   0.187   1.227   1.227
+   "  QUOTATION MARK            477.54   103.03   103.03   0.559   1.227   1.227
+   -  HYPHEN-MINUS              471.68    71.78    71.78   0.676   0.855   0.855
+   _  LOW LINE                  583.50     0.00     0.00   1.202   0.000   0.000
+   /  SOLIDUS                   304.69     0.00     0.49   0.627   0.000   0.006
+   \  REVERSE SOLIDUS           304.69     0.00     0.49   0.627   0.000   0.006
+   |  VERTICAL LINE             258.79    89.84    89.84   0.163   1.070   1.070
+   (  LEFT PARENTHESIS          381.84   118.16    53.71   0.433   1.407   0.640
+   )  RIGHT PARENTHESIS         381.84    53.71   118.16   0.433   0.640   1.407
+   [  LEFT SQUARE BRACKET       381.84   130.86    39.06   0.437   1.558   0.465
+   ]  RIGHT SQUARE BRACKET      381.84    39.06   130.86   0.437   0.465   1.558
+   {  LEFT CURLY BRACKET        381.84    39.06    39.06   0.626   0.465   0.465
+   }  RIGHT CURLY BRACKET       381.84    39.06    39.06   0.626   0.465   0.465
+   <  LESS-THAN SIGN            629.88    68.85    68.85   1.014   0.820   0.820
+   >  GREATER-THAN SIGN         629.88    68.85    68.85   1.014   0.820   0.820
+   =  EQUALS SIGN               629.88    62.99    62.99   1.038   0.750   0.750
+   +  PLUS SIGN                 629.88    56.64    56.64   1.064   0.674   0.674
+   *  ASTERISK                  471.68    71.29    71.29   0.678   0.849   0.849
+   &  AMPERSAND                 711.43    56.15    13.67   1.322   0.669   0.163
+   @  COMMERCIAL AT             917.97    69.82    53.22   1.638   0.831   0.634
+   #  NUMBER SIGN               629.88    14.65    14.16   1.238   0.174   0.169
+   %  PERCENT SIGN              925.29    65.92    65.92   1.635   0.785   0.785
+   $  DOLLAR SIGN               629.88    70.31    73.73   1.001   0.837   0.878
+   ~  TILDE                     629.88    62.99    62.99   1.038   0.750   0.750
+   —  EM DASH                   874.02    39.55    39.55   1.638   0.471   0.471
+   –  EN DASH                   583.50    39.55    39.55   1.039   0.471   0.471
+   °  DEGREE SIGN               471.68    72.75    72.75   0.672   0.866   0.866
+   æ  LATIN SMALL LETTER AE     902.83    47.85    52.73   1.653   0.570   0.628
+   œ  LATIN SMALL LIGATURE O    970.21    52.73    52.73   1.782   0.628   0.628
+   ø  LATIN SMALL LETTER O W    590.82    44.43    44.92   1.033   0.529   0.535
+   ß  LATIN SMALL LETTER SHA    622.07   109.86    52.73   0.947   1.308   0.628
+   Æ  LATIN CAPITAL LETTER A    959.96    33.69    69.34   1.766   0.401   0.826
+   Œ  LATIN CAPITAL LIGATURE   1135.25    62.50    69.34   2.067   0.744   0.826
+   Ø  LATIN CAPITAL LETTER O    768.55    59.08    58.59   1.341   0.703   0.698
