@@ -21,16 +21,17 @@ class LowercaseAGlyph(Glyph):
 
     bot_hx_ratio = 1.2
     bot_hy_ratio = 0.9
-    left_cap_hx_ratio = 1.1
-    left_cap_hy_ratio = 0.6
-    cap_hx_ratio = 1.25
-    cap_hy_ratio = 1
+    left_cap_hx_ratio = 1.05
+    left_cap_hy_ratio = 0.65
+    cap_mid_offset = 0.028
+    cap_hx_ratio = 1.27
+    cap_hy_ratio = 1.1
     cap_x_stroke_ratio = 1.01
     cap_y_stroke_ratio = 1.06
-    cap_start_height = 0.69
+    cap_start_height = 0.68
     cap_height = 0.74
     cap_offset = 0.01
-    thinning = 1
+    thinning = 0.9
     upper_bowl_mid = 0.56
     ending_thickness = 0.7
     overshoot_top = True
@@ -47,6 +48,7 @@ class LowercaseAGlyph(Glyph):
         dx = sx - dc.stroke_x
         ry = (self.mid_height * b.height + dc.stroke_alt / 2) / b.height
         ymid = b.y1 + self.mid_height * b.height
+        xmc = b.xmid + self.cap_mid_offset * b.width
         xmu = b.x1 + self.upper_bowl_mid * b.width
         ycap = b.y1 + self.cap_start_height * b.height
         yl = ymid + dc.stroke_alt / 2
@@ -54,7 +56,7 @@ class LowercaseAGlyph(Glyph):
         bhx, bhy = self.bot_hx_ratio * b.hx, self.bot_hy_ratio * b.hy
         ycut = b.y1 + self.cap_height * b.height
         xc = b.x1 + self.cap_offset * b.width
-        chx = self.cap_hx_ratio * b.hx
+        chx, chy = self.cap_hx_ratio * b.hx, self.cap_hy_ratio * b.hy
         lchx = self.left_cap_hx_ratio * b.hx
         lchy = self.left_cap_hy_ratio * b.hy
 
@@ -96,9 +98,8 @@ class LowercaseAGlyph(Glyph):
         # )
 
         # Cap
-        xmid = (xc + b.x2) / 2
         draw_corner(
-            pen, sx, csy, b.x2, ycap, xmid, b.y2, lchx, lchy, orientation="top-left"
+            pen, sx, csy, b.x2, ycap, xmc, b.y2, lchx, lchy, orientation="top-left"
         )
 
         loop_glyph = ufoLib2.objects.Glyph()
@@ -108,10 +109,10 @@ class LowercaseAGlyph(Glyph):
             csy,
             xc,
             b.ymid,
-            xmid,
+            xmc,
             b.y2,
             chx,
-            b.hy,
+            chy,
             orientation="top-right",
         )
         cut_glyph = ufoLib2.objects.Glyph()
