@@ -17,7 +17,7 @@ class FiveGlyph(NumberGlyph):
     junction_ratio = 0.43
     cap_offset = 0.08
     tilt = 0.28
-    taper = 1.5
+    taper = 0.6
     sbl = 0.88
     sbr = 0.75
     overshoot_bottom = True
@@ -67,7 +67,7 @@ class FiveGlyph(NumberGlyph):
         ymid = b.y1 + b.height * self.loop_ratio / 2
         draw_rect(
             cut_glyph.getPen(),
-            b.x1,
+            b.x1 - 10,
             2 * ymid - yj,
             b.xmid,
             yj,
