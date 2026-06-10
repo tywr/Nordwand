@@ -7,6 +7,9 @@ class VerticalLineGlyph(Glyph):
     unicode = "0x7C"
     width_ratio = 1
     height = "ascent"
+    bold_width_ratio = 0.265
+    bold_sbl = 1.122
+    bold_sbr = 1.122
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

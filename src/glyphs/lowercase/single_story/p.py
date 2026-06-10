@@ -8,6 +8,9 @@ class LowercasePGlyph(SingleStoryLowercaseGlyph):
     unicode = "0x70"
     sbl = 0.942
     sbr = 0.640
+    bold_width_ratio = 1.094
+    bold_sbl = 0.936
+    bold_sbr = 0.590
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

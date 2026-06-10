@@ -10,7 +10,7 @@ class LowercaseEGlyph(RoundLowercaseGlyph):
     name = "lowercase_e"
     unicode = "0x65"
     width_ratio = 0.985
-    bold_width_ratio = 1.05
+    bold_width_ratio = 1.08
     mid_height = 0.52
     thinning = 0.9
     tail_offset = 0.005
@@ -19,6 +19,8 @@ class LowercaseEGlyph(RoundLowercaseGlyph):
     tail_hy_ratio = 1.0
     sbl = 0.628
     sbr = 0.495
+    bold_sbl = 0.590
+    bold_sbr = 0.440
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

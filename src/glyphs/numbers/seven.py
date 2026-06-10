@@ -10,6 +10,9 @@ class SevenGlyph(NumberGlyph):
     width_ratio = 0.94
     sbl = 0.56
     sbr = 0.66
+    bold_width_ratio = 1.039
+    bold_sbl = 0.622
+    bold_sbr = 0.699
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -6,9 +6,11 @@ class UppercaseLGlyph(UppercaseGlyph):
     name = "uppercase_l"
     unicode = "0x4C"
     width_ratio = 0.881
-    bold_width_ratio = 0.95
+    bold_width_ratio = 0.950
     sbl = 1.070
     sbr = 0.599
+    bold_sbl = 1.122
+    bold_sbr = 0.635
 
 
     def draw(self, pen, dc):

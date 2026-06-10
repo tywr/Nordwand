@@ -10,18 +10,25 @@ class ThreeGlyph(NumberGlyph):
     name = "three"
     unicode = "0x33"
     loop_width_ratio = 0.92
-    mid_ratio = 0.53
-    taper = 1.5
+    mid_ratio = 0.515
+    taper_high = 0.9
+    taper_low = 1.3
     len_mid = 0.7
-    width_ratio = 1.02
-    sbl = 0.82
-    sbr = 0.76
+    hx_ratio = 0.9
+    hy_ratio = 0.9
+    width_ratio = 1.018
+    sbl = 0.820
+    sbr = 0.762
     overshoot_top = True
     overshoot_bottom = True
+    bold_width_ratio = 1.132
+    bold_sbl = 0.788
+    bold_sbr = 0.788
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
+        hx, hy = b.hx * self.hx_ratio, b.hy * self.hy_ratio
 
         ymid = b.y1 + self.mid_ratio * b.height
         xl = b.x1 + (1 - self.loop_width_ratio) * b.width / 2
@@ -30,7 +37,6 @@ class ThreeGlyph(NumberGlyph):
         ry = (b.y2 - b.ymid + sy / 2) / b.height
 
         # Top loop
-        taper = max(self.taper * dc.taper, 0.65)
         top_params = draw_arch(
             base_glyph.getPen(),
             sx,
@@ -39,9 +45,9 @@ class ThreeGlyph(NumberGlyph):
             ymid - sy / 2,
             xr,
             b.y2,
-            b.hx,
-            b.hy * ry * 2 * (1 - self.mid_ratio),
-            taper=taper,
+            hx,
+            hy * ry * 2 * (1 - self.mid_ratio),
+            taper=self.taper_high * dc.taper,
             side="bottom",
         )
 
@@ -54,9 +60,9 @@ class ThreeGlyph(NumberGlyph):
             b.y1,
             b.x2,
             ymid + sy / 2,
-            b.hx,
-            b.hy * ry * 2 * self.mid_ratio,
-            taper=taper,
+            hx,
+            hy * ry * 2 * self.mid_ratio,
+            taper=self.taper_low * dc.taper,
             side="top",
         )
 

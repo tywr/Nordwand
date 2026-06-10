@@ -6,10 +6,12 @@ class SemiColonGlyph(Glyph):
     name = "semi_colon"
     unicode = "0x3B"
     width_ratio = 0.265
-    bold_width_ratio = 0.41
+    bold_width_ratio = 0.416
     stroke_ratio = 1.2
     stroke_ratio_bold = 1
     gap = 0.935
+    bold_sbl = 0.763
+    bold_sbr = 1.154
 
     def draw(self, pen, dc):
         from glyphs.special.comma import CommaGlyph

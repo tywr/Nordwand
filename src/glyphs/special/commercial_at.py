@@ -14,6 +14,9 @@ class CommercialAtGlyph(Glyph):
     ending_thickness = 0.8
     height = "cap"
     overshoot_top = True
+    bold_width_ratio = 1.663
+    bold_sbl = 0.814
+    bold_sbr = 0.769
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

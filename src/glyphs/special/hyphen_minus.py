@@ -9,6 +9,9 @@ class HyphenMinusGlyph(Glyph):
     stroke_ratio = 0.9
     sbl = 0.84
     sbr = 0.84
+    bold_width_ratio = 0.669
+    bold_sbl = 1.051
+    bold_sbr = 1.045
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -9,6 +9,9 @@ class GreaterThenSignGlyph(Glyph):
     overlap = 0.6
     span = 0.85
     stroke_ratio = 1.2
+    bold_width_ratio = 1.083
+    bold_sbl = 0.962
+    bold_sbr = 0.955
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

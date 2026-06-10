@@ -6,7 +6,7 @@ class CommaGlyph(Glyph):
     name = "comma"
     unicode = "0x2C"
     width_ratio = 0.5
-    bold_width_ratio = 0.61
+    bold_width_ratio = 0.380
     height_ratio = 0.7
     vertical_offset = 0.19
     foot_offset = 0.15
@@ -14,6 +14,8 @@ class CommaGlyph(Glyph):
     stroke_ratio = 1.05
     sbl = 0.29
     sbr = 0.36
+    bold_sbl = 0.763
+    bold_sbr = 1.385
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

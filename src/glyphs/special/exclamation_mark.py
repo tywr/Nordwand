@@ -16,6 +16,9 @@ class ExclamationMarkGlyph(Glyph):
     sbl = 1.5
     sbr = 1.5
     height = "cap"
+    bold_width_ratio = 0.366
+    bold_sbl = 1.173
+    bold_sbr = 1.173
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

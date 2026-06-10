@@ -7,6 +7,9 @@ class RightParenthesisGlyph(Glyph):
     unicode = "0x29"
     width_ratio = 0.4
     stroke_x_ratio = 1.1
+    bold_width_ratio = 0.569
+    bold_sbl = 0.577
+    bold_sbr = 1.429
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

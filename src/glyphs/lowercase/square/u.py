@@ -9,6 +9,9 @@ class LowercaseUGlyph(SquareLowercaseGlyph):
     sbl = 0.884
     sbr = 0.942
     overshoot_bottom = True
+    bold_width_ratio = 1.010
+    bold_sbl = 0.872
+    bold_sbr = 0.936
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -8,10 +8,12 @@ class LowercaseJGlyph(DottedLowercaseGlyph):
     unicode = "0x6A"
     tail_offset = 0
     width_ratio = 0.364
-    bold_width_ratio = 0.47
+    bold_width_ratio = 0.470
     dot_position = "x2"
     sbl = -0.128
     sbr = 0.96
+    bold_sbl = -0.186
+    bold_sbr = 0.96
 
     def draw_base(self, pen, dc):
         """Draw the letter without the dot (for use with accents)."""

@@ -7,10 +7,12 @@ class EmDashGlyph(Glyph):
     unicode = "0x2014"
     stroke_ratio = 0.85
     width_ratio = 1.64
-    bold_width_ratio = 1.69
+    bold_width_ratio = 1.723
     height_ratio = 0.54
     sbl = 0.47
     sbr = 0.47
+    bold_sbl = 0.468
+    bold_sbr = 0.468
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

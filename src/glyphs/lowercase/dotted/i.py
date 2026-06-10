@@ -8,6 +8,9 @@ class LowercaseIGlyph(DottedLowercaseGlyph):
     cap = 0.5
     sbr = 0.97
     sbl = 0.97
+    bold_width_ratio = 0.331
+    bold_sbl = 0.833
+    bold_sbr = 0.827
 
     def window_width(self, dc):
         return dc.stroke_x + (self.sbr + self.sbl) * dc.side_bearing

@@ -7,13 +7,15 @@ class ZeroGlyph(NumberGlyph):
     unicode = "0x30"
     slash = 0.2
     width_ratio = 1.03
-    bold_width_ratio = 1.15
+    bold_width_ratio = 1.154
     hx_ratio = 1
     hy_ratio = 1
     overshoot_top = True
     overshoot_bottom = True
     sbl = 0.78
     sbr = 0.78
+    bold_sbl = 0.821
+    bold_sbr = 0.821
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

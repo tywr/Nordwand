@@ -8,11 +8,13 @@ class UppercaseWGlyph(UppercaseGlyph):
     outer_branch_ratio = 0.26
     inner_height = 1
     width_ratio = 1.813
-    bold_width_ratio = 1.88
+    bold_width_ratio = 1.905
     stroke_ratio = 1.1
     inner_stroke_ratio = 1
     sbr = 0.523
     sbl = 0.523
+    bold_sbl = 0.564
+    bold_sbr = 0.558
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

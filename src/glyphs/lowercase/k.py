@@ -7,13 +7,15 @@ class LowercaseKGlyph(Glyph):
     name = "lowercase_k"
     unicode = "0x6B"
     width_ratio = 0.903
-    bold_width_ratio = 1.03
+    bold_width_ratio = 1.045
     mid_ratio = 0.52
     upper_branch_offset = 0.03
     branch_stroke_ratio = 1.3
     branch_overlap = 0.8
     sbl = 1
     sbr = 0.244
+    bold_sbl = 1.000
+    bold_sbr = 0.244
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

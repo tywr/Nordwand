@@ -8,6 +8,9 @@ class LowercaseBGlyph(SingleStoryLowercaseGlyph):
     unicode = "0x62"
     sbr = 0.628
     sbl = 1
+    bold_width_ratio = 1.094
+    bold_sbl = 1.000
+    bold_sbr = 0.583
 
     def draw(
         self,

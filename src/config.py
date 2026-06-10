@@ -60,6 +60,7 @@ class FontConfig:
 
     v_overshoot: int = 9
     v_overshoot_cap: int = 16
+    v_overshoot_number: int = 13
     h_overshoot: int = 10
 
     # Kerning pairs: {"<char1><char2>": fraction_of_side_bearing}.
@@ -101,35 +102,41 @@ class DrawConfig(FontConfig):
         """Return a DrawConfig with heavier stroke weights for a bold variant."""
         from math import log, exp
 
-        brx = 1.6
+        brx = 1.672
         ratio_x = exp((w - 400) * log(brx) / 300)
 
-        bry = 1.4
+        bry = 1.45
         ratio_y = exp((w - 400) * log(bry) / 300)
 
-        bhx = 1.2
+        bhx = 1.15
         hx_ratio = exp((w - 400) * log(bhx) / 300)
 
         bhy = 1.1
         hy_ratio = exp((w - 400) * log(bhy) / 300)
 
-        rb = 0.85
+        rb = 0.906
         sb_ratio = exp((w - 400) * log(rb) / 300)
+
+        rx = 15
+        exh = exp((w - 400) * log(rx) / 300)
+
+        rc = 9
+        exc = exp((w - 400) * log(rc) / 300)
 
         # Function mapping 100 → 0.5 and 700 → 0.2
         taper = min(0.5, 0.5 - 0.0006 * (w - 400))
 
         return cls(
             weight=w,
-            stroke_x=int(cls.stroke_x * ratio_x),
-            stroke_y=int(cls.stroke_y * ratio_y),
-            stroke_alt=int(cls.stroke_alt * ratio_y),
+            stroke_x=cls.stroke_x * ratio_x,
+            stroke_y=cls.stroke_y * ratio_y,
+            stroke_alt=cls.stroke_alt * ratio_y,
             side_bearing=cls.side_bearing * sb_ratio,
-            x_height=cls.x_height,
+            x_height=cls.x_height + exh,
             cap=cls.cap,
             accent=cls.cap,
             accent_cap=cls.accent_cap,
-            ascent=cls.ascent,
+            ascent=cls.ascent + exc,
             descent=cls.descent,
             taper=taper,
             hx=hx_ratio * cls.hx,
@@ -172,8 +179,10 @@ class DrawConfig(FontConfig):
         x2 = x1 + width
         y2 = getattr(self, height)
 
-        if uppercase or number:
+        if uppercase:
             v_ov = self.v_overshoot_cap
+        elif number:
+            v_ov = self.v_overshoot_number
         else:
             v_ov = self.v_overshoot
         h_ov = self.h_overshoot

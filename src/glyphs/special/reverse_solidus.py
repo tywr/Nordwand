@@ -8,6 +8,9 @@ class ReverseSolidusGlyph(Glyph):
     width_ratio = 1
     height_ratio = 0.8
     height = "ascent"
+    bold_width_ratio = 0.690
+    bold_sbl = 0.000
+    bold_sbr = 0.000
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

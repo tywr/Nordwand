@@ -9,10 +9,12 @@ class LowercaseWGlyph(Glyph):
     outer_branch_ratio = 0.27
     inner_height = 1
     width_ratio = 1.46
-    bold_width_ratio = 1.59
+    bold_width_ratio = 1.624
     stroke_ratio = 0.94
     sbl = 0.4
     sbr = 0.4
+    bold_sbl = 0.391
+    bold_sbr = 0.391
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

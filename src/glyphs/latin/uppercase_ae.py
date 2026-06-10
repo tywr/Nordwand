@@ -14,6 +14,9 @@ class UppercaseAeGlyph(UppercaseGlyph):
     width_ratio = 1.2
     mid_ratio = 0.52
     xmid_ratio = 0.55
+    bold_width_ratio = 1.857
+    bold_sbl = 0.462
+    bold_sbr = 0.910
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

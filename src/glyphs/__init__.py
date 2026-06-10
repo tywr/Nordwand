@@ -7,6 +7,8 @@ class Glyph(ABC):
     accent_x_offset: int = 0
     sbl: int = 1
     sbr: int = 1
+    bold_sbl: int = 1
+    bold_sbr: int = 1
     stroke_x_ratio: float = 1
     overshoot_top: bool = False
     overshoot_bottom: bool = False
@@ -40,11 +42,28 @@ class Glyph(ABC):
             width_ratio = (1 - bw) * self.width_ratio + bw * self.bold_width_ratio
         return width_ratio
 
+    def adjusted_sbl(self, dc):
+        if dc.weight <= 400:
+            sbl = self.sbl
+        elif dc.weight <= 700:
+            bw = (dc.weight - 400) / 300
+            sbl = (1 - bw) * self.sbl + bw * self.bold_sbl
+        return sbl
+
+    def adjusted_sbr(self, dc):
+        if dc.weight <= 400:
+            sbr = self.sbr
+        elif dc.weight <= 700:
+            bw = (dc.weight - 400) / 300
+            sbr = (1 - bw) * self.sbr + bw * self.bold_sbr
+        return sbr
+
     def window_width(self, dc):
-        return (
+        ww = (
             self.adjusted_width_ratio(dc) * dc.width
-            + (self.sbr + self.sbl) * dc.side_bearing
+            + (self.adjusted_sbl(dc) + self.adjusted_sbr(dc)) * dc.side_bearing
         )
+        return ww
 
     def diag_stroke_dampening(self, ratio, stroke, coef=0.25):
         from math import exp
@@ -61,8 +80,8 @@ class Glyph(ABC):
     def body_bounds(self, dc):
         return dc.body_bounds(
             width=self.adjusted_width_ratio(dc) * dc.width,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
+            side_bearing_right=self.adjusted_sbr(dc) * dc.side_bearing,
+            side_bearing_left=self.adjusted_sbl(dc) * dc.side_bearing,
             height=self.height,
             number=self.number,
             uppercase=self.uppercase,

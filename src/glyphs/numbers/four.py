@@ -13,6 +13,9 @@ class FourGlyph(NumberGlyph):
     width_ratio = 1.1
     sbl = 0.68
     sbr = 0.64
+    bold_width_ratio = 1.191
+    bold_sbl = 0.692
+    bold_sbr = 0.744
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

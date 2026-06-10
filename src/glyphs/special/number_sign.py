@@ -9,6 +9,9 @@ class NumberSignGlyph(Glyph):
     gap = 0.42
     bar_height_ratio = 1
     height = "cap"
+    bold_width_ratio = 1.313
+    bold_sbl = 0.231
+    bold_sbr = 0.224
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

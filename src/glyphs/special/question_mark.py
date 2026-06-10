@@ -17,6 +17,9 @@ class QuestionMarkGlyph(Glyph):
     taper = 0.75
     height = "cap"
     overshoot_top = True
+    bold_width_ratio = 0.968
+    bold_sbl = 0.500
+    bold_sbr = 0.654
 
     def draw(self, pen, dc):
         from glyphs.special.full_stop import FullStopGlyph

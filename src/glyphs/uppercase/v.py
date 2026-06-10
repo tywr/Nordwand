@@ -7,9 +7,11 @@ class UppercaseVGlyph(UppercaseGlyph):
     unicode = "0x56"
     stroke_x_ratio = 1.02
     width_ratio = 1.249
-    bold_width_ratio = 1.33
+    bold_width_ratio = 1.343
     sbl = 0.401
     sbr = 0.401
+    bold_sbl = 0.462
+    bold_sbr = 0.455
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

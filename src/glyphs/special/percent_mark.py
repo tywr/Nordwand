@@ -11,6 +11,9 @@ class PercentMarkGlyph(Glyph):
     offset_ratio_y = 0.45
     zero_ratio = 0.4
     height = "cap"
+    bold_width_ratio = 1.878
+    bold_sbl = 0.821
+    bold_sbr = 0.821
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

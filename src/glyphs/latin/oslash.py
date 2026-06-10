@@ -9,6 +9,9 @@ class OSlashGlyph(RoundLowercaseGlyph):
     width_ratio = 1
     slash_stroke = 1.2
     slash_length = 1.4
+    bold_width_ratio = 1.141
+    bold_sbl = 0.436
+    bold_sbr = 0.436
 
     def draw(
         self,

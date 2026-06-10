@@ -100,6 +100,15 @@ def main(s=174):
     )
     parser.add_argument("font", help="Path to a TTF font file")
     parser.add_argument("--csv", metavar="FILE", help="Also write the table as CSV")
+    parser.add_argument(
+        "--o-width",
+        type=float,
+        metavar="N",
+        help=(
+            f"Override the reference '{REF_WIDTH_CHAR}' ink width used for the w/o "
+            "column (in 1000-UPM units), instead of measuring it from the font"
+        ),
+    )
     args = parser.parse_args()
 
     font = TTFont(args.font)
@@ -128,9 +137,15 @@ def main(s=174):
 
     units = font["head"].unitsPerEm
     norm = 1000 / units  # normalize absolute values to a 1000-UPM basis
+
+    # Reference 'o' ink width for the w/o column (1000-UPM units): measured,
+    # unless overridden on the command line.
+    o_w_ref = args.o_width if args.o_width is not None else o_w * norm
+    o_w_note = " (overridden)" if args.o_width is not None else ""
+
     print(f"Font: {args.font}  (unitsPerEm={units}; values normalized to 1000 UPM)")
     print(
-        f"Refs: width vs '{REF_WIDTH_CHAR}' (adv={o_adv * norm:.2f}); "
+        f"Refs: width vs '{REF_WIDTH_CHAR}' (ink width={o_w_ref:.2f}{o_w_note}); "
         f"side bearings vs '{REF_SB_CHAR}' (LSB={l_lsb * norm:.2f}, RSB={l_rsb * norm:.2f})\n"
     )
 
@@ -161,7 +176,9 @@ def main(s=174):
                 _fmt_num(m["advance"] * norm),
                 _fmt_num(m["lsb"] * norm),
                 _fmt_num(m["rsb"] * norm),
-                _fmt_ratio(_ratio(m["advance"] - m["lsb"] - m["rsb"], o_w)),
+                _fmt_ratio(
+                    _ratio((m["advance"] - m["lsb"] - m["rsb"]) * norm, o_w_ref)
+                ),
                 _fmt_ratio(_ratio(m["lsb"], l_lsb)),
                 _fmt_ratio(_ratio(m["rsb"], l_rsb)),
             ]

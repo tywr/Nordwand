@@ -10,6 +10,9 @@ class RightCurlyBracketGlyph(Glyph):
     unicode = "0x7D"
     width_ratio = 1
     peak_ratio = 0.35
+    bold_width_ratio = 0.738
+    bold_sbl = 0.468
+    bold_sbr = 0.462
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

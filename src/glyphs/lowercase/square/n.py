@@ -10,6 +10,9 @@ class LowercaseNGlyph(SquareLowercaseGlyph):
     sbr = 0.884
     sbl = 0.942
     overshoot_top = True
+    bold_width_ratio = 1.010
+    bold_sbl = 0.936
+    bold_sbr = 0.872
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

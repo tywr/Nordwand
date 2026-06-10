@@ -12,10 +12,12 @@ class UppercaseJGlyph(UppercaseGlyph):
     loop_ratio = 0.5
     tail_len = 0.5
     width_ratio = 0.837
-    bold_width_ratio = 0.98
+    bold_width_ratio = 0.987
     sbl = 0.500
     sbr = 1.070
     overshoot_bottom = True
+    bold_sbl = 0.487
+    bold_sbr = 1.122
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

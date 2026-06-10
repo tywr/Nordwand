@@ -8,6 +8,9 @@ class DollarSignGlyph(Glyph):
     width_ratio = 1
     overflow_ratio = 0.2
     height = "cap"
+    bold_width_ratio = 1.102
+    bold_sbl = 0.923
+    bold_sbr = 0.872
 
     def draw(self, pen, dc):
         from glyphs.uppercase.s import UppercaseSGlyph

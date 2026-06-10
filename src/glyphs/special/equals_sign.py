@@ -8,6 +8,9 @@ class EqualsSignGlyph(Glyph):
     width_ratio = 1
     gap = 0.4
     stroke_ratio = 0.92
+    bold_width_ratio = 1.107
+    bold_sbl = 0.885
+    bold_sbr = 0.878
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -7,10 +7,12 @@ class EnDashGlyph(Glyph):
     unicode = "0x2013"
     stroke_ratio = 0.85
     width_ratio = 1.04
-    bold_width_ratio = 1.12
+    bold_width_ratio = 1.147
     height_ratio = 0.54
     sbl = 0.47
     sbr = 0.47
+    bold_sbl = 0.468
+    bold_sbr = 0.468
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

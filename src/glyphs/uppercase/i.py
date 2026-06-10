@@ -8,6 +8,9 @@ class UppercaseIGlyph(UppercaseGlyph):
     width_ratio = 0
     sbl = 1.070
     sbr = 1.070
+    bold_width_ratio = 0.304
+    bold_sbl = 1.122
+    bold_sbr = 1.122
 
     def window_width(self, dc):
         return (

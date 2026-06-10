@@ -8,6 +8,9 @@ class PlusSignGlyph(Glyph):
     width_ratio = 1
     stroke_ratio = 0.88
     height = "cap"
+    bold_width_ratio = 1.136
+    bold_sbl = 0.795
+    bold_sbr = 0.788
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -9,6 +9,9 @@ class LowercaseHGlyph(SquareLowercaseGlyph):
     unicode = "0x68"
     sbr = 0.884
     overshoot_top = True
+    bold_width_ratio = 1.010
+    bold_sbl = 1.000
+    bold_sbr = 0.872
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

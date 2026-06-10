@@ -6,11 +6,13 @@ class AsteriskGlyph(Glyph):
     name = "asterisk"
     unicode = "0x2A"
     width_ratio = 0.7
-    bold_width_ratio = 0.74
+    bold_width_ratio = 0.780
     stroke_ratio = 1
     vert_offset = 0.5
     sbl = 0.8
     sbr = 0.8
+    bold_sbl = 0.699
+    bold_sbr = 0.692
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

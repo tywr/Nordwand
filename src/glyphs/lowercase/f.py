@@ -7,12 +7,14 @@ class LowercaseFGlyph(Glyph):
     name = "lowercase_f"
     unicode = "0x66"
     rl_ratio = 0.562
-    width_ratio = 0.612
-    bold_width_ratio = 0.69
     cross_bar_height = 1
     right_bar_offset = 0.018
+    width_ratio = 0.612
+    bold_width_ratio = 0.711
     sbl = 0.320
     sbr = 0.453
+    bold_sbl = 0.340
+    bold_sbr = 0.494
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -12,7 +12,7 @@ class LowercaseCGlyph(RoundLowercaseGlyph):
     opening1 = 0.31
     opening2 = 0.685
     width_ratio = 0.975
-    bold_width_ratio = 1.035
+    bold_width_ratio = 1.05
     thinning = 0.9
     top_offset = 0.00
     stroke_x_ratio = 1.03
@@ -20,6 +20,8 @@ class LowercaseCGlyph(RoundLowercaseGlyph):
     sbr = 0.4
     right_hx_ratio = 1.2
     right_hy_ratio = 1
+    bold_sbl = 0.590
+    bold_sbr = 0.450
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

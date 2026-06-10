@@ -6,6 +6,9 @@ class RightSquareBracketGlyph(Glyph):
     name = "right_square_bracket"
     unicode = "0x5D"
     width_ratio = 0.6
+    bold_width_ratio = 0.558
+    bold_sbl = 0.468
+    bold_sbr = 1.609
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

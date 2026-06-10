@@ -78,12 +78,11 @@ def _recording_x_bounds(recording):
 def load_reference(font_path, char):
     """Record a reference font's glyph for `char`.
 
-    Returns (recording, x_height, advance) in the reference font's own units.
-    The recording's curves are whatever the font stores (cubic for CFF/OTF)
-    and keep the glyph's real position, so its side bearings are preserved.
+    Returns (recording, units_per_em, advance) in the reference font's own
+    units. The recording's curves are whatever the font stores (cubic for
+    CFF/OTF) and keep the glyph's real position, so side bearings are preserved.
     """
     from fontTools.ttLib import TTFont
-    from fontTools.pens.boundsPen import BoundsPen
 
     font = TTFont(font_path)
     cmap = font.getBestCmap()
@@ -95,31 +94,22 @@ def load_reference(font_path, char):
     rec = RecordingPen()
     glyph_set[name].draw(rec)
     advance = font["hmtx"][name][0]
-
-    # x-height: prefer OS/2 sxHeight, else measure 'x', else this glyph's height.
-    x_height = getattr(font.get("OS/2"), "sxHeight", 0) or 0
-    if not x_height and ord("x") in cmap:
-        bp = BoundsPen(glyph_set)
-        glyph_set[cmap[ord("x")]].draw(bp)
-        if bp.bounds:
-            x_height = bp.bounds[3] - bp.bounds[1]
-    if not x_height:
-        bp = BoundsPen(glyph_set)
-        glyph_set[name].draw(bp)
-        x_height = (bp.bounds[3] - bp.bounds[1]) if bp.bounds else fc.x_height
+    units = font["head"].unitsPerEm
 
     font.close()
-    return rec, x_height, advance
+    return rec, units, advance
 
 
 def overlay_reference(ax, font_path, char, show_controls):
-    """Overlay a reference glyph scaled to fc.x_height, kept at the pen origin.
+    """Overlay a reference glyph normalized only by UPM, kept at the pen origin.
 
-    Origin-aligned (not centered) so the reference's own side bearings and
-    advance line up against the project glyph's. Returns the scaled advance.
+    Scaled by fc.units_per_em / ref-units (NOT x-height matched), so the
+    reference is shown at its true proportions relative to the em — a different
+    x-height shows up as a genuinely different x-height. Origin-aligned so the
+    reference's own side bearings and advance line up. Returns the scaled advance.
     """
-    ref_rec, ref_xh, ref_adv = load_reference(font_path, char)
-    scale = fc.x_height / ref_xh  # scale about (0, 0): baseline + origin preserved
+    ref_rec, ref_units, ref_adv = load_reference(font_path, char)
+    scale = fc.units_per_em / ref_units  # scale about (0, 0): baseline + origin preserved
 
     out = RecordingPen()
     ref_rec.replay(TransformPen(out, Transform(scale, 0, 0, scale, 0, 0)))
@@ -145,7 +135,7 @@ def overlay_reference(ax, font_path, char, show_controls):
     print(
         f"Reference '{char}' from {font_path}: scale={scale:.3f}; "
         f"advance={scaled_adv:.0f}, LSB={lo:.0f}, RSB={scaled_adv - hi:.0f} "
-        f"(scaled to project x-height={fc.x_height})"
+        f"(UPM-normalized to {fc.units_per_em})"
     )
     return scaled_adv
 

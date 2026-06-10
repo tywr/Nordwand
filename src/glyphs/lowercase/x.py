@@ -6,9 +6,11 @@ class LowercaseXGlyph(Glyph):
     name = "lowercase_x"
     unicode = "0x78"
     width_ratio = 0.933
-    bold_width_ratio = 1.045
+    bold_width_ratio = 1.070
     sbl = 0.43
     sbr = 0.43
+    bold_sbl = 0.404
+    bold_sbr = 0.404
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

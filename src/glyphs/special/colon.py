@@ -6,10 +6,12 @@ class ColonGlyph(Glyph):
     name = "colon"
     unicode = "0x3A"
     width_ratio = 0.265
-    bold_width_ratio = 0.41
+    bold_width_ratio = 0.354
     stroke_ratio = 1.2
     stroke_ratio_bold = 1
     gap = 0.935
+    bold_sbl = 1.154
+    bold_sbr = 1.154
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

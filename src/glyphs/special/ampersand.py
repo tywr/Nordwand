@@ -26,6 +26,9 @@ class AmpersandGlyph(Glyph):
     height = "cap"
     overshoot_top = True
     overshoot_bottom = True
+    bold_width_ratio = 1.401
+    bold_sbl = 0.686
+    bold_sbr = 0.167
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

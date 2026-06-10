@@ -21,6 +21,9 @@ class FiveGlyph(NumberGlyph):
     sbl = 0.88
     sbr = 0.75
     overshoot_bottom = True
+    bold_width_ratio = 1.086
+    bold_sbl = 1.038
+    bold_sbr = 0.756
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

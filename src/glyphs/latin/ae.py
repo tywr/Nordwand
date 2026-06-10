@@ -27,6 +27,9 @@ class AeGlyph(Glyph):
     tail_height = 0.31
     overshoot_top = True
     overshoot_bottom = True
+    bold_width_ratio = 1.728
+    bold_sbl = 0.558
+    bold_sbr = 0.583
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

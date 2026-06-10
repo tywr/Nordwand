@@ -18,6 +18,9 @@ class SharpSGlyph(Glyph):
     stroke_y_ratio = 1.00
     height = "cap"
     uppercase = True
+    bold_width_ratio = 1.113
+    bold_sbl = 1.231
+    bold_sbr = 0.635
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

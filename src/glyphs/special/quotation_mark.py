@@ -8,6 +8,9 @@ class QuotationMarkGlyph(Glyph):
     width_ratio = 1
     height_ratio = 0.7
     gap = 0.3
+    bold_width_ratio = 0.736
+    bold_sbl = 1.391
+    bold_sbr = 1.391
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
