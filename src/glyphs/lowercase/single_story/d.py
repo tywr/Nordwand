@@ -6,7 +6,7 @@ from glyphs.lowercase.single_story import SingleStoryLowercaseGlyph
 class LowercaseDGlyph(SingleStoryLowercaseGlyph):
     name = "lowercase_d"
     unicode = "0x64"
-    sbl = 0.62
+    sbl = 0.628
     sbr = 1
 
     def draw(self, pen, dc):

@@ -9,24 +9,25 @@ from draw.polygon import draw_polygon
 class LowercaseTGlyph(Glyph):
     name = "lowercase_t"
     unicode = "0x74"
-    width_ratio = 0.59
+    width_ratio = 0.590
     bold_width_ratio = 0.68
-    rl_ratio = 0.56
+    rl_ratio = 0.445
     up_ratio = 0.32
-    sbl = 0.15
-    sbr = 0.78
+    angle_offset = 0.3
+    sbl = 0.349
+    sbr = 0.570
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
-        right_len = b.width * self.rl_ratio - dc.stroke_x / 2
-        left_len = b.width * (1 - self.rl_ratio) - dc.stroke_x / 2
+        xmid = b.x1 * (1 - self.rl_ratio) + b.x2 * self.rl_ratio
+        ao = self.angle_offset * b.width
 
         # Cross-bar at x_height
         draw_rect(
             pen,
-            b.xmid - left_len - dc.stroke_x / 2,
+            b.x1,
             dc.x_height - dc.stroke_y,
-            b.xmid + right_len + dc.stroke_x / 2,
+            b.x2,
             dc.x_height,
         )
         # Corner curving down-right (shorter/flatter than f)
@@ -34,9 +35,9 @@ class LowercaseTGlyph(Glyph):
             pen,
             dc.stroke_x,
             dc.stroke_y,
-            b.xmid - dc.stroke_x / 2,
+            xmid - dc.stroke_x / 2,
             b.ymid,
-            b.xmid + b.width / 2,
+            b.x2,
             0,
             orientation="bottom-right",
         )
@@ -45,7 +46,7 @@ class LowercaseTGlyph(Glyph):
             pen,
             b.xmid + b.width / 2,
             0,
-            b.xmid + right_len + dc.stroke_x / 2,
+            b.x2,
             dc.stroke_y,
         )
 
@@ -54,9 +55,9 @@ class LowercaseTGlyph(Glyph):
         # Stem
         draw_rect(
             glyph.getPen(),
-            b.xmid - dc.stroke_x / 2,
+            xmid - dc.stroke_x / 2,
             b.ymid,
-            b.xmid + dc.stroke_x / 2,
+            xmid + dc.stroke_x / 2,
             (1 + self.up_ratio) * dc.x_height,
         )
         cut_glyph = ufoLib2.objects.Glyph()
@@ -64,13 +65,13 @@ class LowercaseTGlyph(Glyph):
         draw_polygon(
             cut_glyph.getPen(),
             points=[
-                (b.xmid + dc.stroke_x / 2, (1 + self.up_ratio) * dc.x_height),
+                (xmid + dc.stroke_x / 2, (1 + self.up_ratio) * dc.x_height),
                 (
-                    b.xmid - 2 * left_len - dc.stroke_x / 2,
+                    b.x1 - ao,
                     dc.x_height,
                 ),
                 (
-                    b.xmid - 2 * left_len - dc.stroke_x / 2,
+                    b.x1 - ao,
                     (1 + self.up_ratio) * dc.x_height,
                 ),
             ],

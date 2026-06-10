@@ -8,17 +8,17 @@ from draw.rect import draw_rect
 class LowercaseRGlyph(Glyph):
     name = "lowercase_r"
     unicode = "0x72"
-    loop_ratio = 0.85
-    hx_ratio = 2
-    hy_ratio = 1.15
-    taper = 0.5
-    width_ratio = 0.57
-    bold_width_ratio = 0.69
-    stroke_ratio = 0.85
-    arch_length = 0.75
+    loop_ratio = 1
     hx_ratio = 1
-    sbl = 0.94
-    sbr = 0.31
+    hy_ratio = 1
+    taper = 0.3
+    width_ratio = 0.568
+    bold_width_ratio = 0.69
+    stroke_ratio = 0.95
+    arch_length = 0.65
+    hx_ratio = 1.2
+    sbl = 0.942
+    sbr = 0.308
     overshoot_top = True
 
     def draw(self, pen, dc):

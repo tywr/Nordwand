@@ -11,25 +11,25 @@ class LowercaseAGlyph(Glyph):
     unicode = "0x61"
     accent_x_offset = 16
     mid_height = 0.525
-    width_ratio = 0.88
+    width_ratio = 0.881
     bold_width_ratio = 0.972
     taper = 0.55
-    sbl = 0.58
-    sbr = 0.9
+    sbl = 0.570
+    sbr = 0.907
 
     bot_hx_ratio = 1.2
     bot_hy_ratio = 1
-    left_cap_hx_ratio = 1.0
-    left_cap_hy_ratio = 0.65
+    left_cap_hx_ratio = 1.1
+    left_cap_hy_ratio = 0.6
     cap_hx_ratio = 1.25
     cap_hy_ratio = 1
+    cap_x_stroke_ratio = 1.01
+    cap_y_stroke_ratio = 1.06
     cap_start_height = 0.69
     cap_height = 0.74
-    cap_offset = 0.015
+    cap_offset = 0.01
     thinning = 1
     upper_bowl_mid = 0.56
-    cap_stroke_x_ratio = 1.01
-    cap_stroke_y_ratio = 1.00
     ending_thickness = 0.7
     overshoot_top = True
     overshoot_bottom = True
@@ -37,12 +37,9 @@ class LowercaseAGlyph(Glyph):
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
         ec = self.extra_cut(dc)
-        sx = dc.stroke_x
-        csx, csy = (
-            self.cap_stroke_x_ratio * dc.stroke_x,
-            self.cap_stroke_y_ratio * dc.stroke_y,
-        )
-        dx = csx - dc.stroke_x
+        sx, sy = dc.stroke_x, dc.stroke_y
+        csx, csy = dc.stroke_x * self.cap_x_stroke_ratio, dc.stroke_y * self.cap_y_stroke_ratio
+        dx = sx - dc.stroke_x
         ry = (self.mid_height * b.height + dc.stroke_alt / 2) / b.height
         ymid = b.y1 + self.mid_height * b.height
         xmu = b.x1 + self.upper_bowl_mid * b.width
@@ -59,8 +56,8 @@ class LowercaseAGlyph(Glyph):
         # Lower half half of the bowl
         draw_arch(
             pen,
-            csx,
-            csy,
+            sx,
+            sy,
             b.x1,
             b.y1,
             b.x2 + dx,
@@ -75,7 +72,7 @@ class LowercaseAGlyph(Glyph):
         # Upper half of the bowl
         draw_corner(
             pen,
-            csx,
+            sx,
             dc.stroke_alt,
             b.x1,
             (b.y1 + yl) / 2,

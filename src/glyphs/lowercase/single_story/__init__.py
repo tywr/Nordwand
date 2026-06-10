@@ -8,7 +8,7 @@ class SingleStoryLowercaseGlyph(Glyph, ABC):
     overshoot_bottom = True
 
     taper = 0.8
-    width_ratio = 0.985
+    width_ratio = 0.984
     bold_width_ratio = 1.075
     sbl = 1
     sbr = 1
