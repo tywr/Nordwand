@@ -9,10 +9,10 @@ class UppercaseDGlyph(UppercaseGlyph):
     arch_start = 0.4
     hx_ratio = 1.1
     hy_ratio = 1.15
-    width_ratio = 1.182
+    width_ratio = 1.183
     bold_width_ratio = 1.24
-    sbl = 1.07
-    sbr = 0.75
+    sbl = 1.070
+    sbr = 0.744
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

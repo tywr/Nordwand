@@ -6,14 +6,14 @@ from draw.rect import draw_rect
 class UppercaseBGlyph(UppercaseGlyph):
     name = "uppercase_b"
     unicode = "0x42"
-    upper_ratio = 0.85
+    upper_ratio = 0.86
     mid_ratio = 0.515
-    width_ratio = 1.06
+    width_ratio = 1.058
     bold_width_ratio = 1.14
     hx_ratio = 1.1
     hy_ratio = 1.1
-    sbl = 1.09
-    sbr = 0.66
+    sbl = 1.070
+    sbr = 0.640
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

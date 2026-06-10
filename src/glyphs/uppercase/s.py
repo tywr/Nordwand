@@ -10,20 +10,20 @@ class UppercaseSGlyph(UppercaseGlyph):
     unicode = "0x53"
     stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.00
     stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.00
-    hx_ratio = 1
-    hy_ratio = 1
-    mid_height = 0.505
+    hx_ratio = 1.05
+    hy_ratio = 1.02
+    mid_height = 0.502
     opening1 = 0.27
     opening2 = 0.735
     thinning = 1
     left_offset = 0.03
     right_offset = 0.02
-    curve_thinning = 0.022
+    curve_thinning = 0.004
     curve_ratio = 2.4
-    width_ratio = 1.08
+    width_ratio = 1.081
     bold_width_ratio = 1.165
-    sbr = 0.68
-    sbl = 0.68
+    sbr = 0.669
+    sbl = 0.669
     overshoot_bottom = True
     overshoot_top = True
 

@@ -8,10 +8,10 @@ class UppercaseZGlyph(UppercaseGlyph):
     unicode = "0x5A"
     right_offset = 0.01
     left_offset = 0.01
-    width_ratio = 1.045
+    width_ratio = 1.073
     bold_width_ratio = 1.09
-    sbl = 0.92
-    sbr = 0.92
+    sbl = 0.837
+    sbr = 0.837
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

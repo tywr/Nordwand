@@ -7,12 +7,12 @@ class UppercaseWGlyph(UppercaseGlyph):
     unicode = "0x57"
     outer_branch_ratio = 0.26
     inner_height = 1
-    width_ratio = 1.812
+    width_ratio = 1.813
     bold_width_ratio = 1.88
     stroke_ratio = 1.1
     inner_stroke_ratio = 1
-    sbr = 0.53
-    sbl = 0.53
+    sbr = 0.523
+    sbl = 0.523
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

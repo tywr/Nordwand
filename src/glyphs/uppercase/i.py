@@ -6,8 +6,8 @@ class UppercaseIGlyph(UppercaseGlyph):
     name = "uppercase_i"
     unicode = "0x49"
     width_ratio = 0
-    sbl = 1.07
-    sbr = 1.07
+    sbl = 1.070
+    sbr = 1.070
 
     def window_width(self, dc):
         return (

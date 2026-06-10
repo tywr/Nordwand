@@ -8,10 +8,10 @@ class UppercaseEGlyph(UppercaseGlyph):
     upper_bar_ratio = 1
     mid_bar_ratio = 0.96
     mid_ratio = 0.51
-    width_ratio = 0.9
+    width_ratio = 0.899
     bold_width_ratio = 0.97
-    sbl = 1.07
-    sbr = 0.83
+    sbl = 1.070
+    sbr = 0.826
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

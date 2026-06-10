@@ -11,10 +11,10 @@ class UppercaseJGlyph(UppercaseGlyph):
     hy_ratio = 0.45
     loop_ratio = 0.5
     tail_len = 0.5
-    width_ratio = 0.838
+    width_ratio = 0.837
     bold_width_ratio = 0.98
-    sbl = 0.5
-    sbr = 1.07
+    sbl = 0.500
+    sbr = 1.070
     overshoot_bottom = True
 
     def draw(self, pen, dc):

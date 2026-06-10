@@ -6,10 +6,10 @@ class UppercaseHGlyph(UppercaseGlyph):
     name = "uppercase_h"
     unicode = "0x48"
     bar_height = 0.51
-    width_ratio = 1.16
+    width_ratio = 1.159
     bold_width_ratio = 1.26
-    sbl = 1.07
-    sbr = 1.07
+    sbl = 1.070
+    sbr = 1.070
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

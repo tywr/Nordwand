@@ -9,15 +9,15 @@ from booleanOperations.booleanGlyph import BooleanGlyph
 class UppercaseCGlyph(UppercaseGlyph):
     name = "uppercase_c"
     unicode = "0x43"
-    stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.00
-    stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.00
+    stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.02
+    stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.04
     opening1 = 0.29
     opening2 = 0.69
     thinning = 1
     top_offset = 0.00
     width_ratio = 1.26
     bold_width_ratio = 1.315
-    right_hx_ratio = 1.15
+    right_hx_ratio = 1.2
     right_hy_ratio = 1
     sbl = 0.75
     sbr = 0.49
