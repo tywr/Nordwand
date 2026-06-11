@@ -13,124 +13,91 @@ from utils.pens import NullPen
 class AmpersandGlyph(Glyph):
     name = "ampersand"
     unicode = "0x26"
-    width_ratio = 1.1
     upper_width = 0.8
     upper_height = 0.4
-    lower_width = 1
-    hook_ratio = 0.12
-    hook_below_baseline = 0
-    hook_outside_cell = 0.24
-    end_height_ratio = 0.5
-    sbr = 1.9
-    sbl = 1
+
     height = "cap"
     overshoot_top = True
     overshoot_bottom = True
+    stroke_x_ratio = 1.01
+    stroke_y_ratio = 1.04
+
+    mid_ratio = 0.52
+    loop_ratio = 0.4
+    loop_up_offset = 0.05
+    hx_ratio = 0.8
+    hy_ratio = 1
+    hx_ratio_up = 0.75
+    hy_ratio_up = 1
+    right_stroke_x = 0.63
+    right_stroke_y = 0.79
+
+    width_ratio = 1.400
+    sbl = 0.669
+    sbr = 0.080
     bold_width_ratio = 1.401
     bold_sbl = 0.686
-    bold_sbr = 0.167
+    bold_sbr = 0.075
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
-
-        ox = self.hook_outside_cell * b.width
-        h = self.upper_height * b.height
-        w = self.upper_width * b.width
-        xu1, xu2 = b.xmid - w / 2, b.xmid + w / 2
-        yu1, yu2 = b.y2 - h, b.y2
-        hux, huy = b.hx * w / b.width, b.hy * h / b.height
-
-        params = draw_loop(
+        ymid = b.y1 + self.mid_ratio * b.height
+        sx, sy = self.stroke_x_ratio * dc.stroke_x, self.stroke_y_ratio * dc.stroke_y
+        hx, hy = self.hx_ratio * b.hx, self.hy_ratio * b.hy
+        hux, huy = self.hx_ratio_up * b.hx, self.hy_ratio_up * b.hy
+        xl = b.x1 + 2 * b.width * self.loop_ratio
+        xr, yr = (
+            b.x1 + self.right_stroke_x * b.width,
+            b.y1 + self.right_stroke_y * b.height,
+        )
+        ot = self.loop_up_offset * b.width
+        draw_arch(
             pen,
-            dc.stroke_x,
-            dc.stroke_y,
-            xu1,
-            yu1,
-            xu2,
-            yu2,
+            sx,
+            sy,
+            b.x1 + ot,
+            ymid - sy / 2,
+            xl - ot,
+            b.y2,
             hux,
-            huy,
-            cut="bottom",
+            huy * (1 - self.mid_ratio),
+            taper=0.6,
+            side="bottom",
+            cut="right",
         )
-
-        xj = xu1 + self.hook_ratio * w
-        (_, y1), (_, y2) = params["outer"].intersection_x(x=xj)
-        yj = min(y1, y2)
-
-        # Draw the parallelogramm to the bottom right
-        dhy = self.hook_below_baseline * b.height
-        theta, delta = draw_parallelogramm(
-            NullPen(),
-            dc.stroke_x,
-            dc.stroke_y,
-            b.x2 + ox,
-            -dhy,
-            xj,
-            yj,
-            direction="top-left",
-        )
-
-        # Draw the curve to the intersection
-        hy = (0.5 * yu1 + 0.5 * yu2 - yj) - tan(theta) * (xj - xu1)
-        pen.moveTo((xu1, 0.5 * yu1 + 0.5 * yu2))
-        pen.curveTo(
-            (xu1, 0.5 * yu1 + 0.5 * yu2 - hy),
-            (xj, yj),
-            # (xj, yj),
-            (b.x2 + ox - delta, -dhy),
-        )
-        pen.lineTo((b.x2 + ox, -dhy))
-        pen.curveTo(
-            (xj + delta, yj),
-            (xu1 + dc.stroke_x, 0.5 * yu1 + 0.5 * yu2 - hy),
-            (xu1 + dc.stroke_x, 0.5 * yu1 + 0.5 * yu2),
-        )
-        pen.closePath()
-
-        # Draw the lower bowl
-        xbm = b.xmid
-        lw = self.lower_width * b.width
-        lh = yj - b.y1
-
         draw_arch(
             pen,
-            dc.stroke_x,
-            dc.stroke_y,
-            xbm - lw / 2,
+            sx,
+            sy,
+            b.x1,
             b.y1,
-            xbm + lw / 2,
-            yj,
-            b.hx * lw / b.width,
-            b.hy * lh / b.height,
-            cut="top",
+            xl,
+            ymid + sy / 2,
+            hx,
+            hy * self.mid_ratio,
+            taper=0.6,
             side="top",
-            taper=0.5,
-        )
-
-        loop_glyph = ufoLib2.objects.Glyph()
-        draw_arch(
-            loop_glyph.getPen(),
-            dc.stroke_x,
-            dc.stroke_y,
-            xbm - lw / 2,
-            b.y1,
-            xbm + lw / 2,
-            yj,
-            b.hx * lw / b.width,
-            b.hy * lh / b.height,
             cut="right",
-            side="top",
-            taper=0.5,
         )
-
-        xcut = xj + delta
-        cut_glyph = ufoLib2.objects.Glyph()
-        draw_rect(cut_glyph.getPen(), xcut, 0.5 * b.y1 + 0.5 * yj, b.x2, b.y2)
-        result = BooleanGlyph(loop_glyph).difference(BooleanGlyph(cut_glyph))
-        result.draw(pen)
-
-        # Draw the height extension
-        eh = self.end_height_ratio * b.height
+        draw_rect(pen, (b.x1 + xl) / 2, ymid - sy / 2, b.x2, ymid + sy / 2)
         draw_rect(
-            pen, xbm + lw / 2 - dc.stroke_x, 0.5 * b.y1 + 0.5 * yj, xbm + lw / 2, eh
+            pen,
+            (b.x1 + xl) / 2,
+            b.y1,
+            xr,
+            b.y1 + sy,
+        )
+        draw_rect(
+            pen,
+            (b.x1 + xl) / 2,
+            b.y2 - sy,
+            xr,
+            b.y2,
+        )
+        draw_rect(
+            pen,
+            xr,
+            b.y1,
+            xr + sx,
+            yr,
         )
