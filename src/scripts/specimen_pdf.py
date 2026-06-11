@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate a font specimen PDF for Nordwand Mono.
+"""Generate a font specimen PDF for Nordwand.
 
 Usage: python scripts/specimen.py [path/to/font.ttf]
 """
@@ -38,20 +38,20 @@ CHAR_SIZE = 28
 
 
 FAMILY_VARIANTS = [
-    ("Thin", "Nordwand Mono Thin"),
-    ("ThinItalic", "Nordwand Mono Thin Italic"),
-    ("ExtraLight", "Nordwand Mono ExtraLight"),
-    ("ExtraLightItalic", "Nordwand Mono ExtraLight Italic"),
-    ("Light", "Nordwand Mono Light"),
-    ("LightItalic", "Nordwand Mono Light Italic"),
-    ("Regular", "Nordwand Mono Regular"),
-    ("Italic", "Nordwand Mono Italic"),
-    ("Medium", "Nordwand Mono Medium"),
-    ("MediumItalic", "Nordwand Mono Medium Italic"),
-    ("SemiBold", "Nordwand Mono SemiBold"),
-    ("SemiBoldItalic", "Nordwand Mono SemiBold Italic"),
-    ("Bold", "Nordwand Mono Bold"),
-    ("BoldItalic", "Nordwand Mono Bold Italic"),
+    ("Thin", "Nordwand Thin"),
+    ("ThinItalic", "Nordwand Thin Italic"),
+    ("ExtraLight", "Nordwand ExtraLight"),
+    ("ExtraLightItalic", "Nordwand ExtraLight Italic"),
+    ("Light", "Nordwand Light"),
+    ("LightItalic", "Nordwand Light Italic"),
+    ("Regular", "Nordwand Regular"),
+    ("Italic", "Nordwand Italic"),
+    ("Medium", "Nordwand Medium"),
+    ("MediumItalic", "Nordwand Medium Italic"),
+    ("SemiBold", "Nordwand SemiBold"),
+    ("SemiBoldItalic", "Nordwand SemiBold Italic"),
+    ("Bold", "Nordwand Bold"),
+    ("BoldItalic", "Nordwand Bold Italic"),
 ]
 
 
@@ -145,7 +145,7 @@ def render_specimen(font_path, output="specimen.pdf"):
     import os
 
     os.makedirs(os.path.dirname(output), exist_ok=True)
-    pdfmetrics.registerFont(TTFont("Nordwand Mono", font_path))
+    pdfmetrics.registerFont(TTFont("Nordwand", font_path))
     _register_macos_otf(TITLE_FONT, "Switzer-Bold.otf")
     _register_macos_otf(TITLE_FONT_REGULAR, "Switzer-Regular.otf")
 
@@ -153,17 +153,17 @@ def render_specimen(font_path, output="specimen.pdf"):
     font_dir = os.path.dirname(font_path)
     available_variants = []
     for ps_style, display_name in FAMILY_VARIANTS:
-        path = os.path.join(font_dir, f"NordwandMono-{ps_style}.ttf")
+        path = os.path.join(font_dir, f"Nordwand-{ps_style}.ttf")
         if not os.path.exists(path):
             continue
-        font_name = f"Nordwand Mono-{ps_style}"
+        font_name = f"Nordwand-{ps_style}"
         pdfmetrics.registerFont(TTFont(font_name, path))
         available_variants.append((font_name, display_name))
 
     page_w, page_h = A4
     c = canvas.Canvas(output, pagesize=A4)
 
-    # --- Cover page: banner-raw background (cover/crop), white "Nordwand Mono" centered ---
+    # --- Cover page: banner-raw background (cover/crop), white "Nordwand" centered ---
     from reportlab.lib.utils import ImageReader
 
     cover_img = ImageReader("assets/specimen-bg.jpg")
@@ -183,9 +183,9 @@ def render_specimen(font_path, output="specimen.pdf"):
 
     cover_size = 72
     c.setFillColorRGB(1, 1, 1)
-    c.setFont("Nordwand Mono", cover_size)
-    cover_text = "NORDWAND MONO"
-    text_w = c.stringWidth(cover_text, "Nordwand Mono", cover_size)
+    c.setFont("Nordwand", cover_size)
+    cover_text = "NORDWAND"
+    text_w = c.stringWidth(cover_text, "Nordwand", cover_size)
     c.drawString((page_w - text_w) / 2, (page_h - cover_size) / 2, cover_text)
     c.showPage()
 
@@ -233,7 +233,7 @@ def render_specimen(font_path, output="specimen.pdf"):
     # Title
     c.setFillColorRGB(*FG)
     c.setFont(TITLE_FONT, TITLE_SIZE)
-    c.drawString(MARGIN_X, y, "Nordwand Mono")
+    c.drawString(MARGIN_X, y, "Nordwand")
     y -= TITLE_SIZE + 16 * mm
 
     for group_label, chars in GROUPS:
@@ -245,11 +245,11 @@ def render_specimen(font_path, output="specimen.pdf"):
 
         # Lay out characters
         c.setFillColorRGB(*FG)
-        c.setFont("Nordwand Mono", CHAR_SIZE)
+        c.setFont("Nordwand", CHAR_SIZE)
         x = MARGIN_X
         max_x = page_w - MARGIN_X
         for ch in chars:
-            char_w = c.stringWidth(ch, "Nordwand Mono", CHAR_SIZE) + 8
+            char_w = c.stringWidth(ch, "Nordwand", CHAR_SIZE) + 8
             if x + char_w > max_x:
                 y -= CHAR_SIZE + 10
                 x = MARGIN_X
@@ -279,62 +279,62 @@ def render_specimen(font_path, output="specimen.pdf"):
     samples = [
         (
             "Bold",
-            "Nordwand Mono-Bold",
+            "Nordwand-Bold",
             12,
             "The Eiger is a 3,967-metre (13,015 ft) mountain of the Bernese Alps, overlooking Grindelwald and Lauterbrunnen in the Bernese Oberland of Switzerland, just north of the main watershed and border with Valais.",
         ),
         (
             "Medium",
-            "Nordwand Mono-Medium",
+            "Nordwand-Medium",
             12,
             "It is the easternmost peak of a ridge crest that extends across the Mönch to the Jungfrau at 4,158 m (13,642 ft), constituting one of the most emblematic sights of the Swiss Alps.",
         ),
         (
             "Regular",
-            "Nordwand Mono",
+            "Nordwand",
             12,
             "While the northern side of the mountain rises more than 3,000 m (10,000 ft) above the two valleys of Grindelwald and Lauterbrunnen, the southern side faces the large glaciers of the Jungfrau-Aletsch area, the most glaciated region in the Alps.",
         ),
         (
             "Light",
-            "Nordwand Mono-Light",
+            "Nordwand-Light",
             12,
             "The most notable feature of the Eiger is its nearly 1,800-metre-high (5,900 ft) north face of rock and ice, named Eiger-Nordwand, Eigerwand or just Nordwand, which is the biggest north face in the Alps.",
         ),
         (
             "Thin",
-            "Nordwand Mono-Thin",
+            "Nordwand-Thin",
             12,
             "The first ascent of the Eiger was made by Swiss guides Christian Almer and Peter Bohren and Irishman Charles Barrington, who climbed the west flank on August 11, 1858.",
         ),
         SAMPLE_SEP,
         (
             "Bold",
-            "Nordwand Mono-Bold",
+            "Nordwand-Bold",
             10,
             "The north face, the last problem of the Alps, considered amongst the most challenging and dangerous ascents, was first climbed in 1938 by an Austrian-German expedition.",
         ),
         (
             "Medium",
-            "Nordwand Mono-Medium",
+            "Nordwand-Medium",
             10,
             "The Eiger has been highly publicized for the many tragedies involving climbing expeditions. Since 1935, at least 64 climbers have died attempting the north face, earning it the German nickname Mordwand, literally \"murder(ous) wall\"—a pun on its correct title of Nordwand (North Wall).",
         ),
         (
             "Regular",
-            "Nordwand Mono",
+            "Nordwand",
             10,
             "Although the summit of the Eiger can be reached by experienced climbers only, a railway tunnel runs inside the mountain, and two internal stations provide easy access to viewing-windows carved into the rock face.",
         ),
         (
             "Light",
-            "Nordwand Mono-Light",
+            "Nordwand-Light",
             10,
             "They are both part of the Jungfrau Railway line, running from Kleine Scheidegg to the Jungfraujoch, between the Mönch and the Jungfrau, at the highest railway station in Europe.",
         ),
         (
             "Thin",
-            "Nordwand Mono-Thin",
+            "Nordwand-Thin",
             10,
             "The two stations within the Eiger are Eigerwand (behind the north face) and Eismeer (behind the south face), at around 3,000 metres. The Eigerwand station has not been regularly served since 2016.",
         ),
@@ -368,7 +368,7 @@ def render_specimen(font_path, output="specimen.pdf"):
         c.drawString(MARGIN_X + family_w, y, f"{sample_size}pt")
         y -= LABEL_SIZE + 8 + leading
 
-        # Word-wrap and draw the sample text in the chosen Nordwand Mono variant
+        # Word-wrap and draw the sample text in the chosen Nordwand variant
         c.setFont(font_name, sample_size)
 
         words = text.split(" ")
@@ -387,115 +387,16 @@ def render_specimen(font_path, output="specimen.pdf"):
 
         y -= 8 * mm
 
-    # --- Page 3: Mission status report ---
-    c.showPage()
-    c.setFillColorRGB(*BG)
-    c.rect(0, 0, page_w, page_h, fill=1, stroke=0)
-
-    # Page title
-    y = page_h - 30 * mm
-    c.setFillColorRGB(*FG)
-    c.setFont(TITLE_FONT, TITLE_SIZE)
-    c.drawString(MARGIN_X, y, "Technical Document")
-
-    report_size = 12
-    report_leading = report_size * 1.6
-    box_padding_x = 12
-    box_padding_y = 10
-
-    header_lines = [
-        (14, "NATIONAL AERONAUTICS AND SPACE ADMINISTRATION"),
-        (14, "GODDARD SPACE FLIGHT CENTER"),
-        (14, "MISSION STATUS REPORT -- DSR-7"),
-    ]
-
-    body_lines = [
-        "MISSION DESIGNATION : ORION DEEP SKY RELAY -- SEGMENT 7 (DSR-7)",
-        "REPORT DATE         : 2026-APR-11   UTC 09:42:15",
-        "PREPARED BY         : FLIGHT DYNAMICS OFFICER -- C. VASQUEZ",
-        "CLASSIFICATION      : UNCLASSIFIED // FOR PUBLIC RELEASE",
-        "",
-        "1. EXECUTIVE SUMMARY",
-        "-------------------------------------------------------------------",
-        "The DSR-7 relay satellite completed its third orbital correction",
-        "maneuver at 07:18 UTC. All subsystems nominal. Telemetry confirms",
-        "stable attitude within 0.003 deg of target orientation. Downlink",
-        "rate sustained at 1.2 Gbps through Goldstone and Canberra stations.",
-        "",
-        "2. ORBITAL PARAMETERS",
-        "-------------------------------------------------------------------",
-        "  SEMI-MAJOR AXIS   : 42,164.00 km",
-        "  ECCENTRICITY      : 0.000142",
-        "  INCLINATION       : 0.0471 deg",
-        "  ARG OF PERIGEE    : 312.004 deg",
-        "  TRUE ANOMALY      : 89.441 deg",
-        "  PERIOD            : 23h 56m 04.09s",
-        "",
-        "3. SUBSYSTEM STATUS",
-        "-------------------------------------------------------------------",
-        "  POWER     : 4.82 kW generated / 3.17 kW consumed     [NOMINAL]",
-        "  THERMAL   : +22.4 C bus avg / radiator delta -1.2 C  [NOMINAL]",
-        "  PROPULSN  : 48.7 kg hydrazine remaining (62%)        [NOMINAL]",
-        "  COMMS     : X-band primary / S-band backup active    [NOMINAL]",
-    ]
-
-    # Measure box width
-    box_x1 = MARGIN_X
-    box_x2 = page_w - MARGIN_X
-
-    # Draw header box (shifted down to leave room for the page title)
-    y = page_h - 30 * mm - TITLE_SIZE - 16 * mm
-
-    header_height = box_padding_y * 2
-    for size, _ in header_lines:
-        header_height += size * 1.6
-    header_height += (len(header_lines) - 1) * 2  # extra spacing
-
-    # Draw double-line box around header
-    c.setStrokeColorRGB(*FG)
-    c.setLineWidth(1.5)
-    c.rect(box_x1, y - header_height, box_x2 - box_x1, header_height, fill=0, stroke=1)
-    c.setLineWidth(0.5)
-    inset = 3
-    c.rect(
-        box_x1 + inset,
-        y - header_height + inset,
-        box_x2 - box_x1 - 2 * inset,
-        header_height - 2 * inset,
-        fill=0,
-        stroke=1,
-    )
-
-    # Draw header text centered
-    ty = y - box_padding_y
-    for size, text in header_lines:
-        leading = size * 1.6
-        ty -= size  # move down by font size (baseline)
-        c.setFillColorRGB(*FG)
-        c.setFont("Nordwand Mono", size)
-        text_w = c.stringWidth(text, "Nordwand Mono", size)
-        c.drawString((page_w - text_w) / 2, ty, text)
-        ty -= leading - size + 2
-
-    y -= header_height + 12 * mm
-
-    # Draw body lines
-    c.setFont("Nordwand Mono", report_size)
-    c.setFillColorRGB(*FG)
-    for text in body_lines:
-        c.drawString(MARGIN_X + box_padding_x, y, text)
-        y -= report_leading
-
     c.save()
     print(f"Saved {output}")
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate Nordwand Mono specimen")
+    parser = argparse.ArgumentParser(description="Generate Nordwand specimen")
     parser.add_argument(
         "font",
         nargs="?",
-        default="fonts/ttf/NordwandMono-Regular.ttf",
+        default="fonts/ttf/Nordwand-Regular.ttf",
         help="Path to font file",
     )
     parser.add_argument(
