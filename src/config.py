@@ -46,17 +46,19 @@ class FontConfig:
 
     taper: float = 0.7
 
+    # Classic config
     width: int = 485
     default_stroke: int = 85
     stroke_x: int = 85
     stroke_y: int = 71
     stroke_alt: int = 71
 
-    # width: int = 398
-    # default_stroke: int = 85
-    # stroke_x = 85
-    # stroke_y = 70
-    # stroke_alt = 70
+    # Univers-like config
+    # width: int = 485
+    # default_stroke: int = 90
+    # stroke_x = 90
+    # stroke_y = 64
+    # stroke_alt = 64
 
     v_overshoot: int = 9
     v_overshoot_cap: int = 16
@@ -108,6 +110,9 @@ class DrawConfig(FontConfig):
         bry = 1.45
         ratio_y = exp((w - 400) * log(bry) / 300)
 
+        bra = 1.2
+        ratio_a = exp((w - 400) * log(bra) / 300)
+
         bhx = 1.15
         hx_ratio = exp((w - 400) * log(bhx) / 300)
 
@@ -130,7 +135,7 @@ class DrawConfig(FontConfig):
             weight=w,
             stroke_x=cls.stroke_x * ratio_x,
             stroke_y=cls.stroke_y * ratio_y,
-            stroke_alt=cls.stroke_alt * ratio_y,
+            stroke_alt=cls.stroke_alt * ratio_a,
             side_bearing=cls.side_bearing * sb_ratio,
             x_height=cls.x_height + exh,
             cap=cls.cap,
