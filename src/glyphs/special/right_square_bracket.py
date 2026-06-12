@@ -5,7 +5,9 @@ from draw.rect import draw_rect
 class RightSquareBracketGlyph(Glyph):
     name = "right_square_bracket"
     unicode = "0x5D"
-    width_ratio = 0.6
+    width_ratio = 0.437
+    sbl = 0.465
+    sbr = 1.558
     bold_width_ratio = 0.558
     bold_sbl = 0.468
     bold_sbr = 1.609

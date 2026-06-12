@@ -7,9 +7,11 @@ from draw.square_corner import draw_square_corner
 class LeftCurlyBracketGlyph(Glyph):
     name = "left_curly_bracket"
     unicode = "0x7B"
-    width_ratio = 1
-    peak_ratio = 0.35
+    peak_ratio = 0.0
     protusion_stroke_ratio = 1.3
+    width_ratio = 0.626
+    sbl = 0.465
+    sbr = 0.465
     bold_width_ratio = 0.738
     bold_sbl = 0.468
     bold_sbr = 0.462
@@ -75,5 +77,3 @@ class LeftCurlyBracketGlyph(Glyph):
             hy,
             orientation="top-left",
         )
-
-        draw_rect(pen, b.x1, ymid - sp / 2, b.xmid, ymid + sp / 2)

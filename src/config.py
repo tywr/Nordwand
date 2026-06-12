@@ -25,11 +25,6 @@ class FontConfig:
     accent: int = 685
     accent_cap: int = 890
 
-    math: int = 282
-
-    parenthesis: int = 300
-    parenthesis_length: int = 1060
-
     min_margin_lowercase: int = 26
     min_margin_uppercase: int = 40
 
@@ -55,10 +50,10 @@ class FontConfig:
 
     # Univers-like config
     width: int = 485
-    default_stroke: int = 90
-    stroke_x = 90
-    stroke_y = 64
-    stroke_alt = 64
+    default_stroke: int = 87
+    stroke_x = 87
+    stroke_y = 60
+    stroke_alt = 60
 
     v_overshoot: int = 9
     v_overshoot_cap: int = 16
@@ -97,6 +92,11 @@ class DrawConfig(FontConfig):
     h_overshoot: int = FontConfig.h_overshoot
     extra_window_width: int = FontConfig.extra_window_width
 
+    math: int = 282
+
+    parenthesis: int = (ascent + descent) / 2
+    parenthesis_length: int = ascent - descent
+
     italic: bool = False
 
     @classmethod
@@ -104,7 +104,7 @@ class DrawConfig(FontConfig):
         """Return a DrawConfig with heavier stroke weights for a bold variant."""
         from math import log, exp
 
-        brx = 1.672
+        brx = 1.61
         ratio_x = exp((w - 400) * log(brx) / 300)
 
         bry = 1.45

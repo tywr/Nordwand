@@ -5,8 +5,10 @@ from draw.loop import draw_loop
 class RightParenthesisGlyph(Glyph):
     name = "right_parenthesis"
     unicode = "0x29"
-    width_ratio = 0.4
     stroke_x_ratio = 1.1
+    width_ratio = 0.433
+    sbl = 0.640
+    sbr = 1.407
     bold_width_ratio = 0.569
     bold_sbl = 0.577
     bold_sbr = 1.429

@@ -5,9 +5,11 @@ from draw.rect import draw_rect
 class QuotationMarkGlyph(Glyph):
     name = "quotation_mark"
     unicode = "0x22"
-    width_ratio = 1
     height_ratio = 0.7
     gap = 0.3
+    width_ratio = 0.559
+    sbl = 1.227
+    sbr = 1.227
     bold_width_ratio = 0.736
     bold_sbl = 1.391
     bold_sbr = 1.391

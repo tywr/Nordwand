@@ -18,8 +18,8 @@ class LowercaseLGlyph(Glyph):
     def body_bounds(self, dc):
         return dc.body_bounds(
             width=dc.stroke_x,
-            side_bearing_right=self.sbr * dc.side_bearing,
-            side_bearing_left=self.sbl * dc.side_bearing,
+            side_bearing_right=self.adjusted_sbr(dc) * dc.side_bearing,
+            side_bearing_left=self.adjusted_sbl(dc) * dc.side_bearing,
             height=self.height,
             number=self.number,
             uppercase=self.uppercase,
