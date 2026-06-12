@@ -10,7 +10,6 @@ class OeGlyph(Glyph):
     name = "oe"
     unicode = "0x153"
     mid_height = 0.52
-    width_ratio = 1.16
     taper = 0.3
     hx_ratio = 0.5
     hy_ratio = 1
@@ -26,6 +25,9 @@ class OeGlyph(Glyph):
     tail_height = 0.31
     overshoot_top = True
     overshoot_bottom = True
+    width_ratio = 1.782
+    sbl = 0.628
+    sbr = 0.628
     bold_width_ratio = 1.842
     bold_sbl = 0.590
     bold_sbr = 0.590

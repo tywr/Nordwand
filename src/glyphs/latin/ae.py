@@ -11,8 +11,7 @@ class AeGlyph(Glyph):
     name = "ae"
     unicode = "0xE6"
     mid_height = 0.52
-    width_ratio = 1.16
-    taper = 0.3
+    taper = 0.55
     hx_ratio = 0.5
     hy_ratio = 1
     cap_hx_ratio = 0.7
@@ -27,12 +26,16 @@ class AeGlyph(Glyph):
     tail_height = 0.31
     overshoot_top = True
     overshoot_bottom = True
+    width_ratio = 1.653
+    sbl = 0.570
+    sbr = 0.628
     bold_width_ratio = 1.728
     bold_sbl = 0.558
     bold_sbr = 0.583
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
+        ec = self.extra_cut(dc)
         sx, sy = dc.stroke_x, dc.stroke_y
         sx = max(0, 0.7 * (dc.stroke_x - 90)) + min(90, dc.stroke_x)
         csx, csy = (
@@ -111,7 +114,7 @@ class AeGlyph(Glyph):
             orientation="top-right",
         )
         cut_glyph = ufoLib2.objects.Glyph()
-        draw_rect(cut_glyph.getPen(), b.x1, b.ymid, axmid, ycut)
+        draw_rect(cut_glyph.getPen(), b.x1, b.ymid, axmid, ycut - ec)
         result = BooleanGlyph(loop_glyph).difference(BooleanGlyph(cut_glyph))
         result.draw(pen)
 
@@ -171,7 +174,7 @@ class AeGlyph(Glyph):
         draw_rect(
             cut_glyph.getPen(),
             b.xmid,
-            yo,
+            yo + ec,
             b.xmid + b.width,
             b.ymid,
         )
