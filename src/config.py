@@ -33,13 +33,13 @@ class FontConfig:
     space = 280
     side_bearing = 84
 
-    hx: int = 181
+    hx: int = 200
     hy: int = 187
 
-    cap_hx: int = 172
+    cap_hx: int = 192
     cap_hy: int = 178
 
-    taper: float = 0.7
+    taper: float = 0.65
 
     # Classic config
     # width: int = 485
