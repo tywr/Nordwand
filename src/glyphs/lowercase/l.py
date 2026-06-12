@@ -8,12 +8,14 @@ class LowercaseLGlyph(Glyph):
     width_ratio = 0
     sbl = 1
     sbr = 1
-    bold_width_ratio = 0.294
     bold_sbl = 1.000
     bold_sbr = 1.000
 
     def window_width(self, dc):
-        return dc.stroke_x + (self.sbr + self.sbl) * dc.side_bearing
+        return (
+            dc.stroke_x
+            + (self.adjusted_sbl(dc) + self.adjusted_sbr(dc)) * dc.side_bearing
+        )
 
     def body_bounds(self, dc):
         return dc.body_bounds(
