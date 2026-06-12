@@ -12,6 +12,10 @@ It is a spinnoff from my other project Nordwand Mono, but adjusted so it feels s
 - Univers from Adrian Frutiger
 - Alpes Mono from Sharp Type
 
+## Specimen
+
+![Specimen](samples/lorem.png)
+
 ## Compile your own custom version
 
 This font is generated with python. Each glyph is drawn from a python glyph class, in which you can inject a drawing context object. You can for example modify some metrics like the x-height, the capital height etc.
