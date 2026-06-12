@@ -10,8 +10,8 @@ import argparse
 from PIL import Image, ImageDraw, ImageFont
 
 
-TEXT = "NORDWAND MONO"
-TAGLINE = "A monospace font for coders and adventurers"
+TEXT = "NORDWAND"
+TAGLINE = "A font designed for all adventures"
 FG = "#ffffff"
 FONT_SIZE = 260
 TAGLINE_SIZE = 64
@@ -55,8 +55,8 @@ def render_banner(font_path, output="assets/banner.png"):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate Nordwand Mono banner")
-    parser.add_argument("font", nargs="?", default="fonts/ttf/NordwandMono-Regular.ttf", help="Path to font file")
+    parser = argparse.ArgumentParser(description="Generate Nordwand banner")
+    parser.add_argument("font", nargs="?", default="fonts/ttf/Nordwand-Regular.ttf", help="Path to font file")
     parser.add_argument("-o", "--output", default="assets/banner.png", help="Output filename")
     args = parser.parse_args()
     render_banner(args.font, args.output)
