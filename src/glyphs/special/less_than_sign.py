@@ -5,11 +5,13 @@ from draw.parallelogramm import draw_parallelogramm_vertical
 class LessThenSignGlyph(Glyph):
     name = "less_than_sign"
     unicode = "0x3C"
-    width_ratio = 1
     overlap = 0.6
     span = 0.85
     stroke_ratio = 1.2
+    width_ratio = 1.014
     bold_width_ratio = 1.083
+    sbl = 0.820
+    sbr = 0.820
     bold_sbl = 0.962
     bold_sbr = 0.955
 

@@ -6,14 +6,16 @@ from draw.loop import draw_loop
 class PercentMarkGlyph(Glyph):
     name = "percent_mark"
     unicode = "0x25"
-    width_ratio = 1.2
-    offset_ratio_x = 0.45
-    offset_ratio_y = 0.45
-    zero_ratio = 0.4
+    offset_ratio_x = 0.14
+    offset_ratio_y = 0.51
+    zero_ratio = 0.5
     height = "cap"
-    bold_width_ratio = 1.878
-    bold_sbl = 0.821
-    bold_sbr = 0.821
+    width_ratio = 1.2
+    sbl = 2.05
+    sbr = 2.05
+    bold_width_ratio = 1.3
+    bold_sbl = 2.65
+    bold_sbr = 2.65
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

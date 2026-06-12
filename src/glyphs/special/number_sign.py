@@ -9,6 +9,9 @@ class NumberSignGlyph(Glyph):
     gap = 0.42
     bar_height_ratio = 1
     height = "cap"
+    width_ratio = 1.238
+    sbl = 0.174
+    sbr = 0.169
     bold_width_ratio = 1.313
     bold_sbl = 0.231
     bold_sbr = 0.224
@@ -16,11 +19,12 @@ class NumberSignGlyph(Glyph):
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
         g = self.gap * b.width
-        h = self.bar_height_ratio * b.height
+        h = dc.ascent
+        ymid = dc.ascent / 2
         sx, sy = dc.stroke_x / 2, dc.stroke_y / 2
         xm1, xm2 = b.xmid - g / 2, b.xmid + g / 2
-        ym1, ym2 = dc.math - g / 2, dc.math + g / 2
-        y1, y2 = dc.math - h / 2, dc.math + h / 2
+        ym1, ym2 = ymid - g / 2, ymid + g / 2
+        y1, y2 = ymid - h / 2, ymid + h / 2
 
         draw_rect(pen, xm1 - sx, y1, xm1 + sx, y2)
         draw_rect(pen, xm2 - sx, y1, xm2 + sx, y2)

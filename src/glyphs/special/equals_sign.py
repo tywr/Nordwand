@@ -5,9 +5,11 @@ from draw.rect import draw_rect
 class EqualsSignGlyph(Glyph):
     name = "equals_sign"
     unicode = "0x3D"
-    width_ratio = 1
-    gap = 0.4
+    gap = 0.5
     stroke_ratio = 0.92
+    width_ratio = 1.038
+    sbl = 0.750
+    sbr = 0.750
     bold_width_ratio = 1.107
     bold_sbl = 0.885
     bold_sbr = 0.878
