@@ -14,7 +14,7 @@ It is a spinnoff from my other project Nordwand Mono, but adjusted so it feels s
 
 ## Specimen
 
-![Specimen](samples/lorem.png)
+![Specimen](assets/samples/lorem.png)
 
 ## Compile your own custom version
 
