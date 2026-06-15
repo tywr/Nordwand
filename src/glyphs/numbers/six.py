@@ -18,12 +18,12 @@ class SixGlyph(NumberGlyph):
     hx_ratio = 0.95
     hy_ratio = 0.95
     joint_x = 1.4
-    sbl = 0.720
-    sbr = 0.720
+    sbl = 0.450
+    sbr = 0.450
     overshoot_bottom = True
     bold_width_ratio = 1.157
-    bold_sbl = 0.801
-    bold_sbr = 0.808
+    bold_sbl = 0.470
+    bold_sbr = 0.470
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

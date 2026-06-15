@@ -10,6 +10,7 @@ class FourGlyph(NumberGlyph):
     vertical_ratio = 0.315
     mid_bar_ratio = 1
     overlap = 0.33
+    stroke_ratio = 0.94
     width_ratio = 1.1
     sbl = 0.68
     sbr = 0.64
@@ -26,7 +27,8 @@ class FourGlyph(NumberGlyph):
         ymid = b.y1 + self.vertical_ratio * b.height
         ybar = b.y1 + self.mid_bar_ratio * b.height
 
-        draw_parallelogramm(pen, sx, sy, b.x1, ymid, xmid + ov, b.y2)
+        sd = self.diag_stroke_dampening(self.stroke_ratio, dc.stroke_x, coef=0.15)
+        draw_parallelogramm(pen, sd, sd, b.x1, ymid, xmid + ov, b.y2)
 
         # Horizontal line
         draw_rect(pen, b.x1, ymid - sy, b.x2, ymid)

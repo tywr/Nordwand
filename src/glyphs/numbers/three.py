@@ -11,8 +11,8 @@ class ThreeGlyph(NumberGlyph):
     unicode = "0x33"
     loop_width_ratio = 0.92
     mid_ratio = 0.515
-    taper_high = 0.9
-    taper_low = 1.3
+    taper_high = 1.5
+    taper_low = 1.5
     len_mid = 0.7
     hx_ratio = 0.9
     hy_ratio = 0.9
