@@ -33,13 +33,13 @@ class FontConfig:
     space = 280
     side_bearing = 84
 
-    hx: int = 200
+    hx: int = 181
     hy: int = 187
 
-    cap_hx: int = 192
+    cap_hx: int = 172
     cap_hy: int = 178
 
-    taper: float = 0.65
+    taper: float = 0.7
 
     # Classic config
     # width: int = 485
@@ -50,10 +50,10 @@ class FontConfig:
 
     # Univers-like config
     width: int = 485
-    default_stroke: int = 87
-    stroke_x = 87
-    stroke_y = 60
-    stroke_alt = 60
+    default_stroke: int = 91
+    stroke_x = 91
+    stroke_y = 64
+    stroke_alt = 64
 
     v_overshoot: int = 9
     v_overshoot_cap: int = 16
@@ -104,9 +104,11 @@ class DrawConfig(FontConfig):
         """Return a DrawConfig with heavier stroke weights for a bold variant."""
         from math import log, exp
 
-        brx = 1.61
+        # 166
+        brx = 1.6
         ratio_x = exp((w - 400) * log(brx) / 300)
 
+        # 97
         bry = 1.45
         ratio_y = exp((w - 400) * log(bry) / 300)
 

@@ -12,7 +12,6 @@ def draw_square_corner(
     x2,
     y2,
     gx=130,
-    gy=130,
     orientation="bottom-right",
 ):
     """Draw a solid quarter-curve corner using superellipse handles.
@@ -28,6 +27,11 @@ def draw_square_corner(
     """
     sx, sy = stroke_x, stroke_y
     ml = max(x2, x1) - min(x2, x1)
+
+    c = max((stroke_x - gx) * 2, 0)
+    gx = gx + c
+    gy = gx
+
 
     glyph = ufoLib2.objects.Glyph()
     cut_glyph = ufoLib2.objects.Glyph()
