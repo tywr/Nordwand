@@ -4,6 +4,7 @@ from booleanOperations.booleanGlyph import BooleanGlyph
 from glyphs.numbers import NumberGlyph
 from draw.arch import draw_arch
 from draw.loop import draw_loop
+from draw.corner import draw_corner
 from draw.parallelogramm import draw_parallelogramm
 from draw.rect import draw_rect
 from utils.pens import NullPen
@@ -12,40 +13,70 @@ from utils.pens import NullPen
 class FiveGlyph(NumberGlyph):
     name = "five"
     unicode = "0x35"
+    stroke_ratio = 0.88
     loop_ratio = 0.66
-    width_ratio = 0.99
     junction_ratio = 0.43
     cap_offset = 0.08
-    tilt = 0.28
+    tilt = 0.23
     taper = 0.6
-    sbl = 0.88
-    sbr = 0.75
+    ending_offset = 0.03
+    thinning = 0.9
     overshoot_bottom = True
-    bold_width_ratio = 1.086
-    bold_sbl = 1.038
-    bold_sbr = 0.756
+    width_ratio = 1.03
+    sbl = 0.680
+    sbr = 0.735
+    bold_width_ratio = 1.18
+    bold_sbl = 0.5
+    bold_sbr = 0.7
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
         sx, sy = dc.stroke_x * self.stroke_x_ratio, dc.stroke_y * self.stroke_y_ratio
+        sd = self.diag_stroke_dampening(self.stroke_ratio, dc.stroke_x, coef=0.15)
         yj = b.y1 + b.height * self.junction_ratio
-        oj = self.tilt * b.width + max(dc.stroke_x - 90, 0)
+        ew = 0.3 * max(dc.stroke_x - 90, 0)
+        oj = self.tilt * b.width + ew
         xc = b.x2 - self.cap_offset * b.width
+        xe = b.x1 + self.ending_offset * b.width + ew
 
         base_glyph = ufoLib2.objects.Glyph()
 
         # Bottom loop
-        params = draw_loop(
-            base_glyph.getPen(),
+        # params = draw_loop(
+        #     base_glyph.getPen(),
+        #     sx,
+        #     sy,
+        #     b.x1,
+        #     b.y1,
+        #     b.x2,
+        #     b.y1 + b.height * self.loop_ratio,
+        #     b.hx,
+        #     b.hy * self.loop_ratio,
+        #     cut="top",
+        # )
+        draw_corner(
+            pen,
             sx,
             sy,
-            b.x1,
-            b.y1,
             b.x2,
-            b.y1 + b.height * self.loop_ratio,
+            (b.y1 + b.height * self.loop_ratio) / 2,
+            b.xmid,
+            b.y1,
             b.hx,
             b.hy * self.loop_ratio,
-            cut="top",
+            orientation="bottom-left",
+        )
+        draw_corner(
+            base_glyph.getPen(),
+            sx * self.thinning,
+            sy,
+            xe,
+            (b.y1 + b.height * self.loop_ratio) / 2,
+            b.xmid,
+            b.y1,
+            b.hx,
+            b.hy * self.loop_ratio,
+            orientation="bottom-right",
         )
         params = draw_arch(
             base_glyph.getPen(),
@@ -80,13 +111,9 @@ class FiveGlyph(NumberGlyph):
         result.draw(pen)
 
         theta, delta = draw_parallelogramm(
-            NullPen(),
-            sx,
-            sy,
-            xj,
-            yj,
-            xj + oj,
-            b.y2,
+            NullPen(), sx, sy, xj, yj, xj + oj, b.y2, delta=sd
         )
-        draw_parallelogramm(pen, sx, sy, xj - delta, yj, xj + oj - delta, b.y2)
+        draw_parallelogramm(
+            pen, sx, sy, xj - delta, yj, xj + oj - delta, b.y2, delta=sd
+        )
         draw_rect(pen, xj + oj - 2 * delta, b.y2 - sy, xc, b.y2)
