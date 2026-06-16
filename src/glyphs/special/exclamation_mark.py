@@ -11,8 +11,8 @@ class ExclamationMarkGlyph(Glyph):
     height_overflow = 0.05
     stroke_ratio = 1
     dot_stroke_ratio = 1.1
-    taper_length = 0.25
-    taper = 0.75
+    taper_length = 0.2
+    taper = 0.85
     sbl = 1.5
     sbr = 1.5
     height = "cap"

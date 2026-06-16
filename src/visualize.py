@@ -79,10 +79,14 @@ def load_reference(font_path, char):
     """Record a reference font's glyph for `char`.
 
     Returns (recording, units_per_em, advance) in the reference font's own
-    units. The recording's curves are whatever the font stores (cubic for
-    CFF/OTF) and keep the glyph's real position, so side bearings are preserved.
+    units. Components are decomposed and quadratic (TTF) curves are converted
+    to cubic, so the recording always contains only moveTo/lineTo/curveTo —
+    matching the project's cubic glyphs — and works for both .otf and .ttf.
+    The glyph keeps its real position, so its side bearings are preserved.
     """
     from fontTools.ttLib import TTFont
+    from fontTools.pens.recordingPen import DecomposingRecordingPen
+    from fontTools.pens.qu2cuPen import Qu2CuPen
 
     font = TTFont(font_path)
     cmap = font.getBestCmap()
@@ -91,8 +95,11 @@ def load_reference(font_path, char):
         raise SystemExit(f"Reference font {font_path!r} has no glyph for {char!r}")
 
     name = cmap[ord(char)]
+    # Decompose composite glyphs, then convert any quadratic curves to cubic.
+    decomposed = DecomposingRecordingPen(glyph_set)
+    glyph_set[name].draw(decomposed)
     rec = RecordingPen()
-    glyph_set[name].draw(rec)
+    decomposed.replay(Qu2CuPen(rec, max_err=1.0, all_cubic=True))
     advance = font["hmtx"][name][0]
     units = font["head"].unitsPerEm
 

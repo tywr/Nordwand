@@ -7,26 +7,24 @@ from draw.polygon import draw_polygon
 class QuestionMarkGlyph(Glyph):
     name = "question_mark"
     unicode = "0x3F"
-    width_ratio = 1
-    loop_ratio = 0.6
+    loop_ratio = 0.55
     hx_ratio = 1
-    gap = 0.35
+    gap = 0.3
     dot_stroke_ratio = 1.1
-    height_overflow = 0.05
-    taper_length = 0.25
-    taper = 0.75
+    taper_length = 0.2
+    taper = 0.85
     height = "cap"
     overshoot_top = True
+    width_ratio = 0.865
+    sbl = 0.465
+    sbr = 0.640
     bold_width_ratio = 0.968
     bold_sbl = 0.500
     bold_sbr = 0.654
 
     def draw(self, pen, dc):
-        from glyphs.special.full_stop import FullStopGlyph
-
         b = self.body_bounds(dc)
         g = self.gap * b.height
-        dh = self.height_overflow * b.height
         h = self.loop_ratio * b.height
         sd = dc.stroke_x * self.dot_stroke_ratio
         sx, sy = dc.stroke_x, dc.stroke_y
@@ -36,9 +34,9 @@ class QuestionMarkGlyph(Glyph):
             dc.stroke_x,
             dc.stroke_y,
             b.x1,
-            b.y2 - h + dh,
+            b.y2 - h,
             b.x2,
-            b.y2 + dh,
+            b.y2,
             hx,
             b.hy * self.loop_ratio,
             cut="bottom",
@@ -48,9 +46,9 @@ class QuestionMarkGlyph(Glyph):
             dc.stroke_x,
             dc.stroke_y,
             b.x1,
-            b.y2 - h + dh,
+            b.y2 - h,
             b.x2,
-            b.y2 + dh,
+            b.y2,
             hx,
             b.hy * self.loop_ratio,
             cut="left",
@@ -60,7 +58,7 @@ class QuestionMarkGlyph(Glyph):
             b.xmid - dc.stroke_x / 2,
             b.y1 + g + h * self.taper_length,
             b.xmid + dc.stroke_x / 2,
-            b.y2 - h + dh + sy,
+            b.y2 - h + sy,
         )
         draw_polygon(
             pen,
