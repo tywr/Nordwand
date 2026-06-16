@@ -7,10 +7,12 @@ class Circumflex(Accent):
     unicode = "0x5E"
     height_ratio = 0.35
     width_ratio = 0.75
-    bold_width_ratio = 0.77
-    stroke_ratio = 1
+    stroke_ratio = 0.94
     sbl = 0.81
     sbr = 0.81
+    bold_width_ratio = 0.78
+    bold_sbl = 0.81
+    bold_sbr = 0.81
 
     def draw_at(self, pen, dc, x, y):
         b = self.body_bounds(dc)
@@ -18,8 +20,8 @@ class Circumflex(Accent):
         w = b.width
         x1, x2, xmid = x - w / 2, x + w / 2, x
         y1, y2 = y - h / 2, y + h / 2
-        d = self.stroke_ratio * dc.stroke_x
-        ov = 0.5 * d
+        sx = self.diag_stroke_dampening(self.stroke_ratio, dc.stroke_x, coef=0.25)
+        ov = 0.5 * sx
 
         draw_parallelogramm(
             pen,
@@ -29,7 +31,7 @@ class Circumflex(Accent):
             y1,
             xmid + ov,
             y2,
-            delta=d,
+            delta=sx,
         )
         draw_parallelogramm(
             pen,
@@ -40,5 +42,5 @@ class Circumflex(Accent):
             xmid - ov,
             y2,
             direction="top-left",
-            delta=d,
+            delta=sx,
         )

@@ -20,7 +20,7 @@ class LowercaseYGlyph(Glyph):
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
-        sx = self.stroke_ratio * dc.stroke_x
+        sx = self.diag_stroke_dampening(self.stroke_ratio, dc.stroke_x, coef=0.15)
         ov = self.overlap * sx
         lsh = self.lower_section_height * dc.stroke_y
 

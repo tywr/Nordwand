@@ -7,10 +7,12 @@ class Caron(Accent):
     unicode = "0x2C7"
     height_ratio = 0.35
     width_ratio = 0.75
-    bold_width_ratio = 0.77
     stroke_ratio = 1
     sbl = 0.81
     sbr = 0.81
+    bold_width_ratio = 0.78
+    bold_sbl = 0.81
+    bold_sbr = 0.81
 
     def draw_at(self, pen, dc, x, y):
         b = self.body_bounds(dc)
@@ -18,8 +20,8 @@ class Caron(Accent):
         w = b.width
         x1, x2, xmid = x - w / 2, x + w / 2, x
         y1, y2 = y - h / 2, y + h / 2
-        d = self.stroke_ratio * dc.stroke_x
-        ov = 0.5 * d
+        sx = self.diag_stroke_dampening(self.stroke_ratio, dc.stroke_x, coef=0.25)
+        ov = 0.5 * sx
 
         draw_parallelogramm(
             pen,
@@ -30,7 +32,7 @@ class Caron(Accent):
             x1,
             y2,
             direction="top-left",
-            delta=d,
+            delta=sx,
         )
         draw_parallelogramm(
             pen,
@@ -41,5 +43,5 @@ class Caron(Accent):
             x2,
             y2,
             direction="top-right",
-            delta=d,
+            delta=sx,
         )
