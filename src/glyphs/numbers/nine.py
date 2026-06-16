@@ -18,12 +18,12 @@ class NineGlyph(NumberGlyph):
     joint_x = 1.4
     hx_ratio = 0.95
     hy_ratio = 0.95
-    sbl = 0.450
-    sbr = 0.450
+    sbl = 0.650
+    sbr = 0.650
     overshoot_top = True
     bold_width_ratio = 1.157
-    bold_sbl = 0.470
-    bold_sbr = 0.470
+    bold_sbl = 0.700
+    bold_sbr = 0.700
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
