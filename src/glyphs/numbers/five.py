@@ -3,7 +3,6 @@ from booleanOperations.booleanGlyph import BooleanGlyph
 
 from glyphs.numbers import NumberGlyph
 from draw.arch import draw_arch
-from draw.loop import draw_loop
 from draw.corner import draw_corner
 from draw.parallelogramm import draw_parallelogramm
 from draw.rect import draw_rect

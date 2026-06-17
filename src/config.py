@@ -39,7 +39,7 @@ class FontConfig:
     cap_hx: int = 172
     cap_hy: int = 178
 
-    taper: float = 0.7
+    taper: float = 0.6
 
     # Classic config
     # width: int = 485
