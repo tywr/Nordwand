@@ -149,6 +149,7 @@ class DrawConfig(FontConfig):
             taper=taper,
             hx=hx_ratio * cls.hx,
             hy=hy_ratio * cls.hy,
+            cap_hx=hx_ratio * cls.cap_hx,
             cap_hy=hy_ratio * cls.cap_hy,
         )
 
