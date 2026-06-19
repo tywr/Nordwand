@@ -7,10 +7,10 @@ from draw.rect import draw_rect
 class DottedLowercaseGlyph(Glyph, ABC):
     """Define common class variables for single-story lowercase glyphs"""
 
-    dot_height = 1.25
-    dot_width = 1.25
+    dot_height = 1.1
+    dot_width = 1.1
     dot_position = "xmid"
-    min_opening = 90
+    min_opening = 85
     sbl = 1
     sbr = 1
 
