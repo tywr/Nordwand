@@ -2,6 +2,7 @@ import dataclasses
 from dataclasses import dataclass
 from utils.bounds import BodyBounds
 from kerning import KERNING_TABLE
+from kerning_bold import BOLD_KERNING_TABLE
 
 
 @dataclass
@@ -64,7 +65,11 @@ class FontConfig:
     # e.g. {"vo": -0.5} shifts "o" left by 0.5 * side_bearing units after "v".
     # Plain class attribute (not a dataclass field) so the YAML overlay and the
     # __init__ defaults rebuild in apply_config_overrides leave it untouched.
+    # `kerning` is the regular (weight 400) table; `bold_kerning` is the weight
+    # 700 table. For intermediate weights the two are linearly interpolated
+    # (see `kerning_for_weight`).
     kerning = KERNING_TABLE
+    bold_kerning = BOLD_KERNING_TABLE
 
 
 @dataclass
@@ -130,9 +135,7 @@ class DrawConfig(FontConfig):
         rc = 9
         exc = exp((w - 400) * log(rc) / 300)
 
-        # Function mapping 100 → 0.5 and 700 → 0.2
-        # taper = min(0.5, 0.5 - 0.0006 * (w - 400))
-        taper = min(0.5, 0.5 - 0.0003 * (w - 400))
+        taper = 0.5
 
         return cls(
             weight=w,
@@ -224,12 +227,36 @@ def config_keys():
     # not dataclass fields.
     keys.add("default_stroke")
     keys.add("kerning")
+    keys.add("bold_kerning")
     return keys
 
 
 def kern_value(frac, dc):
     """Convert a kerning fraction into font units (fraction of side_bearing)."""
     return round(frac * dc.side_bearing)
+
+
+def kerning_for_weight(weight, base=None, bold=None):
+    """Return the kerning table for `weight`, interpolating 400 -> 700.
+
+    At weight 400 the regular `kerning` table is used, at 700 the
+    `bold_kerning` table. For weights in between each pair's fraction is a
+    linear blend of the two; a pair absent from a table counts as 0. Weights
+    outside [400, 700] are clamped.
+    """
+    base = FontConfig.kerning if base is None else base
+    bold = FontConfig.bold_kerning if bold is None else bold
+
+    t = (max(400, min(700, weight)) - 400) / 300
+    if t == 0:
+        return dict(base)
+    if t == 1:
+        return dict(bold)
+
+    return {
+        pair: base.get(pair, 0.0) * (1 - t) + bold.get(pair, 0.0) * t
+        for pair in set(base) | set(bold)
+    }
 
 
 def apply_config_overrides(overrides):

@@ -14,7 +14,7 @@ from fontTools.misc.transform import Transform
 
 sys.path.insert(0, "src")
 from config import FontConfig as fc
-from config import DrawConfig, kern_value
+from config import DrawConfig, kern_value, kerning_for_weight
 from glyphs import LigatureGlyph
 from generate_font import discover_glyphs, select_italic_glyphs, skew_path
 
@@ -346,6 +346,8 @@ def visualize_text(text, point_size=None, guides=False, dc=None, italic=False):
 
     fig, ax = plt.subplots(1, 1, figsize=(max(6, len(text) * 1.5), 4), dpi=200)
 
+    kerning = kerning_for_weight(dc.weight)
+
     cursor_x = 0
     boundaries = [0]
     prev_char = None
@@ -361,7 +363,7 @@ def visualize_text(text, point_size=None, guides=False, dc=None, italic=False):
 
         cur_char = text[i]
         if prev_char is not None:
-            cursor_x += kern_value(fc.kerning.get(prev_char + cur_char, 0), dc)
+            cursor_x += kern_value(kerning.get(prev_char + cur_char, 0), dc)
 
         if glyph is None:
             ch = cur_char

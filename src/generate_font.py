@@ -32,7 +32,7 @@ from fontTools.ttLib.tables.otTables import (
 from fontTools.ttLib import newTable
 
 from config import FontConfig as fc
-from config import DrawConfig, kern_value
+from config import DrawConfig, kern_value, kerning_for_weight
 from glyphs import Glyph, LigatureGlyph, ContextualLigatureGlyph
 
 import glyphs
@@ -456,20 +456,22 @@ def write_web_fonts(src_path, woff=True, woff2=True, out_root="fonts"):
 
 
 def add_kerning(fb, cmap, dc):
-    """Attach a GPOS `kern` feature from fc.kerning, if any pairs are defined.
+    """Attach a GPOS `kern` feature from the weight's kerning table, if any.
 
     Pairs are keyed by character (e.g. "vo"); values are fractions of
-    side_bearing. Resolved to glyph names via the reverse cmap and compiled
-    with feaLib, which only builds GPOS here (no substitution rules), leaving
-    the manually-built GSUB untouched.
+    side_bearing. The table is interpolated between the regular (weight 400)
+    and bold (weight 700) tables for `dc.weight`. Resolved to glyph names via
+    the reverse cmap and compiled with feaLib, which only builds GPOS here (no
+    substitution rules), leaving the manually-built GSUB untouched.
     """
     import io
     from fontTools.feaLib.builder import addOpenTypeFeatures
 
     base_by_unicode = {unicode_val: name for unicode_val, name in cmap.items()}
 
+    kerning = kerning_for_weight(dc.weight)
     lines = ["feature kern {"]
-    for pair, frac in fc.kerning.items():
+    for pair, frac in kerning.items():
         if len(pair) != 2:
             continue
         g1 = base_by_unicode.get(ord(pair[0]))
