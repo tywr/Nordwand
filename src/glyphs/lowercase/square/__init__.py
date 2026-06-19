@@ -5,7 +5,7 @@ from glyphs import Glyph
 class SquareLowercaseGlyph(Glyph, ABC):
     """Define common class variables for all squared lowercase glyphs"""
 
-    hx_ratio = 1.1
+    hx_ratio = 1.0
     hy_ratio = 0.7
     taper = 0.4
     width_ratio = 0.886

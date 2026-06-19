@@ -10,13 +10,12 @@ class LowercaseMGlyph(Glyph):
     bold_width_ratio = 1.638
     mid_len = 1
     top_stroke_y = 1
-    hx_ratio = 0.8
-    hy_ratio = 1
+    loop_ratio = 0.65
+    hx_ratio = 0.5
+    hy_ratio = 0.7
     right_hx_ratio = 0.8
-    taper1 = 0.5
-    taper2 = 0.75
-    min_taper = 0.05
-    min_taper_2 = 0.05
+    taper1 = 0.4
+    taper2 = 0.6
     ending_thickness = 0.75
     min_width = 74
     sbl = 0.942
@@ -27,11 +26,12 @@ class LowercaseMGlyph(Glyph):
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
-        taper1 = max(self.min_taper, self.taper1 * dc.taper)
-        taper2 = max(self.min_taper_2, self.taper2 * dc.taper)
+        taper1 = self.taper1 * dc.taper
+        taper2 = self.taper2 * dc.taper
         mid_y = (1 - self.mid_len) * (b.height - b.y1)
         hx, hy = b.hx * self.hx_ratio, self.hy_ratio * b.hy
         sx = dc.stroke_x
+        ymid = b.y2 - 0.5 * b.height * self.loop_ratio
 
         wo = (b.width - 3 * sx) / 2
         if wo < self.min_width:
@@ -49,7 +49,7 @@ class LowercaseMGlyph(Glyph):
             smid,
             self.top_stroke_y * dc.stroke_y,
             b.x1 + (sx - smid),
-            b.y1,
+            b.y2 - (b.height * self.loop_ratio),
             b.xmid + mid_offset,
             b.y2,
             hx,
@@ -65,7 +65,7 @@ class LowercaseMGlyph(Glyph):
             sx,
             self.top_stroke_y * dc.stroke_y,
             b.xmid - mid_offset - (sx - smid),
-            b.y1,
+            b.y2 - (b.height * self.loop_ratio),
             b.x2,
             b.y2,
             hx,
@@ -79,7 +79,7 @@ class LowercaseMGlyph(Glyph):
         draw_rect(pen, b.x1, 0, b.x1 + sx, dc.x_height)
 
         # Right foot — reaches up to the arch midpoint
-        draw_rect(pen, b.x2 - sx, 0, b.x2, b.ymid)
+        draw_rect(pen, b.x2 - sx, 0, b.x2, ymid)
 
         # Middle stem extension — extend past b.ymid into the arch so the
         # union is a clean polygon. Without this overlap, pathops sees the
@@ -91,43 +91,5 @@ class LowercaseMGlyph(Glyph):
             b.xmid - smid / 2,
             mid_y,
             b.xmid + smid / 2,
-            b.ymid + 1,
+            ymid + 1,
         )
-
-        # We cut in the middle of the glyph in case it's not wide enough
-        # cut_glyph = ufoLib2.objects.Glyph()
-        # cpen = cut_glyph.getPen()
-        #
-        # se1 = arch_params["inner"]
-        # sew = se1.x2 - se1.x1
-        # sx = sx
-        # if sew < self.min_width:
-        #     dx = self.min_width - sew
-        #     xi1, yi1 = se1.xmid, se1.y2
-        #     hx, hy = se1.hx, se1.hy
-        #     se2 = arch_params_2["inner"]
-        #     xi2, yi2 = se2.xmid, se2.y2
-        #     # dhx = dx - hx
-        #
-        #     cpen.moveTo((xi1, mid_y))
-        #     cpen.lineTo((xi2, mid_y))
-        #     cpen.lineTo((xi2, yi2))
-        #     cpen.lineTo((xi2 - dx, yi2))
-        #     cpen.curveTo(
-        #         (xi2 - dx - hx, yi2),
-        #         (b.xmid + sx / 2 - dx, b.ymid + hy),
-        #         (b.xmid + sx / 2 - dx, b.ymid),
-        #     )
-        #     cpen.lineTo((b.xmid + sx / 2 - dx, mid_y))
-        #     cpen.lineTo((b.xmid - sx / 2 + dx, mid_y))
-        #     cpen.lineTo((b.xmid - sx / 2 + dx, b.ymid))
-        #     cpen.curveTo(
-        #         (b.xmid - sx / 2 + dx, b.ymid + hy),
-        #         (xi1 + dx + hx, yi1),
-        #         (xi1 + dx, yi1),
-        #     )
-        #     cpen.lineTo((xi1, yi1))
-        #     cpen.closePath()
-        #
-        # res = BooleanGlyph(glyph).difference(BooleanGlyph(cut_glyph))
-        # res.draw(pen)
