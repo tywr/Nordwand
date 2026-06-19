@@ -9,8 +9,8 @@ class FourGlyph(NumberGlyph):
     horizontal_ratio = 0.715
     vertical_ratio = 0.315
     mid_bar_ratio = 1
-    overlap = 0.33
-    stroke_ratio = 0.94
+    overlap = 0.22
+    stroke_ratio = 0.93
     width_ratio = 1.1
     sbl = 0.68
     sbr = 0.64
