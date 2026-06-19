@@ -15,7 +15,7 @@ class LowercaseXGlyph(Glyph):
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
-        sx = self.diag_stroke_dampening(self.stroke_ratio, dc.stroke_x, coef=0.15)
+        sx = self.diag_stroke_dampening(self.stroke_ratio, dc.stroke_x, coef=0.0)
         draw_parallelogramm(
             pen, dc.stroke_x, dc.stroke_y, b.x1, b.y1, b.x2, b.y2, delta=sx
         )
