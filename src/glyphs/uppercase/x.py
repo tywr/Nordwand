@@ -6,7 +6,7 @@ class UppercaseXGlyph(UppercaseGlyph):
     name = "uppercase_x"
     unicode = "0x58"
     width_ratio = 1.316
-    bold_width_ratio = 1.365
+    bold_width_ratio = 1.505
     stroke_x_ratio = 1.08
     sbr = 0.085
     sbl = 0.085

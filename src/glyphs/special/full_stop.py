@@ -8,7 +8,7 @@ class FullStopGlyph(Glyph):
     sbl = 1.159
     sbr = 1.146
     width_ratio = 0.203
-    bold_width_ratio = 0.261
+    bold_width_ratio = 0.288
     taper = 0.5
     stroke_ratio = 1.2
     stroke_ratio_bold = 1

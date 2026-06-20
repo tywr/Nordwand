@@ -9,7 +9,7 @@ class LeftParenthesisGlyph(Glyph):
     width_ratio = 0.358
     sbl = 0.841
     sbr = 0.634
-    bold_width_ratio = 0.398
+    bold_width_ratio = 0.439
     bold_sbl = 0.789
     bold_sbr = 0.606
 

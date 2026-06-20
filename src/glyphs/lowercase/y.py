@@ -9,7 +9,7 @@ class LowercaseYGlyph(Glyph):
     name = "lowercase_y"
     unicode = "0x79"
     width_ratio = 1.018
-    bold_width_ratio = 1.046
+    bold_width_ratio = 1.153
     overlap = 0.5
     stroke_ratio = 1.1
     lower_section_height = 1.3

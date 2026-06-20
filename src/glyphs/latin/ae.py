@@ -29,7 +29,7 @@ class AeGlyph(Glyph):
     width_ratio = 1.547
     sbl = 0.378
     sbr = 0.537
-    bold_width_ratio = 1.518
+    bold_width_ratio = 1.674
     bold_sbl = 0.465
     bold_sbr = 0.521
 

@@ -8,7 +8,7 @@ class VerticalLineGlyph(Glyph):
     width_ratio = 0.157
     sbl = 1.024
     sbr = 1.024
-    bold_width_ratio = 0.208
+    bold_width_ratio = 0.229
     bold_sbl = 1.056
     bold_sbr = 1.056
 

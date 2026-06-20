@@ -110,11 +110,11 @@ class DrawConfig(FontConfig):
         from math import log, exp
 
         # 166
-        brx = 1.6
+        brx = 1.66
         ratio_x = exp((w - 400) * log(brx) / 300)
 
         # 97
-        bry = 1.45
+        bry = 1.6
         ratio_y = exp((w - 400) * log(bry) / 300)
 
         bra = 1.2
@@ -126,14 +126,14 @@ class DrawConfig(FontConfig):
         bhy = 1.1
         hy_ratio = exp((w - 400) * log(bhy) / 300)
 
-        rb = 0.906
+        rb = 0.87
         sb_ratio = exp((w - 400) * log(rb) / 300)
 
-        rx = 15
-        exh = exp((w - 400) * log(rx) / 300)
+        ro = 6
+        exo = exp((w - 400) * log(ro) / 300)
 
-        rc = 9
-        exc = exp((w - 400) * log(rc) / 300)
+        bt = 0.7
+        ratio_taper = exp((w - 400) * log(bt) / 300)
 
         return cls(
             weight=w,
@@ -141,17 +141,18 @@ class DrawConfig(FontConfig):
             stroke_y=cls.stroke_y * ratio_y,
             stroke_alt=cls.stroke_alt * ratio_a,
             side_bearing=cls.side_bearing * sb_ratio,
-            x_height=cls.x_height + exh,
+            x_height=cls.x_height,
             cap=cls.cap,
             accent=cls.cap,
             accent_cap=cls.accent_cap,
-            ascent=cls.ascent + exc,
+            ascent=cls.ascent,
             descent=cls.descent,
-            taper=cls.taper,
+            taper=cls.taper * ratio_taper,
             hx=hx_ratio * cls.hx,
             hy=hy_ratio * cls.hy,
             cap_hx=hx_ratio * cls.cap_hx,
             cap_hy=hy_ratio * cls.cap_hy,
+            v_overshoot=cls.v_overshoot + exo,
         )
 
     @classmethod

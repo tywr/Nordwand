@@ -9,7 +9,7 @@ class LowercaseDGlyph(SingleStoryLowercaseGlyph):
     width_ratio = 0.954
     sbl = 0.549
     sbr = 0.963
-    bold_width_ratio = 0.969
+    bold_width_ratio = 1.068
     bold_sbl = 0.521
     bold_sbr = 0.944
 

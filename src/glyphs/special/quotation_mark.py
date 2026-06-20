@@ -10,7 +10,7 @@ class QuotationMarkGlyph(Glyph):
     width_ratio = 0.497
     sbl = 1.159
     sbr = 1.159
-    bold_width_ratio = 0.560
+    bold_width_ratio = 0.618
     bold_sbl = 1.197
     bold_sbr = 1.197
 

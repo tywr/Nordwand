@@ -7,7 +7,7 @@ class EmDashGlyph(Glyph):
     unicode = "0x2014"
     stroke_ratio = 0.85
     width_ratio = 1.495
-    bold_width_ratio = 1.352
+    bold_width_ratio = 1.491
     height_ratio = 0.54
     sbl = 1.646
     sbr = 1.646

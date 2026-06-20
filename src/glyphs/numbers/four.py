@@ -14,7 +14,7 @@ class FourGlyph(NumberGlyph):
     width_ratio = 1.062
     sbl = 0.341
     sbr = 0.293
-    bold_width_ratio = 1.064
+    bold_width_ratio = 1.173
     bold_sbl = 0.394
     bold_sbr = 0.239
 

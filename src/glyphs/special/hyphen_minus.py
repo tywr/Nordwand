@@ -9,7 +9,7 @@ class HyphenMinusGlyph(Glyph):
     stroke_ratio = 0.9
     sbl = 0.488
     sbr = 0.488
-    bold_width_ratio = 0.498
+    bold_width_ratio = 0.549
     bold_sbl = 0.366
     bold_sbr = 0.366
 

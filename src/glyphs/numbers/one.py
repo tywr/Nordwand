@@ -6,11 +6,11 @@ from draw.parallelogramm import draw_parallelogramm_vertical
 class OneGlyph(NumberGlyph):
     name = "one"
     unicode = "0x31"
-    branch_height = 0.34
+    branch_height = 0.3
     width_ratio = 0.501
     sbl = 1.463
     sbr = 2.573
-    bold_width_ratio = 0.569
+    bold_width_ratio = 0.628
     bold_sbl = 1.662
     bold_sbr = 2.789
 

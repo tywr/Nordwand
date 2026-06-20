@@ -16,7 +16,7 @@ class UppercaseOSlashGlyph(UppercaseGlyph):
     slash_length = 1.5
     overshoot_top = True
     overshoot_bottom = True
-    bold_width_ratio = 1.394
+    bold_width_ratio = 1.537
     bold_sbl = 0.113
     bold_sbr = 0.099
 

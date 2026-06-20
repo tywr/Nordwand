@@ -10,7 +10,7 @@ class DollarSignGlyph(Glyph):
     width_ratio = 0.996
     overflow_ratio = 0.2
     height = "cap"
-    bold_width_ratio = 0.985
+    bold_width_ratio = 1.087
     bold_sbl = 0.620
     bold_sbr = 0.620
 

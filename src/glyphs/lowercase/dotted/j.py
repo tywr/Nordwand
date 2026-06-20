@@ -8,7 +8,7 @@ class LowercaseJGlyph(DottedLowercaseGlyph):
     unicode = "0x6A"
     tail_offset = 0
     width_ratio = 0.372
-    bold_width_ratio = 0.431
+    bold_width_ratio = 0.475
     dot_position = "x2"
     sbl = -0.183
     sbr = 1.0

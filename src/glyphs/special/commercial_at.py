@@ -16,7 +16,7 @@ class CommercialAtGlyph(Glyph):
     ending_thickness = 0.8
     height = "cap"
     overshoot_top = True
-    bold_width_ratio = 1.692
+    bold_width_ratio = 1.865
     bold_sbl = 0.563
     bold_sbr = 0.535
 

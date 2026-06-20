@@ -7,7 +7,7 @@ class UppercaseHGlyph(UppercaseGlyph):
     unicode = "0x48"
     bar_height = 0.51
     width_ratio = 1.131
-    bold_width_ratio = 1.144
+    bold_width_ratio = 1.262
     sbl = 1.195
     sbr = 1.195
     bold_sbl = 1.169

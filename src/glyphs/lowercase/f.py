@@ -10,7 +10,7 @@ class LowercaseFGlyph(Glyph):
     cross_bar_height = 1
     right_bar_offset = 0.018
     width_ratio = 0.624
-    bold_width_ratio = 0.670
+    bold_width_ratio = 0.738
     thickening = 1.1
     sbl = 0.195
     sbr = 0.183

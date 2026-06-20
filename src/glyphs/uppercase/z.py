@@ -9,7 +9,7 @@ class UppercaseZGlyph(UppercaseGlyph):
     right_offset = 0.01
     left_offset = 0.01
     width_ratio = 1.091
-    bold_width_ratio = 1.077
+    bold_width_ratio = 1.187
     sbl = 0.256
     sbr = 0.256
     bold_sbl = 0.282

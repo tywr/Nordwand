@@ -7,7 +7,7 @@ class LowercaseXGlyph(Glyph):
     unicode = "0x78"
     stroke_ratio = 1.05
     width_ratio = 1.002
-    bold_width_ratio = 1.018
+    bold_width_ratio = 1.123
     sbl = 0.159
     sbr = 0.159
     bold_sbl = 0.014

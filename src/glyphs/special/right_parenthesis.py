@@ -9,7 +9,7 @@ class RightParenthesisGlyph(Glyph):
     width_ratio = 0.360
     sbl = 0.634
     sbr = 0.841
-    bold_width_ratio = 0.398
+    bold_width_ratio = 0.439
     bold_sbl = 0.606
     bold_sbr = 0.789
 

@@ -7,7 +7,7 @@ class NumberGlyph(Glyph, ABC):
 
     width_ratio = 1.00
     stroke_x_ratio = 1.06
-    stroke_y_ratio = 1.06
+    stroke_y_ratio = 1.09
 
     sbl = 0.9
     sbr = 0.9

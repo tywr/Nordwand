@@ -10,7 +10,7 @@ class LowercaseUGlyph(SquareLowercaseGlyph):
     sbl = 0.963
     sbr = 0.963
     overshoot_bottom = True
-    bold_width_ratio = 0.907
+    bold_width_ratio = 1.000
     bold_sbl = 0.958
     bold_sbr = 0.958
 

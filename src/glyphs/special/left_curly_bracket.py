@@ -12,7 +12,7 @@ class LeftCurlyBracketGlyph(Glyph):
     width_ratio = 0.676
     sbl = 0.183
     sbr = 0.244
-    bold_width_ratio = 0.646
+    bold_width_ratio = 0.712
     bold_sbl = 0.211
     bold_sbr = 0.282
 

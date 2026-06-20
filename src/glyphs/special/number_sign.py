@@ -12,7 +12,7 @@ class NumberSignGlyph(Glyph):
     width_ratio = 1.238
     sbl = 0.256
     sbr = 0.244
-    bold_width_ratio = 1.040
+    bold_width_ratio = 1.147
     bold_sbl = 0.408
     bold_sbr = 0.408
 

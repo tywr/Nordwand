@@ -20,7 +20,7 @@ class UppercaseCGlyph(UppercaseGlyph):
     overshoot_bottom = True
     overshoot_top = True
     width_ratio = 1.169
-    bold_width_ratio = 1.164
+    bold_width_ratio = 1.284
     sbl = 0.622
     sbr = 0.598
     bold_sbl = 0.620

@@ -9,7 +9,7 @@ class LowercaseSGlyph(Glyph):
     name = "lowercase_s"
     unicode = "0x73"
     width_ratio = 0.809
-    bold_width_ratio = 0.845
+    bold_width_ratio = 0.932
     stroke_x_ratio = 1.01
     stroke_y_ratio = 1.03
     hx_ratio = 1.05

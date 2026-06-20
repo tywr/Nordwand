@@ -16,7 +16,7 @@ class UppercaseOeGlyph(UppercaseGlyph):
     mid_ratio = 0.52
     xmid_ratio = 0.55
     hx_ratio = 0.7
-    bold_width_ratio = 1.648
+    bold_width_ratio = 1.817
     bold_sbl = 0.634
     bold_sbr = 0.563
 

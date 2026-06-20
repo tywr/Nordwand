@@ -16,16 +16,16 @@ class FiveGlyph(NumberGlyph):
     loop_ratio = 0.66
     junction_ratio = 0.43
     cap_offset = 0.08
-    tilt = 0.23
+    tilt = 0.2
     taper = 0.6
     ending_offset = 0.03
     thinning = 0.9
     overshoot_bottom = True
-    width_ratio = 0.950
-    sbl = 0.683
-    sbr = 0.634
-    bold_width_ratio = 0.956
-    bold_sbl = 0.789
+    width_ratio = 1
+    sbl = 0.450
+    sbr = 0.560
+    bold_width_ratio = 1.13
+    bold_sbl = 0.250
     bold_sbr = 0.676
 
     def draw(self, pen, dc):

@@ -6,7 +6,7 @@ class AsteriskGlyph(Glyph):
     name = "asterisk"
     unicode = "0x2A"
     width_ratio = 0.753
-    bold_width_ratio = 0.699
+    bold_width_ratio = 0.771
     stroke_ratio = 1
     vert_offset = 0.5
     sbl = 1.183

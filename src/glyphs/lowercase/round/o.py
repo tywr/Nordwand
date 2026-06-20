@@ -8,7 +8,7 @@ class LowercaseOGlyph(RoundLowercaseGlyph):
     sbl = 0.549
     sbr = 0.549
     width_ratio = 1.000
-    bold_width_ratio = 1.000
+    bold_width_ratio = 1.103
     bold_sbl = 0.521
     bold_sbr = 0.521
 

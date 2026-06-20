@@ -9,7 +9,7 @@ class UppercaseNGlyph(UppercaseGlyph):
     middle_stroke_ratio = 0.9
     overlap = 0.3
     width_ratio = 1.147
-    bold_width_ratio = 1.155
+    bold_width_ratio = 1.274
     sbl = 1.195
     sbr = 1.195
     bold_sbl = 1.169

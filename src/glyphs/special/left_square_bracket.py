@@ -8,7 +8,7 @@ class LeftSquareBracketGlyph(Glyph):
     width_ratio = 0.350
     sbl = 0.939
     sbr = 0.585
-    bold_width_ratio = 0.423
+    bold_width_ratio = 0.467
     bold_sbl = 0.944
     bold_sbr = 0.254
 

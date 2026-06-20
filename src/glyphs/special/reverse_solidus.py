@@ -11,7 +11,7 @@ class ReverseSolidusGlyph(Glyph):
     width_ratio = 0.627
     sbl = -0.122
     sbr = -0.122
-    bold_width_ratio = 0.600
+    bold_width_ratio = 0.662
     bold_sbl = -0.324
     bold_sbr = -0.324
 

@@ -7,7 +7,7 @@ class ApostropheMarkGlyph(Glyph):
     unicode = "0x27"
     sbl = 1.159
     sbr = 1.159
-    bold_width_ratio = 0.228
+    bold_width_ratio = 0.252
     width_ratio = 0.175
     height_ratio = 0.6
     bold_sbl = 1.197

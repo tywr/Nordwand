@@ -15,9 +15,9 @@ class LowercaseAGlyph(Glyph):
     taper = 0.4
     sbl = 0.549
     sbr = 1.025
-    bold_width_ratio = 0.950
+    bold_width_ratio = 0.970
     bold_sbl = 0.465
-    bold_sbr = 0.803
+    bold_sbr = 0.875
 
     bot_hx_ratio = 1.2
     bot_hy_ratio = 0.9

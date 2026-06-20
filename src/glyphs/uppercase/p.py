@@ -8,7 +8,7 @@ class UppercasePGlyph(UppercaseGlyph):
     unicode = "0x50"
     loop_ratio = 0.645
     width_ratio = 0.986
-    bold_width_ratio = 1.015
+    bold_width_ratio = 1.119
     sbr = 0.402
     sbl = 1.195
     bold_sbl = 1.169

@@ -9,7 +9,7 @@ class UppercaseQGlyph(UppercaseGlyph):
     tail_width = 0.45
     tail_height = 0.2
     width_ratio = 1.314
-    bold_width_ratio = 1.327
+    bold_width_ratio = 1.390
     stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.04
     stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.09
     sbl = 0.622

@@ -20,7 +20,7 @@ class SharpSGlyph(Glyph):
     stroke_y_ratio = 1.00
     height = "cap"
     uppercase = True
-    bold_width_ratio = 1.113
+    bold_width_ratio = 1.227
     bold_sbl = 1.000
     bold_sbr = 0.423
 

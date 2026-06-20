@@ -8,7 +8,7 @@ class UppercaseIGlyph(UppercaseGlyph):
     width_ratio = 0.189
     sbl = 1.195
     sbr = 1.195
-    bold_width_ratio = 0.286
+    bold_width_ratio = 0.316
     bold_sbl = 1.169
     bold_sbr = 1.169
 

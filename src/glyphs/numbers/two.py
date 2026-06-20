@@ -11,15 +11,15 @@ class TwoGlyph(NumberGlyph):
     unicode = "0x32"
     width_ratio = 0.932
     loop_offset = 0.02
-    hx_ratio = 1
-    hy_ratio = 0.85
+    hx_ratio = 0.95
+    hy_ratio = 1
     xj_ratio = 0.68
     yj_ratio = 0.46
     internal_radius = 0.25
     sbl = 0.634
     sbr = 0.793
     overshoot_top = True
-    bold_width_ratio = 0.953
+    bold_width_ratio = 1.050
     bold_sbl = 0.620
     bold_sbr = 0.873
 

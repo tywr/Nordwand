@@ -10,7 +10,7 @@ class UppercaseVGlyph(UppercaseGlyph):
     unicode = "0x56"
     stroke_x_ratio = 1.1
     width_ratio = 1.318
-    bold_width_ratio = 1.303
+    bold_width_ratio = 1.437
     lower_section_height = 1.5
     sbl = 0.073
     sbr = 0.073

@@ -11,7 +11,7 @@ class OSlashGlyph(RoundLowercaseGlyph):
     width_ratio = 1.093
     slash_stroke = 1.2
     slash_length = 1.4
-    bold_width_ratio = 1.000
+    bold_width_ratio = 1.103
     bold_sbl = 0.521
     bold_sbr = 0.521
 

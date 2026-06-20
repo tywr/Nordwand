@@ -9,7 +9,7 @@ class EightGlyph(NumberGlyph):
     loop_width_ratio = 0.92
     taper_top = 0.9
     taper_bot = 1.2
-    hx_ratio = 0.9
+    hx_ratio = 0.95
     hy_ratio = 1
     extra_overshoot = 0.000
     width_ratio = 1.002
@@ -17,7 +17,7 @@ class EightGlyph(NumberGlyph):
     sbr = 0.500
     overshoot_top = True
     overshoot_bottom = True
-    bold_width_ratio = 1.004
+    bold_width_ratio = 1.107
     bold_sbl = 0.549
     bold_sbr = 0.549
 

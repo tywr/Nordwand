@@ -7,9 +7,9 @@ class ZeroGlyph(NumberGlyph):
     unicode = "0x30"
     slash = 0.2
     width_ratio = 0.982
-    bold_width_ratio = 1.004
-    hx_ratio = 1
-    hy_ratio = 1
+    bold_width_ratio = 1.107
+    hx_ratio = 1.25
+    hy_ratio = 0.8
     overshoot_top = True
     overshoot_bottom = True
     sbl = 0.561

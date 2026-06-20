@@ -11,7 +11,7 @@ class LowercaseNGlyph(SquareLowercaseGlyph):
     sbr = 0.963
     sbl = 0.963
     overshoot_top = True
-    bold_width_ratio = 0.907
+    bold_width_ratio = 1.000
     bold_sbl = 0.944
     bold_sbr = 0.958
 

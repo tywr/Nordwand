@@ -16,7 +16,7 @@ class UppercaseAeGlyph(UppercaseGlyph):
     width_ratio = 1.887
     mid_ratio = 0.52
     xmid_ratio = 0.55
-    bold_width_ratio = 1.723
+    bold_width_ratio = 1.899
     bold_sbl = -0.099
     bold_sbr = 0.563
 

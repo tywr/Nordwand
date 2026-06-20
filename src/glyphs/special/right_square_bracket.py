@@ -8,7 +8,7 @@ class RightSquareBracketGlyph(Glyph):
     width_ratio = 0.350
     sbl = 0.585
     sbr = 0.939
-    bold_width_ratio = 0.423
+    bold_width_ratio = 0.467
     bold_sbl = 0.254
     bold_sbr = 0.944
 

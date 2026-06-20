@@ -7,7 +7,7 @@ class EnDashGlyph(Glyph):
     unicode = "0x2013"
     stroke_ratio = 0.85
     width_ratio = 1.010
-    bold_width_ratio = 0.912
+    bold_width_ratio = 1.006
     height_ratio = 0.54
     sbl = 0.061
     sbr = 0.061

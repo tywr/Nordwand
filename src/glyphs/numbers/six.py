@@ -21,7 +21,7 @@ class SixGlyph(NumberGlyph):
     sbl = 0.610
     sbr = 0.537
     overshoot_bottom = True
-    bold_width_ratio = 0.995
+    bold_width_ratio = 1.097
     bold_sbl = 0.676
     bold_sbr = 0.493
 

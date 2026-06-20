@@ -11,8 +11,8 @@ class UppercaseMGlyph(UppercaseGlyph):
     depth = 0.6
     inner_thickness_ratio = 1
     inner_height = 0.0
-    width_ratio = 1.549
-    bold_width_ratio = 1.553
+    width_ratio = 1.453
+    bold_width_ratio = 1.583
     overlap = 0.1
     sbr = 1.195
     sbl = 1.195

@@ -16,7 +16,7 @@ class ExclamationMarkGlyph(Glyph):
     sbl = 1.159
     sbr = 1.159
     height = "cap"
-    bold_width_ratio = 0.308
+    bold_width_ratio = 0.340
     bold_sbl = 1.197
     bold_sbr = 1.197
 

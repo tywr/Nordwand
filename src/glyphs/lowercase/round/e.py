@@ -9,18 +9,18 @@ from glyphs.lowercase.round import RoundLowercaseGlyph
 class LowercaseEGlyph(RoundLowercaseGlyph):
     name = "lowercase_e"
     unicode = "0x65"
-    width_ratio = 0.94
-    bold_width_ratio = 0.923
     mid_height = 0.52
     thinning = 0.9
     tail_offset = 0.005
     tail_height = 0.268
     tail_hx_ratio = 1.15
     tail_hy_ratio = 1.0
+    width_ratio = 0.94
+    bold_width_ratio = 1.04
     sbl = 0.549
     sbr = 0.425
     bold_sbl = 0.521
-    bold_sbr = 0.521
+    bold_sbr = 0.375
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

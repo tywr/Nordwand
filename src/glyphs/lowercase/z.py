@@ -9,7 +9,7 @@ class LowercaseZGlyph(Glyph):
     stroke_ratio = 1.0
     diag_stroke_ratio = 0.96
     width_ratio = 0.779
-    bold_width_ratio = 0.792
+    bold_width_ratio = 0.873
     right_offset = 0.01
     left_offset = 0.0
     sbl = 0.451

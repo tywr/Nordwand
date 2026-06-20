@@ -10,7 +10,7 @@ class SevenGlyph(NumberGlyph):
     width_ratio = 0.936
     sbl = 0.610
     sbr = 0.793
-    bold_width_ratio = 0.936
+    bold_width_ratio = 1.032
     bold_sbl = 0.676
     bold_sbr = 0.944
 

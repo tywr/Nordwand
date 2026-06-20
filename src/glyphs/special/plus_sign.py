@@ -11,7 +11,7 @@ class PlusSignGlyph(Glyph):
     width_ratio = 1.064
     sbl = 1.000
     sbr = 1.000
-    bold_width_ratio = 0.958
+    bold_width_ratio = 1.056
     bold_sbl = 0.986
     bold_sbr = 0.986
 

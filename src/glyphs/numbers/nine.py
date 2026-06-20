@@ -21,7 +21,7 @@ class NineGlyph(NumberGlyph):
     sbl = 0.537
     sbr = 0.646
     overshoot_top = True
-    bold_width_ratio = 0.995
+    bold_width_ratio = 1.097
     bold_sbl = 0.563
     bold_sbr = 0.606
 

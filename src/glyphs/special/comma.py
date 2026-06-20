@@ -6,7 +6,7 @@ class CommaGlyph(Glyph):
     name = "comma"
     unicode = "0x2C"
     width_ratio = 0.320
-    bold_width_ratio = 0.387
+    bold_width_ratio = 0.427
     height_ratio = 0.7
     vertical_offset = 0.19
     foot_offset = 0.15

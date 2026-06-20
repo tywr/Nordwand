@@ -13,7 +13,7 @@ class LowercaseTGlyph(Glyph):
     up_ratio = 0.27
     angle_offset = 0.3
     width_ratio = 0.610
-    bold_width_ratio = 0.653
+    bold_width_ratio = 0.720
     sbl = 0.183
     sbr = 0.317
     bold_sbl = 0.141

@@ -28,7 +28,7 @@ class OeGlyph(Glyph):
     width_ratio = 1.652
     sbl = 0.537
     sbr = 0.537
-    bold_width_ratio = 1.650
+    bold_width_ratio = 1.819
     bold_sbl = 0.521
     bold_sbr = 0.521
 

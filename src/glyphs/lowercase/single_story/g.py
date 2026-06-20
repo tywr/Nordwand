@@ -23,7 +23,7 @@ class LowercaseGGlyph(SingleStoryLowercaseGlyph):
     cut_ratio = 0.265
     tail_offset = 0.04
     y1_offset = 0.065
-    bold_width_ratio = 0.971
+    bold_width_ratio = 1.070
     bold_sbl = 0.521
     bold_sbr = 0.930
 

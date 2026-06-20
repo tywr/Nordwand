@@ -8,7 +8,7 @@ class ColonGlyph(Glyph):
     sbl = 1.159
     sbr = 1.146
     width_ratio = 0.203
-    bold_width_ratio = 0.261
+    bold_width_ratio = 0.288
     stroke_ratio = 1.2
     stroke_ratio_bold = 1
     gap = 0.935

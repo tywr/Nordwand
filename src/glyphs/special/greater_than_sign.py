@@ -12,7 +12,7 @@ class GreaterThenSignGlyph(Glyph):
     width_ratio = 1.014
     sbl = 1.000
     sbr = 1.000
-    bold_width_ratio = 0.956
+    bold_width_ratio = 1.054
     bold_sbl = 0.986
     bold_sbr = 0.986
 

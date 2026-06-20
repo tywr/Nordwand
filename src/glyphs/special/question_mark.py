@@ -18,7 +18,7 @@ class QuestionMarkGlyph(Glyph):
     width_ratio = 0.698
     sbl = 1.134
     sbr = 1.000
-    bold_width_ratio = 0.732
+    bold_width_ratio = 0.807
     bold_sbl = 1.169
     bold_sbr = 0.817
 

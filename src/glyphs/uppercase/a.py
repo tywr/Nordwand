@@ -14,7 +14,7 @@ class UppercaseAGlyph(UppercaseGlyph):
     overlap = 0.5
     stroke_x_ratio = 1.1
     width_ratio = 1.412
-    bold_width_ratio = 1.401
+    bold_width_ratio = 1.545
     higher_section_height = 1.5
     sbl = 0.061
     sbr = 0.061
@@ -51,8 +51,8 @@ class UppercaseAGlyph(UppercaseGlyph):
         # Crossbar
         draw_rect(
             pen,
-            b.xmid - (hb - sy) * cos(theta),
+            b.xmid - (hb - 0.5 * sy) * cos(theta),
             hb - sy,
-            b.xmid + (hb - sy) * cos(theta),
+            b.xmid + (hb - 0.5 * sy) * cos(theta),
             hb,
         )

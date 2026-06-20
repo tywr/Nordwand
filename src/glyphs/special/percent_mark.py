@@ -13,7 +13,7 @@ class PercentMarkGlyph(Glyph):
     width_ratio = 1.722
     sbl = 0.378
     sbr = 0.378
-    bold_width_ratio = 1.600
+    bold_width_ratio = 1.765
     bold_sbl = 0.324
     bold_sbr = 0.324
 

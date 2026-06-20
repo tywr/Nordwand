@@ -12,7 +12,7 @@ class UppercaseJGlyph(UppercaseGlyph):
     loop_ratio = 0.5
     tail_len = 0.5
     width_ratio = 0.861
-    bold_width_ratio = 0.909
+    bold_width_ratio = 1.002
     sbl = 0.085
     sbr = 1.024
     overshoot_bottom = True

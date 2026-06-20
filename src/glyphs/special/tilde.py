@@ -8,7 +8,7 @@ class TildeGlyph(Glyph):
     x_corner_ratio = 0.24
     y_corner_offset = 0.075
     width_ratio = 1.066
-    bold_width_ratio = 0.996
+    bold_width_ratio = 1.099
     stroke_x_ratio = 1
     stroke_y_ratio = 1.2
     hy_ratio = 0.8

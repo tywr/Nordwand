@@ -7,7 +7,7 @@ class LowercaseKGlyph(Glyph):
     name = "lowercase_k"
     unicode = "0x6B"
     width_ratio = 0.905
-    bold_width_ratio = 0.984
+    bold_width_ratio = 1.085
     mid_ratio = 0.57
     upper_branch_offset = 0.04
     branch_stroke_ratio = 1.3

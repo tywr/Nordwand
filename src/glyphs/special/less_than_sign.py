@@ -9,7 +9,7 @@ class LessThenSignGlyph(Glyph):
     span = 0.85
     stroke_ratio = 1.2
     width_ratio = 1.024
-    bold_width_ratio = 0.958
+    bold_width_ratio = 1.056
     sbl = 1.000
     sbr = 1.000
     bold_sbl = 0.986

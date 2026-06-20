@@ -8,7 +8,7 @@ class SemiColonGlyph(Glyph):
     sbl = 0.646
     sbr = 0.951
     width_ratio = 0.320
-    bold_width_ratio = 0.387
+    bold_width_ratio = 0.427
     stroke_ratio = 1.2
     stroke_ratio_bold = 1
     gap = 0.935

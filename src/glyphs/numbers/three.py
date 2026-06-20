@@ -14,14 +14,14 @@ class ThreeGlyph(NumberGlyph):
     taper_high = 1.5
     taper_low = 1.5
     len_mid = 0.7
-    hx_ratio = 0.9
-    hy_ratio = 0.9
+    hx_ratio = 0.95
+    hy_ratio = 1
     width_ratio = 0.996
     sbl = 0.476
     sbr = 0.561
     overshoot_top = True
     overshoot_bottom = True
-    bold_width_ratio = 1.007
+    bold_width_ratio = 1.111
     bold_sbl = 0.394
     bold_sbr = 0.676
 

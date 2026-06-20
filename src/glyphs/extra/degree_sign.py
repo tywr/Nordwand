@@ -11,7 +11,7 @@ class DegreeSignGlyph(Glyph):
     width_ratio = 0.620
     sbl = 0.476
     sbr = 0.476
-    bold_width_ratio = 0.606
+    bold_width_ratio = 0.668
     bold_sbl = 0.521
     bold_sbr = 0.521
 

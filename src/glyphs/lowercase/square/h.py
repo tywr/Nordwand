@@ -11,7 +11,7 @@ class LowercaseHGlyph(SquareLowercaseGlyph):
     sbl = 1.000
     sbr = 0.963
     overshoot_top = True
-    bold_width_ratio = 0.900
+    bold_width_ratio = 0.992
     bold_sbl = 1.000
     bold_sbr = 0.958
 

@@ -35,7 +35,7 @@ class AmpersandGlyph(Glyph):
     width_ratio = 1.336
     sbl = 0.598
     sbr = 0.183
-    bold_width_ratio = 1.327
+    bold_width_ratio = 1.463
     bold_sbl = 0.775
     bold_sbr = 0.394
 
