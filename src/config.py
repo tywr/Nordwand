@@ -117,7 +117,7 @@ class DrawConfig(FontConfig):
         bry = 1.6
         ratio_y = exp((w - 400) * log(bry) / 300)
 
-        bra = 1.2
+        bra = 1.3
         ratio_a = exp((w - 400) * log(bra) / 300)
 
         bhx = 1.15

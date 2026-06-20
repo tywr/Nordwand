@@ -13,7 +13,7 @@ class LowercaseWGlyph(Glyph):
     inner_height = 1
     width_ratio = 1.652
     bold_width_ratio = 1.833
-    stroke_ratio = 0.98
+    stroke_ratio = 1.05
     lower_section_height = 1.5
     sbl = 0.195
     sbr = 0.195

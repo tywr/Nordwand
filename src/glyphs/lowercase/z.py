@@ -7,7 +7,7 @@ class LowercaseZGlyph(Glyph):
     name = "lowercase_z"
     unicode = "0x7A"
     stroke_ratio = 1.0
-    diag_stroke_ratio = 0.96
+    diag_stroke_ratio = 1.15
     width_ratio = 0.779
     bold_width_ratio = 0.873
     right_offset = 0.01
@@ -19,7 +19,7 @@ class LowercaseZGlyph(Glyph):
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
-        sx = self.diag_stroke_dampening(self.stroke_ratio, dc.stroke_x, coef=0.15)
+        sx = self.diag_stroke_dampening(self.stroke_ratio, dc.stroke_x, coef=0.0)
 
         xl = b.x1 + self.left_offset * b.width
         xr = b.x2 - self.right_offset * b.width

@@ -8,8 +8,8 @@ class RoundLowercaseGlyph(Glyph, ABC):
     overshoot_top = True
     overshoot_bottom = True
 
-    stroke_x_ratio = 1.06
-    stroke_y_ratio = 1.06
+    stroke_x_ratio = 1.04
+    stroke_y_ratio = 1.03
 
     hy_ratio = 1
     hx_ratio = 1

@@ -11,7 +11,7 @@ class LowercaseYGlyph(Glyph):
     width_ratio = 1.018
     bold_width_ratio = 1.153
     overlap = 0.5
-    stroke_ratio = 1.1
+    stroke_ratio = 1.05
     lower_section_height = 1.3
     sbl = 0.159
     sbr = 0.122

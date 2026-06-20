@@ -5,7 +5,7 @@ from draw.parallelogramm import draw_parallelogramm
 class LowercaseXGlyph(Glyph):
     name = "lowercase_x"
     unicode = "0x78"
-    stroke_ratio = 1.05
+    stroke_ratio = 1.1
     width_ratio = 1.002
     bold_width_ratio = 1.123
     sbl = 0.159

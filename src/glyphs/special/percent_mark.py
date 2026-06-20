@@ -10,12 +10,13 @@ class PercentMarkGlyph(Glyph):
     offset_ratio_y = 0.51
     zero_ratio = 0.5
     height = "cap"
-    width_ratio = 1.722
-    sbl = 0.378
-    sbr = 0.378
-    bold_width_ratio = 1.765
-    bold_sbl = 0.324
-    bold_sbr = 0.324
+    width_ratio = 1.0
+    stroke_ratio = 1
+    sbl = 2.1
+    sbr = 2.1
+    bold_width_ratio = 1.05
+    bold_sbl = 2.2
+    bold_sbr = 2.2
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
@@ -23,8 +24,12 @@ class PercentMarkGlyph(Glyph):
         w = self.zero_ratio * b.width
         ox = self.offset_ratio_x * b.width
         oy = self.offset_ratio_y * b.height
+        sx = self.diag_stroke_dampening(self.stroke_ratio, dc.stroke_x, coef=0.25)
 
-        draw_parallelogramm(pen, dc.stroke_x, dc.stroke_y, b.x1, b.y1, b.x2, b.y2)
+        
+        draw_parallelogramm(
+            pen, dc.stroke_x, dc.stroke_y, b.x1, b.y1, b.x2, b.y2, delta=sx
+        )
         draw_loop(
             pen,
             dc.stroke_alt,

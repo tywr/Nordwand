@@ -49,7 +49,7 @@ class LowercaseEGlyph(RoundLowercaseGlyph):
         # Top-right corner
         draw_corner(
             pen,
-            sx,
+            sx * self.thinning,
             sy,
             b.x2 - dc.h_overshoot,
             b.ymid,
@@ -91,12 +91,12 @@ class LowercaseEGlyph(RoundLowercaseGlyph):
             b.x1 + sx / 2,
             ymid,
             b.x2 - dc.h_overshoot - sx / 2,
-            ymid + dc.stroke_y / 2,
+            ymid + dc.stroke_alt / 2,
         )
         draw_rect(
             pen,
             b.x1 + sx / 2,
-            ymid - dc.stroke_y / 2,
+            ymid - dc.stroke_alt / 2,
             b.x2 - dc.h_overshoot,
             max(ymid, b.ymid),
         )
