@@ -51,10 +51,10 @@ class FontConfig:
 
     # Univers-like config
     width: int = 485
-    default_stroke: int = 91
-    stroke_x = 91
-    stroke_y = 64
-    stroke_alt = 64
+    default_stroke: int = 86
+    stroke_x = 86
+    stroke_y = 66
+    stroke_alt = 66
 
     v_overshoot: int = 9
     v_overshoot_cap: int = 16
@@ -135,8 +135,6 @@ class DrawConfig(FontConfig):
         rc = 9
         exc = exp((w - 400) * log(rc) / 300)
 
-        taper = 0.5
-
         return cls(
             weight=w,
             stroke_x=cls.stroke_x * ratio_x,
@@ -149,7 +147,7 @@ class DrawConfig(FontConfig):
             accent_cap=cls.accent_cap,
             ascent=cls.ascent + exc,
             descent=cls.descent,
-            taper=taper,
+            taper=cls.taper,
             hx=hx_ratio * cls.hx,
             hy=hy_ratio * cls.hy,
             cap_hx=hx_ratio * cls.cap_hx,

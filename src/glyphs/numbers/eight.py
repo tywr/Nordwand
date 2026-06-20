@@ -1,6 +1,5 @@
 from glyphs.numbers import NumberGlyph
 from draw.arch import draw_arch
-from draw.rect import draw_rect
 
 
 class EightGlyph(NumberGlyph):
