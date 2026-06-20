@@ -787,7 +787,7 @@ def build_ttf(
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description="Generate Nordwand Mono font files")
+    parser = argparse.ArgumentParser(description="Generate Nordgrat Sans font files")
     fmt = parser.add_mutually_exclusive_group()
     fmt.add_argument("--ttf", action="store_true", help="Generate only TTF files")
     fmt.add_argument("--otf", action="store_true", help="Generate only OTF files")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate a banner image for the GitHub README.
 
-Overlays "NORDWAND MONO" in white at the center of assets/banner-raw.jpg.
+Overlays "NORDGRAT SANS" in white at the center of assets/banner-raw.jpg.
 
 Usage: python -m scripts.banner [path/to/font.ttf]
 """
@@ -10,7 +10,7 @@ import argparse
 from PIL import Image, ImageDraw, ImageFont
 
 
-TEXT = "NORDWAND"
+TEXT = "NORDGRAT"
 TAGLINE = "A font designed for all adventures"
 FG = "#ffffff"
 FONT_SIZE = 260
@@ -21,6 +21,7 @@ INPUT = "assets/banner-raw.jpg"
 
 def render_banner(font_path, output="assets/banner.png"):
     import os
+
     os.makedirs(os.path.dirname(output), exist_ok=True)
 
     img = Image.open(INPUT).convert("RGB")
@@ -55,8 +56,15 @@ def render_banner(font_path, output="assets/banner.png"):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate Nordwand banner")
-    parser.add_argument("font", nargs="?", default="fonts/ttf/Nordwand-Regular.ttf", help="Path to font file")
-    parser.add_argument("-o", "--output", default="assets/banner.png", help="Output filename")
+    parser = argparse.ArgumentParser(description="Generate Nordgrat banner")
+    parser.add_argument(
+        "font",
+        nargs="?",
+        default="fonts/ttf/NordgratSans-Regular.ttf",
+        help="Path to font file",
+    )
+    parser.add_argument(
+        "-o", "--output", default="assets/banner.png", help="Output filename"
+    )
     args = parser.parse_args()
     render_banner(args.font, args.output)

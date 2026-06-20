@@ -1,5 +1,5 @@
 [project]
-name = "Nordgrat Sans"
+name = "Nordgrat-Sans"
 version = "0.0.0"
 
 [tool.pytest.ini_options]

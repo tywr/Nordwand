@@ -82,7 +82,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "font",
         nargs="?",
-        default="fonts/ttf/Nordwand-Regular.ttf",
+        default="fonts/ttf/NordgratSans-Regular.ttf",
         help="Path to font file",
     )
     parser.add_argument(

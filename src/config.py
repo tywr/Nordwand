@@ -9,7 +9,7 @@ from kerning_bold import BOLD_KERNING_TABLE
 class FontConfig:
     """Default metrics used for the project, can be overwritten with a yaml file"""
 
-    family_name: str = "Nordwand"
+    family_name: str = "Nordgrat Sans"
     weight: int = 400
 
     units_per_em: int = 1000
