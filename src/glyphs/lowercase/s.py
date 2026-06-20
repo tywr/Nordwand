@@ -13,8 +13,8 @@ class LowercaseSGlyph(Glyph):
     stroke_x_ratio = 1.0
     stroke_y_ratio = 1.03
     hx_ratio = 1.05
-    hy_ratio = 1
-    mid_height = 0.51
+    hy_ratio = 1.05
+    mid_height = 0.52
     opening1 = 0.265
     opening2 = 0.74
     thinning = 1
