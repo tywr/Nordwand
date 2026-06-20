@@ -6,7 +6,7 @@ A neo-grotesque typeface designed for all-situations.
 
 ## Philosophy
 
-It is a spinnoff from my other project Nordwand Mono, but adjusted so it feels similar to SF Pro in terms of spacing and rhythm, but introducing differences in design to incorporate some elements from the all-time classic Univers.
+It is a spinnoff from my other project Nordwand Mono, but adjusted so it feels similar to Univers in terms of spacing and rhythm, but introducing differences in design to incorporate some foreign elements.
 
 - SF Pro & SF Mono from Apple
 - Univers from Adrian Frutiger
