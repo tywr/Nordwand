@@ -1,4 +1,4 @@
-# Nordwand Mono — custom build configuration.
+# Nordgrat Sans — custom build configuration.
 #
 # Every value below overwrites the matching default in FontConfig
 # (src/config.py). All keys are optional: omit any you don't want to change.
@@ -9,7 +9,7 @@
 # Copy this file, edit the values you care about, and pass it with --config.
 
 # --- Identity ---------------------------------------------------------------
-family_name: Nordwand Mono Custom
+family_name: Nordgrat Sans Custom
 
 # --- Global metrics ---------------------------------------------------------
 units_per_em: 1000

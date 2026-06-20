@@ -1,9 +1,0 @@
-config
-draw
-fonts
-generate_font
-glyphs
-scripts
-shapes
-utils
-visualize
