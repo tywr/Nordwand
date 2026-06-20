@@ -1,4 +1,4 @@
-![Nordwand](assets/banner.png)
+![Nordgrat Sans](assets/banner.png)
 
 A neo-grotesque typeface designed for all-situations.
 
