@@ -5,16 +5,16 @@ from draw.rect import draw_rect
 class NumberSignGlyph(Glyph):
     name = "number_sign"
     unicode = "0x23"
-    width_ratio = 1.32
+    width_ratio = 1.085
     gap = 0.42
     bar_height_ratio = 1
     height = "cap"
     width_ratio = 1.238
-    sbl = 0.174
-    sbr = 0.169
-    bold_width_ratio = 1.313
-    bold_sbl = 0.231
-    bold_sbr = 0.224
+    sbl = 0.256
+    sbr = 0.244
+    bold_width_ratio = 1.040
+    bold_sbl = 0.408
+    bold_sbr = 0.408
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -5,12 +5,12 @@ from draw.rect import draw_rect
 class VerticalLineGlyph(Glyph):
     name = "vertical_line"
     unicode = "0x7C"
-    width_ratio = 0.00
-    sbl = 1.070
-    sbr = 1.070
-    bold_width_ratio = 0.0
-    bold_sbl = 1.070
-    bold_sbr = 1.070
+    width_ratio = 0.157
+    sbl = 1.024
+    sbr = 1.024
+    bold_width_ratio = 0.208
+    bold_sbl = 1.056
+    bold_sbr = 1.056
 
     def window_width(self, dc):
         return dc.stroke_x + (self.sbr + self.sbl) * dc.side_bearing

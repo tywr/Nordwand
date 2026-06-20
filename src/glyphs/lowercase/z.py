@@ -8,14 +8,14 @@ class LowercaseZGlyph(Glyph):
     unicode = "0x7A"
     stroke_ratio = 1.0
     diag_stroke_ratio = 0.96
-    width_ratio = 0.835
-    bold_width_ratio = 0.925
+    width_ratio = 0.779
+    bold_width_ratio = 0.792
     right_offset = 0.01
     left_offset = 0.0
-    sbl = 0.797
-    sbr = 0.797
-    bold_sbl = 0.776
-    bold_sbr = 0.769
+    sbl = 0.451
+    sbr = 0.451
+    bold_sbl = 0.437
+    bold_sbr = 0.408
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

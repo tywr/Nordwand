@@ -25,12 +25,12 @@ class OeGlyph(Glyph):
     tail_height = 0.31
     overshoot_top = True
     overshoot_bottom = True
-    width_ratio = 1.782
-    sbl = 0.628
-    sbr = 0.628
-    bold_width_ratio = 1.842
-    bold_sbl = 0.590
-    bold_sbr = 0.590
+    width_ratio = 1.652
+    sbl = 0.537
+    sbr = 0.537
+    bold_width_ratio = 1.650
+    bold_sbl = 0.521
+    bold_sbr = 0.521
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

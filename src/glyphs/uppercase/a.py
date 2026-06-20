@@ -13,13 +13,13 @@ class UppercaseAGlyph(UppercaseGlyph):
     bar_height = 0.39
     overlap = 0.5
     stroke_x_ratio = 1.1
-    width_ratio = 1.25
-    bold_width_ratio = 1.367
+    width_ratio = 1.412
+    bold_width_ratio = 1.401
     higher_section_height = 1.5
-    sbl = 0.4
-    sbr = 0.4
-    bold_sbl = 0.462
-    bold_sbr = 0.449
+    sbl = 0.061
+    sbr = 0.061
+    bold_sbl = -0.070
+    bold_sbr = -0.070
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -11,17 +11,17 @@ class LowercaseCGlyph(RoundLowercaseGlyph):
     unicode = "0x63"
     opening1 = 0.31
     opening2 = 0.685
-    width_ratio = 0.975
-    bold_width_ratio = 1.05
+    width_ratio = 0.94
+    bold_width_ratio = 0.922
     thinning = 0.9
     top_offset = 0.00
     stroke_x_ratio = 1.03
-    sbl = 0.628
-    sbr = 0.4
+    sbl = 0.549
+    sbr = 0.300
     right_hx_ratio = 1.2
     right_hy_ratio = 1
-    bold_sbl = 0.590
-    bold_sbr = 0.450
+    bold_sbl = 0.521
+    bold_sbr = 0.324
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

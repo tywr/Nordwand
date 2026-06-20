@@ -7,12 +7,12 @@ class UppercaseFGlyph(UppercaseGlyph):
     unicode = "0x46"
     mid_bar_ratio = 0.94
     mid_ratio = 0.49
-    width_ratio = 0.88
-    bold_width_ratio = 0.951
-    sbr = 0.66
-    sbl = 1.07
-    bold_sbl = 1.122
-    bold_sbr = 0.667
+    width_ratio = 0.869
+    bold_width_ratio = 0.870
+    sbr = 0.427
+    sbl = 1.195
+    bold_sbl = 1.169
+    bold_sbr = 0.394
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

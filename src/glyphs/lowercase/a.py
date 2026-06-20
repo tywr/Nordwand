@@ -11,13 +11,13 @@ class LowercaseAGlyph(Glyph):
     unicode = "0x61"
     accent_x_offset = 16
     mid_height = 0.525
-    width_ratio = 0.881
-    bold_width_ratio = 0.988
+    width_ratio = 0.845
     taper = 0.4
-    sbl = 0.570
-    sbr = 0.907
-    bold_sbl = 0.558
-    bold_sbr = 0.897
+    sbl = 0.549
+    sbr = 1.025
+    bold_width_ratio = 0.950
+    bold_sbl = 0.465
+    bold_sbr = 0.803
 
     bot_hx_ratio = 1.2
     bot_hy_ratio = 0.9

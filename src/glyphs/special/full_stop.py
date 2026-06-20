@@ -5,13 +5,15 @@ from draw.rect import draw_rect
 class FullStopGlyph(Glyph):
     name = "full_stop"
     unicode = "0x2E"
-    width_ratio = 0.265
-    bold_width_ratio = 0.354
+    sbl = 1.159
+    sbr = 1.146
+    width_ratio = 0.203
+    bold_width_ratio = 0.261
     taper = 0.5
     stroke_ratio = 1.2
     stroke_ratio_bold = 1
-    bold_sbl = 1.154
-    bold_sbr = 1.154
+    bold_sbl = 1.197
+    bold_sbr = 1.211
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

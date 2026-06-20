@@ -7,12 +7,12 @@ class SolidusGlyph(Glyph):
     unicode = "0x2F"
     height_ratio = 0.8
     height = "ascent"
-    width_ratio = 0.627
-    sbl = 0.006
-    sbr = 0.006
-    bold_width_ratio = 0.690
-    bold_sbl = 0.000
-    bold_sbr = 0.000
+    width_ratio = 0.624
+    sbl = -0.122
+    sbr = -0.122
+    bold_width_ratio = 0.600
+    bold_sbl = -0.324
+    bold_sbr = -0.324
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

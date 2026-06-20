@@ -7,12 +7,12 @@ class QuotationMarkGlyph(Glyph):
     unicode = "0x22"
     height_ratio = 0.7
     gap = 0.3
-    width_ratio = 0.559
-    sbl = 1.227
-    sbr = 1.227
-    bold_width_ratio = 0.736
-    bold_sbl = 1.391
-    bold_sbr = 1.391
+    width_ratio = 0.497
+    sbl = 1.159
+    sbr = 1.159
+    bold_width_ratio = 0.560
+    bold_sbl = 1.197
+    bold_sbr = 1.197
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

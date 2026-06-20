@@ -16,14 +16,14 @@ class ThreeGlyph(NumberGlyph):
     len_mid = 0.7
     hx_ratio = 0.9
     hy_ratio = 0.9
-    width_ratio = 1.018
-    sbl = 0.820
-    sbr = 0.762
+    width_ratio = 0.996
+    sbl = 0.476
+    sbr = 0.561
     overshoot_top = True
     overshoot_bottom = True
-    bold_width_ratio = 1.132
-    bold_sbl = 0.788
-    bold_sbr = 0.788
+    bold_width_ratio = 1.007
+    bold_sbl = 0.394
+    bold_sbr = 0.676
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

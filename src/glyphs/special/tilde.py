@@ -7,15 +7,15 @@ class TildeGlyph(Glyph):
     height_ratio = 0.25
     x_corner_ratio = 0.24
     y_corner_offset = 0.075
-    width_ratio = 1
-    bold_width_ratio = 1.107
+    width_ratio = 1.066
+    bold_width_ratio = 0.996
     stroke_x_ratio = 1
     stroke_y_ratio = 1.2
     hy_ratio = 0.8
-    sbl = 0.87
-    sbr = 0.87
-    bold_sbl = 0.885
-    bold_sbr = 0.878
+    sbl = 0.866
+    sbr = 0.878
+    bold_sbl = 0.845
+    bold_sbr = 0.845
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

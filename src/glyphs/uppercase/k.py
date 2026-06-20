@@ -6,17 +6,17 @@ from draw.parallelogramm import draw_parallelogramm
 class UppercaseKGlyph(UppercaseGlyph):
     name = "uppercase_k"
     unicode = "0x4B"
-    width_ratio = 1.114
-    bold_width_ratio = 1.234
+    width_ratio = 1.115
+    bold_width_ratio = 1.172
     branch_ratio = 0.65
-    mid_ratio = 0.52
+    mid_ratio = 0.55
     upper_branch_offset = 0.05
     branch_stroke_ratio = 1.3
     branch_overlap = 0.8
-    sbr = 0.337
-    sbl = 1.070
-    bold_sbl = 1.122
-    bold_sbr = 0.333
+    sbr = 0.000
+    sbl = 1.195
+    bold_sbl = 1.169
+    bold_sbr = -0.056
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

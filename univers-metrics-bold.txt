@@ -1,0 +1,12 @@
+usage: glyph_metrics.py [-h] [--csv FILE] [--o-width N] font
+
+Tabulate width and side bearings for the main glyphs of a TTF.
+
+positional arguments:
+  font         Path to a TTF font file
+
+options:
+  -h, --help   show this help message and exit
+  --csv FILE   Also write the table as CSV
+  --o-width N  Override the reference 'o' ink width used for the w/o column
+               (in 1000-UPM units), instead of measuring it from the font

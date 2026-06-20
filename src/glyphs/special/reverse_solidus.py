@@ -5,15 +5,15 @@ from draw.parallelogramm import draw_parallelogramm
 class ReverseSolidusGlyph(Glyph):
     name = "reverse_solidus"
     unicode = "0x5C"
-    width_ratio = 1
+    width_ratio = 0.624
     height_ratio = 0.8
     height = "ascent"
     width_ratio = 0.627
-    sbl = 0.006
-    sbr = 0.006
-    bold_width_ratio = 0.690
-    bold_sbl = 0.000
-    bold_sbr = 0.000
+    sbl = -0.122
+    sbr = -0.122
+    bold_width_ratio = 0.600
+    bold_sbl = -0.324
+    bold_sbr = -0.324
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -5,13 +5,13 @@ from draw.rect import draw_rect
 class HyphenMinusGlyph(Glyph):
     name = "hyphen_minus"
     unicode = "0x2D"
-    width_ratio = 0.68
+    width_ratio = 0.525
     stroke_ratio = 0.9
-    sbl = 0.84
-    sbr = 0.84
-    bold_width_ratio = 0.669
-    bold_sbl = 1.051
-    bold_sbr = 1.045
+    sbl = 0.488
+    sbr = 0.488
+    bold_width_ratio = 0.498
+    bold_sbl = 0.366
+    bold_sbr = 0.366
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

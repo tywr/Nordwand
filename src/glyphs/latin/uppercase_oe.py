@@ -7,16 +7,18 @@ class UppercaseOeGlyph(UppercaseGlyph):
     # Placeholder: plots the same as uppercase 'A' for the moment.
     name = "uppercase_oe"
     unicode = "0x153"
+    sbl = 0.622
+    sbr = 0.598
     bar_height = 0.35
     overlap = 0.25
     stroke_x_ratio = 1.02
-    width_ratio = 1.2
+    width_ratio = 1.779
     mid_ratio = 0.52
     xmid_ratio = 0.55
     hx_ratio = 0.7
-    bold_width_ratio = 2.063
-    bold_sbl = 0.712
-    bold_sbr = 0.917
+    bold_width_ratio = 1.648
+    bold_sbl = 0.634
+    bold_sbr = 0.563
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -8,15 +8,17 @@ from draw.corner import draw_corner
 class CommercialAtGlyph(Glyph):
     name = "commercial_at"
     unicode = "0x40"
-    width_ratio = 1.3
+    sbl = 0.610
+    sbr = 0.598
+    width_ratio = 1.793
     inner_ratio_x = 0.55
     inner_ratio_y = 0.45
     ending_thickness = 0.8
     height = "cap"
     overshoot_top = True
-    bold_width_ratio = 1.663
-    bold_sbl = 0.814
-    bold_sbr = 0.769
+    bold_width_ratio = 1.692
+    bold_sbl = 0.563
+    bold_sbr = 0.535
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -10,8 +10,8 @@ class UppercaseGGlyph(UppercaseGlyph):
     name = "uppercase_g"
     unicode = "0x47"
     opening = 140
-    stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.02
-    stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.04
+    stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.04
+    stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.09
     opening1 = 0.51
     opening2 = 0.69
     hy_ratio = 1
@@ -22,15 +22,15 @@ class UppercaseGGlyph(UppercaseGlyph):
     right_hx_ratio = 1.15
     right_bot_hx_ratio = 1
     right_bot_hy_ratio = 0.8
-    width_ratio = 1.3
-    bold_width_ratio = 1.341
+    width_ratio = 1.197
+    bold_width_ratio = 1.193
     thinning = 0.9
-    sbl = 0.744
-    sbr = 0.640
+    sbl = 0.622
+    sbr = 1.037
     overshoot_bottom = True
     overshoot_top = True
-    bold_sbl = 0.712
-    bold_sbr = 0.731
+    bold_sbl = 0.620
+    bold_sbr = 0.972
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

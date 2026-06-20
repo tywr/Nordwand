@@ -6,11 +6,12 @@ from glyphs.lowercase.single_story import SingleStoryLowercaseGlyph
 class LowercaseBGlyph(SingleStoryLowercaseGlyph):
     name = "lowercase_b"
     unicode = "0x62"
-    sbr = 0.628
-    sbl = 1
-    bold_width_ratio = 1.094
-    bold_sbl = 1.000
-    bold_sbr = 0.583
+    width_ratio = 0.954
+    sbr = 0.549
+    sbl = 0.963
+    bold_width_ratio = 0.969
+    bold_sbl = 0.944
+    bold_sbr = 0.521
 
     def draw(
         self,

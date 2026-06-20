@@ -6,12 +6,14 @@ from draw.rect import draw_rect
 class OSlashGlyph(RoundLowercaseGlyph):
     name = "oslash"
     unicode = "0xF8"
-    width_ratio = 1
+    sbl = 0.280
+    sbr = 0.256
+    width_ratio = 1.093
     slash_stroke = 1.2
     slash_length = 1.4
-    bold_width_ratio = 1.141
-    bold_sbl = 0.436
-    bold_sbr = 0.436
+    bold_width_ratio = 1.000
+    bold_sbl = 0.521
+    bold_sbr = 0.521
 
     def draw(
         self,

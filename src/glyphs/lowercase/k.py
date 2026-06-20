@@ -6,16 +6,16 @@ from draw.parallelogramm import draw_parallelogramm
 class LowercaseKGlyph(Glyph):
     name = "lowercase_k"
     unicode = "0x6B"
-    width_ratio = 0.903
-    bold_width_ratio = 1.045
-    mid_ratio = 0.52
-    upper_branch_offset = 0.03
+    width_ratio = 0.905
+    bold_width_ratio = 0.984
+    mid_ratio = 0.57
+    upper_branch_offset = 0.04
     branch_stroke_ratio = 1.3
     branch_overlap = 0.8
-    sbl = 1
-    sbr = 0.244
+    sbl = 1.000
+    sbr = 0.122
     bold_sbl = 1.000
-    bold_sbr = 0.244
+    bold_sbr = 0.141
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

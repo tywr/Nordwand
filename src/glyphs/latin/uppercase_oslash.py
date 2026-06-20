@@ -7,16 +7,18 @@ class UppercaseOSlashGlyph(UppercaseGlyph):
     # Plots the same as uppercase 'O' for the moment (slash to be added later).
     name = "capital_oslash"
     unicode = "0xD8"
+    sbl = 0.305
+    sbr = 0.293
     stroke_x_ratio = UppercaseGlyph.stroke_x_ratio * 1.00
     stroke_y_ratio = UppercaseGlyph.stroke_y_ratio * 1.00
-    width_ratio = 1.18
+    width_ratio = 1.421
     slash_stroke = 1.2
     slash_length = 1.5
     overshoot_top = True
     overshoot_bottom = True
-    bold_width_ratio = 1.428
-    bold_sbl = 0.590
-    bold_sbr = 0.583
+    bold_width_ratio = 1.394
+    bold_sbl = 0.113
+    bold_sbr = 0.099
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -21,12 +21,12 @@ class FiveGlyph(NumberGlyph):
     ending_offset = 0.03
     thinning = 0.9
     overshoot_bottom = True
-    width_ratio = 1.03
-    sbl = 0.680
-    sbr = 0.735
-    bold_width_ratio = 1.18
-    bold_sbl = 0.5
-    bold_sbr = 0.7
+    width_ratio = 0.950
+    sbl = 0.683
+    sbr = 0.634
+    bold_width_ratio = 0.956
+    bold_sbl = 0.789
+    bold_sbr = 0.676
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

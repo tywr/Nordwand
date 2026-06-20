@@ -32,12 +32,12 @@ class AmpersandGlyph(Glyph):
     right_stroke_x = 0.63
     right_stroke_y = 0.79
 
-    width_ratio = 1.400
-    sbl = 0.669
-    sbr = 0.080
-    bold_width_ratio = 1.401
-    bold_sbl = 0.686
-    bold_sbr = 0.075
+    width_ratio = 1.336
+    sbl = 0.598
+    sbr = 0.183
+    bold_width_ratio = 1.327
+    bold_sbl = 0.775
+    bold_sbr = 0.394
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -8,12 +8,12 @@ class DegreeSignGlyph(Glyph):
     h_offset = 0.27
     stroke_ratio = 0.85
     height = "cap"
-    width_ratio = 0.672
-    sbl = 0.866
-    sbr = 0.866
-    bold_width_ratio = 0.773
-    bold_sbl = 0.718
-    bold_sbr = 0.718
+    width_ratio = 0.620
+    sbl = 0.476
+    sbr = 0.476
+    bold_width_ratio = 0.606
+    bold_sbl = 0.521
+    bold_sbr = 0.521
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -10,7 +10,7 @@ from utils.pens import NullPen
 class NineGlyph(NumberGlyph):
     name = "nine"
     unicode = "0x39"
-    width_ratio = 1.018
+    width_ratio = 0.972
     vertical_ratio = 0.66
     bottom_cut = 0.2
     taper = 0.8
@@ -18,12 +18,12 @@ class NineGlyph(NumberGlyph):
     joint_x = 1.4
     hx_ratio = 0.95
     hy_ratio = 0.95
-    sbl = 0.650
-    sbr = 0.650
+    sbl = 0.537
+    sbr = 0.646
     overshoot_top = True
-    bold_width_ratio = 1.157
-    bold_sbl = 0.700
-    bold_sbr = 0.700
+    bold_width_ratio = 0.995
+    bold_sbl = 0.563
+    bold_sbr = 0.606
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -20,14 +20,14 @@ class UppercaseSGlyph(UppercaseGlyph):
     right_offset = 0.02
     curve_thinning = 0.004
     curve_ratio = 2.4
-    width_ratio = 1.081
-    bold_width_ratio = 1.171
-    sbr = 0.669
-    sbl = 0.669
+    width_ratio = 1.060
+    bold_width_ratio = 1.073
+    sbr = 0.659
+    sbl = 0.659
     overshoot_bottom = True
     overshoot_top = True
-    bold_sbl = 0.705
-    bold_sbr = 0.705
+    bold_sbl = 0.634
+    bold_sbr = 0.634
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

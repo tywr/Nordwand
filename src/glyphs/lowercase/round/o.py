@@ -5,10 +5,12 @@ from glyphs.lowercase.round import RoundLowercaseGlyph
 class LowercaseOGlyph(RoundLowercaseGlyph):
     name = "lowercase_o"
     unicode = "0x6F"
-    width_ratio = 1.0
-    bold_width_ratio = 1.093
-    bold_sbl = 0.590
-    bold_sbr = 0.583
+    sbl = 0.549
+    sbr = 0.549
+    width_ratio = 1.000
+    bold_width_ratio = 1.000
+    bold_sbl = 0.521
+    bold_sbr = 0.521
 
     def draw(
         self,

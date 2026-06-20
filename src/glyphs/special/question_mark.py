@@ -15,12 +15,12 @@ class QuestionMarkGlyph(Glyph):
     taper = 0.85
     height = "cap"
     overshoot_top = True
-    width_ratio = 0.865
-    sbl = 0.465
-    sbr = 0.640
-    bold_width_ratio = 0.968
-    bold_sbl = 0.500
-    bold_sbr = 0.654
+    width_ratio = 0.698
+    sbl = 1.134
+    sbr = 1.000
+    bold_width_ratio = 0.732
+    bold_sbl = 1.169
+    bold_sbr = 0.817
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

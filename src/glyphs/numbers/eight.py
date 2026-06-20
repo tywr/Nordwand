@@ -12,14 +12,14 @@ class EightGlyph(NumberGlyph):
     hx_ratio = 0.9
     hy_ratio = 1
     extra_overshoot = 0.000
-    width_ratio = 1.054
-    sbl = 0.756
-    sbr = 0.756
+    width_ratio = 1.002
+    sbl = 0.500
+    sbr = 0.500
     overshoot_top = True
     overshoot_bottom = True
-    bold_width_ratio = 1.180
-    bold_sbl = 0.801
-    bold_sbr = 0.795
+    bold_width_ratio = 1.004
+    bold_sbl = 0.549
+    bold_sbr = 0.549
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

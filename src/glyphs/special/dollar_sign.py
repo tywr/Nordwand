@@ -5,12 +5,14 @@ from draw.rect import draw_rect
 class DollarSignGlyph(Glyph):
     name = "dollar_sign"
     unicode = "0x24"
-    width_ratio = 1
+    sbl = 0.524
+    sbr = 0.512
+    width_ratio = 0.996
     overflow_ratio = 0.2
     height = "cap"
-    bold_width_ratio = 1.102
-    bold_sbl = 0.923
-    bold_sbr = 0.872
+    bold_width_ratio = 0.985
+    bold_sbl = 0.620
+    bold_sbr = 0.620
 
     def draw(self, pen, dc):
         from glyphs.uppercase.s import UppercaseSGlyph

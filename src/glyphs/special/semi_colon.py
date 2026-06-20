@@ -5,13 +5,15 @@ from draw.rect import draw_rect
 class SemiColonGlyph(Glyph):
     name = "semi_colon"
     unicode = "0x3B"
-    width_ratio = 0.265
-    bold_width_ratio = 0.416
+    sbl = 0.646
+    sbr = 0.951
+    width_ratio = 0.320
+    bold_width_ratio = 0.387
     stroke_ratio = 1.2
     stroke_ratio_bold = 1
     gap = 0.935
-    bold_sbl = 0.763
-    bold_sbr = 1.154
+    bold_sbl = 0.535
+    bold_sbr = 0.901
 
     def draw(self, pen, dc):
         from glyphs.special.comma import CommaGlyph

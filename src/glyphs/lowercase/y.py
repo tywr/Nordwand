@@ -8,15 +8,15 @@ from draw.polygon import draw_polygon
 class LowercaseYGlyph(Glyph):
     name = "lowercase_y"
     unicode = "0x79"
-    width_ratio = 0.982
-    bold_width_ratio = 1.119
+    width_ratio = 1.018
+    bold_width_ratio = 1.046
     overlap = 0.5
     stroke_ratio = 1.1
     lower_section_height = 1.3
-    sbl = 0.395
-    sbr = 0.395
-    bold_sbl = 0.359
-    bold_sbr = 0.359
+    sbl = 0.159
+    sbr = 0.122
+    bold_sbl = 0.014
+    bold_sbr = 0.014
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

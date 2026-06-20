@@ -7,12 +7,12 @@ class EqualsSignGlyph(Glyph):
     unicode = "0x3D"
     gap = 0.5
     stroke_ratio = 0.92
-    width_ratio = 1.038
-    sbl = 0.750
-    sbr = 0.750
-    bold_width_ratio = 1.107
-    bold_sbl = 0.885
-    bold_sbr = 0.878
+    width_ratio = 1.024
+    sbl = 1.000
+    sbr = 1.000
+    bold_width_ratio = 0.958
+    bold_sbl = 0.986
+    bold_sbr = 0.986
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

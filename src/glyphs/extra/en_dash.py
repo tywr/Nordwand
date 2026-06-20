@@ -6,13 +6,13 @@ class EnDashGlyph(Glyph):
     name = "en_dash"
     unicode = "0x2013"
     stroke_ratio = 0.85
-    width_ratio = 1.04
-    bold_width_ratio = 1.147
+    width_ratio = 1.010
+    bold_width_ratio = 0.912
     height_ratio = 0.54
-    sbl = 0.47
-    sbr = 0.47
-    bold_sbl = 0.468
-    bold_sbr = 0.468
+    sbl = 0.061
+    sbr = 0.061
+    bold_sbl = 0.028
+    bold_sbr = 0.028
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

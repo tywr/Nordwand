@@ -5,15 +5,15 @@ from draw.rect import draw_rect
 class PlusSignGlyph(Glyph):
     name = "plus_sign"
     unicode = "0x2B"
-    width_ratio = 1
+    width_ratio = 1.024
     stroke_ratio = 0.88
     height = "cap"
     width_ratio = 1.064
-    sbl = 0.674
-    sbr = 0.674
-    bold_width_ratio = 1.136
-    bold_sbl = 0.795
-    bold_sbr = 0.788
+    sbl = 1.000
+    sbr = 1.000
+    bold_width_ratio = 0.958
+    bold_sbl = 0.986
+    bold_sbr = 0.986
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

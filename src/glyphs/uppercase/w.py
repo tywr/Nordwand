@@ -11,15 +11,15 @@ class UppercaseWGlyph(UppercaseGlyph):
     outer_branch_ratio = 0.265
     inner_height = 1
     overlap = 1
-    width_ratio = 1.813
-    bold_width_ratio = 1.905
+    width_ratio = 2.050
+    bold_width_ratio = 2.011
     stroke_ratio = 1.1
     inner_stroke_ratio = 1
     lower_section_height = 1.5
-    sbr = 0.523
-    sbl = 0.523
-    bold_sbl = 0.564
-    bold_sbr = 0.558
+    sbr = 0.183
+    sbl = 0.183
+    bold_sbl = 0.056
+    bold_sbr = 0.056
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

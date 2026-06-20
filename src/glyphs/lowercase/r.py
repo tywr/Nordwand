@@ -12,16 +12,16 @@ class LowercaseRGlyph(Glyph):
     hx_ratio = 1
     hy_ratio = 1
     taper = 0.3
-    width_ratio = 0.568
-    bold_width_ratio = 0.702
+    width_ratio = 0.547
+    bold_width_ratio = 0.593
     stroke_ratio = 0.95
     arch_length = 0.65
     hx_ratio = 1.2
-    sbl = 0.942
-    sbr = 0.308
+    sbl = 0.963
+    sbr = 0.146
     overshoot_top = True
-    bold_sbl = 0.936
-    bold_sbr = 0.308
+    bold_sbl = 0.944
+    bold_sbr = 0.141
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

@@ -9,15 +9,15 @@ from draw.polygon import draw_polygon
 class LowercaseTGlyph(Glyph):
     name = "lowercase_t"
     unicode = "0x74"
-    rl_ratio = 0.445
-    up_ratio = 0.32
+    rl_ratio = 0.47
+    up_ratio = 0.27
     angle_offset = 0.3
-    width_ratio = 0.590
-    bold_width_ratio = 0.697
-    sbl = 0.349
-    sbr = 0.570
-    bold_sbl = 0.365
-    bold_sbr = 0.615
+    width_ratio = 0.610
+    bold_width_ratio = 0.653
+    sbl = 0.183
+    sbr = 0.317
+    bold_sbl = 0.141
+    bold_sbr = 0.268
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

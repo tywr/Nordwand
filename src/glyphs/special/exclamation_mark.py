@@ -6,19 +6,19 @@ from draw.rect import draw_rect
 class ExclamationMarkGlyph(Glyph):
     name = "exclamation_mark"
     unicode = "0x21"
-    width_ratio = 0
+    width_ratio = 0.217
     gap = 0.3
     height_overflow = 0.05
     stroke_ratio = 1
     dot_stroke_ratio = 1.1
     taper_length = 0.2
     taper = 0.85
-    sbl = 1.5
-    sbr = 1.5
+    sbl = 1.159
+    sbr = 1.159
     height = "cap"
-    bold_width_ratio = 0.366
-    bold_sbl = 1.173
-    bold_sbr = 1.173
+    bold_width_ratio = 0.308
+    bold_sbl = 1.197
+    bold_sbr = 1.197
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

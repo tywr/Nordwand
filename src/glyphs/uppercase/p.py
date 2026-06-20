@@ -7,12 +7,12 @@ class UppercasePGlyph(UppercaseGlyph):
     name = "uppercase_p"
     unicode = "0x50"
     loop_ratio = 0.645
-    width_ratio = 1.013
-    bold_width_ratio = 1.109
-    sbr = 0.640
-    sbl = 1.070
-    bold_sbl = 1.122
-    bold_sbr = 0.660
+    width_ratio = 0.986
+    bold_width_ratio = 1.015
+    sbr = 0.402
+    sbl = 1.195
+    bold_sbl = 1.169
+    bold_sbr = 0.366
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

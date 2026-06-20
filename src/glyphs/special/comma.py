@@ -5,17 +5,17 @@ from draw.polygon import draw_polygon
 class CommaGlyph(Glyph):
     name = "comma"
     unicode = "0x2C"
-    width_ratio = 0.5
-    bold_width_ratio = 0.380
+    width_ratio = 0.320
+    bold_width_ratio = 0.387
     height_ratio = 0.7
     vertical_offset = 0.19
     foot_offset = 0.15
     taper = 0.35
     stroke_ratio = 1.05
-    sbl = 0.29
-    sbr = 0.36
-    bold_sbl = 0.763
-    bold_sbr = 1.385
+    sbl = 0.646
+    sbr = 0.951
+    bold_sbl = 0.507
+    bold_sbr = 0.930
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

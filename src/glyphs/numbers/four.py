@@ -11,12 +11,12 @@ class FourGlyph(NumberGlyph):
     mid_bar_ratio = 1
     overlap = 0.22
     stroke_ratio = 0.93
-    width_ratio = 1.1
-    sbl = 0.68
-    sbr = 0.64
-    bold_width_ratio = 1.191
-    bold_sbl = 0.692
-    bold_sbr = 0.744
+    width_ratio = 1.062
+    sbl = 0.341
+    sbr = 0.293
+    bold_width_ratio = 1.064
+    bold_sbl = 0.394
+    bold_sbr = 0.239
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

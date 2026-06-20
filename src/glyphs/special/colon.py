@@ -5,13 +5,15 @@ from draw.rect import draw_rect
 class ColonGlyph(Glyph):
     name = "colon"
     unicode = "0x3A"
-    width_ratio = 0.265
-    bold_width_ratio = 0.354
+    sbl = 1.159
+    sbr = 1.146
+    width_ratio = 0.203
+    bold_width_ratio = 0.261
     stroke_ratio = 1.2
     stroke_ratio_bold = 1
     gap = 0.935
-    bold_sbl = 1.154
-    bold_sbr = 1.154
+    bold_sbl = 1.211
+    bold_sbr = 1.197
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

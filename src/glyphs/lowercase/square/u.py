@@ -6,12 +6,13 @@ from glyphs.lowercase.square import SquareLowercaseGlyph
 class LowercaseUGlyph(SquareLowercaseGlyph):
     name = "lowercase_u"
     unicode = "0x75"
-    sbl = 0.884
-    sbr = 0.942
+    width_ratio = 0.873
+    sbl = 0.963
+    sbr = 0.963
     overshoot_bottom = True
-    bold_width_ratio = 1.010
-    bold_sbl = 0.872
-    bold_sbr = 0.936
+    bold_width_ratio = 0.907
+    bold_sbl = 0.958
+    bold_sbr = 0.958
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

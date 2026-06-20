@@ -6,12 +6,12 @@ from glyphs.lowercase.single_story import SingleStoryLowercaseGlyph
 class LowercaseQGlyph(SingleStoryLowercaseGlyph):
     name = "lowercase_q"
     unicode = "0x71"
-    width_ratio = 0.986
-    sbr = 0.930
-    sbl = 0.628
-    bold_width_ratio = 1.094
-    bold_sbl = 0.603
-    bold_sbr = 0.929
+    width_ratio = 0.954
+    sbr = 0.963
+    sbl = 0.549
+    bold_width_ratio = 0.969
+    bold_sbl = 0.521
+    bold_sbr = 0.944
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

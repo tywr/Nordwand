@@ -6,15 +6,16 @@ from draw.rect import draw_rect
 class LowercaseFGlyph(Glyph):
     name = "lowercase_f"
     unicode = "0x66"
-    rl_ratio = 0.562
+    rl_ratio = 0.53
     cross_bar_height = 1
     right_bar_offset = 0.018
-    width_ratio = 0.612
-    bold_width_ratio = 0.711
-    sbl = 0.320
-    sbr = 0.453
-    bold_sbl = 0.340
-    bold_sbr = 0.494
+    width_ratio = 0.624
+    bold_width_ratio = 0.670
+    thickening = 1.1
+    sbl = 0.195
+    sbr = 0.183
+    bold_sbl = 0.197
+    bold_sbr = 0.113
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
@@ -38,7 +39,7 @@ class LowercaseFGlyph(Glyph):
         draw_square_corner(
             pen,
             dc.stroke_x,
-            dc.stroke_y,
+            dc.stroke_y * self.thickening,
             xmid - dc.stroke_x / 2,
             dc.x_height,
             b.x2,

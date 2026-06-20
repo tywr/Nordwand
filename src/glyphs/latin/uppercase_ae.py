@@ -8,15 +8,17 @@ class UppercaseAeGlyph(UppercaseGlyph):
     # Placeholder: plots the same as uppercase 'A' for the moment.
     name = "uppercase_ae"
     unicode = "0xC6"
+    sbl = -0.061
+    sbr = 0.585
     bar_height = 0.35
     overlap = 0.25
     stroke_x_ratio = 1.02
-    width_ratio = 1.2
+    width_ratio = 1.887
     mid_ratio = 0.52
     xmid_ratio = 0.55
-    bold_width_ratio = 1.857
-    bold_sbl = 0.462
-    bold_sbr = 0.910
+    bold_width_ratio = 1.723
+    bold_sbl = -0.099
+    bold_sbr = 0.563
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

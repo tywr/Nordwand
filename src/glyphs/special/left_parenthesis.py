@@ -6,12 +6,12 @@ class LeftParenthesisGlyph(Glyph):
     name = "left_parenthesis"
     unicode = "0x28"
     stroke_x_ratio = 1.1
-    width_ratio = 0.433
-    sbl = 1.407
-    sbr = 0.640
-    bold_width_ratio = 0.569
-    bold_sbl = 1.429
-    bold_sbr = 0.577
+    width_ratio = 0.358
+    sbl = 0.841
+    sbr = 0.634
+    bold_width_ratio = 0.398
+    bold_sbl = 0.789
+    bold_sbr = 0.606
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)

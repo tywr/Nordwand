@@ -5,12 +5,12 @@ from draw.rect import draw_rect
 class RightSquareBracketGlyph(Glyph):
     name = "right_square_bracket"
     unicode = "0x5D"
-    width_ratio = 0.437
-    sbl = 0.465
-    sbr = 1.558
-    bold_width_ratio = 0.558
-    bold_sbl = 0.468
-    bold_sbr = 1.609
+    width_ratio = 0.350
+    sbl = 0.585
+    sbr = 0.939
+    bold_width_ratio = 0.423
+    bold_sbl = 0.254
+    bold_sbr = 0.944
 
     def draw(self, pen, dc):
         b = self.body_bounds(dc)
