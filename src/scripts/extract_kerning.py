@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
-"""Extract kerning between letter and number pairs from a TTF.
+"""Extract pair kerning from a TTF.
 
 Reads pair kerning from the font's GPOS `kern` feature (both Format 1
 glyph pairs and Format 2 class-based pairs, including Extension lookups) and
-from the legacy `kern` table, then keeps only pairs where BOTH glyphs are
-ASCII letters or digits (a-z / A-Z / 0-9) and the horizontal adjustment is
-non-zero.
+from the legacy `kern` table, keeping pairs whose horizontal adjustment is
+non-zero. By default only pairs where BOTH glyphs are ASCII letters or digits
+(a-z / A-Z / 0-9) are kept; pass --all to extract the entire kerning table
+(every glyph, including punctuation and symbols, labelled by glyph name when
+it has no printable character).
 
 Usage:
     python src/scripts/extract_kerning.py path/to/font.ttf
+    python src/scripts/extract_kerning.py path/to/font.ttf --all
     python src/scripts/extract_kerning.py path/to/font.ttf --csv out.csv
     python src/scripts/extract_kerning.py path/to/font.ttf --dict
     python src/scripts/extract_kerning.py path/to/font.ttf --side-bearing 68
@@ -106,16 +109,37 @@ def _kern_subtables(gpos):
                 yield sub
 
 
-def extract_kerning(font):
-    """Return {(char1, char2): value} for letter pairs with non-zero kerning."""
+def _pair_label(a, b):
+    """Compact label for a pair: 'AV' for single chars, 'space-joined' otherwise."""
+    return a + b if len(a) == 1 and len(b) == 1 else f"{a} {b}"
+
+
+def extract_kerning(font, all_glyphs=False):
+    """Return {(label1, label2): value} for pairs with non-zero kerning.
+
+    By default only ASCII letter/digit pairs are kept and each label is the
+    character itself. With all_glyphs=True every glyph is eligible; labels are
+    the character when the glyph maps to a single printable codepoint, and the
+    glyph name otherwise (e.g. 'period', 'quoteright').
+    """
     cmap = font.getBestCmap()
-    # glyph name -> character (ASCII letters and digits only)
+    # glyph name -> character (printable cmap entry; letters/digits unless all_glyphs)
     char_by_glyph = {}
     for cp, gname in cmap.items():
         ch = chr(cp)
-        if ch in KERN_CHARS:
+        if all_glyphs or ch in KERN_CHARS:
             char_by_glyph.setdefault(gname, ch)
-    kern_glyphs = set(char_by_glyph)
+
+    if all_glyphs:
+        label = {}
+        for gname in font.getGlyphOrder():
+            ch = char_by_glyph.get(gname)
+            label[gname] = (
+                ch if (ch is not None and ch.isprintable() and not ch.isspace()) else gname
+            )
+    else:
+        label = char_by_glyph
+    kern_glyphs = set(label)
 
     pairs = {}  # (g1, g2) -> value ; GPOS wins over legacy kern
 
@@ -133,15 +157,21 @@ def extract_kerning(font):
 
     result = {}
     for (g1, g2), val in pairs.items():
-        result[(char_by_glyph[g1], char_by_glyph[g2])] = val
+        result[(label[g1], label[g2])] = val
     return result
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Extract lowercase/uppercase letter-pair kerning from a TTF."
+        description="Extract pair kerning from a TTF (letters/digits by default, all glyphs with --all)."
     )
     parser.add_argument("font", help="Path to a TTF font file")
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="Extract every non-zero kerning pair (not just letters/digits); "
+        "glyphs without a printable character are shown by glyph name",
+    )
     parser.add_argument("--csv", metavar="FILE", help="Write the pairs as CSV")
     parser.add_argument(
         "--dict",
@@ -157,17 +187,18 @@ def main():
     args = parser.parse_args()
 
     font = TTFont(args.font)
-    kerning = extract_kerning(font)
+    kerning = extract_kerning(font, all_glyphs=args.all)
     units = font["head"].unitsPerEm
     l_sb = letter_side_bearing(font, "l")
 
+    scope = "all" if args.all else "letter/digit"
     print(f"Font: {args.font}  (unitsPerEm={units})")
     if l_sb is not None:
         print(f"Lowercase 'l' side bearing: {l_sb:.0f}")
-    print(f"Letter-pair kerns found: {len(kerning)}\n")
+    print(f"{scope} kerning pairs found: {len(kerning)}\n")
 
     if not kerning:
-        print("No letter-pair kerning found (no GPOS 'kern' pairs or legacy 'kern' table).")
+        print("No kerning found (no GPOS 'kern' pairs or legacy 'kern' table).")
         font.close()
         return
 
@@ -188,7 +219,8 @@ def main():
     )
     csv_rows = []
     for (a, b), val in rows:
-        line = f"{a + b:>4}  {val:>6.0f}"
+        pair = _pair_label(a, b)
+        line = f"{pair:>4}  {val:>6.0f}"
         extra = []
         if has_l:
             rl = f"{val / l_sb:.2f}"
@@ -199,14 +231,14 @@ def main():
             line += f"  {rsb:>6}"
             extra.append(rsb)
         print(line)
-        csv_rows.append([a + b, f"{val:.0f}"] + extra)
+        csv_rows.append([pair, f"{val:.0f}"] + extra)
 
     if args.dict:
         if not has_l:
             parser.error("--dict needs a usable 'l' glyph to express kerning as a ratio")
         print("\n{")
         for (a, b), val in rows:
-            print(f'    "{a}{b}": {val / l_sb:.2f},')
+            print(f'    "{_pair_label(a, b)}": {val / l_sb:.2f},')
         print("}")
 
     if args.csv:
