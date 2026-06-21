@@ -7,8 +7,7 @@ class EightGlyph(NumberGlyph):
     unicode = "0x38"
     height_ratio = 0.52
     loop_width_ratio = 0.92
-    taper_top = 0.9
-    taper_bot = 1.2
+    taper = 0.6
     hx_ratio = 0.95
     hy_ratio = 1
     extra_overshoot = 0.000
@@ -41,7 +40,7 @@ class EightGlyph(NumberGlyph):
             b.y2 + ov,
             hx,
             hy * (1 - self.height_ratio),
-            taper=self.taper_top * dc.taper,
+            taper=self.taper,
             side="bottom",
         )
 
@@ -56,6 +55,6 @@ class EightGlyph(NumberGlyph):
             ymid + sy / 2,
             hx,
             hy * self.height_ratio,
-            taper=self.taper_bot * dc.taper,
+            taper=self.taper,
             side="top",
         )

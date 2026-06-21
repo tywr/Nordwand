@@ -5,9 +5,9 @@ Reads pair kerning from the font's GPOS `kern` feature (both Format 1
 glyph pairs and Format 2 class-based pairs, including Extension lookups) and
 from the legacy `kern` table, keeping pairs whose horizontal adjustment is
 non-zero. By default only pairs where BOTH glyphs are ASCII letters or digits
-(a-z / A-Z / 0-9) are kept; pass --all to extract the entire kerning table
-(every glyph, including punctuation and symbols, labelled by glyph name when
-it has no printable character).
+(a-z / A-Z / 0-9) are kept; pass --all to widen the set to alphanumerics plus
+the special signs defined in the project (glyphs/special and glyphs/extra:
+punctuation, symbols and dashes). Both glyphs of a pair must be in the set.
 
 Usage:
     python src/scripts/extract_kerning.py path/to/font.ttf
@@ -19,12 +19,42 @@ Usage:
 
 import argparse
 import csv
+import os
+import re
 import string
 
 from fontTools.ttLib import TTFont
 from fontTools.pens.boundsPen import BoundsPen
 
 KERN_CHARS = set(string.ascii_letters + string.digits)
+
+# Project glyph categories that count as "special signs" (punctuation/symbols).
+SPECIAL_GLYPH_DIRS = ("special", "extra")
+
+
+def project_special_chars():
+    """Characters defined by the project's glyphs/special and glyphs/extra modules.
+
+    Each glyph module declares e.g. ``unicode = "0x2E"``; we read those without
+    importing the heavy drawing dependencies. Returns an empty set if the source
+    tree can't be located (e.g. the script was copied out of the project).
+    """
+    base = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "glyphs"
+    )
+    chars = set()
+    for sub in SPECIAL_GLYPH_DIRS:
+        d = os.path.join(base, sub)
+        if not os.path.isdir(d):
+            continue
+        for fn in os.listdir(d):
+            if not fn.endswith(".py") or fn == "__init__.py":
+                continue
+            with open(os.path.join(d, fn)) as fh:
+                m = re.search(r'unicode\s*=\s*"(0x[0-9A-Fa-f]+)"', fh.read())
+            if m:
+                chars.add(chr(int(m.group(1), 16)))
+    return chars
 
 
 def letter_side_bearing(font, char="l"):
@@ -115,30 +145,25 @@ def _pair_label(a, b):
 
 
 def extract_kerning(font, all_glyphs=False):
-    """Return {(label1, label2): value} for pairs with non-zero kerning.
+    """Return {(char1, char2): value} for pairs with non-zero kerning.
 
-    By default only ASCII letter/digit pairs are kept and each label is the
-    character itself. With all_glyphs=True every glyph is eligible; labels are
-    the character when the glyph maps to a single printable codepoint, and the
-    glyph name otherwise (e.g. 'period', 'quoteright').
+    By default only ASCII letter/digit pairs are kept. With all_glyphs=True the
+    set is widened to alphanumerics plus the special signs defined in the
+    project (glyphs/special and glyphs/extra); both characters of a pair must
+    still be in that set.
     """
+    allowed = set(KERN_CHARS)
+    if all_glyphs:
+        allowed |= project_special_chars()
+
     cmap = font.getBestCmap()
-    # glyph name -> character (printable cmap entry; letters/digits unless all_glyphs)
+    # glyph name -> character, restricted to the allowed set
     char_by_glyph = {}
     for cp, gname in cmap.items():
         ch = chr(cp)
-        if all_glyphs or ch in KERN_CHARS:
+        if ch in allowed:
             char_by_glyph.setdefault(gname, ch)
-
-    if all_glyphs:
-        label = {}
-        for gname in font.getGlyphOrder():
-            ch = char_by_glyph.get(gname)
-            label[gname] = (
-                ch if (ch is not None and ch.isprintable() and not ch.isspace()) else gname
-            )
-    else:
-        label = char_by_glyph
+    label = char_by_glyph
     kern_glyphs = set(label)
 
     pairs = {}  # (g1, g2) -> value ; GPOS wins over legacy kern
@@ -169,8 +194,8 @@ def main():
     parser.add_argument(
         "--all",
         action="store_true",
-        help="Extract every non-zero kerning pair (not just letters/digits); "
-        "glyphs without a printable character are shown by glyph name",
+        help="Widen from letters/digits to alphanumerics + the project's special "
+        "signs (glyphs/special and glyphs/extra: punctuation, symbols, dashes)",
     )
     parser.add_argument("--csv", metavar="FILE", help="Write the pairs as CSV")
     parser.add_argument(

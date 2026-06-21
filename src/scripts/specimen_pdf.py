@@ -281,7 +281,7 @@ def render_specimen(font_path, output="specimen.pdf"):
             "Bold",
             "Nordgrat Sans-Bold",
             12,
-            "The Eiger is a 3,967-metre (13,015 ft) mountain of the Bernese Alps, overlooking Grindelwald and Lauterbrunnen in the Bernese Oberland of Switzerland, just north of the main watershed and border with Valais.",
+            "The Eiger is a 3,967–metre (13,015 ft) mountain of the Bernese Alps, overlooking Grindelwald and Lauterbrunnen in the Bernese Oberland of Switzerland, just north of the main watershed and border with Valais.",
         ),
         (
             "Medium",
